@@ -1,0 +1,231 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <!--
+    Tailscale-inspired theme for Avalonia
+    Drop this file into your project (e.g. Styles/Styles.axaml) and reference it from App.axaml:
+
+      <Application.Styles>
+          <FluentTheme />
+          <StyleInclude Source="avares://YourApp/Styles/Styles.axaml"/>
+      </Application.Styles>
+
+    Colors are defined per ThemeVariant (Light/Dark) as brush resources.
+    Every style below uses DynamicResource so it automatically swaps when
+    Application.RequestedThemeVariant (or the OS setting) changes.
+  -->
+
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.ThemeDictionaries>
+
+        <!-- ============ LIGHT THEME ============ -->
+        <ResourceDictionary x:Key="Light">
+          <SolidColorBrush x:Key="AppBackground">#FBFBFC</SolidColorBrush>
+          <SolidColorBrush x:Key="CardBackground">#FFFFFF</SolidColorBrush>
+          <SolidColorBrush x:Key="CardBorder">#EBEBED</SolidColorBrush>
+
+          <SolidColorBrush x:Key="TextPrimary">#1A1A1E</SolidColorBrush>
+          <SolidColorBrush x:Key="TextSecondary">#6B6B70</SolidColorBrush>
+          <SolidColorBrush x:Key="TextDisabled">#B4B4B8</SolidColorBrush>
+
+          <SolidColorBrush x:Key="ButtonBackground">#F2F2F3</SolidColorBrush>
+          <SolidColorBrush x:Key="ButtonBackgroundHover">#E7E7E9</SolidColorBrush>
+          <SolidColorBrush x:Key="ButtonBackgroundPressed">#DADADD</SolidColorBrush>
+          <SolidColorBrush x:Key="ButtonForeground">#1A1A1E</SolidColorBrush>
+
+          <SolidColorBrush x:Key="AccentBackground">#3A66F5</SolidColorBrush>
+          <SolidColorBrush x:Key="AccentBackgroundHover">#2E54D6</SolidColorBrush>
+          <SolidColorBrush x:Key="AccentBackgroundPressed">#2647B8</SolidColorBrush>
+          <SolidColorBrush x:Key="AccentForeground">#FFFFFF</SolidColorBrush>
+
+          <SolidColorBrush x:Key="DangerBackground">#FDEEEE</SolidColorBrush>
+          <SolidColorBrush x:Key="DangerBackgroundHover">#FADCDC</SolidColorBrush>
+          <SolidColorBrush x:Key="DangerForeground">#C0362E</SolidColorBrush>
+
+          <SolidColorBrush x:Key="InputBackground">#F5F5F6</SolidColorBrush>
+          <SolidColorBrush x:Key="InputBorder">#E0E0E2</SolidColorBrush>
+          <SolidColorBrush x:Key="InputBorderFocused">#3A66F5</SolidColorBrush>
+        </ResourceDictionary>
+
+        <!-- ============ DARK THEME ============ -->
+        <ResourceDictionary x:Key="Dark">
+          <SolidColorBrush x:Key="AppBackground">#18181B</SolidColorBrush>
+          <SolidColorBrush x:Key="CardBackground">#212124</SolidColorBrush>
+          <SolidColorBrush x:Key="CardBorder">#2E2E32</SolidColorBrush>
+
+          <SolidColorBrush x:Key="TextPrimary">#F2F2F3</SolidColorBrush>
+          <SolidColorBrush x:Key="TextSecondary">#9B9BA1</SolidColorBrush>
+          <SolidColorBrush x:Key="TextDisabled">#5A5A60</SolidColorBrush>
+
+          <SolidColorBrush x:Key="ButtonBackground">#2A2A2E</SolidColorBrush>
+          <SolidColorBrush x:Key="ButtonBackgroundHover">#343438</SolidColorBrush>
+          <SolidColorBrush x:Key="ButtonBackgroundPressed">#3E3E43</SolidColorBrush>
+          <SolidColorBrush x:Key="ButtonForeground">#F2F2F3</SolidColorBrush>
+
+          <SolidColorBrush x:Key="AccentBackground">#5A82FF</SolidColorBrush>
+          <SolidColorBrush x:Key="AccentBackgroundHover">#7094FF</SolidColorBrush>
+          <SolidColorBrush x:Key="AccentBackgroundPressed">#4A6EE0</SolidColorBrush>
+          <SolidColorBrush x:Key="AccentForeground">#0B0B0D</SolidColorBrush>
+
+          <SolidColorBrush x:Key="DangerBackground">#3A2222</SolidColorBrush>
+          <SolidColorBrush x:Key="DangerBackgroundHover">#472A2A</SolidColorBrush>
+          <SolidColorBrush x:Key="DangerForeground">#F17A72</SolidColorBrush>
+
+          <SolidColorBrush x:Key="InputBackground">#262629</SolidColorBrush>
+          <SolidColorBrush x:Key="InputBorder">#38383D</SolidColorBrush>
+          <SolidColorBrush x:Key="InputBorderFocused">#5A82FF</SolidColorBrush>
+        </ResourceDictionary>
+
+      </ResourceDictionary.ThemeDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
+
+  <!-- ================= GLOBAL TYPE ================= -->
+
+  <Style Selector="TextBlock">
+    <Setter Property="FontFamily" Value="Inter, avares://Avalonia.Themes.Fluent/Assets#Inter, $Default"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimary}"/>
+  </Style>
+
+  <Style Selector="TextBlock.secondary">
+    <Setter Property="Foreground" Value="{DynamicResource TextSecondary}"/>
+    <Setter Property="FontSize" Value="13"/>
+  </Style>
+
+  <Style Selector="TextBlock.heading">
+    <Setter Property="FontSize" Value="20"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+  </Style>
+
+  <!-- ================= WINDOW / SURFACES ================= -->
+
+  <Style Selector="Window">
+    <Setter Property="Background" Value="{DynamicResource AppBackground}"/>
+    <Setter Property="FontFamily" Value="Inter, $Default"/>
+  </Style>
+
+  <Style Selector="Border.card">
+    <Setter Property="Background" Value="{DynamicResource CardBackground}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource CardBorder}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="12"/>
+    <Setter Property="Padding" Value="16"/>
+  </Style>
+
+  <!-- ================= BUTTONS ================= -->
+
+  <!-- Base button: soft, rounded, quiet until interacted with -->
+  <Style Selector="Button">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+    <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Padding" Value="14,8"/>
+    <Setter Property="FontSize" Value="13.5"/>
+    <Setter Property="FontWeight" Value="Medium"/>
+    <Setter Property="Cursor" Value="Hand"/>
+    <Setter Property="RenderTransform" Value="scale(1)"/>
+    <Setter Property="Transitions">
+      <Transitions>
+        <BrushTransition Property="Background" Duration="0:0:0.12"/>
+        <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.08"/>
+      </Transitions>
+    </Setter>
+  </Style>
+
+  <Style Selector="Button:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundHover}"/>
+  </Style>
+
+  <Style Selector="Button:pressed /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackgroundPressed}"/>
+  </Style>
+
+  <Style Selector="Button:pressed">
+    <Setter Property="RenderTransform" Value="scale(0.97)"/>
+  </Style>
+
+  <Style Selector="Button:disabled">
+    <Setter Property="Opacity" Value="0.5"/>
+    <Setter Property="Cursor" Value="Arrow"/>
+  </Style>
+
+  <!-- Primary / accent button (e.g. "Unlock", "Save", Tailscale's blue "Connect") -->
+  <Style Selector="Button.primary">
+    <Setter Property="Background" Value="{DynamicResource AccentBackground}"/>
+    <Setter Property="Foreground" Value="{DynamicResource AccentForeground}"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+  </Style>
+
+  <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource AccentBackgroundHover}"/>
+  </Style>
+
+  <Style Selector="Button.primary:pressed /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource AccentBackgroundPressed}"/>
+  </Style>
+
+  <!-- Destructive button (e.g. "Delete entry") -->
+  <Style Selector="Button.danger">
+    <Setter Property="Background" Value="{DynamicResource DangerBackground}"/>
+    <Setter Property="Foreground" Value="{DynamicResource DangerForeground}"/>
+    <Setter Property="FontWeight" Value="SemiBold"/>
+  </Style>
+
+  <Style Selector="Button.danger:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource DangerBackgroundHover}"/>
+  </Style>
+
+  <!-- Ghost/plain button: no background at all until hovered (e.g. icon buttons, nav items) -->
+  <Style Selector="Button.ghost">
+    <Setter Property="Background" Value="Transparent"/>
+  </Style>
+
+  <Style Selector="Button.ghost:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+  </Style>
+
+  <!-- ================= INPUTS ================= -->
+
+  <Style Selector="TextBox">
+    <Setter Property="Background" Value="{DynamicResource InputBackground}"/>
+    <Setter Property="Foreground" Value="{DynamicResource TextPrimary}"/>
+    <Setter Property="BorderBrush" Value="{DynamicResource InputBorder}"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="CornerRadius" Value="8"/>
+    <Setter Property="Padding" Value="10,8"/>
+    <Setter Property="FontSize" Value="13.5"/>
+    <Setter Property="CaretBrush" Value="{DynamicResource AccentBackground}"/>
+    <Setter Property="Transitions">
+      <Transitions>
+        <BrushTransition Property="BorderBrush" Duration="0:0:0.12"/>
+      </Transitions>
+    </Setter>
+  </Style>
+
+  <Style Selector="TextBox:focus">
+    <Setter Property="BorderBrush" Value="{DynamicResource InputBorderFocused}"/>
+  </Style>
+
+  <Style Selector="TextBox:disabled">
+    <Setter Property="Opacity" Value="0.5"/>
+  </Style>
+
+  <!-- ================= TOGGLE SWITCH (used a lot in Tailscale-style settings rows) ================= -->
+
+  <Style Selector="ToggleSwitch">
+    <Setter Property="OnContent" Value="{x:Null}"/>
+    <Setter Property="OffContent" Value="{x:Null}"/>
+    <Setter Property="Transitions">
+      <Transitions>
+        <BrushTransition Property="Background" Duration="0:0:0.15"/>
+      </Transitions>
+    </Setter>
+  </Style>
+
+  <Style Selector="ToggleSwitch:checked /template/ Border#SwitchKnobBounds">
+    <Setter Property="Background" Value="{DynamicResource AccentBackground}"/>
+  </Style>
+
+</Styles>

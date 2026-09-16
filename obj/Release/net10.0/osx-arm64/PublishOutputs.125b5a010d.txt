@@ -1,0 +1,4 @@
+/Users/khoa/Documents/code shi/C-sharp/bacom/bin/Release/net10.0/osx-arm64/publish/bacom
+/Users/khoa/Documents/code shi/C-sharp/bacom/bin/Release/net10.0/osx-arm64/publish/libAvaloniaNative.dylib
+/Users/khoa/Documents/code shi/C-sharp/bacom/bin/Release/net10.0/osx-arm64/publish/libHarfBuzzSharp.dylib
+/Users/khoa/Documents/code shi/C-sharp/bacom/bin/Release/net10.0/osx-arm64/publish/libSkiaSharp.dylib
