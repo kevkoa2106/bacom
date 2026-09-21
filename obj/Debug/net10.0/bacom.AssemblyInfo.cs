@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bacom")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb688feba49c5189e65d07066671588d38562180")]
 [assembly: System.Reflection.AssemblyProductAttribute("bacom")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bacom")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

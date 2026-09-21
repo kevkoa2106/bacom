@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="bacom.Views.DashboardView">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+        <Button Content="New entry" Width="110" Height="45" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="820,-200,0,0"/>
+        <Button Content="Logout" Width="110" Height="45" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,-220,0,0" Click="Logout"/>
+        <!-- <Button Content="Unlock" Classes="primary" HorizontalAlignment="Center"/>
+        <Button Content="Cancel" Classes="ghost" HorizontalAlignment="Center"/>
+        <Button Content="Delete" Classes="danger" HorizontalAlignment="Center"/>
+        <Separator Classes="separator" Width="0" Height="8"/>
+        <TextBox Width="200" PlaceholderText="Enter text here" HorizontalAlignment="Center" Name="InputBox"/> -->
+        <Border Classes="card" Width="200" Height="220">
+            <StackPanel>
+                <TextBlock Text="Website" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Text="Description" FontSize="18" Classes="heading" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <!-- <TextBlock Text="Website" FontSize="18" Classes="heading" HorizontalAlignment="Center"/> -->
+        </Border>
+    </StackPanel>
+</UserControl>

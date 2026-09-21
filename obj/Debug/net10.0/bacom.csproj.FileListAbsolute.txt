@@ -83,6 +83,7 @@
 /Users/khoa/Documents/code shi/C-sharp/bacom/obj/Debug/net10.0/bacom.AssemblyInfoInputs.cache
 /Users/khoa/Documents/code shi/C-sharp/bacom/obj/Debug/net10.0/bacom.AssemblyInfo.cs
 /Users/khoa/Documents/code shi/C-sharp/bacom/obj/Debug/net10.0/bacom.csproj.CoreCompileInputs.cache
+/Users/khoa/Documents/code shi/C-sharp/bacom/obj/Debug/net10.0/bacom.sourcelink.json
 /Users/khoa/Documents/code shi/C-sharp/bacom/obj/Debug/net10.0/bacom.csproj.Up2Date
 /Users/khoa/Documents/code shi/C-sharp/bacom/obj/Debug/net10.0/bacom.dll
 /Users/khoa/Documents/code shi/C-sharp/bacom/obj/Debug/net10.0/refint/bacom.dll

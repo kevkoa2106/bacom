@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
+using bacom.Views;
 
 namespace bacom;
 
@@ -12,31 +12,11 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        NavigateTo(new LoginView());
     }
 
-    public async void AuthUser(object? sender, RoutedEventArgs e)
+    public void NavigateTo(UserControl view)
     {
-        string fileName = string.Empty;
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            fileName = Path.Combine(AppContext.BaseDirectory, "helpers", "AkademiAuth");
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            fileName = Path.Combine(AppContext.BaseDirectory, "helpers", "WinHelloAuth.exe");
-
-        var process = new Process
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                FileName = fileName,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                CreateNoWindow = true,
-            },
-        };
-
-        process.Start();
-        await process.WaitForExitAsync();
-
-        Console.WriteLine($"Authentication code: {process.ExitCode}");
+        ViewHost.Content = view;
     }
 }

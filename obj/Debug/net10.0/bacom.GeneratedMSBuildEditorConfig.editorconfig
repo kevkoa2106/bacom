@@ -15,7 +15,7 @@ build_property.AvaloniaNameGeneratorAttachDevTools = true
 build_property.AvaloniaUseCompiledBindingsByDefault = true
 build_property.AvaloniaMainPackageVersion = 12.1.2
 build_property.AvaloniaPreviewerNetCoreToolPath = /Users/khoa/.nuget/packages/avalonia/12.1.2/buildTransitive//../tools/net8.0/designer/Avalonia.Designer.HostApp.dll
-build_property.AvaloniaResourcePaths = /Users/khoa/Documents/code shi/C-sharp/bacom/assets/9252943.jpg
+build_property.AvaloniaResourcePaths = /Users/khoa/Documents/code shi/C-sharp/bacom/assets/9252943.jpg,/Users/khoa/Documents/code shi/C-sharp/bacom/App.axaml,/Users/khoa/Documents/code shi/C-sharp/bacom/MainWindow.axaml,/Users/khoa/Documents/code shi/C-sharp/bacom/styles/Styles.axaml,/Users/khoa/Documents/code shi/C-sharp/bacom/Views/DashboardView.axaml,/Users/khoa/Documents/code shi/C-sharp/bacom/Views/LoginView.axaml
 build_property.TargetFramework = net10.0
 build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v10.0
@@ -41,4 +41,10 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/Users/khoa/Documents/code shi/C-sharp/bacom/styles/Styles.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/khoa/Documents/code shi/C-sharp/bacom/Views/DashboardView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/khoa/Documents/code shi/C-sharp/bacom/Views/LoginView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
