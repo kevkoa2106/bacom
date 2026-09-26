@@ -1,23 +1,294 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="bacom.Views.DashboardView">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
-        <Button Content="New entry" Width="110" Height="45" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="820,-200,0,0"/>
-        <Button Content="Logout" Width="110" Height="45" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,-220,0,0" Click="Logout"/>
-        <!-- <Button Content="Unlock" Classes="primary" HorizontalAlignment="Center"/>
-        <Button Content="Cancel" Classes="ghost" HorizontalAlignment="Center"/>
-        <Button Content="Delete" Classes="danger" HorizontalAlignment="Center"/>
-        <Separator Classes="separator" Width="0" Height="8"/>
-        <TextBox Width="200" PlaceholderText="Enter text here" HorizontalAlignment="Center" Name="InputBox"/> -->
-        <Border Classes="card" Width="200" Height="220">
-            <StackPanel>
-                <TextBlock Text="Website" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center"/>
-                <TextBlock Text="Description" FontSize="18" Classes="heading" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <!-- <TextBlock Text="Website" FontSize="18" Classes="heading" HorizontalAlignment="Center"/> -->
-        </Border>
-    </StackPanel>
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="using:bacom.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="1177" d:DesignHeight="702"
+    x:Class="bacom.Views.DashboardView"
+    Background="#161616">
+    <UserControl.Resources>
+        <x:Double x:Key="DashboardCardWidth">220</x:Double>
+        <x:Double x:Key="DashboardCardHeight">200</x:Double>
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="TextBox.dashboard-search">
+            <Setter Property="Background" Value="#28282C" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="PlaceholderForeground" Value="#A6A6AD" />
+            <Setter Property="CornerRadius" Value="7" />
+            <Setter Property="Padding" Value="22,12" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style Selector="Button.dashboard-action">
+            <Setter Property="Background" Value="#28282C" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="CornerRadius" Value="7" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style Selector="Button.dashboard-logout">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#A6A6AD" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style Selector="Button.entry-menu">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#B1B1BB" />
+            <Setter Property="Width" Value="28" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style Selector="Button.entry-card">
+            <Setter Property="Background" Value="#28282C" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}" CornerRadius="8"
+                        BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.entry-card:pointerover">
+            <Setter Property="Background" Value="#303035" />
+        </Style>
+        <Style Selector="Button.entry-card:focus-visible">
+            <Setter Property="BorderBrush" Value="#A6A6AD" />
+        </Style>
+        <Style Selector="MenuFlyoutPresenter.entry-options">
+            <Setter Property="Background" Value="#28282C" />
+            <Setter Property="BorderBrush" Value="#414147" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="6" />
+            <Setter Property="MinWidth" Value="152" />
+            <Setter Property="RenderTransformOrigin" Value="100%,100%" />
+            <Style.Animations>
+                <Animation Duration="0:0:0.16" Easing="CubicEaseOut">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.94" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.94" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="Grid.details-opening">
+            <Style.Animations>
+                <Animation Duration="0:0:0.2" Easing="CubicEaseOut">
+                    <KeyFrame Cue="0%"><Setter Property="Opacity" Value="0" /></KeyFrame>
+                    <KeyFrame Cue="100%"><Setter Property="Opacity" Value="1" /></KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="Border.details-opening">
+            <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+            <Style.Animations>
+                <Animation Duration="0:0:0.2" Easing="CubicEaseOut">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="ScaleTransform.ScaleX" Value="0.96" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="0.96" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+        <Style Selector="MenuFlyoutPresenter.entry-options MenuItem">
+            <Setter Property="Padding" Value="10,8" />
+        </Style>
+        <Style Selector="TextBlock.detail-label">
+            <Setter Property="Foreground" Value="#A6A6AD" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Margin" Value="0,0,0,6" />
+        </Style>
+        <Style Selector="TextBlock.detail-value">
+            <Setter Property="Foreground" Value="#F2F2F3" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style Selector="Border.code-count">
+            <Setter Property="Background" Value="#34343B" />
+            <Setter Property="CornerRadius" Value="6" />
+            <Setter Property="Padding" Value="10,7" />
+        </Style>
+        <Style Selector="Border.code-count TextBlock">
+            <Setter Property="Foreground" Value="#DEDEE5" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+        <Style Selector="Border.code-count.low">
+            <Setter Property="Background" Value="#443821" />
+        </Style>
+        <Style Selector="Border.code-count.low TextBlock">
+            <Setter Property="Foreground" Value="#F2C879" />
+        </Style>
+        <Style Selector="Border.code-count.empty">
+            <Setter Property="Background" Value="#442A30" />
+        </Style>
+        <Style Selector="Border.code-count.empty TextBlock">
+            <Setter Property="Foreground" Value="#F2A0AD" />
+        </Style>
+    </UserControl.Styles>
+    <ThemeVariantScope RequestedThemeVariant="Dark">
+        <Grid>
+            <Grid x:Name="DashboardContent" RowDefinitions="52,72,*" Margin="24,31,24,0" MaxWidth="1048">
+                <TextBox x:Name="SearchBox"
+                    Classes="dashboard-search"
+                    Margin="14,0"
+                    PlaceholderText="Search..."
+                    AutomationProperties.Name="Search entries"
+                    TextChanged="SearchEntries" />
+                <Grid Grid.Row="1" ColumnDefinitions="*,Auto" Margin="14,27,14,0">
+                    <Button Grid.Column="1" Content="New entry" Classes="dashboard-action"
+                        Width="155" Height="45"
+                        ToolTip.Tip="Entry creation is planned; these cards are a layout preview." />
+                </Grid>
+                <ScrollViewer Grid.Row="2" Margin="0,46,0,0"
+                    HorizontalScrollBarVisibility="Disabled"
+                    VerticalScrollBarVisibility="Auto">
+                    <Grid x:Name="CardsViewport" SizeChanged="ResizeCards">
+                        <ItemsControl x:Name="EntriesList" HorizontalAlignment="Center"
+                            VerticalAlignment="Top" Margin="0,0,0,52">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel ItemSpacing="56" LineSpacing="48" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate x:DataType="models:DashboardEntry">
+                                    <Viewbox Classes="entry-scaler" Stretch="Uniform"
+                                        Width="{DynamicResource DashboardCardWidth}"
+                                        Height="{DynamicResource DashboardCardHeight}">
+                                        <Grid Width="220" Height="200">
+                                            <Button Classes="entry-card" Click="OpenEntry"
+                                                AutomationProperties.Name="{Binding ServiceName}" />
+                                            <Border Padding="20,24,20,20" IsHitTestVisible="False">
+                                                <Grid RowDefinitions="Auto,Auto,*,Auto,Auto">
+                                                    <TextBlock Text="{Binding ServiceName}" FontSize="24"
+                                                        FontWeight="Bold" Foreground="#FFFFFF"
+                                                        TextTrimming="CharacterEllipsis"
+                                                        ToolTip.Tip="{Binding ServiceName}" />
+                                                    <TextBlock Grid.Row="1" Text="{Binding AccountLabel}"
+                                                        FontSize="13" Foreground="#B1B1BB" Margin="0,8,0,0"
+                                                        TextTrimming="CharacterEllipsis"
+                                                        ToolTip.Tip="{Binding AccountLabel}" />
+                                                    <TextBlock Grid.Row="3" Text="Running low" IsVisible="{Binding IsLow}"
+                                                        FontSize="12" Foreground="#F2C879" Margin="0,0,0,7" />
+                                                    <Grid Grid.Row="4" ColumnDefinitions="*,28" ColumnSpacing="4">
+                                                        <Border Classes="code-count" HorizontalAlignment="Left"
+                                                            Classes.low="{Binding IsLow}" Classes.empty="{Binding IsEmpty}">
+                                                            <TextBlock Text="{Binding RemainingLabel}" />
+                                                        </Border>
+                                                    </Grid>
+                                                </Grid>
+                                            </Border>
+                                            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Classes="entry-menu"
+                                                AutomationProperties.Name="Entry options"
+                                                ToolTip.Tip="Entry options">
+                                                <PathIcon Width="16" Height="4"
+                                                    Data="M 2,0 A 2,2 0 1 1 2,4 A 2,2 0 1 1 2,0 Z M 8,0 A 2,2 0 1 1 8,4 A 2,2 0 1 1 8,0 Z M 14,0 A 2,2 0 1 1 14,4 A 2,2 0 1 1 14,0 Z" />
+                                                <Button.Flyout>
+                                                    <MenuFlyout Placement="TopEdgeAlignedRight" VerticalOffset="-8"
+                                                        FlyoutPresenterClasses="entry-options">
+                                                        <MenuItem Header="Edit">
+                                                            <MenuItem.Icon>
+                                                                <PathIcon Width="16" Height="16"
+                                                                    Data="M 3,17.25 L 3,21 L 6.75,21 L 17.81,9.94 L 14.06,6.19 Z M 20.71,7.04 C 21.1,6.65 21.1,6.02 20.71,5.63 L 18.37,3.29 C 17.98,2.9 17.35,2.9 16.96,3.29 L 15.13,5.12 L 18.88,8.87 Z" />
+                                                            </MenuItem.Icon>
+                                                        </MenuItem>
+                                                        <MenuItem Header="Delete" Foreground="#F2A0AD" Click="DeleteEntry">
+                                                            <MenuItem.Icon>
+                                                                <PathIcon Width="16" Height="16" Foreground="#F2A0AD"
+                                                                    Data="M 6,19 C 6,20.1 6.9,21 8,21 L 16,21 C 17.1,21 18,20.1 18,19 L 18,7 L 6,7 Z M 19,4 L 15.5,4 L 14.5,3 L 9.5,3 L 8.5,4 L 5,4 L 5,6 L 19,6 Z" />
+                                                            </MenuItem.Icon>
+                                                        </MenuItem>
+                                                    </MenuFlyout>
+                                                </Button.Flyout>
+                                            </Button>
+                                        </Grid>
+                                    </Viewbox>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <TextBlock x:Name="EmptySearch" Text="No entries found."
+                            IsVisible="False" Foreground="#A6A6AD" FontSize="18"
+                            HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,32" />
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+            <Grid x:Name="DetailsOverlay" IsVisible="False" Background="#A6000000"
+                KeyboardNavigation.TabNavigation="Cycle" KeyDown="DetailsKeyDown">
+                <Border x:Name="DetailsPanel" x:DataType="models:DashboardEntry"
+                    MaxWidth="560" MaxHeight="620" Margin="24" Padding="28"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                    Background="#28282C" BorderBrush="#414147" BorderThickness="1" CornerRadius="14">
+                    <Grid RowDefinitions="Auto,*" RowSpacing="24">
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                            <StackPanel Spacing="6">
+                                <TextBlock Text="ENTRY DETAILS" Classes="detail-label" />
+                                <TextBlock Text="{Binding ServiceName}" FontSize="28" FontWeight="Bold"
+                                    Foreground="White" TextWrapping="Wrap" />
+                            </StackPanel>
+                            <Button x:Name="CloseDetailsButton" Grid.Column="1" Classes="entry-menu"
+                                Width="32" Height="32" VerticalAlignment="Top" Click="CloseEntry"
+                                AutomationProperties.Name="Close entry details" ToolTip.Tip="Close (Esc)">
+                                <PathIcon Width="14" Height="14"
+                                    Data="M 2,0 L 7,5 L 12,0 L 14,2 L 9,7 L 14,12 L 12,14 L 7,9 L 2,14 L 0,12 L 5,7 L 0,2 Z" />
+                            </Button>
+                        </Grid>
+                        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+                            <StackPanel Spacing="22">
+                                <StackPanel>
+                                    <TextBlock Text="ACCOUNT" Classes="detail-label" />
+                                    <TextBlock Text="{Binding AccountLabel}" Classes="detail-value" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Text="WEBSITE" Classes="detail-label" />
+                                    <TextBlock Text="{Binding Website}" Classes="detail-value" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Text="BACKUP CODES" Classes="detail-label" />
+                                    <Border Classes="code-count" HorizontalAlignment="Left"
+                                        Classes.low="{Binding IsLow}" Classes.empty="{Binding IsEmpty}">
+                                        <TextBlock Text="{Binding RemainingLabel}" />
+                                    </Border>
+                                    <TextBlock Text="Running low — generate a new set from this service."
+                                        IsVisible="{Binding IsLow}" Foreground="#F2C879" FontSize="13"
+                                        TextWrapping="Wrap" Margin="0,10,0,0" />
+                                    <TextBlock Text="No codes left — generate a new set from this service."
+                                        IsVisible="{Binding IsEmpty}" Foreground="#F2A0AD" FontSize="13"
+                                        TextWrapping="Wrap" Margin="0,10,0,0" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <TextBlock Text="NOTES" Classes="detail-label" />
+                                    <TextBlock Text="{Binding Notes}" Classes="detail-value" />
+                                </StackPanel>
+                                <Border Background="#222226" Padding="14" CornerRadius="8">
+                                    <TextBlock Text="Preview entry. No backup codes are stored for this sample account."
+                                        Foreground="#A6A6AD" FontSize="13" TextWrapping="Wrap" />
+                                </Border>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </ThemeVariantScope>
 </UserControl>
