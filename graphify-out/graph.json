@@ -44,6 +44,26 @@
       "source_location": "L7"
     },
     {
+      "id": "mainwindow_axaml_bacom_mainwindow",
+      "label": "MainWindow",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "metadata": {
+        "is_partial": true,
+        "namespace": "bacom",
+        "scope_chain": [
+          "s147"
+        ]
+      },
+      "norm_label": "mainwindow",
+      "source_file": "MainWindow.axaml.cs",
+      "source_location": "L10"
+    },
+    {
       "id": "program_bacom_program",
       "label": "Program",
       "_callable": true,
@@ -82,32 +102,13 @@
       "source_location": "L14"
     },
     {
-      "id": "models_backupcode_bacom_models_backupcode",
-      "label": "BackupCode",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "VaultEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s15"
-        ]
-      },
-      "norm_label": "backupcode",
-      "source_file": "Models/BackupCode.cs",
-      "source_location": "L7"
-    },
-    {
       "id": "models_vaultdata_bacom_models_vaultdata",
       "label": "VaultData",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "VaultEntry",
+      "community": 11,
+      "community_name": "VaultData",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -120,22 +121,41 @@
       "source_location": "L7"
     },
     {
-      "id": "models_vaultentry_bacom_models_vaultentry",
-      "label": "VaultEntry",
+      "id": "services_vaultcodec_bacom_services_vaultcodec",
+      "label": "VaultCodec",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "VaultEntry",
+      "community": 11,
+      "community_name": "VaultData",
       "file_type": "code",
       "metadata": {
-        "namespace": "bacom.Models",
+        "namespace": "bacom.Services",
         "scope_chain": [
-          "s106"
+          "s203"
         ]
       },
-      "norm_label": "vaultentry",
-      "source_file": "Models/VaultEntry.cs",
+      "norm_label": "vaultcodec",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L15"
+    },
+    {
+      "id": "services_vaultstore_bacom_services_vaultstore",
+      "label": "VaultStore",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": "vaultstore",
+      "source_file": "Services/VaultStore.cs",
       "source_location": "L9"
     },
     {
@@ -144,8 +164,8 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 5,
-      "community_name": "VaultEntry",
+      "community": 13,
+      "community_name": ".Parse",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -158,12 +178,51 @@
       "source_location": "L8"
     },
     {
+      "id": "services_vaultcodec_bacom_services_vaultjsoncontext",
+      "label": "VaultJsonContext",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "file_type": "code",
+      "metadata": {
+        "is_partial": true,
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s203"
+        ]
+      },
+      "norm_label": "vaultjsoncontext",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L12"
+    },
+    {
+      "id": "models_backupcode_bacom_models_backupcode",
+      "label": "BackupCode",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s15"
+        ]
+      },
+      "norm_label": "backupcode",
+      "source_file": "Models/BackupCode.cs",
+      "source_location": "L7"
+    },
+    {
       "id": "models_dashboardentry_bacom_models_dashboardentry",
       "label": "DashboardEntry",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 7,
+      "community": 5,
       "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
@@ -177,24 +236,62 @@
       "source_location": "L9"
     },
     {
-      "id": "mainwindow_axaml_bacom_mainwindow",
-      "label": "MainWindow",
+      "id": "models_vaultentry_bacom_models_vaultentry",
+      "label": "VaultEntry",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 8,
-      "community_name": ".NavigateTo",
+      "community": 5,
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
-        "is_partial": true,
-        "namespace": "bacom",
+        "namespace": "bacom.Models",
         "scope_chain": [
-          "s147"
+          "s106"
         ]
       },
-      "norm_label": "mainwindow",
-      "source_file": "MainWindow.axaml.cs",
+      "norm_label": "vaultentry",
+      "source_file": "Models/VaultEntry.cs",
+      "source_location": "L9"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey",
+      "label": "MacVaultKey",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": "macvaultkey",
+      "source_file": "Services/MacVaultKey.cs",
       "source_location": "L10"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_query",
+      "label": "Query",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "is_nested_type": true,
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": "query",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L60"
     },
     {
       "id": "views_loginview_axaml_bacom_views_loginview",
@@ -309,24 +406,6 @@
       "norm_label": ".capturecardpositions()",
       "source_file": "Views/DashboardView.axaml.cs",
       "source_location": "L121"
-    },
-    {
-      "id": "views_dashboardview_axaml_bacom_views_dashboardview_changecodeusage",
-      "label": ".ChangeCodeUsage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "DashboardView",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s510"
-        ]
-      },
-      "norm_label": ".changecodeusage()",
-      "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L340"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_chooseicon",
@@ -885,6 +964,24 @@
       "source_location": "L9"
     },
     {
+      "id": "app_axaml_bacom_app_onframeworkinitializationcompleted",
+      "label": ".OnFrameworkInitializationCompleted()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom",
+        "scope_chain": [
+          "s95"
+        ]
+      },
+      "norm_label": ".onframeworkinitializationcompleted()",
+      "source_file": "App.axaml.cs",
+      "source_location": "L14"
+    },
+    {
       "id": "program_bacom_program_buildavaloniaapp",
       "label": ".BuildAvaloniaApp()",
       "_callable": true,
@@ -1083,12 +1180,310 @@
       "source_location": "L25"
     },
     {
+      "id": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
+      "label": ".Decrypt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s203"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Decrypt",
+            "receiver_type": "AesGcm",
+            "lang": "csharp",
+            "line": "L46"
+          },
+          {
+            "callee": "Deserialize",
+            "receiver_type": "JsonSerializer",
+            "lang": "csharp",
+            "line": "L47"
+          },
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L52"
+          }
+        ]
+      },
+      "norm_label": ".decrypt()",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L38"
+    },
+    {
+      "id": "services_vaultcodec_bacom_services_vaultcodec_encrypt",
+      "label": ".Encrypt()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s203"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "SerializeToUtf8Bytes",
+            "receiver_type": "JsonSerializer",
+            "lang": "csharp",
+            "line": "L24"
+          },
+          {
+            "callee": "Fill",
+            "receiver_type": "RandomNumberGenerator",
+            "lang": "csharp",
+            "line": "L30"
+          },
+          {
+            "callee": "Encrypt",
+            "receiver_type": "AesGcm",
+            "lang": "csharp",
+            "line": "L32"
+          },
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L35"
+          }
+        ]
+      },
+      "norm_label": ".encrypt()",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L21"
+    },
+    {
+      "id": "services_vaultcodec_bacom_services_vaultcodec_validate",
+      "label": ".Validate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s203"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Add",
+            "receiver_type": "HashSet",
+            "lang": "csharp",
+            "line": "L63"
+          },
+          {
+            "callee": "TryCreate",
+            "receiver_type": "Uri",
+            "lang": "csharp",
+            "line": "L70"
+          }
+        ]
+      },
+      "norm_label": ".validate()",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L56"
+    },
+    {
+      "id": "services_vaultstore_bacom_services_vaultstore_dispose",
+      "label": ".Dispose()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L73"
+          },
+          {
+            "callee": "Dispose",
+            "receiver_type": "FileStream",
+            "lang": "csharp",
+            "line": "L74"
+          }
+        ]
+      },
+      "norm_label": ".dispose()",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L69"
+    },
+    {
+      "id": "services_vaultstore_bacom_services_vaultstore_load",
+      "label": ".Load()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "ThrowIf",
+            "receiver_type": "ObjectDisposedException",
+            "lang": "csharp",
+            "line": "L29"
+          }
+        ]
+      },
+      "norm_label": ".load()",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L27"
+    },
+    {
+      "id": "services_vaultstore_bacom_services_vaultstore_readbounded",
+      "label": ".ReadBounded()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "OpenRead",
+            "receiver_type": "File",
+            "lang": "csharp",
+            "line": "L49"
+          }
+        ]
+      },
+      "norm_label": ".readbounded()",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L47"
+    },
+    {
+      "id": "services_vaultstore_bacom_services_vaultstore_save",
+      "label": ".Save()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "ThrowIf",
+            "receiver_type": "ObjectDisposedException",
+            "lang": "csharp",
+            "line": "L35"
+          },
+          {
+            "callee": "Exists",
+            "receiver_type": "File",
+            "lang": "csharp",
+            "line": "L38"
+          }
+        ]
+      },
+      "norm_label": ".save()",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L33"
+    },
+    {
+      "id": "services_vaultstore_bacom_services_vaultstore_writeatomic",
+      "label": ".WriteAtomic()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "NewGuid",
+            "receiver_type": "Guid",
+            "lang": "csharp",
+            "line": "L58"
+          },
+          {
+            "callee": "IsWindows",
+            "receiver_type": "OperatingSystem",
+            "lang": "csharp",
+            "line": "L62"
+          },
+          {
+            "callee": "Move",
+            "receiver_type": "File",
+            "lang": "csharp",
+            "line": "L64"
+          },
+          {
+            "callee": "Exists",
+            "receiver_type": "File",
+            "lang": "csharp",
+            "line": "L66"
+          },
+          {
+            "callee": "Delete",
+            "receiver_type": "File",
+            "lang": "csharp",
+            "line": "L66"
+          }
+        ]
+      },
+      "norm_label": ".writeatomic()",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L56"
+    },
+    {
+      "id": "services_backupcodeparser_bacom_services_backupcodeparser_parse",
+      "label": ".Parse()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": ".Parse",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": ".parse()",
+      "source_file": "Services/BackupCodeParser.cs",
+      "source_location": "L12"
+    },
+    {
       "id": "models_dashboardentry_bacom_models_dashboardentry_setcodeused",
       "label": ".SetCodeUsed()",
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -1109,22 +1504,22 @@
       "source_location": "L26"
     },
     {
-      "id": "services_backupcodeparser_bacom_services_backupcodeparser_parse",
-      "label": ".Parse()",
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_changecodeusage",
+      "label": ".ChangeCodeUsage()",
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
-        "namespace": "bacom.Services",
+        "namespace": "bacom.Views",
         "scope_chain": [
-          "s88"
+          "s510"
         ]
       },
-      "norm_label": ".parse()",
-      "source_file": "Services/BackupCodeParser.cs",
-      "source_location": "L12"
+      "norm_label": ".changecodeusage()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L340"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_sampleentry",
@@ -1132,7 +1527,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Views",
@@ -1145,22 +1540,384 @@
       "source_location": "L40"
     },
     {
-      "id": "app_axaml_bacom_app_onframeworkinitializationcompleted",
-      "label": ".OnFrameworkInitializationCompleted()",
+      "id": "services_macvaultkey_bacom_services_macvaultkey_cfarraycreate",
+      "label": ".CFArrayCreate()",
       "_callable": true,
       "_origin": "ast",
-      "community": 8,
-      "community_name": ".NavigateTo",
+      "community": 7,
+      "community_name": "IntPtr",
       "file_type": "code",
       "metadata": {
-        "namespace": "bacom",
+        "namespace": "bacom.Services",
         "scope_chain": [
-          "s95"
+          "s123"
         ]
       },
-      "norm_label": ".onframeworkinitializationcompleted()",
-      "source_file": "App.axaml.cs",
-      "source_location": "L14"
+      "norm_label": ".cfarraycreate()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L82"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_cfdatacreate",
+      "label": ".CFDataCreate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".cfdatacreate()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L87"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetbyteptr",
+      "label": ".CFDataGetBytePtr()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".cfdatagetbyteptr()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L89"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetlength",
+      "label": ".CFDataGetLength()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".cfdatagetlength()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L88"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarycreatemutable",
+      "label": ".CFDictionaryCreateMutable()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".cfdictionarycreatemutable()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L83"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_cfdictionaryremovevalue",
+      "label": ".CFDictionaryRemoveValue()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".cfdictionaryremovevalue()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L85"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarysetvalue",
+      "label": ".CFDictionarySetValue()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".cfdictionarysetvalue()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L84"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_cfrelease",
+      "label": ".CFRelease()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".cfrelease()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L90"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_cfstringcreatewithcstring",
+      "label": ".CFStringCreateWithCString()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".cfstringcreatewithcstring()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L86"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_secaccesscreate",
+      "label": ".SecAccessCreate()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".secaccesscreate()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L81"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_secitemadd",
+      "label": ".SecItemAdd()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".secitemadd()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L80"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_secitemcopymatching",
+      "label": ".SecItemCopyMatching()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".secitemcopymatching()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L79"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "label": ".Unlock()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "IsMacOS",
+            "receiver_type": "OperatingSystem",
+            "lang": "csharp",
+            "line": "L17"
+          },
+          {
+            "callee": "Copy",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L30"
+          },
+          {
+            "callee": "GetBytes",
+            "receiver_type": "RandomNumberGenerator",
+            "lang": "csharp",
+            "line": "L40"
+          },
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L55"
+          }
+        ]
+      },
+      "norm_label": ".unlock()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L15"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_query_constant",
+      "label": ".Constant()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "ReadIntPtr",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L66"
+          },
+          {
+            "callee": "GetExport",
+            "receiver_type": "NativeLibrary",
+            "lang": "csharp",
+            "line": "L66"
+          }
+        ]
+      },
+      "norm_label": ".constant()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L66"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_query_dispose",
+      "label": ".Dispose()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Free",
+            "receiver_type": "NativeLibrary",
+            "lang": "csharp",
+            "line": "L75"
+          }
+        ]
+      },
+      "norm_label": ".dispose()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L71"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_query_own",
+      "label": ".Own()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Add",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L68"
+          }
+        ]
+      },
+      "norm_label": ".own()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L68"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_query_set",
+      "label": ".Set()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".set()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L70"
+    },
+    {
+      "id": "services_macvaultkey_bacom_services_query_string",
+      "label": ".String()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": ".string()",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L69"
     },
     {
       "id": "mainwindow_axaml_bacom_mainwindow_navigateto",
@@ -1516,6 +2273,17 @@
       "source_location": ""
     },
     {
+      "id": "window",
+      "label": "Window",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "norm_label": "window",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "cancellationtoken",
       "label": "CancellationToken",
       "_origin": "ast",
@@ -1580,6 +2348,224 @@
       "norm_label": "uri",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "filestream",
+      "label": "FileStream",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "filestream",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "idisposable",
+      "label": "IDisposable",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "idisposable",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "models_vaultdata_bacom_models_vaultdata_entries",
+      "label": "Entries",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s35"
+        ]
+      },
+      "norm_label": "entries",
+      "source_file": "Models/VaultData.cs",
+      "source_location": "L10"
+    },
+    {
+      "id": "models_vaultdata_bacom_models_vaultdata_schemaversion",
+      "label": "SchemaVersion",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s35"
+        ]
+      },
+      "norm_label": "schemaversion",
+      "source_file": "Models/VaultData.cs",
+      "source_location": "L9"
+    },
+    {
+      "id": "models_vaultdata_cs_list",
+      "label": "List",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "list",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "readonlyspan",
+      "label": "ReadOnlySpan",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "readonlyspan",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_vaultcodec_bacom_services_vaultcodec_header",
+      "label": "Header",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s203"
+        ]
+      },
+      "norm_label": "header",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L18"
+    },
+    {
+      "id": "services_vaultstore_bacom_services_vaultstore_defaultpath",
+      "label": "DefaultPath",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": "defaultpath",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L11"
+    },
+    {
+      "id": "checks_vault",
+      "label": "vault.sh",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "vault.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "vault.sh",
+      "source_file": "checks/vault.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "checks_vault_bacom_project_root",
+      "label": "BACOM_PROJECT_ROOT",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "vault.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "bacom_project_root",
+      "source_file": "checks/vault.sh",
+      "source_location": "L6"
+    },
+    {
+      "id": "checks_vault_check_dir",
+      "label": "CHECK_DIR",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "vault.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "check_dir",
+      "source_file": "checks/vault.sh",
+      "source_location": "L6"
+    },
+    {
+      "id": "checks_vault_sh__entry",
+      "label": "vault.sh script",
+      "_origin": "ast",
+      "community": 12,
+      "community_name": "vault.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "vault.sh script",
+      "source_file": "checks/vault.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_backupcodeparser_cs_ireadonlylist",
+      "label": "IReadOnlyList",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": ".Parse",
+      "file_type": "code",
+      "norm_label": "ireadonlylist",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_backupcodeparser_cs_list",
+      "label": "List",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": ".Parse",
+      "file_type": "code",
+      "norm_label": "list",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "docs_storage",
+      "label": "storage.md",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "storage.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "storage.md",
+      "source_file": "docs/storage.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_storage_encrypted_local_storage",
+      "label": "Encrypted local storage",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": "storage.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "encrypted local storage",
+      "source_file": "docs/storage.md",
+      "source_location": "L1"
     },
     {
       "id": "readme",
@@ -1786,6 +2772,17 @@
       "type": "namespace"
     },
     {
+      "id": "jsonserializercontext",
+      "label": "JsonSerializerContext",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "file_type": "code",
+      "norm_label": "jsonserializercontext",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "mainwindow_axaml",
       "label": "MainWindow.axaml.cs",
       "_origin": "ast",
@@ -1794,17 +2791,6 @@
       "file_type": "code",
       "norm_label": "mainwindow.axaml.cs",
       "source_file": "MainWindow.axaml.cs",
-      "source_location": "L1"
-    },
-    {
-      "id": "models_backupcode",
-      "label": "BackupCode.cs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "DashboardView.axaml.cs",
-      "file_type": "code",
-      "norm_label": "backupcode.cs",
-      "source_file": "Models/BackupCode.cs",
       "source_location": "L1"
     },
     {
@@ -1904,6 +2890,39 @@
       "file_type": "code",
       "norm_label": "entryiconloader.cs",
       "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_macvaultkey",
+      "label": "MacVaultKey.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "file_type": "code",
+      "norm_label": "macvaultkey.cs",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_vaultcodec",
+      "label": "VaultCodec.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "file_type": "code",
+      "norm_label": "vaultcodec.cs",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_vaultstore",
+      "label": "VaultStore.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "file_type": "code",
+      "norm_label": "vaultstore.cs",
+      "source_file": "Services/VaultStore.cs",
       "source_location": "L1"
     },
     {
@@ -2017,11 +3036,33 @@
       "source_location": null
     },
     {
+      "id": "inotifypropertychanged",
+      "label": "INotifyPropertyChanged",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "norm_label": "inotifypropertychanged",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "models_backupcode",
+      "label": "BackupCode.cs",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "norm_label": "backupcode.cs",
+      "source_file": "Models/BackupCode.cs",
+      "source_location": "L1"
+    },
+    {
       "id": "models_backupcode_bacom_models_backupcode_id",
       "label": "Id",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2038,7 +3079,7 @@
       "label": "IsUsed",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2055,7 +3096,7 @@
       "label": "Value",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2072,54 +3113,297 @@
       "label": "Guid",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "norm_label": "guid",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "models_vaultdata_bacom_models_vaultdata_entries",
-      "label": "Entries",
+      "id": "models_dashboardentry_bacom_models_dashboardentry_accountlabel",
+      "label": "AccountLabel",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
         "scope_chain": [
-          "s35"
+          "s108"
         ]
       },
-      "norm_label": "entries",
-      "source_file": "Models/VaultData.cs",
-      "source_location": "L10"
+      "norm_label": "accountlabel",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L14"
     },
     {
-      "id": "models_vaultdata_bacom_models_vaultdata_schemaversion",
-      "label": "SchemaVersion",
+      "id": "models_dashboardentry_bacom_models_dashboardentry_backupcodes",
+      "label": "BackupCodes",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
         "scope_chain": [
-          "s35"
+          "s108"
         ]
       },
-      "norm_label": "schemaversion",
-      "source_file": "Models/VaultData.cs",
-      "source_location": "L9"
+      "norm_label": "backupcodes",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L16"
     },
     {
-      "id": "models_vaultdata_cs_list",
-      "label": "List",
+      "id": "models_dashboardentry_bacom_models_dashboardentry_data",
+      "label": "Data",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
-      "norm_label": "list",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "data",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L11"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_hascustomicon",
+      "label": "HasCustomIcon",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "hascustomicon",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L19"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_hasicon",
+      "label": "HasIcon",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "hasicon",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L20"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_icon",
+      "label": "Icon",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "icon",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L18"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_id",
+      "label": "Id",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "id",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L12"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_isempty",
+      "label": "IsEmpty",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "isempty",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L35"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_islow",
+      "label": "IsLow",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "islow",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L34"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_needsiconplaceholder",
+      "label": "NeedsIconPlaceholder",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "needsiconplaceholder",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L21"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_notes",
+      "label": "Notes",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "notes",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L22"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_remainingcodes",
+      "label": "RemainingCodes",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "remainingcodes",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L15"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_remaininglabel",
+      "label": "RemainingLabel",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "remaininglabel",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L37"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_servicename",
+      "label": "ServiceName",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "servicename",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L13"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_website",
+      "label": "Website",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s108"
+        ]
+      },
+      "norm_label": "website",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L17"
+    },
+    {
+      "id": "models_dashboardentry_cs_bitmap",
+      "label": "Bitmap",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "norm_label": "bitmap",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "models_dashboardentry_cs_guid",
+      "label": "Guid",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "norm_label": "guid",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "models_dashboardentry_cs_ireadonlylist",
+      "label": "IReadOnlyList",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "norm_label": "ireadonlylist",
       "source_file": "",
       "source_location": ""
     },
@@ -2128,7 +3412,7 @@
       "label": "AccountLabel",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2145,7 +3429,7 @@
       "label": "BackupCodes",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2162,7 +3446,7 @@
       "label": "HasCustomIcon",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2179,7 +3463,7 @@
       "label": "IconPng",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2196,7 +3480,7 @@
       "label": "Id",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2213,7 +3497,7 @@
       "label": "Notes",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2230,7 +3514,7 @@
       "label": "RemainingCodes",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2247,7 +3531,7 @@
       "label": "ServiceName",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2264,7 +3548,7 @@
       "label": "Website",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Models",
@@ -2281,7 +3565,7 @@
       "label": "Guid",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "norm_label": "guid",
       "source_file": "",
@@ -2292,29 +3576,7 @@
       "label": "List",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
-      "file_type": "code",
-      "norm_label": "list",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "services_backupcodeparser_cs_ireadonlylist",
-      "label": "IReadOnlyList",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "VaultEntry",
-      "file_type": "code",
-      "norm_label": "ireadonlylist",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "services_backupcodeparser_cs_list",
-      "label": "List",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "code",
       "norm_label": "list",
       "source_file": "",
@@ -2325,7 +3587,7 @@
       "label": "vault-data.md",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "vault-data.md",
@@ -2337,7 +3599,7 @@
       "label": "Vault data format",
       "_origin": "ast",
       "community": 5,
-      "community_name": "VaultEntry",
+      "community_name": "DashboardEntry",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "vault data format",
@@ -2489,301 +3751,69 @@
       "source_location": "L61"
     },
     {
-      "id": "inotifypropertychanged",
-      "label": "INotifyPropertyChanged",
+      "id": "dllimport",
+      "label": "DllImport",
       "_origin": "ast",
       "community": 7,
-      "community_name": "DashboardEntry",
+      "community_name": "IntPtr",
       "file_type": "code",
-      "norm_label": "inotifypropertychanged",
+      "norm_label": "dllimport",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_accountlabel",
-      "label": "AccountLabel",
+      "id": "intptr",
+      "label": "IntPtr",
       "_origin": "ast",
       "community": 7,
-      "community_name": "DashboardEntry",
+      "community_name": "IntPtr",
       "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "accountlabel",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L14"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_backupcodes",
-      "label": "BackupCodes",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "backupcodes",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L16"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_data",
-      "label": "Data",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "data",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L11"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_hascustomicon",
-      "label": "HasCustomIcon",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "hascustomicon",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L19"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_hasicon",
-      "label": "HasIcon",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "hasicon",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L20"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_icon",
-      "label": "Icon",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "icon",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L18"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_id",
-      "label": "Id",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "id",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L12"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_isempty",
-      "label": "IsEmpty",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "isempty",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L35"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_islow",
-      "label": "IsLow",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "islow",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L34"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_needsiconplaceholder",
-      "label": "NeedsIconPlaceholder",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "needsiconplaceholder",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L21"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_notes",
-      "label": "Notes",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "notes",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L22"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_remainingcodes",
-      "label": "RemainingCodes",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "remainingcodes",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L15"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_remaininglabel",
-      "label": "RemainingLabel",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "remaininglabel",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L37"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_servicename",
-      "label": "ServiceName",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "servicename",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L13"
-    },
-    {
-      "id": "models_dashboardentry_bacom_models_dashboardentry_website",
-      "label": "Website",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Models",
-        "scope_chain": [
-          "s108"
-        ]
-      },
-      "norm_label": "website",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L17"
-    },
-    {
-      "id": "models_dashboardentry_cs_bitmap",
-      "label": "Bitmap",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "DashboardEntry",
-      "file_type": "code",
-      "norm_label": "bitmap",
+      "norm_label": "intptr",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "models_dashboardentry_cs_guid",
-      "label": "Guid",
+      "id": "services_macvaultkey_bacom_services_query_handle",
+      "label": "Handle",
       "_origin": "ast",
       "community": 7,
-      "community_name": "DashboardEntry",
+      "community_name": "IntPtr",
       "file_type": "code",
-      "norm_label": "guid",
-      "source_file": "",
-      "source_location": ""
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": "handle",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L65"
     },
     {
-      "id": "models_dashboardentry_cs_ireadonlylist",
-      "label": "IReadOnlyList",
+      "id": "services_macvaultkey_bacom_services_query_true",
+      "label": "True",
       "_origin": "ast",
       "community": 7,
-      "community_name": "DashboardEntry",
+      "community_name": "IntPtr",
       "file_type": "code",
-      "norm_label": "ireadonlylist",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s123"
+        ]
+      },
+      "norm_label": "true",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L67"
+    },
+    {
+      "id": "services_macvaultkey_cs_list",
+      "label": "List",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "IntPtr",
+      "file_type": "code",
+      "norm_label": "list",
       "source_file": "",
       "source_location": ""
     },
@@ -2817,17 +3847,6 @@
       "community_name": ".NavigateTo",
       "file_type": "code",
       "norm_label": "routedeventargs",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "window",
-      "label": "Window",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": ".NavigateTo",
-      "file_type": "code",
-      "norm_label": "window",
       "source_file": "",
       "source_location": ""
     },
@@ -3096,6 +4115,18 @@
       "type": "external"
     },
     {
+      "id": "system_componentmodel",
+      "label": "system_componentmodel",
+      "_origin": "semantic",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_componentmodel",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "system_diagnostics",
       "label": "system_diagnostics",
       "_origin": "semantic",
@@ -3228,18 +4259,209 @@
       "type": "external"
     },
     {
-      "id": "system_componentmodel",
-      "label": "system_componentmodel",
+      "id": "system_security_cryptography",
+      "label": "system_security_cryptography",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "system_componentmodel",
+      "norm_label": "system_security_cryptography",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "system_text_json",
+      "label": "system_text_json",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_text_json",
       "source_file": "",
       "type": "external"
     }
   ],
   "links": [
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfarraycreate",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatacreate",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetbyteptr",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetlength",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarycreatemutable",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionaryremovevalue",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarysetvalue",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfrelease",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfstringcreatewithcstring",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_secaccesscreate",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_secitemadd",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_secitemcopymatching",
+      "target": "dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L79",
+      "weight": 1.0
+    },
     {
       "source": "program_bacom_program_main",
       "target": "stathread",
@@ -3277,6 +4499,294 @@
       "context": "call",
       "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_query",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_secitemcopymatching",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetlength",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetbyteptr",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfrelease",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfarraycreate",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_secaccesscreate",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdictionaryremovevalue",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdatacreate",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_secitemadd",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query_dispose",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfrelease",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query_set",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarysetvalue",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query_set",
+      "target": "services_macvaultkey_bacom_services_query_constant",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query_string",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfstringcreatewithcstring",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query_string",
+      "target": "services_macvaultkey_bacom_services_query_own",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_validate",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec_bacom_services_vaultcodec_encrypt",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_validate",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_load",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_load",
+      "target": "services_vaultstore_bacom_services_vaultstore_readbounded",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_save",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_encrypt",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_save",
+      "target": "services_vaultstore_bacom_services_vaultstore_readbounded",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_save",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_save",
+      "target": "services_vaultstore_bacom_services_vaultstore_writeatomic",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -3742,6 +5252,21 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "filestream",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "FileStream"
+      },
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
       "source": "models_backupcode_bacom_models_backupcode",
       "target": "models_backupcode_cs_guid",
       "relation": "references",
@@ -3817,6 +5342,21 @@
       "weight": 1.0
     },
     {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
       "source": "models_vaultdata_bacom_models_vaultdata",
       "target": "models_vaultdata_cs_list",
       "relation": "references",
@@ -3847,6 +5387,21 @@
       "weight": 1.0
     },
     {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "services_macvaultkey_cs_list",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "List"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview",
       "target": "views_dashboardview_axaml_cs_list",
       "relation": "references",
@@ -3874,6 +5429,21 @@
       },
       "source_file": "Views/DashboardView.axaml.cs",
       "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec_bacom_services_vaultcodec",
+      "target": "readonlyspan",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "ReadOnlySpan"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -4237,6 +5807,54 @@
       "context": "field",
       "source_file": "Models/VaultEntry.cs",
       "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "services_macvaultkey_bacom_services_query_handle",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "services_macvaultkey_bacom_services_query_true",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec_bacom_services_vaultcodec",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_header",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "services_vaultstore_bacom_services_vaultstore_defaultpath",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -4964,6 +6582,57 @@
       "weight": 1.0
     },
     {
+      "source": "services_macvaultkey",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml",
       "target": "system",
       "relation": "imports",
@@ -5062,6 +6731,40 @@
         "scope_kind": "file"
       },
       "source_file": "Services/BackupCodeParser.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey",
+      "target": "system_collections_generic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Collections.Generic",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "system_collections_generic",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Collections.Generic",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultCodec.cs",
       "source_location": "L2",
       "weight": 1.0
     },
@@ -5185,6 +6888,40 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultcodec",
+      "target": "system_io",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.IO",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore",
+      "target": "system_io",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.IO",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml",
       "target": "system_io",
       "relation": "imports",
@@ -5267,6 +7004,23 @@
       },
       "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "system_linq",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Linq",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -5406,6 +7160,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_macvaultkey",
+      "target": "system_runtime_interopservices",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Runtime.InteropServices",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "views_loginview_axaml",
       "target": "system_runtime_interopservices",
       "relation": "imports",
@@ -5423,6 +7194,74 @@
       "weight": 1.0
     },
     {
+      "source": "services_macvaultkey",
+      "target": "system_security_cryptography",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Security.Cryptography",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "system_security_cryptography",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Security.Cryptography",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore",
+      "target": "system_security_cryptography",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Security.Cryptography",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "system_text_json",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Text.Json",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
       "source": "models_vaultentry",
       "target": "system_text_json_serialization",
       "relation": "imports",
@@ -5437,6 +7276,23 @@
       },
       "source_file": "Models/VaultEntry.cs",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "system_text_json_serialization",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Text.Json.Serialization",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -5538,6 +7394,40 @@
         "scope_kind": "file"
       },
       "source_file": "Services/BackupCodeParser.cs",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "csharp_namespace:65d7028e182fb2b6",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "bacom.Models",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore",
+      "target": "csharp_namespace:65d7028e182fb2b6",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "bacom.Models",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultStore.cs",
       "source_location": "L4",
       "weight": 1.0
     },
@@ -5695,6 +7585,126 @@
       },
       "source_file": "Services/BackupCodeParser.cs",
       "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetlength",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionaryremovevalue",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarysetvalue",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfrelease",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_secaccesscreate",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_secitemadd",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_secitemcopymatching",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query_set",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L70",
       "weight": 1.0
     },
     {
@@ -5983,6 +7993,51 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultcodec_bacom_services_vaultcodec_encrypt",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec_bacom_services_vaultcodec_validate",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_save",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview_ondetachedfromvisualtree",
       "target": "visualtreeattachmenteventargs",
       "relation": "references",
@@ -6043,6 +8098,126 @@
       "weight": 1.0
     },
     {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfarraycreate",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatacreate",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetbyteptr",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarycreatemutable",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_cfstringcreatewithcstring",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query_constant",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query_own",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query_string",
+      "target": "intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
       "source": "services_backupcodeparser_bacom_services_backupcodeparser_parse",
       "target": "services_backupcodeparser_cs_list",
       "relation": "references",
@@ -6088,6 +8263,36 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_load",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
       "source": "app_axaml_bacom_app",
       "target": "application",
       "relation": "inherits",
@@ -6102,6 +8307,34 @@
       "weight": 1.0
     },
     {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "idisposable",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "metadata": {
+        "ref_token": "IDisposable"
+      },
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "idisposable",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "metadata": {
+        "ref_token": "IDisposable"
+      },
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "models_dashboardentry_bacom_models_dashboardentry",
       "target": "inotifypropertychanged",
       "relation": "implements",
@@ -6113,6 +8346,20 @@
       },
       "source_file": "Models/DashboardEntry.cs",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec_bacom_services_vaultjsoncontext",
+      "target": "jsonserializercontext",
+      "relation": "inherits",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "metadata": {
+        "ref_token": "JsonSerializerContext"
+      },
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -6187,6 +8434,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "checks/new-entry.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_vault",
+      "target": "checks_vault_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/vault.sh",
       "source_location": "L1",
       "weight": 1.0
     },
@@ -6309,6 +8567,17 @@
       "confidence_score": 1.0,
       "source_file": "docs/dashboard-map.md",
       "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_storage",
+      "target": "docs_storage_encrypted_local_storage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/storage.md",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6609,6 +8878,94 @@
       "weight": 1.0
     },
     {
+      "source": "services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_query",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "services_vaultcodec_bacom_services_vaultjsoncontext",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec",
+      "target": "services_vaultcodec_bacom_services_vaultcodec",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore",
+      "target": "services_vaultstore_bacom_services_vaultstore",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "todo",
       "target": "todo_todo",
       "relation": "contains",
@@ -6683,6 +9040,28 @@
       "confidence_score": 1.0,
       "source_file": "checks/new-entry.sh",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_vault",
+      "target": "checks_vault_bacom_project_root",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/vault.sh",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_vault",
+      "target": "checks_vault_check_dir",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/vault.sh",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -6832,6 +9211,292 @@
       "confidence_score": 1.0,
       "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_secitemcopymatching",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_secitemadd",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_secaccesscreate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfarraycreate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarycreatemutable",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarysetvalue",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdictionaryremovevalue",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfstringcreatewithcstring",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdatacreate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetlength",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetbyteptr",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_cfrelease",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "services_macvaultkey_bacom_services_query_constant",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "services_macvaultkey_bacom_services_query_own",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "services_macvaultkey_bacom_services_query_string",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "services_macvaultkey_bacom_services_query_set",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_query",
+      "target": "services_macvaultkey_bacom_services_query_dispose",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec_bacom_services_vaultcodec",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_encrypt",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec_bacom_services_vaultcodec",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultcodec_bacom_services_vaultcodec",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_validate",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultCodec.cs",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "services_vaultstore_bacom_services_vaultstore_load",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "services_vaultstore_bacom_services_vaultstore_save",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "services_vaultstore_bacom_services_vaultstore_readbounded",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "services_vaultstore_bacom_services_vaultstore_writeatomic",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "services_vaultstore_bacom_services_vaultstore_dispose",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -7174,6 +9839,54 @@
       "weight": 1.0
     },
     {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_query_constant",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_query_set",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_query_string",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_query_own",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "context": "call",
+      "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview_changecodeusage",
       "target": "models_dashboardentry_bacom_models_dashboardentry_setcodeused",
       "relation": "calls",
@@ -7367,5 +10080,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7383df7cab0fba49381a2ec34f1402226f2f791c"
+  "built_at_commit": "49b55bc271536fd1280b6dbf4db238c5f0ea572f"
 }

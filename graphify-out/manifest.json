@@ -66,15 +66,15 @@
     "semantic_hash": ""
   },
   "obj/Debug/net10.0/bacom.AssemblyInfo.cs": {
-    "mtime": 1790497045.0178125,
-    "seen": 1790497050.6749802,
-    "ast_hash": "853adce774e30d5caf721be509a73326",
+    "mtime": 1790500297.279099,
+    "seen": 1790500407.8109272,
+    "ast_hash": "0318e4061405dfc0e80eaaed95bd8e78",
     "semantic_hash": ""
   },
   "obj/Debug/net10.0/bacom.sourcelink.json": {
-    "mtime": 1790497045.0271842,
-    "seen": 1790497050.674981,
-    "ast_hash": "8152a21785bfd8dde1bd307a9326290f",
+    "mtime": 1790500297.2888033,
+    "seen": 1790500407.810928,
+    "ast_hash": "babf286126871d3abf43b34d6a89c14d",
     "semantic_hash": ""
   },
   "obj/Release/net10.0/osx-arm64/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
@@ -114,9 +114,9 @@
     "semantic_hash": ""
   },
   "TODO.md": {
-    "mtime": 1790499890.0234249,
-    "seen": 1790499918.908306,
-    "ast_hash": "476c6d534e268e2487544b32dbb3394a",
+    "mtime": 1790500407.2994862,
+    "seen": 1790500407.810932,
+    "ast_hash": "eea07414a5359fabdeb91ab65e4355f8",
     "semantic_hash": ""
   },
   "bin/Release/net10.0/osx-arm64/native/bacom.dSYM/Contents/Resources/Relocations/aarch64/bacom.yml": {
@@ -207,6 +207,36 @@
     "mtime": 1790499764.904529,
     "seen": 1790499918.908293,
     "ast_hash": "8747c564c36c0c86d1cc47fa48d20833",
+    "semantic_hash": ""
+  },
+  "Services/MacVaultKey.cs": {
+    "mtime": 1790500380.325515,
+    "seen": 1790500407.8109188,
+    "ast_hash": "e77f86a05127c150dfc516f81c72cc9c",
+    "semantic_hash": ""
+  },
+  "Services/VaultCodec.cs": {
+    "mtime": 1790500296.807636,
+    "seen": 1790500407.8109188,
+    "ast_hash": "82e7d28c980e66debd2acc34ab2be7c2",
+    "semantic_hash": ""
+  },
+  "Services/VaultStore.cs": {
+    "mtime": 1790500296.829464,
+    "seen": 1790500407.81092,
+    "ast_hash": "abafb8979e2a91601f0c844046c8ec83",
+    "semantic_hash": ""
+  },
+  "checks/vault.sh": {
+    "mtime": 1790500380.3472655,
+    "seen": 1790500407.8109262,
+    "ast_hash": "af5a44a28522d908fc6109d71cef8e67",
+    "semantic_hash": ""
+  },
+  "docs/storage.md": {
+    "mtime": 1790500407.3215964,
+    "seen": 1790500407.810934,
+    "ast_hash": "8ff81e3b195bc94c2132db14ddbcb5ea",
     "semantic_hash": ""
   }
 }

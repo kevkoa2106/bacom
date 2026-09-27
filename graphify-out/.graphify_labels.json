@@ -4,10 +4,14 @@
   "2": "Bacom (Backup Code Manager)",
   "3": "DashboardView.axaml.cs",
   "4": "bacom.csproj",
-  "5": "VaultEntry",
+  "5": "DashboardEntry",
   "6": "Dashboard file map",
-  "7": "DashboardEntry",
+  "7": "IntPtr",
   "8": ".NavigateTo",
   "9": "new-entry.sh",
-  "10": ".FindAsync"
+  "10": ".FindAsync",
+  "11": "VaultData",
+  "12": "vault.sh",
+  "13": ".Parse",
+  "14": "storage.md"
 }
