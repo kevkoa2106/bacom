@@ -69,12 +69,13 @@ Snapshot("new-entry-form");
 Click("CreateEntryButton");
 Check(items.ItemCount == 8 && Get<TextBlock>("FormError").IsVisible, "Blank fields accepted");
 Set("ServiceInput", "  Test service  "); Set("AccountInput", "  work@example.com  ");
-foreach (var invalid in new[] { "-1", "1.5", "oops" })
+foreach (var invalid in new[] { "same\nsame", new string('x', 257), string.Join('\n', Enumerable.Range(0, 1001)) })
 {
-    Set("CodeCountInput", invalid); Click("CreateEntryButton");
-    Check(items.ItemCount == 8 && Get<Grid>("DetailsOverlay").IsVisible, "Invalid count accepted");
+    Set("BackupCodesInput", invalid); Click("CreateEntryButton");
+    Check(items.ItemCount == 8 && Get<Grid>("DetailsOverlay").IsVisible, "Invalid codes accepted");
 }
-Set("CodeCountInput", "8"); Set("WebsiteInput", "javascript:alert(1)"); Click("CreateEntryButton");
+var pastedCodes = "  0012-3456  \r\n\r\n00000002\r003 004\nDemo-4\nDemo-5\nDemo-6\nDemo-7\nDemo-8\n";
+Set("BackupCodesInput", pastedCodes); Set("WebsiteInput", "javascript:alert(1)"); Click("CreateEntryButton");
 Check(items.ItemCount == 8, "Invalid website accepted");
 Set("WebsiteInput", "https://example.com"); Set("NotesInput", "Work recovery account");
 Click("CreateEntryButton");
@@ -113,10 +114,45 @@ Check(Get<Button>("CreateEntryButton").Content?.ToString() == "Apply"
     && Get<TextBox>("ServiceInput").Text == "Test service"
     && Get<TextBox>("AccountInput").Text == "work@example.com"
     && Get<TextBox>("WebsiteInput").Text == "https://example.com"
-    && Get<TextBox>("CodeCountInput").Text == "8"
+    && Get<TextBox>("BackupCodesInput").Text == string.Join(Environment.NewLine, added.BackupCodes.Select(c => c.Value))
     && Get<TextBox>("NotesInput").Text == "Work recovery account", "Edit fields were not prefilled");
-Set("ServiceInput", "Unsaved"); Click("CloseDetailsButton");
+Set("ServiceInput", "Unsaved"); Set("BackupCodesInput", "discard-me"); Click("CloseDetailsButton");
 Check(((DashboardEntry)items.Items[1]!).ServiceName == "Test service", "Edit cancellation mutated data");
+Check(added.BackupCodes.Count == 8 && added.BackupCodes[0].Value == "0012-3456"
+    && added.BackupCodes[2].Value == "003 004", "Code parsing or cancellation damaged codes");
+
+// Real pointer toggles must update the open details and the card, including undo.
+var card = items.GetVisualDescendants().OfType<Button>()
+    .First(b => b.Classes.Contains("entry-card") && ReferenceEquals(b.DataContext, added));
+card.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Layout(); Settle();
+var codeList = Get<ItemsControl>("BackupCodesList");
+void ToggleCode(int index)
+{
+    var toggle = codeList.GetVisualDescendants().OfType<CheckBox>().ElementAt(index);
+    toggle.BringIntoView(); Layout();
+    var point = toggle.TranslatePoint(new Point(toggle.Bounds.Width / 2, toggle.Bounds.Height / 2), window)!.Value;
+    window.MouseDown(point, MouseButton.Left, RawInputModifiers.None);
+    window.MouseUp(point, MouseButton.Left, RawInputModifiers.None); Layout();
+}
+ToggleCode(0);
+Check(added.RemainingCodes == 7 && added.BackupCodes[0].IsUsed, "Usage toggle did not update count");
+Check(card.GetVisualAncestors().OfType<Viewbox>().First().GetVisualDescendants().OfType<TextBlock>()
+    .Any(t => t.Text == "7 codes remaining"), "Card count binding stayed stale");
+ToggleCode(0); Check(added.RemainingCodes == 8, "Undo usage failed");
+for (var i = 0; i < 8; i++) ToggleCode(i);
+Check(added.IsEmpty && added.RemainingLabel == "No codes remaining", "All-used state is wrong");
+ToggleCode(0);
+Check(added.IsLow && added.RemainingCodes == 1, "Low-code state is wrong");
+for (var i = 1; i < 8; i++) ToggleCode(i);
+ToggleCode(0); Click("CloseDetailsButton");
+EditAt(1);
+Set("BackupCodesInput", string.Join('\n', added.BackupCodes.Reverse().Select(c => c.Value)) + "\nNew-code");
+Click("CreateEntryButton");
+var revised = (DashboardEntry)items.Items[1]!;
+Check(revised.Id == added.Id && revised.RemainingCodes == 8 && revised.BackupCodes.Count == 9
+    && revised.BackupCodes.Single(c => c.Value == "0012-3456").Id == added.BackupCodes[0].Id
+    && revised.BackupCodes.Single(c => c.Value == "0012-3456").IsUsed,
+    "Editing reset account/code identity or usage");
 EditAt(1);
 Settle();
 Check(Get<Image>("IconPreview").Source is not null, "Website icon was not detected: " + Get<TextBlock>("IconStatus").Text);
@@ -134,6 +170,8 @@ Set("WebsiteInput", "https://changed.example"); Layout(); Settle();
 Check(ReferenceEquals(Get<Image>("IconPreview").Source, custom), "Auto-detection overwrote a custom image");
 Click("CreateEntryButton");
 Check(((DashboardEntry)items.Items[1]!).HasCustomIcon && ReferenceEquals(((DashboardEntry)items.Items[1]!).Icon, custom), "Custom image not saved");
+var png = ((DashboardEntry)items.Items[1]!).Data.IconPng;
+Check(png is { Length: > 8 } && png.Take(8).SequenceEqual(new byte[] { 137, 80, 78, 71, 13, 10, 26, 10 }), "Image not stored as PNG data");
 EditAt(1);
 Check(ReferenceEquals(Get<Image>("IconPreview").Source, custom), "Custom image missing on edit");
 Click("CloseDetailsButton");
@@ -141,6 +179,9 @@ Set("SearchBox", "Updated service"); Layout(); EditAt(0);
 Set("ServiceInput", "Renamed"); Click("CreateEntryButton");
 Check(items.ItemCount == 0 && Get<TextBlock>("EmptySearch").IsVisible, "Edited filter result stayed stale");
 Set("SearchBox", ""); Layout(); Check(items.ItemCount == 10, "Edit lost an entry");
+EditAt(1); Set("BackupCodesInput", "\n  \n"); Click("CreateEntryButton");
+Check(((DashboardEntry)items.Items[1]!).BackupCodes.Count == 0
+    && ((DashboardEntry)items.Items[1]!).IsEmpty, "Removing all codes left stale counts");
 window.Width = 360; window.Height = 450; Layout();
 Click("NewEntryButton"); Settle(); Snapshot("new-entry-narrow");
 var buttonPoint = Get<Button>("CreateEntryButton").TranslatePoint(default, window)!.Value;
@@ -160,7 +201,7 @@ try { EntryIconLoader.LoadImageAsync(new MemoryStream(new byte[2 * 1024 * 1024 +
 catch (InvalidDataException) { }
 try { EntryIconLoader.LoadImageAsync(new MemoryStream([1, 2, 3]), CancellationToken.None).GetAwaiter().GetResult(); throw new Exception("Invalid image accepted"); }
 catch (InvalidDataException) { }
-Console.WriteLine("PASS: create/edit validation, prefill, prepend/sliding, Apply preserves order, favicon, filtering, cancellation, narrow layout");
+Console.WriteLine("PASS: code parsing/validation, usage/undo, identity and counts, create/edit/cancel, sliding, images, filtering, narrow layout");
 window.Close();
 
 sealed class FakeIconHandler : HttpMessageHandler

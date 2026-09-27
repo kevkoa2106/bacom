@@ -28,11 +28,11 @@ flowchart TD
 
 ## Preview behavior
 
-The cards reproduce the supplied mockup and are sample data only. Each card shows a service, account label, and remaining-code count. Counts of
+The cards reproduce the supplied mockup and start with demo accounts containing no codes. Each card shows a service, account label, and remaining-code count derived from unused codes. Counts of
 one or two show a low-code warning; zero shows no codes remaining. Search filters
 both service names and account labels; clearing search restores all eight. Cards use up to four columns,
 wrap at narrower sizes, and scroll vertically. New entry opens a validated form and prepends an in-memory entry. Encryption and
-persistence remain in `TODO.md`.
+persistence remain in `TODO.md`. See `vault-data.md` for the data model and backup-code input rules.
 
 ## GrepAI
 
@@ -126,8 +126,8 @@ completion. Deletions last for this dashboard instance; there is no disk storage
 ## Create and edit forms
 
 New entry reuses the details overlay, opening an empty form with service and
-account required, plus optional website, account image and notes, and a whole code
-count from 0 to 9999. Create inserts the entry first, clears search so it is visible,
+account required, plus optional website, account image and notes, and backup codes
+entered one per line. Create inserts the entry first, clears search so it is visible,
 and uses the existing 260 ms card-position animation to shift surviving entries.
 
 Edit prefills the same form and changes the action to Apply. Saving replaces the

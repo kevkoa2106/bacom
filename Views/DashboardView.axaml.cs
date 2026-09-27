@@ -26,15 +26,22 @@ public partial class DashboardView : UserControl
     // ponytail: entries live in memory; add encrypted persistence when vault storage is implemented.
     private readonly List<DashboardEntry> _entries =
     [
-        new("GitHub", "personal@example.com", 8) { Website = "https://github.com" },
-        new("Google", "personal@example.com", 10) { Website = "https://accounts.google.com" },
-        new("Discord", "Personal", 2) { Website = "https://discord.com" },
-        new("Microsoft", "work@example.com", 1) { Website = "https://account.microsoft.com" },
-        new("GitHub", "work@example.com", 5) { Website = "https://github.com" },
-        new("Dropbox", "Personal", 0) { Website = "https://dropbox.com" },
-        new("Proton", "personal@example.com", 7) { Website = "https://account.proton.me" },
-        new("Bitwarden", "Personal", 1) { Website = "https://vault.bitwarden.com" },
+        SampleEntry("GitHub", "personal@example.com", "https://github.com"),
+        SampleEntry("Google", "personal@example.com", "https://accounts.google.com"),
+        SampleEntry("Discord", "Personal", "https://discord.com"),
+        SampleEntry("Microsoft", "work@example.com", "https://account.microsoft.com"),
+        SampleEntry("GitHub", "work@example.com", "https://github.com"),
+        SampleEntry("Dropbox", "Personal", "https://dropbox.com"),
+        SampleEntry("Proton", "personal@example.com", "https://account.proton.me"),
+        SampleEntry("Bitwarden", "Personal", "https://vault.bitwarden.com"),
     ];
+
+    // Demo accounts have no invented recovery codes or manually assigned counts.
+    private static DashboardEntry SampleEntry(string service, string account, string website) => new(new VaultEntry
+    {
+        ServiceName = service, AccountLabel = account, Website = website,
+        Notes = "Demo account. Add your own backup codes using Edit.",
+    });
 
     private readonly ObservableCollection<DashboardEntry> _visibleEntries = [];
     private Button? _openedCard;
@@ -200,7 +207,7 @@ public partial class DashboardView : UserControl
         _editingEntry = null;
         ResetIconEditor();
         ServiceInput.Text = AccountInput.Text = WebsiteInput.Text = NotesInput.Text = string.Empty;
-        CodeCountInput.Text = "0";
+        BackupCodesInput.Text = string.Empty;
         FormError.IsVisible = false;
         DetailsPanel.DataContext = null;
         ShowEntryPopup(sender as Button, showForm: true);
@@ -219,11 +226,11 @@ public partial class DashboardView : UserControl
             _editingEntry = entry;
             ServiceInput.Text = entry.ServiceName;
             AccountInput.Text = entry.AccountLabel;
-            WebsiteInput.Text = entry.Website == "Not added" ? string.Empty : entry.Website;
+            WebsiteInput.Text = entry.Data.Website ?? string.Empty;
             SetDraftIcon(entry.Icon, entry.HasCustomIcon, ownsImage: false);
             _iconWebsite = WebsiteInput.Text ?? string.Empty;
-            CodeCountInput.Text = entry.RemainingCodes.ToString();
-            NotesInput.Text = entry.Notes == "No notes yet." ? string.Empty : entry.Notes;
+            BackupCodesInput.Text = string.Join(Environment.NewLine, entry.BackupCodes.Select(code => code.Value));
+            NotesInput.Text = entry.Data.Notes;
             FormError.IsVisible = false;
             DetailsPanel.DataContext = null;
             var source = EntriesList.GetVisualDescendants().OfType<Button>()
@@ -262,14 +269,18 @@ public partial class DashboardView : UserControl
         var account = AccountInput.Text?.Trim() ?? string.Empty;
         var website = WebsiteInput.Text?.Trim() ?? string.Empty;
         var notes = NotesInput.Text?.Trim() ?? string.Empty;
-        var validCount = int.TryParse(CodeCountInput.Text, out var count) && count is >= 0 and <= 9999;
         string? error = null;
         if (service.Length == 0 || account.Length == 0)
             error = "Enter a service name and an account label.";
-        else if (!validCount)
-            error = "Enter a whole code count from 0 to 9999.";
         else if (website.Length > 0 && !IsWebAddress(website))
             error = "Enter a website starting with https:// or http://.";
+
+        List<BackupCode> codes = [];
+        if (error is null)
+        {
+            try { codes = BackupCodeParser.Parse(BackupCodesInput.Text, _editingEntry?.BackupCodes); }
+            catch (ArgumentException exception) { error = exception.Message; }
+        }
 
         if (error is not null)
         {
@@ -278,12 +289,27 @@ public partial class DashboardView : UserControl
             return;
         }
 
-        var entry = new DashboardEntry(service, account, count)
+        // Store portable image bytes alongside account data; the UI retains its bitmap.
+        byte[]? iconPng = null;
+        if (_draftIcon is not null)
         {
-            Website = website.Length == 0 ? "Not added" : website,
-            Notes = notes.Length == 0 ? "No notes yet." : notes,
-            Icon = _draftIcon,
+            using var imageStream = new MemoryStream();
+            _draftIcon.Save(imageStream, PngBitmapEncoderOptions.Default);
+            iconPng = imageStream.ToArray();
+        }
+        var entry = new DashboardEntry(new VaultEntry
+        {
+            Id = _editingEntry?.Id ?? Guid.NewGuid(),
+            ServiceName = service,
+            AccountLabel = account,
+            Website = website.Length == 0 ? null : website,
+            Notes = notes,
+            BackupCodes = codes,
+            IconPng = iconPng,
             HasCustomIcon = _customIcon,
+        })
+        {
+            Icon = _draftIcon,
         };
 
         var positions = CaptureCardPositions();
@@ -308,6 +334,14 @@ public partial class DashboardView : UserControl
         AnimateCardPositions(positions);
         _ownsDraftIcon = false; // The saved entry now owns this image.
         CloseEntry(sender, e);
+    }
+
+    // Code usage: an explicit toggle updates both the details panel and dashboard badge.
+    private void ChangeCodeUsage(object? sender, RoutedEventArgs e)
+    {
+        if (sender is CheckBox { DataContext: BackupCode code } checkBox
+            && DetailsPanel.DataContext is DashboardEntry entry)
+            entry.SetCodeUsed(code, checkBox.IsChecked == true);
     }
 
     // Account images: custom uploads win over cancellable, debounced website lookup.

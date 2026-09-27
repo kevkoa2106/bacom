@@ -307,13 +307,30 @@
                                     <TextBlock Text="No codes left — generate a new set from this service."
                                         IsVisible="{Binding IsEmpty}" Foreground="#F2A0AD" FontSize="13"
                                         TextWrapping="Wrap" Margin="0,10,0,0" />
+                                    <!-- Backup code usage: checked means the code has been redeemed -->
+                                    <TextBlock Text="Check Used after redeeming a code. Uncheck to undo."
+                                        Foreground="#A6A6AD" FontSize="12" TextWrapping="Wrap" Margin="0,12,0,6" />
+                                    <ItemsControl x:Name="BackupCodesList" ItemsSource="{Binding BackupCodes}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate x:DataType="models:BackupCode">
+                                                <Border Background="#161619" CornerRadius="6" Padding="10" Margin="0,4">
+                                                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                                                        <SelectableTextBlock Text="{Binding Value}" Foreground="White"
+                                                            TextWrapping="Wrap" VerticalAlignment="Center" />
+                                                        <CheckBox Grid.Column="1" Content="Used" Foreground="#B9B9C0"
+                                                            IsChecked="{Binding IsUsed, Mode=OneWay}" Click="ChangeCodeUsage" />
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
                                 </StackPanel>
                                 <StackPanel>
                                     <TextBlock Text="NOTES" Classes="detail-label" />
                                     <TextBlock Text="{Binding Notes}" Classes="detail-value" />
                                 </StackPanel>
                                 <Border Background="#222226" Padding="14" CornerRadius="8">
-                                    <TextBlock Text="Entries are kept for this session. Only the code count is recorded here."
+                                    <TextBlock Text="Entries and codes are kept for this session only."
                                         Foreground="#A6A6AD" FontSize="13" TextWrapping="Wrap" />
                                 </Border>
                             </StackPanel>
@@ -362,9 +379,13 @@
                                             AutomationProperties.Name="Website" TextChanged="WebsiteChanged" />
                                     </StackPanel>
                                     <StackPanel Spacing="4">
-                                        <TextBlock Text="Remaining code count" Classes="detail-label" />
-                                        <TextBox x:Name="CodeCountInput" Classes="entry-input" Text="0" MaxLength="4"
-                                            AutomationProperties.Name="Remaining code count" />
+                                        <TextBlock Text="Backup codes (one per line)" Classes="detail-label" />
+                                        <TextBox x:Name="BackupCodesInput" Classes="entry-input" AcceptsReturn="True"
+                                            TextWrapping="Wrap" MinHeight="100" MaxHeight="180"
+                                            PlaceholderText="Paste your backup codes here"
+                                            AutomationProperties.Name="Backup codes, one per line" />
+                                        <TextBlock Text="Blank lines are ignored. Existing codes keep their used status when edited."
+                                            Foreground="#A6A6AD" FontSize="12" TextWrapping="Wrap" />
                                     </StackPanel>
                                     <StackPanel Spacing="4">
                                         <TextBlock Text="Notes (optional)" Classes="detail-label" />
@@ -372,7 +393,7 @@
                                             TextWrapping="Wrap" MinHeight="72" MaxHeight="120"
                                             AutomationProperties.Name="Notes" />
                                     </StackPanel>
-                                    <TextBlock Text="Entries are kept for this session. Only the code count is recorded here."
+                                    <TextBlock Text="Entries and codes are kept for this session only."
                                         Foreground="#A6A6AD" FontSize="12" TextWrapping="Wrap" />
                                 </StackPanel>
                             </ScrollViewer>
