@@ -12,18 +12,18 @@ public partial class LoginView : UserControl
 {
     public LoginView() { InitializeComponent(); }
 
-    // Unlocking: Keychain releases the key; only a successfully decrypted vault opens.
+    // Unlocking: the platform secret store releases the key before decryption.
     private async void AuthUser(object? sender, RoutedEventArgs e)
     {
         if (!UnlockButton.IsEnabled) return;
         UnlockButton.IsEnabled = false;
         RestoreLoginButton.IsEnabled = false;
-        LoginStatus.Text = "Approve the macOS Keychain prompt to unlock your vault.";
+        LoginStatus.Text = VaultKey.UnlockHint;
         VaultStore? store = null;
         try
         {
             var path = VaultStore.DefaultPath;
-            var key = await Task.Run(() => MacVaultKey.Unlock(allowCreate: !File.Exists(path)));
+            var key = await Task.Run(() => VaultKey.Unlock(allowCreate: !File.Exists(path)));
             try { store = new VaultStore(path, key); }
             finally { CryptographicOperations.ZeroMemory(key); }
             var data = await Task.Run(() =>
@@ -43,8 +43,8 @@ public partial class LoginView : UserControl
         catch (Exception ex) when (ex is CryptographicException or IOException or UnauthorizedAccessException
             or PlatformNotSupportedException or System.Text.Json.JsonException or ArgumentException)
         {
-            LoginStatus.Text = ex is PlatformNotSupportedException ? ex.Message
-                : "Could not unlock the vault. Approve Keychain access and close any other Bacom window. If the key or file is damaged, restore a backup. Your existing vault was not reset.";
+            LoginStatus.Text = ex is PlatformNotSupportedException or VaultKeyException ? ex.Message
+                : "Could not unlock the vault. Allow access to your system's secret store and close any other Bacom window. If the key or file is damaged, restore a backup. Your existing vault was not reset.";
         }
         finally { store?.Dispose(); UnlockButton.IsEnabled = RestoreLoginButton.IsEnabled = true; }
     }
@@ -58,7 +58,7 @@ public partial class LoginView : UserControl
         {
             var dialog = new BackupWindow(null, data => Task.Run(() =>
             {
-                var key = MacVaultKey.Unlock(allowCreate: true);
+                var key = VaultKey.Unlock(allowCreate: true);
                 try
                 {
                     using var store = new VaultStore(VaultStore.DefaultPath, key);

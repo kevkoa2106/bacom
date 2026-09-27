@@ -1,2 +1,4 @@
 /bin
 .grepai/
+checks/**/bin/
+checks/**/obj/

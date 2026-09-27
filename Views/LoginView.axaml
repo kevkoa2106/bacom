@@ -6,7 +6,7 @@
              x:Class="bacom.Views.LoginView">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20" MaxWidth="420" Margin="24">
         <TextBlock Text="Bacom" FontSize="48" FontWeight="SemiBold" HorizontalAlignment="Center"/>
-        <TextBlock Text="Your backup codes, encrypted on this Mac." TextWrapping="Wrap" TextAlignment="Center"/>
+        <TextBlock Text="Your backup codes, encrypted on this computer." TextWrapping="Wrap" TextAlignment="Center"/>
         <Button x:Name="UnlockButton" Content="Unlock vault" Classes="primary" Width="160" Height="45" FontSize="18" Background="#007aff" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="AuthUser"/>
         <TextBlock x:Name="LoginStatus" Text="First time? Unlock to create your encrypted vault."
             TextWrapping="Wrap" TextAlignment="Center" Foreground="#A6A6AD"/>

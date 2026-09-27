@@ -2,14 +2,16 @@
   "0": "DashboardView",
   "1": "App.axaml.cs",
   "2": "Bacom (Backup Code Manager)",
-  "3": "DashboardView.axaml.cs",
+  "3": "system",
   "4": "bacom.csproj",
   "5": "DashboardEntry",
   "6": "Dashboard file map",
   "7": ".Unlock",
-  "8": "BackupWindow",
+  "8": "LinuxVaultKey",
   "9": "new-entry.sh",
   "10": ".LoadImageAsync",
   "11": "VaultData",
-  "12": "vault.sh"
+  "12": "vault.sh",
+  "13": "NativeCleanup",
+  "14": ".Unlock"
 }

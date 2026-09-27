@@ -97,7 +97,8 @@ public partial class BackupWindow : Window
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or CryptographicException
             or System.Text.Json.JsonException or ArgumentException or PlatformNotSupportedException)
         {
-            BackupStatus.Text = "Could not complete this operation. Check the backup password, file and Keychain access, and available disk space. Your current accounts were not replaced.";
+            BackupStatus.Text = ex is VaultKeyException ? ex.Message
+                : "Could not complete this operation. Check the backup password, file, system secret-store access and available disk space. Your current accounts were not replaced.";
         }
         finally { _busy = false; BackupForm.IsEnabled = true; }
     }

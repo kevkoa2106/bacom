@@ -11,7 +11,7 @@ Bacom is a cross-platform desktop application for securely storing and managing 
 - **Framework:** [Avalonia UI](https://avaloniaui.net/) 12.1
 - **Runtime:** .NET 10
 - **Language:** C#
-- **Platforms:** Avalonia UI supports macOS, Windows and Linux; encrypted vault unlocking currently supports macOS Keychain only.
+- **Platforms:** macOS (Keychain), Windows (Credential Manager), Linux (libsecret / Secret Service desktop keyring).
 - **Build:** AOT-compatible, size-optimized publishing
 
 ## Project Structure
@@ -63,6 +63,17 @@ after confirmation and retains an encrypted copy of the old local vault.
 See [storage details and limitations](docs/storage.md) and [TODO.md](TODO.md).
 Run `sh checks/vault.sh` and `sh checks/new-entry.sh` for automated storage and UI
 checks. Native Keychain approval and file-picker interaction need a desktop check.
+
+On Linux, install `libsecret` and run a Secret Service provider in your desktop
+session (for example GNOME Keyring, or a compatible KDE Wallet configuration).
+Debian/Ubuntu packages are `libsecret-1-0` and `gnome-keyring`. A locked keyring may
+prompt for its password. Windows uses the signed-in user's Credential Manager;
+unlocking does not request Windows Hello. Neither platform writes a plaintext key
+file if the system credential store is unavailable.
+
+Run `dotnet run --project checks/platform-keys/PlatformChecks.csproj -- --native`
+on Windows or Linux to check native key creation/retrieval using a disposable test
+credential. This test never uses the real Bacom key and deletes its own credential.
 
 ## License
 

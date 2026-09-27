@@ -1,0 +1,27 @@
+name: Native vault keys
+on: [push, pull_request]
+jobs:
+  credential-store:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Install Linux keyring
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libsecret-1-0 gnome-keyring dbus-x11
+      - name: Test Windows credentials
+        if: runner.os == 'Windows'
+        run: dotnet run --project checks/platform-keys/PlatformChecks.csproj -p:UsedAvaloniaProducts= -- --native
+      - name: Test isolated Linux keyring session
+        if: runner.os == 'Linux'
+        run: |
+          dbus-run-session -- sh -c '
+            printf "%s" "disposable-ci-keyring-password" | gnome-keyring-daemon --unlock
+            dotnet run --project checks/platform-keys/PlatformChecks.csproj -p:UsedAvaloniaProducts= -- --native
+          '

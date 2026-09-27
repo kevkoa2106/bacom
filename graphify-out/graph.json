@@ -121,6 +121,25 @@
       "source_location": "L7"
     },
     {
+      "id": "services_vaultbackup_bacom_services_vaultbackup",
+      "label": "VaultBackup",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": "vaultbackup",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L8"
+    },
+    {
       "id": "services_vaultcodec_bacom_services_vaultcodec",
       "label": "VaultCodec",
       "_callable": true,
@@ -159,6 +178,26 @@
       "source_location": "L9"
     },
     {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "label": "BackupWindow",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "is_partial": true,
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": "backupwindow",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L13"
+    },
+    {
       "id": "views_loginview_axaml_bacom_views_loginview",
       "label": "LoginView",
       "_callable": true,
@@ -179,13 +218,84 @@
       "source_location": "L11"
     },
     {
+      "id": "checks_platform_keys_program_nativecleanup",
+      "label": "NativeCleanup",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": "nativecleanup",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L44"
+    },
+    {
+      "id": "services_windowsvaultkey_bacom_services_credential",
+      "label": "Credential",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "metadata": {
+        "is_nested_type": true,
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s89"
+        ]
+      },
+      "norm_label": "credential",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L48"
+    },
+    {
+      "id": "services_windowsvaultkey_bacom_services_windowsvaultkey",
+      "label": "WindowsVaultKey",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s89"
+        ]
+      },
+      "norm_label": "windowsvaultkey",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L7"
+    },
+    {
+      "id": "services_vaultkey_bacom_services_vaultkey",
+      "label": "VaultKey",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Bacom (Backup Code Manager)",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s68"
+        ]
+      },
+      "norm_label": "vaultkey",
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L7"
+    },
+    {
       "id": "services_vaultcodec_bacom_services_vaultjsoncontext",
       "label": "VaultJsonContext",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "metadata": {
         "is_partial": true,
@@ -314,43 +424,62 @@
       "source_location": "L60"
     },
     {
-      "id": "services_vaultbackup_bacom_services_vaultbackup",
-      "label": "VaultBackup",
+      "id": "services_linuxvaultkey_bacom_services_attributes",
+      "label": "Attributes",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "BackupWindow",
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "is_nested_type": true,
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": "attributes",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L81"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "label": "LinuxVaultKey",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
         "scope_chain": [
-          "s88"
+          "s113"
         ]
       },
-      "norm_label": "vaultbackup",
-      "source_file": "Services/VaultBackup.cs",
+      "norm_label": "linuxvaultkey",
+      "source_file": "Services/LinuxVaultKey.cs",
       "source_location": "L8"
     },
     {
-      "id": "views_backupwindow_axaml_bacom_views_backupwindow",
-      "label": "BackupWindow",
+      "id": "services_vaultkey_bacom_services_vaultkeyexception",
+      "label": "VaultKeyException",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "BackupWindow",
+      "community_name": "LinuxVaultKey",
       "file_type": "code",
       "metadata": {
-        "is_partial": true,
-        "namespace": "bacom.Views",
+        "namespace": "bacom.Services",
         "scope_chain": [
-          "s228"
+          "s68"
         ]
       },
-      "norm_label": "backupwindow",
-      "source_file": "Views/BackupWindow.axaml.cs",
-      "source_location": "L13"
+      "norm_label": "vaultkeyexception",
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L33"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
@@ -1289,6 +1418,44 @@
       "source_location": "L25"
     },
     {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_loadentries",
+      "label": ".LoadEntries()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".LoadImageAsync",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Add",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L91"
+          },
+          {
+            "callee": "Clear",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L96"
+          },
+          {
+            "callee": "AddRange",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L96"
+          }
+        ]
+      },
+      "norm_label": ".loadentries()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L78"
+    },
+    {
       "id": "mainwindow_axaml_bacom_mainwindow_navigateto",
       "label": ".NavigateTo()",
       "_callable": true,
@@ -1305,6 +1472,90 @@
       "norm_label": ".navigateto()",
       "source_file": "MainWindow.axaml.cs",
       "source_location": "L18"
+    },
+    {
+      "id": "services_vaultbackup_bacom_services_vaultbackup_derive",
+      "label": ".Derive()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Pbkdf2",
+            "receiver_type": "Rfc2898DeriveBytes",
+            "lang": "csharp",
+            "line": "L42"
+          }
+        ]
+      },
+      "norm_label": ".derive()",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L41"
+    },
+    {
+      "id": "services_vaultbackup_bacom_services_vaultbackup_export",
+      "label": ".Export()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetBytes",
+            "receiver_type": "RandomNumberGenerator",
+            "lang": "csharp",
+            "line": "L18"
+          },
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L28"
+          }
+        ]
+      },
+      "norm_label": ".export()",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L14"
+    },
+    {
+      "id": "services_vaultbackup_bacom_services_vaultbackup_import",
+      "label": ".Import()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L38"
+          }
+        ]
+      },
+      "norm_label": ".import()",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L31"
     },
     {
       "id": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
@@ -1425,6 +1676,56 @@
       "norm_label": ".validate()",
       "source_file": "Services/VaultCodec.cs",
       "source_location": "L57"
+    },
+    {
+      "id": "services_vaultkey_bacom_services_vaultkey_unlock",
+      "label": ".Unlock()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s68"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "CreateDirectory",
+            "receiver_type": "Directory",
+            "lang": "csharp",
+            "line": "L18"
+          },
+          {
+            "callee": "GetDirectoryName",
+            "receiver_type": "Path",
+            "lang": "csharp",
+            "line": "L18"
+          },
+          {
+            "callee": "IsMacOS",
+            "receiver_type": "OperatingSystem",
+            "lang": "csharp",
+            "line": "L20"
+          },
+          {
+            "callee": "IsWindows",
+            "receiver_type": "OperatingSystem",
+            "lang": "csharp",
+            "line": "L21"
+          },
+          {
+            "callee": "IsLinux",
+            "receiver_type": "OperatingSystem",
+            "lang": "csharp",
+            "line": "L22"
+          }
+        ]
+      },
+      "norm_label": ".unlock()",
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L14"
     },
     {
       "id": "services_vaultstore_bacom_services_vaultstore_dispose",
@@ -1631,8 +1932,8 @@
       "source_location": "L67"
     },
     {
-      "id": "views_dashboardview_axaml_bacom_views_dashboardview_loadentries",
-      "label": ".LoadEntries()",
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_choosebackup",
+      "label": ".ChooseBackup()",
       "_callable": true,
       "_origin": "ast",
       "community": 11,
@@ -1641,32 +1942,136 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s510"
+          "s228"
         ],
         "unresolved_calls": [
           {
-            "callee": "Add",
-            "receiver_type": "List",
+            "callee": "OpenFilePickerAsync",
+            "receiver_type": "StorageProvider",
             "lang": "csharp",
-            "line": "L91"
+            "line": "L72"
           },
           {
-            "callee": "Clear",
-            "receiver_type": "List",
+            "callee": "Run",
+            "receiver_type": "Task",
             "lang": "csharp",
-            "line": "L96"
-          },
-          {
-            "callee": "AddRange",
-            "receiver_type": "List",
-            "lang": "csharp",
-            "line": "L96"
+            "line": "L76"
           }
         ]
       },
-      "norm_label": ".loadentries()",
-      "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L78"
+      "norm_label": ".choosebackup()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L64"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_closebackup",
+      "label": ".CloseBackup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": ".closebackup()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L106"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_exportbackup",
+      "label": ".ExportBackup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "SaveFilePickerAsync",
+            "receiver_type": "StorageProvider",
+            "lang": "csharp",
+            "line": "L47"
+          },
+          {
+            "callee": "GetFullPath",
+            "receiver_type": "Path",
+            "lang": "csharp",
+            "line": "L54"
+          },
+          {
+            "callee": "Run",
+            "receiver_type": "Task",
+            "lang": "csharp",
+            "line": "L58"
+          }
+        ]
+      },
+      "norm_label": ".exportbackup()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L39"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_passwordchanged",
+      "label": ".PasswordChanged()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": ".passwordchanged()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L32"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_restorebackup",
+      "label": ".RestoreBackup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": ".restorebackup()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L83"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_run",
+      "label": ".Run()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": ".run()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L93"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_logout",
@@ -1813,6 +2218,252 @@
       "norm_label": ".restorefrombackup()",
       "source_file": "Views/LoginView.axaml.cs",
       "source_location": "L53"
+    },
+    {
+      "id": "checks_platform_keys_program_nativecleanup_creddeletew",
+      "label": ".CredDeleteW()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": ".creddeletew()",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L70"
+    },
+    {
+      "id": "checks_platform_keys_program_nativecleanup_delete",
+      "label": ".Delete()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "metadata": {
+        "unresolved_calls": [
+          {
+            "callee": "IsWindows",
+            "receiver_type": "OperatingSystem",
+            "lang": "csharp",
+            "line": "L48"
+          },
+          {
+            "callee": "GetLastWin32Error",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L50"
+          },
+          {
+            "callee": "Load",
+            "receiver_type": "NativeLibrary",
+            "lang": "csharp",
+            "line": "L54"
+          },
+          {
+            "callee": "GetExport",
+            "receiver_type": "NativeLibrary",
+            "lang": "csharp",
+            "line": "L55"
+          },
+          {
+            "callee": "StringToCoTaskMemUTF8",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L56"
+          },
+          {
+            "callee": "FreeCoTaskMem",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L67"
+          },
+          {
+            "callee": "Free",
+            "receiver_type": "NativeLibrary",
+            "lang": "csharp",
+            "line": "L67"
+          }
+        ]
+      },
+      "norm_label": ".delete()",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L46"
+    },
+    {
+      "id": "checks_platform_keys_program_nativecleanup_g_error_free",
+      "label": ".g_error_free()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": ".g_error_free()",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L76"
+    },
+    {
+      "id": "checks_platform_keys_program_nativecleanup_g_hash_table_insert",
+      "label": ".g_hash_table_insert()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": ".g_hash_table_insert()",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L74"
+    },
+    {
+      "id": "checks_platform_keys_program_nativecleanup_g_hash_table_new",
+      "label": ".g_hash_table_new()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": ".g_hash_table_new()",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L73"
+    },
+    {
+      "id": "checks_platform_keys_program_nativecleanup_g_hash_table_unref",
+      "label": ".g_hash_table_unref()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": ".g_hash_table_unref()",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L75"
+    },
+    {
+      "id": "checks_platform_keys_program_nativecleanup_secret_password_clearv_sync",
+      "label": ".secret_password_clearv_sync()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": ".secret_password_clearv_sync()",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L72"
+    },
+    {
+      "id": "services_windowsvaultkey_bacom_services_windowsvaultkey_credfree",
+      "label": ".CredFree()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s89"
+        ]
+      },
+      "norm_label": ".credfree()",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L69"
+    },
+    {
+      "id": "services_windowsvaultkey_bacom_services_windowsvaultkey_credreadw",
+      "label": ".CredReadW()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s89"
+        ]
+      },
+      "norm_label": ".credreadw()",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L63"
+    },
+    {
+      "id": "services_windowsvaultkey_bacom_services_windowsvaultkey_credwritew",
+      "label": ".CredWriteW()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s89"
+        ]
+      },
+      "norm_label": ".credwritew()",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L66"
+    },
+    {
+      "id": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "label": ".Unlock()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s89"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "PtrToStructure",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L15"
+          },
+          {
+            "callee": "Copy",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L19"
+          },
+          {
+            "callee": "GetLastWin32Error",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L24"
+          },
+          {
+            "callee": "GetBytes",
+            "receiver_type": "RandomNumberGenerator",
+            "lang": "csharp",
+            "line": "L28"
+          },
+          {
+            "callee": "AllocHGlobal",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L29"
+          },
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L41"
+          },
+          {
+            "callee": "FreeHGlobal",
+            "receiver_type": "Marshal",
+            "lang": "csharp",
+            "line": "L43"
+          }
+        ]
+      },
+      "norm_label": ".unlock()",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L9"
     },
     {
       "id": "models_dashboardentry_bacom_models_dashboardentry_setcodeused",
@@ -2257,230 +2908,344 @@
       "source_location": "L75"
     },
     {
-      "id": "services_vaultbackup_bacom_services_vaultbackup_derive",
-      "label": ".Derive()",
+      "id": "services_linuxvaultkey_bacom_services_attributes_dispose",
+      "label": ".Dispose()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "BackupWindow",
+      "community_name": "LinuxVaultKey",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
         "scope_chain": [
-          "s88"
+          "s113"
         ],
         "unresolved_calls": [
           {
-            "callee": "Pbkdf2",
-            "receiver_type": "Rfc2898DeriveBytes",
+            "callee": "FreeCoTaskMem",
+            "receiver_type": "Marshal",
             "lang": "csharp",
-            "line": "L42"
+            "line": "L97"
+          },
+          {
+            "callee": "Free",
+            "receiver_type": "NativeLibrary",
+            "lang": "csharp",
+            "line": "L98"
           }
         ]
       },
-      "norm_label": ".derive()",
-      "source_file": "Services/VaultBackup.cs",
-      "source_location": "L41"
+      "norm_label": ".dispose()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L94"
     },
     {
-      "id": "services_vaultbackup_bacom_services_vaultbackup_export",
-      "label": ".Export()",
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_checkerror",
+      "label": ".CheckError()",
       "_callable": true,
       "_origin": "ast",
       "community": 8,
-      "community_name": "BackupWindow",
+      "community_name": "LinuxVaultKey",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
         "scope_chain": [
-          "s88"
+          "s113"
+        ]
+      },
+      "norm_label": ".checkerror()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L74"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_cancel",
+      "label": ".g_cancellable_cancel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".g_cancellable_cancel()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L114"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_new",
+      "label": ".g_cancellable_new()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".g_cancellable_new()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L113"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_error_free",
+      "label": ".g_error_free()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".g_error_free()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L112"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_insert",
+      "label": ".g_hash_table_insert()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".g_hash_table_insert()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L110"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_new",
+      "label": ".g_hash_table_new()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".g_hash_table_new()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L109"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_unref",
+      "label": ".g_hash_table_unref()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".g_hash_table_unref()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L111"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_list_free_full",
+      "label": ".g_list_free_full()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".g_list_free_full()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L108"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_object_unref",
+      "label": ".g_object_unref()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".g_object_unref()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L115"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_free",
+      "label": ".secret_password_free()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".secret_password_free()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L106"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_lookupv_sync",
+      "label": ".secret_password_lookupv_sync()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".secret_password_lookupv_sync()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L102"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_searchv_sync",
+      "label": ".secret_password_searchv_sync()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".secret_password_searchv_sync()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L107"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_storev_sync",
+      "label": ".secret_password_storev_sync()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
+        ]
+      },
+      "norm_label": ".secret_password_storev_sync()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L103"
+    },
+    {
+      "id": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "label": ".Unlock()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "LinuxVaultKey",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s113"
         ],
         "unresolved_calls": [
           {
-            "callee": "GetBytes",
-            "receiver_type": "RandomNumberGenerator",
+            "callee": "FromMinutes",
+            "receiver_type": "TimeSpan",
             "lang": "csharp",
-            "line": "L18"
+            "line": "L20"
           },
           {
-            "callee": "ZeroMemory",
-            "receiver_type": "CryptographicOperations",
+            "callee": "PtrToStringUTF8",
+            "receiver_type": "Marshal",
             "lang": "csharp",
             "line": "L28"
-          }
-        ]
-      },
-      "norm_label": ".export()",
-      "source_file": "Services/VaultBackup.cs",
-      "source_location": "L14"
-    },
-    {
-      "id": "services_vaultbackup_bacom_services_vaultbackup_import",
-      "label": ".Import()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Services",
-        "scope_chain": [
-          "s88"
-        ],
-        "unresolved_calls": [
+          },
+          {
+            "callee": "TryFromBase64String",
+            "receiver_type": "Convert",
+            "lang": "csharp",
+            "line": "L30"
+          },
           {
             "callee": "ZeroMemory",
             "receiver_type": "CryptographicOperations",
             "lang": "csharp",
-            "line": "L38"
-          }
-        ]
-      },
-      "norm_label": ".import()",
-      "source_file": "Services/VaultBackup.cs",
-      "source_location": "L31"
-    },
-    {
-      "id": "views_backupwindow_axaml_bacom_views_backupwindow_choosebackup",
-      "label": ".ChooseBackup()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s228"
-        ],
-        "unresolved_calls": [
-          {
-            "callee": "OpenFilePickerAsync",
-            "receiver_type": "StorageProvider",
-            "lang": "csharp",
-            "line": "L72"
+            "line": "L32"
           },
           {
-            "callee": "Run",
-            "receiver_type": "Task",
-            "lang": "csharp",
-            "line": "L76"
-          }
-        ]
-      },
-      "norm_label": ".choosebackup()",
-      "source_file": "Views/BackupWindow.axaml.cs",
-      "source_location": "L64"
-    },
-    {
-      "id": "views_backupwindow_axaml_bacom_views_backupwindow_closebackup",
-      "label": ".CloseBackup()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s228"
-        ]
-      },
-      "norm_label": ".closebackup()",
-      "source_file": "Views/BackupWindow.axaml.cs",
-      "source_location": "L105"
-    },
-    {
-      "id": "views_backupwindow_axaml_bacom_views_backupwindow_exportbackup",
-      "label": ".ExportBackup()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s228"
-        ],
-        "unresolved_calls": [
-          {
-            "callee": "SaveFilePickerAsync",
-            "receiver_type": "StorageProvider",
-            "lang": "csharp",
-            "line": "L47"
-          },
-          {
-            "callee": "GetFullPath",
-            "receiver_type": "Path",
+            "callee": "Load",
+            "receiver_type": "NativeLibrary",
             "lang": "csharp",
             "line": "L54"
           },
           {
-            "callee": "Run",
-            "receiver_type": "Task",
+            "callee": "GetExport",
+            "receiver_type": "NativeLibrary",
             "lang": "csharp",
-            "line": "L58"
+            "line": "L55"
+          },
+          {
+            "callee": "Free",
+            "receiver_type": "NativeLibrary",
+            "lang": "csharp",
+            "line": "L56"
+          },
+          {
+            "callee": "GetBytes",
+            "receiver_type": "RandomNumberGenerator",
+            "lang": "csharp",
+            "line": "L60"
+          },
+          {
+            "callee": "ToBase64String",
+            "receiver_type": "Convert",
+            "lang": "csharp",
+            "line": "L64"
           }
         ]
       },
-      "norm_label": ".exportbackup()",
-      "source_file": "Views/BackupWindow.axaml.cs",
-      "source_location": "L39"
-    },
-    {
-      "id": "views_backupwindow_axaml_bacom_views_backupwindow_passwordchanged",
-      "label": ".PasswordChanged()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s228"
-        ]
-      },
-      "norm_label": ".passwordchanged()",
-      "source_file": "Views/BackupWindow.axaml.cs",
-      "source_location": "L32"
-    },
-    {
-      "id": "views_backupwindow_axaml_bacom_views_backupwindow_restorebackup",
-      "label": ".RestoreBackup()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s228"
-        ]
-      },
-      "norm_label": ".restorebackup()",
-      "source_file": "Views/BackupWindow.axaml.cs",
-      "source_location": "L83"
-    },
-    {
-      "id": "views_backupwindow_axaml_bacom_views_backupwindow_run",
-      "label": ".Run()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s228"
-        ]
-      },
-      "norm_label": ".run()",
-      "source_file": "Views/BackupWindow.axaml.cs",
-      "source_location": "L93"
+      "norm_label": ".unlock()",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L13"
     },
     {
       "id": "button",
@@ -2774,6 +3539,17 @@
       "source_location": ""
     },
     {
+      "id": "filepickerfiletype",
+      "label": "FilePickerFileType",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "filepickerfiletype",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "filestream",
       "label": "FileStream",
       "_origin": "ast",
@@ -2781,6 +3557,28 @@
       "community_name": "VaultData",
       "file_type": "code",
       "norm_label": "filestream",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "func",
+      "label": "Func",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "func",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "idisposable",
+      "label": "IDisposable",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "idisposable",
       "source_file": "",
       "source_location": ""
     },
@@ -2837,6 +3635,34 @@
       "community_name": "VaultData",
       "file_type": "code",
       "norm_label": "list",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_vaultbackup_bacom_services_vaultbackup_header",
+      "label": "Header",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": "header",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L10"
+    },
+    {
+      "id": "services_vaultbackup_cs_readonlyspan",
+      "label": "ReadOnlySpan",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "readonlyspan",
       "source_file": "",
       "source_location": ""
     },
@@ -2910,6 +3736,39 @@
       "community_name": "VaultData",
       "file_type": "code",
       "norm_label": "usercontrol",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "views_backupwindow_axaml_cs_routedeventargs",
+      "label": "RoutedEventArgs",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "routedeventargs",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "views_backupwindow_axaml_cs_task",
+      "label": "Task",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "task",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "views_backupwindow_axaml_cs_textchangedeventargs",
+      "label": "TextChangedEventArgs",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "textchangedeventargs",
       "source_file": "",
       "source_location": ""
     },
@@ -3009,6 +3868,111 @@
       "source_location": "L1"
     },
     {
+      "id": "checks_platform_keys_program_cs_dllimport",
+      "label": "DllImport",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": "dllimport",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "checks_platform_keys_program_cs_intptr",
+      "label": "IntPtr",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": "intptr",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "checks_platform_keys_program_cs_marshalas",
+      "label": "MarshalAs",
+      "_origin": "ast",
+      "community": 13,
+      "community_name": "NativeCleanup",
+      "file_type": "code",
+      "norm_label": "marshalas",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "credential",
+      "label": "Credential",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "norm_label": "credential",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "filetime",
+      "label": "FILETIME",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "norm_label": "filetime",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_windowsvaultkey_cs_dllimport",
+      "label": "DllImport",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "norm_label": "dllimport",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_windowsvaultkey_cs_intptr",
+      "label": "IntPtr",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "norm_label": "intptr",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_windowsvaultkey_cs_marshalas",
+      "label": "MarshalAs",
+      "_origin": "ast",
+      "community": 14,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "norm_label": "marshalas",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_vaultkey_bacom_services_vaultkey_unlockhint",
+      "label": "UnlockHint",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Bacom (Backup Code Manager)",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s68"
+        ]
+      },
+      "norm_label": "unlockhint",
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L9"
+    },
+    {
       "id": "docs_storage",
       "label": "storage.md",
       "_origin": "ast",
@@ -3033,6 +3997,18 @@
       "source_location": "L1"
     },
     {
+      "id": "docs_storage_native_platform_verification",
+      "label": "Native platform verification",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Bacom (Backup Code Manager)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "native platform verification",
+      "source_file": "docs/storage.md",
+      "source_location": "L88"
+    },
+    {
       "id": "docs_storage_password_backups_and_recovery",
       "label": "Password backups and recovery",
       "_origin": "ast",
@@ -3042,7 +4018,7 @@
       "node_kind": "heading",
       "norm_label": "password backups and recovery",
       "source_file": "docs/storage.md",
-      "source_location": "L41"
+      "source_location": "L60"
     },
     {
       "id": "readme",
@@ -3090,7 +4066,7 @@
       "node_kind": "heading",
       "norm_label": "license",
       "source_file": "README.md",
-      "source_location": "L67"
+      "source_location": "L78"
     },
     {
       "id": "readme_overview",
@@ -3201,11 +4177,22 @@
       "source_location": "L1"
     },
     {
+      "id": "checks_platform_keys_program",
+      "label": "platform-keys/Program.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "system",
+      "file_type": "code",
+      "norm_label": "platform-keys/program.cs",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L1"
+    },
+    {
       "id": "csharp_namespace:08a367a0abd9bd0f",
       "label": "bacom.Views",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "metadata": {
         "kind": "csharp_namespace",
@@ -3221,7 +4208,7 @@
       "label": "bacom.Services",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "metadata": {
         "kind": "csharp_namespace",
@@ -3237,7 +4224,7 @@
       "label": "bacom.Models",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "metadata": {
         "kind": "csharp_namespace",
@@ -3253,7 +4240,7 @@
       "label": "JsonSerializerContext",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "jsonserializercontext",
       "source_file": "",
@@ -3264,21 +4251,10 @@
       "label": "MainWindow.axaml.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "mainwindow.axaml.cs",
       "source_file": "MainWindow.axaml.cs",
-      "source_location": "L1"
-    },
-    {
-      "id": "models_backupcode",
-      "label": "BackupCode.cs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "DashboardView.axaml.cs",
-      "file_type": "code",
-      "norm_label": "backupcode.cs",
-      "source_file": "Models/BackupCode.cs",
       "source_location": "L1"
     },
     {
@@ -3286,7 +4262,7 @@
       "label": "DashboardEntry.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "dashboardentry.cs",
       "source_file": "Models/DashboardEntry.cs",
@@ -3297,7 +4273,7 @@
       "label": "VaultData.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "vaultdata.cs",
       "source_file": "Models/VaultData.cs",
@@ -3308,7 +4284,7 @@
       "label": "VaultEntry.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "vaultentry.cs",
       "source_file": "Models/VaultEntry.cs",
@@ -3319,7 +4295,7 @@
       "label": "net10.0/bacom.AssemblyInfo.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "net10.0/bacom.assemblyinfo.cs",
       "source_file": "obj/Debug/net10.0/bacom.AssemblyInfo.cs",
@@ -3330,7 +4306,7 @@
       "label": "net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "net10.0/.netcoreapp,version=v10.0.assemblyattributes.cs",
       "source_file": "obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
@@ -3341,7 +4317,7 @@
       "label": "osx-arm64/bacom.AssemblyInfo.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "osx-arm64/bacom.assemblyinfo.cs",
       "source_file": "obj/Release/net10.0/osx-arm64/bacom.AssemblyInfo.cs",
@@ -3352,7 +4328,7 @@
       "label": "osx-arm64/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "osx-arm64/.netcoreapp,version=v10.0.assemblyattributes.cs",
       "source_file": "obj/Release/net10.0/osx-arm64/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs",
@@ -3363,7 +4339,7 @@
       "label": "BackupCodeParser.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "backupcodeparser.cs",
       "source_file": "Services/BackupCodeParser.cs",
@@ -3374,10 +4350,21 @@
       "label": "EntryIconLoader.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "entryiconloader.cs",
       "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_linuxvaultkey",
+      "label": "LinuxVaultKey.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "system",
+      "file_type": "code",
+      "norm_label": "linuxvaultkey.cs",
+      "source_file": "Services/LinuxVaultKey.cs",
       "source_location": "L1"
     },
     {
@@ -3385,7 +4372,7 @@
       "label": "MacVaultKey.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "macvaultkey.cs",
       "source_file": "Services/MacVaultKey.cs",
@@ -3396,7 +4383,7 @@
       "label": "VaultBackup.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "vaultbackup.cs",
       "source_file": "Services/VaultBackup.cs",
@@ -3407,10 +4394,21 @@
       "label": "VaultCodec.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "vaultcodec.cs",
       "source_file": "Services/VaultCodec.cs",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_vaultkey",
+      "label": "VaultKey.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "system",
+      "file_type": "code",
+      "norm_label": "vaultkey.cs",
+      "source_file": "Services/VaultKey.cs",
       "source_location": "L1"
     },
     {
@@ -3418,10 +4416,21 @@
       "label": "VaultStore.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "vaultstore.cs",
       "source_file": "Services/VaultStore.cs",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_windowsvaultkey",
+      "label": "WindowsVaultKey.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "system",
+      "file_type": "code",
+      "norm_label": "windowsvaultkey.cs",
+      "source_file": "Services/WindowsVaultKey.cs",
       "source_location": "L1"
     },
     {
@@ -3429,7 +4438,7 @@
       "label": "BackupWindow.axaml.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "backupwindow.axaml.cs",
       "source_file": "Views/BackupWindow.axaml.cs",
@@ -3440,7 +4449,7 @@
       "label": "DashboardView.axaml.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "dashboardview.axaml.cs",
       "source_file": "Views/DashboardView.axaml.cs",
@@ -3451,7 +4460,7 @@
       "label": "LoginView.axaml.cs",
       "_origin": "ast",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "file_type": "code",
       "norm_label": "loginview.axaml.cs",
       "source_file": "Views/LoginView.axaml.cs",
@@ -3466,6 +4475,17 @@
       "file_type": "code",
       "norm_label": "bacom.csproj",
       "source_file": "bacom.csproj",
+      "source_location": null
+    },
+    {
+      "id": "checks_platform_keys_platformchecks",
+      "label": "PlatformChecks.csproj",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "bacom.csproj",
+      "file_type": "code",
+      "norm_label": "platformchecks.csproj",
+      "source_file": "checks/platform-keys/PlatformChecks.csproj",
       "source_location": null
     },
     {
@@ -3524,7 +4544,7 @@
       "source_location": null
     },
     {
-      "id": "framework_net10_0",
+      "id": "bacom_csproj_framework_net10_0",
       "label": "net10.0",
       "_origin": "ast",
       "community": 4,
@@ -3535,7 +4555,7 @@
       "source_location": null
     },
     {
-      "id": "sdk_microsoft_net_sdk",
+      "id": "bacom_csproj_sdk_microsoft_net_sdk",
       "label": "Microsoft.NET.Sdk",
       "_origin": "ast",
       "community": 4,
@@ -3543,6 +4563,28 @@
       "file_type": "concept",
       "norm_label": "microsoft.net.sdk",
       "source_file": "bacom.csproj",
+      "source_location": null
+    },
+    {
+      "id": "checks_platform_keys_platformchecks_csproj_framework_net10_0",
+      "label": "net10.0",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "bacom.csproj",
+      "file_type": "concept",
+      "norm_label": "net10.0",
+      "source_file": "checks/platform-keys/PlatformChecks.csproj",
+      "source_location": null
+    },
+    {
+      "id": "checks_platform_keys_platformchecks_csproj_sdk_microsoft_net_sdk",
+      "label": "Microsoft.NET.Sdk",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "bacom.csproj",
+      "file_type": "concept",
+      "norm_label": "microsoft.net.sdk",
+      "source_file": "checks/platform-keys/PlatformChecks.csproj",
       "source_location": null
     },
     {
@@ -3555,6 +4597,17 @@
       "norm_label": "inotifypropertychanged",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "models_backupcode",
+      "label": "BackupCode.cs",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "norm_label": "backupcode.cs",
+      "source_file": "Models/BackupCode.cs",
+      "source_location": "L1"
     },
     {
       "id": "models_backupcode_bacom_models_backupcode_id",
@@ -4248,39 +5301,6 @@
       "source_location": "L61"
     },
     {
-      "id": "dllimport",
-      "label": "DllImport",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": ".Unlock",
-      "file_type": "code",
-      "norm_label": "dllimport",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "idisposable",
-      "label": "IDisposable",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": ".Unlock",
-      "file_type": "code",
-      "norm_label": "idisposable",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "intptr",
-      "label": "IntPtr",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": ".Unlock",
-      "file_type": "code",
-      "norm_label": "intptr",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "services_macvaultkey_bacom_services_query_handle",
       "label": "Handle",
       "_origin": "ast",
@@ -4315,6 +5335,28 @@
       "source_location": "L73"
     },
     {
+      "id": "services_macvaultkey_cs_dllimport",
+      "label": "DllImport",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "norm_label": "dllimport",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_macvaultkey_cs_intptr",
+      "label": "IntPtr",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "norm_label": "intptr",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "services_macvaultkey_cs_list",
       "label": "List",
       "_origin": "ast",
@@ -4326,85 +5368,52 @@
       "source_location": ""
     },
     {
-      "id": "filepickerfiletype",
-      "label": "FilePickerFileType",
+      "id": "cryptographicexception",
+      "label": "CryptographicException",
       "_origin": "ast",
       "community": 8,
-      "community_name": "BackupWindow",
+      "community_name": "LinuxVaultKey",
       "file_type": "code",
-      "norm_label": "filepickerfiletype",
+      "norm_label": "cryptographicexception",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "func",
-      "label": "Func",
+      "id": "services_linuxvaultkey_bacom_services_attributes_handle",
+      "label": "Handle",
       "_origin": "ast",
       "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "norm_label": "func",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "services_vaultbackup_bacom_services_vaultbackup_header",
-      "label": "Header",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
+      "community_name": "LinuxVaultKey",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
         "scope_chain": [
-          "s88"
+          "s113"
         ]
       },
-      "norm_label": "header",
-      "source_file": "Services/VaultBackup.cs",
-      "source_location": "L10"
+      "norm_label": "handle",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L85"
     },
     {
-      "id": "services_vaultbackup_cs_readonlyspan",
-      "label": "ReadOnlySpan",
+      "id": "services_linuxvaultkey_cs_dllimport",
+      "label": "DllImport",
       "_origin": "ast",
       "community": 8,
-      "community_name": "BackupWindow",
+      "community_name": "LinuxVaultKey",
       "file_type": "code",
-      "norm_label": "readonlyspan",
+      "norm_label": "dllimport",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "views_backupwindow_axaml_cs_routedeventargs",
-      "label": "RoutedEventArgs",
+      "id": "services_linuxvaultkey_cs_intptr",
+      "label": "IntPtr",
       "_origin": "ast",
       "community": 8,
-      "community_name": "BackupWindow",
+      "community_name": "LinuxVaultKey",
       "file_type": "code",
-      "norm_label": "routedeventargs",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "views_backupwindow_axaml_cs_task",
-      "label": "Task",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "norm_label": "task",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "views_backupwindow_axaml_cs_textchangedeventargs",
-      "label": "TextChangedEventArgs",
-      "_origin": "ast",
-      "community": 8,
-      "community_name": "BackupWindow",
-      "file_type": "code",
-      "norm_label": "textchangedeventargs",
+      "norm_label": "intptr",
       "source_file": "",
       "source_location": ""
     },
@@ -4509,7 +5518,7 @@
       "label": "avalonia_animation",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_animation",
@@ -4521,7 +5530,7 @@
       "label": "avalonia_animation_easings",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_animation_easings",
@@ -4533,7 +5542,7 @@
       "label": "avalonia_controls",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_controls",
@@ -4545,7 +5554,7 @@
       "label": "avalonia_input",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_input",
@@ -4557,7 +5566,7 @@
       "label": "avalonia_interactivity",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_interactivity",
@@ -4569,7 +5578,7 @@
       "label": "avalonia_media",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_media",
@@ -4581,7 +5590,7 @@
       "label": "avalonia_media_imaging",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_media_imaging",
@@ -4593,7 +5602,7 @@
       "label": "avalonia_platform_storage",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_platform_storage",
@@ -4605,7 +5614,7 @@
       "label": "avalonia_threading",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_threading",
@@ -4617,7 +5626,7 @@
       "label": "avalonia_visualtree",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "avalonia_visualtree",
@@ -4629,7 +5638,7 @@
       "label": "skiasharp",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "skiasharp",
@@ -4641,7 +5650,7 @@
       "label": "system",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system",
@@ -4653,7 +5662,7 @@
       "label": "system_collections_generic",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_collections_generic",
@@ -4665,7 +5674,7 @@
       "label": "system_collections_objectmodel",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_collections_objectmodel",
@@ -4677,7 +5686,7 @@
       "label": "system_componentmodel",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_componentmodel",
@@ -4689,7 +5698,7 @@
       "label": "system_diagnostics",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_diagnostics",
@@ -4701,7 +5710,7 @@
       "label": "system_io",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_io",
@@ -4713,7 +5722,7 @@
       "label": "system_linq",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_linq",
@@ -4725,7 +5734,7 @@
       "label": "system_net",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_net",
@@ -4737,7 +5746,7 @@
       "label": "system_net_http",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_net_http",
@@ -4749,7 +5758,7 @@
       "label": "system_reflection",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_reflection",
@@ -4761,7 +5770,7 @@
       "label": "system_runtime_interopservices",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_runtime_interopservices",
@@ -4773,7 +5782,7 @@
       "label": "system_security_cryptography",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_security_cryptography",
@@ -4785,7 +5794,7 @@
       "label": "system_text_json",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_text_json",
@@ -4797,7 +5806,7 @@
       "label": "system_text_json_serialization",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_text_json_serialization",
@@ -4809,7 +5818,7 @@
       "label": "system_text_regularexpressions",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_text_regularexpressions",
@@ -4821,7 +5830,7 @@
       "label": "system_threading",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_threading",
@@ -4833,7 +5842,7 @@
       "label": "system_threading_tasks",
       "_origin": "semantic",
       "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
       "norm_label": "system_threading_tasks",
@@ -4843,8 +5852,278 @@
   ],
   "links": [
     {
+      "source": "checks_platform_keys_program_nativecleanup_creddeletew",
+      "target": "checks_platform_keys_program_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_g_error_free",
+      "target": "checks_platform_keys_program_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_g_hash_table_insert",
+      "target": "checks_platform_keys_program_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_g_hash_table_new",
+      "target": "checks_platform_keys_program_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_g_hash_table_unref",
+      "target": "checks_platform_keys_program_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_secret_password_clearv_sync",
+      "target": "checks_platform_keys_program_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_cancel",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_new",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_error_free",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_insert",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_new",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_unref",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_list_free_full",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_object_unref",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_free",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_lookupv_sync",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_searchv_sync",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_storev_sync",
+      "target": "services_linuxvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfarraycreate",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4859,7 +6138,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatacreate",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4874,7 +6153,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetbyteptr",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4889,7 +6168,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetlength",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4904,7 +6183,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarycreatemutable",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4919,7 +6198,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionaryremovevalue",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4934,7 +6213,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarysetvalue",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4949,7 +6228,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfrelease",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4964,7 +6243,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfstringcreatewithcstring",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4979,7 +6258,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_secaccesscreate",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4994,7 +6273,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_secitemadd",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5009,7 +6288,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_secitemcopymatching",
-      "target": "dllimport",
+      "target": "services_macvaultkey_cs_dllimport",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5020,6 +6299,96 @@
       },
       "source_file": "Services/MacVaultKey.cs",
       "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_credfree",
+      "target": "services_windowsvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_credreadw",
+      "target": "services_windowsvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_credwritew",
+      "target": "services_windowsvaultkey_cs_dllimport",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "DllImport"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_creddeletew",
+      "target": "checks_platform_keys_program_cs_marshalas",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "MarshalAs"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_credreadw",
+      "target": "services_windowsvaultkey_cs_marshalas",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "MarshalAs"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_credwritew",
+      "target": "services_windowsvaultkey_cs_marshalas",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "attribute",
+      "metadata": {
+        "ref_token": "MarshalAs"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -5035,6 +6404,78 @@
       },
       "source_file": "Program.cs",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_delete",
+      "target": "checks_platform_keys_program_nativecleanup_creddeletew",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_delete",
+      "target": "checks_platform_keys_program_nativecleanup_g_hash_table_new",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_delete",
+      "target": "checks_platform_keys_program_nativecleanup_g_hash_table_insert",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_delete",
+      "target": "checks_platform_keys_program_nativecleanup_secret_password_clearv_sync",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_delete",
+      "target": "checks_platform_keys_program_nativecleanup_g_error_free",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_delete",
+      "target": "checks_platform_keys_program_nativecleanup_g_hash_table_unref",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -5059,6 +6500,162 @@
       "context": "call",
       "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_attributes_dispose",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_unref",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_checkerror",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_error_free",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_attributes",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_new",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_cancel",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_lookupv_sync",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_checkerror",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_free",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_searchv_sync",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_list_free_full",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_storev_sync",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_object_unref",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -5326,6 +6923,54 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultkey_bacom_services_vaultkey_unlock",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultkey_bacom_services_vaultkey_unlock",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultkey_bacom_services_vaultkey_unlock",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultkey_bacom_services_vaultkey_unlock",
+      "target": "services_vaultkey_bacom_services_vaultkeyexception",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultstore_bacom_services_vaultstore_load",
       "target": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
       "relation": "calls",
@@ -5431,6 +7076,66 @@
       "context": "call",
       "source_file": "Services/VaultStore.cs",
       "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey_credreadw",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey_credfree",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "target": "services_windowsvaultkey_bacom_services_credential",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey_credwritew",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -5963,7 +7668,7 @@
     },
     {
       "source": "views_loginview_axaml_bacom_views_loginview_authuser",
-      "target": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_vaultkey_bacom_services_vaultkey_unlock",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5975,7 +7680,7 @@
     },
     {
       "source": "views_loginview_axaml_bacom_views_loginview_restorefrombackup",
-      "target": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "target": "services_vaultkey_bacom_services_vaultkey_unlock",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5983,6 +7688,23 @@
       "context": "call",
       "source_file": "Views/LoginView.axaml.cs",
       "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_credential",
+      "target": "filetime",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "FILETIME",
+        "qualified": true,
+        "ref_qualifier": "System.Runtime.InteropServices.ComTypes"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L54",
       "weight": 1.0
     },
     {
@@ -6196,8 +7918,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_linuxvaultkey_bacom_services_attributes",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
       "source": "services_macvaultkey_bacom_services_query",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6208,6 +7945,21 @@
       },
       "source_file": "Services/MacVaultKey.cs",
       "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_credential",
+      "target": "services_windowsvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -6709,6 +8461,18 @@
       "weight": 1.0
     },
     {
+      "source": "services_linuxvaultkey_bacom_services_attributes",
+      "target": "services_linuxvaultkey_bacom_services_attributes_handle",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
       "source": "services_macvaultkey_bacom_services_query",
       "target": "services_macvaultkey_bacom_services_query_handle",
       "relation": "defines",
@@ -6754,6 +8518,18 @@
       "context": "field",
       "source_file": "Services/VaultCodec.cs",
       "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultkey_bacom_services_vaultkey",
+      "target": "services_vaultkey_bacom_services_vaultkey_unlockhint",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -6883,6 +8659,21 @@
       },
       "source_file": "Views/DashboardView.axaml.cs",
       "source_location": "L307",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "target": "credential",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "Credential"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -7399,6 +9190,23 @@
       "weight": 1.0
     },
     {
+      "source": "checks_platform_keys_program",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "mainwindow_axaml",
       "target": "system",
       "relation": "imports",
@@ -7586,6 +9394,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_linuxvaultkey",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "services_macvaultkey",
       "target": "system",
       "relation": "imports",
@@ -7637,6 +9462,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultkey",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultstore",
       "target": "system",
       "relation": "imports",
@@ -7650,6 +9492,23 @@
         "scope_kind": "file"
       },
       "source_file": "Services/VaultStore.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
       "source_location": "L1",
       "weight": 1.0
     },
@@ -7943,6 +9802,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultkey",
+      "target": "system_io",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.IO",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultstore",
       "target": "system_io",
       "relation": "imports",
@@ -8007,6 +9883,23 @@
         "scope_kind": "file"
       },
       "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program",
+      "target": "system_linq",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Linq",
+        "scope_kind": "file"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
       "source_location": "L2",
       "weight": 1.0
     },
@@ -8198,6 +10091,23 @@
       "weight": 1.0
     },
     {
+      "source": "checks_platform_keys_program",
+      "target": "system_runtime_interopservices",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Runtime.InteropServices",
+        "scope_kind": "file"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "mainwindow_axaml",
       "target": "system_runtime_interopservices",
       "relation": "imports",
@@ -8215,6 +10125,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_linuxvaultkey",
+      "target": "system_runtime_interopservices",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Runtime.InteropServices",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "services_macvaultkey",
       "target": "system_runtime_interopservices",
       "relation": "imports",
@@ -8228,6 +10155,57 @@
         "scope_kind": "file"
       },
       "source_file": "Services/MacVaultKey.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey",
+      "target": "system_runtime_interopservices",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Runtime.InteropServices",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program",
+      "target": "system_security_cryptography",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Security.Cryptography",
+        "scope_kind": "file"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey",
+      "target": "system_security_cryptography",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Security.Cryptography",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
       "source_location": "L3",
       "weight": 1.0
     },
@@ -8283,6 +10261,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultkey",
+      "target": "system_security_cryptography",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Security.Cryptography",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultstore",
       "target": "system_security_cryptography",
       "relation": "imports",
@@ -8296,6 +10291,23 @@
         "scope_kind": "file"
       },
       "source_file": "Services/VaultStore.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey",
+      "target": "system_security_cryptography",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Security.Cryptography",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
       "source_location": "L3",
       "weight": 1.0
     },
@@ -8416,6 +10428,23 @@
       },
       "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey",
+      "target": "system_threading",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Threading",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -8606,6 +10635,23 @@
       "weight": 1.0
     },
     {
+      "source": "checks_platform_keys_program",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "bacom.Services",
+        "scope_kind": "file"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "views_backupwindow_axaml",
       "target": "csharp_namespace:3c7cb56caf313bb1",
       "relation": "imports",
@@ -8749,6 +10795,21 @@
       "weight": 1.0
     },
     {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_credwritew",
+      "target": "credential",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "Credential"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
       "target": "dictionary",
       "relation": "references",
@@ -8809,8 +10870,203 @@
       "weight": 1.0
     },
     {
+      "source": "checks_platform_keys_program_nativecleanup_g_error_free",
+      "target": "checks_platform_keys_program_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_g_hash_table_insert",
+      "target": "checks_platform_keys_program_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_g_hash_table_unref",
+      "target": "checks_platform_keys_program_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup_secret_password_clearv_sync",
+      "target": "checks_platform_keys_program_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_checkerror",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_cancel",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_error_free",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_insert",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_unref",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_list_free_full",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_object_unref",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_free",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_storev_sync",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetlength",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8825,7 +11081,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionaryremovevalue",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8840,7 +11096,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarysetvalue",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8855,7 +11111,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfrelease",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8870,7 +11126,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_secaccesscreate",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8885,7 +11141,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_secitemadd",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8900,7 +11156,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_secitemcopymatching",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8915,7 +11171,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_query_set",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8926,6 +11182,36 @@
       },
       "source_file": "Services/MacVaultKey.cs",
       "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_credfree",
+      "target": "services_windowsvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_credreadw",
+      "target": "services_windowsvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -8985,7 +11271,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/BackupWindow.axaml.cs",
-      "source_location": "L105",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -9469,8 +11755,83 @@
       "weight": 1.0
     },
     {
+      "source": "checks_platform_keys_program_nativecleanup_g_hash_table_new",
+      "target": "checks_platform_keys_program_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_new",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_new",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_lookupv_sync",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_searchv_sync",
+      "target": "services_linuxvaultkey_cs_intptr",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "IntPtr"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfarraycreate",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9485,7 +11846,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatacreate",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9500,7 +11861,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetbyteptr",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9515,7 +11876,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarycreatemutable",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9530,7 +11891,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_macvaultkey_cfstringcreatewithcstring",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9545,7 +11906,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_query_constant",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9560,7 +11921,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_query_own",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9575,7 +11936,7 @@
     },
     {
       "source": "services_macvaultkey_bacom_services_query_string",
-      "target": "intptr",
+      "target": "services_macvaultkey_cs_intptr",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -9705,6 +12066,34 @@
       },
       "source_file": "App.axaml.cs",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultkey_bacom_services_vaultkeyexception",
+      "target": "cryptographicexception",
+      "relation": "inherits",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "metadata": {
+        "ref_token": "CryptographicException"
+      },
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_attributes",
+      "target": "idisposable",
+      "relation": "implements",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "metadata": {
+        "ref_token": "IDisposable"
+      },
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -9850,6 +12239,17 @@
       "confidence_score": 1.0,
       "source_file": "checks/new-entry.sh",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program",
+      "target": "checks_platform_keys_program_nativecleanup",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -10003,7 +12403,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "docs/storage.md",
-      "source_location": "L41",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_storage_encrypted_local_storage",
+      "target": "docs_storage_native_platform_verification",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/storage.md",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -10223,7 +12634,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L67",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -10301,6 +12712,39 @@
       "confidence_score": 1.0,
       "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_attributes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L81",
       "weight": 1.0
     },
     {
@@ -10392,6 +12836,39 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultkey",
+      "target": "services_vaultkey_bacom_services_vaultkeyexception",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultkey",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultkey",
+      "target": "services_vaultkey_bacom_services_vaultkey",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultstore",
       "target": "csharp_namespace:3c7cb56caf313bb1",
       "relation": "contains",
@@ -10411,6 +12888,39 @@
       "confidence_score": 1.0,
       "source_file": "Services/VaultStore.cs",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey",
+      "target": "services_windowsvaultkey_bacom_services_credential",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -10585,6 +13095,16 @@
       "weight": 1.0
     },
     {
+      "source": "checks_platform_keys_platformchecks",
+      "target": "bacom",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/PlatformChecks.csproj",
+      "weight": 1.0
+    },
+    {
       "source": "app_axaml_bacom_app",
       "target": "app_axaml_bacom_app_onframeworkinitializationcompleted",
       "relation": "method",
@@ -10604,6 +13124,83 @@
       "confidence_score": 1.0,
       "source_file": "App.axaml.cs",
       "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup",
+      "target": "checks_platform_keys_program_nativecleanup_delete",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup",
+      "target": "checks_platform_keys_program_nativecleanup_creddeletew",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup",
+      "target": "checks_platform_keys_program_nativecleanup_secret_password_clearv_sync",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L72",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup",
+      "target": "checks_platform_keys_program_nativecleanup_g_hash_table_new",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup",
+      "target": "checks_platform_keys_program_nativecleanup_g_hash_table_insert",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup",
+      "target": "checks_platform_keys_program_nativecleanup_g_hash_table_unref",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_program_nativecleanup",
+      "target": "checks_platform_keys_program_nativecleanup_g_error_free",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/Program.cs",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -10681,6 +13278,171 @@
       "confidence_score": 1.0,
       "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_attributes",
+      "target": "services_linuxvaultkey_bacom_services_attributes_dispose",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_lookupv_sync",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_storev_sync",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_free",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_secret_password_searchv_sync",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_list_free_full",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_new",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_insert",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_hash_table_unref",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_error_free",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_new",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_cancellable_cancel",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_g_object_unref",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey",
+      "target": "services_linuxvaultkey_bacom_services_linuxvaultkey_checkerror",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -10948,6 +13710,17 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultkey_bacom_services_vaultkey",
+      "target": "services_vaultkey_bacom_services_vaultkey_unlock",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultKey.cs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultstore_bacom_services_vaultstore",
       "target": "services_vaultstore_bacom_services_vaultstore_load",
       "relation": "method",
@@ -11014,6 +13787,50 @@
       "weight": 1.0
     },
     {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey_credreadw",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey_credwritew",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey_credfree",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey",
+      "target": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "views_backupwindow_axaml_bacom_views_backupwindow",
       "target": "views_backupwindow_axaml_bacom_views_backupwindow_closebackup",
       "relation": "method",
@@ -11021,7 +13838,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/BackupWindow.axaml.cs",
-      "source_location": "L105",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -11422,7 +14239,7 @@
     },
     {
       "source": "bacom",
-      "target": "framework_net10_0",
+      "target": "bacom_csproj_framework_net10_0",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11432,12 +14249,32 @@
     },
     {
       "source": "bacom",
-      "target": "sdk_microsoft_net_sdk",
+      "target": "bacom_csproj_sdk_microsoft_net_sdk",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "bacom.csproj",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_platformchecks",
+      "target": "checks_platform_keys_platformchecks_csproj_framework_net10_0",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/PlatformChecks.csproj",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_platform_keys_platformchecks",
+      "target": "checks_platform_keys_platformchecks_csproj_sdk_microsoft_net_sdk",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/platform-keys/PlatformChecks.csproj",
       "weight": 1.0
     },
     {
@@ -11640,6 +14477,42 @@
       "context": "call",
       "source_file": "App.axaml.cs",
       "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_checkerror",
+      "target": "services_vaultkey_bacom_services_vaultkeyexception",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "services_linuxvaultkey_bacom_services_linuxvaultkey_unlock",
+      "target": "services_vaultkey_bacom_services_vaultkeyexception",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "Services/LinuxVaultKey.cs",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "services_windowsvaultkey_bacom_services_windowsvaultkey_unlock",
+      "target": "services_vaultkey_bacom_services_vaultkeyexception",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "Services/WindowsVaultKey.cs",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -11859,6 +14732,18 @@
       "weight": 1.0
     },
     {
+      "source": "docs_storage_encrypted_local_storage",
+      "target": "services_vaultkey_bacom_services_vaultkey",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "VaultKey",
+      "source_file": "docs/storage.md",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
       "source": "docs_vault_data_vault_data_format",
       "target": "services_vaultstore_bacom_services_vaultstore",
       "relation": "references",
@@ -11872,5 +14757,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "7b627df3fb89d145d05b16caa55629cdb1511b6f"
+  "built_at_commit": "14ea0b334acbf586761d9f81387ef705fa416f31"
 }

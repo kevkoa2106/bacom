@@ -6,7 +6,7 @@
     <ScrollViewer HorizontalScrollBarVisibility="Disabled">
         <StackPanel x:Name="BackupForm" Margin="28" Spacing="16">
             <TextBlock Text="Backup and restore" FontSize="26" FontWeight="Bold" Foreground="White" />
-            <TextBlock Text="Keep an encrypted copy somewhere safe. You will need its password to restore it on another Mac."
+            <TextBlock Text="Keep an encrypted copy somewhere safe. You will need its password to restore it on another computer."
                 Foreground="#B9B9C0" TextWrapping="Wrap" />
             <TextBlock Text="Backup password" Foreground="White" />
             <TextBox x:Name="BackupPassword" PasswordChar="●" Background="#161619" MaxLength="1024"
