@@ -241,8 +241,23 @@ Check(items.ItemCount == 1 && ((DashboardEntry)items.Items[0]!).RemainingCodes =
 typeof(DashboardView).GetMethod("DeleteEntry", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)!
     .Invoke(view, [new MenuItem { DataContext = items.Items[0] }, new RoutedEventArgs()]);
 Check(items.ItemCount == 0 && reopenedStore.Load().Entries.Count == 0, "Delete was not saved");
-Console.WriteLine("PASS: code entry/usage, images, animations, layout, encrypted create/edit/delete, failed saves, lock/reopen");
+var restoreCalls = 0;
+var recovery = new BackupWindow(() => new VaultData(), data => { restoreCalls++; return Task.CompletedTask; });
+var dialogTask = recovery.ShowDialog<bool>(window); Layout();
+recovery.FindControl<TextBox>("BackupPassword")!.Text = "short";
+recovery.FindControl<Button>("ExportButton")!.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Layout();
+Check(recovery.FindControl<TextBlock>("BackupStatus")!.Text!.Contains("12"), "Weak export password accepted");
+typeof(BackupWindow).GetField("_pending", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)!
+    .SetValue(recovery, new VaultData());
+recovery.FindControl<Button>("RestoreButton")!.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Layout();
+Check(restoreCalls == 0, "Restore skipped confirmation");
+recovery.FindControl<CheckBox>("ReplaceConsent")!.IsChecked = true;
+recovery.FindControl<Button>("RestoreButton")!.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Layout();
+Check(restoreCalls == 1 && dialogTask.Result, "Confirmed restore did not complete");
+Console.WriteLine("PASS: code entry/usage, images, animations, encrypted saves/failures, lock/reopen and backup confirmation");
 window.Close();
+using (var afterClose = new VaultStore(vaultPath, vaultKey))
+    Check(afterClose.Load().Entries.Count == 0, "Window close did not release the vault session");
 
 sealed class FakeIconHandler : HttpMessageHandler
 {

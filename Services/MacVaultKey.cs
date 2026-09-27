@@ -62,7 +62,13 @@ public static class MacVaultKey
         private readonly IntPtr _security = NativeLibrary.Load(Security);
         private readonly IntPtr _core = NativeLibrary.Load(Core);
         private readonly List<IntPtr> _owned = [];
-        public IntPtr Handle { get; } = CFDictionaryCreateMutable(IntPtr.Zero, 0, IntPtr.Zero, IntPtr.Zero);
+        public IntPtr Handle { get; }
+        public Query()
+        {
+            Handle = CFDictionaryCreateMutable(IntPtr.Zero, 0,
+                NativeLibrary.GetExport(_core, "kCFTypeDictionaryKeyCallBacks"),
+                NativeLibrary.GetExport(_core, "kCFTypeDictionaryValueCallBacks"));
+        }
         public IntPtr Constant(string name) => Marshal.ReadIntPtr(NativeLibrary.GetExport(_security, name));
         public IntPtr True => Marshal.ReadIntPtr(NativeLibrary.GetExport(_core, "kCFBooleanTrue"));
         public IntPtr Own(IntPtr value) { _owned.Add(value); return value; }

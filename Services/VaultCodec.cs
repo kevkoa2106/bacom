@@ -71,6 +71,17 @@ public static class VaultCodec
                 || !Uri.TryCreate(entry.Website, UriKind.Absolute, out var uri)
                 || uri.Scheme is not ("http" or "https")))
                 throw new InvalidDataException("Invalid website in vault.");
+            if (entry.IconPng is { } png)
+            {
+                using var imageData = SkiaSharp.SKData.CreateCopy(png);
+                using var codec = SkiaSharp.SKCodec.Create(imageData);
+                if (codec is null || codec.EncodedFormat != SkiaSharp.SKEncodedImageFormat.Png
+                    || codec.Info.Width is < 1 or > 128 || codec.Info.Height is < 1 or > 128)
+                    throw new InvalidDataException("Invalid account image in vault.");
+                using var image = new SkiaSharp.SKBitmap(codec.Info);
+                if (codec.GetPixels(image.Info, image.GetPixels()) != SkiaSharp.SKCodecResult.Success)
+                    throw new InvalidDataException("Damaged account image in vault.");
+            }
             var values = new HashSet<string>(StringComparer.Ordinal);
             foreach (var code in entry.BackupCodes)
                 if (code is null || code.Id == Guid.Empty || !ids.Add(code.Id)

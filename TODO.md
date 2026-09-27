@@ -6,4 +6,4 @@
 - [x] Update the forms
 - [x] Build encrypted storage
 - [x] Connect loading and saving
-- Add recovery and verify it
+- [x] Add recovery and verify it

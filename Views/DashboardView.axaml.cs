@@ -65,21 +65,7 @@ public partial class DashboardView : UserControl
         if (store is not null)
         {
             if (data is null) throw new ArgumentNullException(nameof(data));
-            _entries.Clear();
-            try
-            {
-                foreach (var entry in data.Entries)
-                {
-                    Bitmap? image = null;
-                    if (entry.IconPng is not null)
-                    {
-                        using var stream = new MemoryStream(entry.IconPng);
-                        image = EntryIconLoader.LoadImageAsync(stream, CancellationToken.None).GetAwaiter().GetResult();
-                    }
-                    _entries.Add(new DashboardEntry(entry) { Icon = image });
-                }
-            }
-            catch { foreach (var entry in _entries) entry.Icon?.Dispose(); throw; }
+            LoadEntries(data);
         }
         InitializeComponent();
         EntriesList.ItemsSource = _visibleEntries;
@@ -87,6 +73,51 @@ public partial class DashboardView : UserControl
         SessionNotice.Text = DetailsNotice.Text = store is null
             ? "Demo session. Changes are not saved."
             : "Changes are saved to your encrypted vault automatically.";
+    }
+
+    private void LoadEntries(VaultData data)
+    {
+        var loaded = new List<DashboardEntry>();
+        try
+        {
+            foreach (var entry in data.Entries)
+            {
+                Bitmap? image = null;
+                if (entry.IconPng is not null)
+                {
+                    using var stream = new MemoryStream(entry.IconPng);
+                    image = EntryIconLoader.LoadImageAsync(stream, CancellationToken.None).GetAwaiter().GetResult();
+                }
+                loaded.Add(new DashboardEntry(entry) { Icon = image });
+            }
+        }
+        catch { foreach (var entry in loaded) entry.Icon?.Dispose(); throw; }
+        foreach (var entry in _entries) entry.Icon?.Dispose();
+        _entries.Clear(); _entries.AddRange(loaded);
+    }
+
+    // Backups: restore is confirmed in the dialog before the store replaces any data.
+    private async void OpenBackups(object? sender, RoutedEventArgs e)
+    {
+        if (_store is null || TopLevel.GetTopLevel(this) is not Window owner) return;
+        var dialog = new BackupWindow(() => new VaultData { Entries = _entries.Select(entry => entry.Data).ToList() },
+            data => Task.Run(() => _store.Restore(data)), _store.FilePath);
+        if (await dialog.ShowDialog<bool>(owner))
+        {
+            try
+            {
+                LoadEntries(_store.Load());
+                SearchBox.Text = string.Empty;
+                RefreshEntries();
+                DashboardError.Text = string.Empty;
+            }
+            catch (Exception ex) when (ex is IOException or UnauthorizedAccessException
+                or System.Security.Cryptography.CryptographicException or System.Text.Json.JsonException)
+            {
+                // Do not leave old editable accounts visible after a successful replacement.
+                if (owner is MainWindow window) window.NavigateTo(new LoginView());
+            }
+        }
     }
 
     // Persistence: commit to disk before changing the visible cards. Failed writes keep the form open.

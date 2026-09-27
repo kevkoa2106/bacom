@@ -24,26 +24,6 @@
       "source_location": "L24"
     },
     {
-      "id": "views_loginview_axaml_bacom_views_loginview",
-      "label": "LoginView",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "DashboardView",
-      "file_type": "code",
-      "metadata": {
-        "is_partial": true,
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s175"
-        ]
-      },
-      "norm_label": "loginview",
-      "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L11"
-    },
-    {
       "id": "app_axaml_bacom_app",
       "label": "App",
       "_callable": true,
@@ -109,7 +89,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": ".FindAsync",
+      "community_name": ".LoadImageAsync",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -179,23 +159,24 @@
       "source_location": "L9"
     },
     {
-      "id": "services_backupcodeparser_bacom_services_backupcodeparser",
-      "label": "BackupCodeParser",
+      "id": "views_loginview_axaml_bacom_views_loginview",
+      "label": "LoginView",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 13,
-      "community_name": ".Parse",
+      "community": 11,
+      "community_name": "VaultData",
       "file_type": "code",
       "metadata": {
-        "namespace": "bacom.Services",
+        "is_partial": true,
+        "namespace": "bacom.Views",
         "scope_chain": [
-          "s88"
+          "s175"
         ]
       },
-      "norm_label": "backupcodeparser",
-      "source_file": "Services/BackupCodeParser.cs",
-      "source_location": "L8"
+      "norm_label": "loginview",
+      "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L11"
     },
     {
       "id": "services_vaultcodec_bacom_services_vaultjsoncontext",
@@ -275,13 +256,32 @@
       "source_location": "L9"
     },
     {
+      "id": "services_backupcodeparser_bacom_services_backupcodeparser",
+      "label": "BackupCodeParser",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": "backupcodeparser",
+      "source_file": "Services/BackupCodeParser.cs",
+      "source_location": "L8"
+    },
+    {
       "id": "services_macvaultkey_bacom_services_macvaultkey",
       "label": "MacVaultKey",
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -300,7 +300,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "is_nested_type": true,
@@ -312,6 +312,45 @@
       "norm_label": "query",
       "source_file": "Services/MacVaultKey.cs",
       "source_location": "L60"
+    },
+    {
+      "id": "services_vaultbackup_bacom_services_vaultbackup",
+      "label": "VaultBackup",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": "vaultbackup",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L8"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "label": "BackupWindow",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "is_partial": true,
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": "backupwindow",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L13"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
@@ -331,37 +370,37 @@
             "callee": "UpdateLayout",
             "receiver_type": "EntriesList",
             "lang": "csharp",
-            "line": "L180"
+            "line": "L211"
           },
           {
             "callee": "GetRealizedContainers",
             "receiver_type": "EntriesList",
             "lang": "csharp",
-            "line": "L183"
+            "line": "L214"
           },
           {
             "callee": "TryGetValue",
             "receiver_type": "Dictionary",
             "lang": "csharp",
-            "line": "L186"
+            "line": "L217"
           },
           {
             "callee": "Abs",
             "receiver_type": "Math",
             "lang": "csharp",
-            "line": "L191"
+            "line": "L222"
           },
           {
             "callee": "FromMilliseconds",
             "receiver_type": "TimeSpan",
             "lang": "csharp",
-            "line": "L201"
+            "line": "L232"
           }
         ]
       },
       "norm_label": ".animatecardpositions()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L177"
+      "source_location": "L208"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_canceliconrequest",
@@ -379,7 +418,7 @@
       },
       "norm_label": ".canceliconrequest()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L425"
+      "source_location": "L456"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_capturecardpositions",
@@ -399,13 +438,13 @@
             "callee": "GetRealizedContainers",
             "receiver_type": "EntriesList",
             "lang": "csharp",
-            "line": "L165"
+            "line": "L196"
           }
         ]
       },
       "norm_label": ".capturecardpositions()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L161"
+      "source_location": "L192"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_changecodeusage",
@@ -423,7 +462,7 @@
       },
       "norm_label": ".changecodeusage()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L391"
+      "source_location": "L422"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_chooseicon",
@@ -443,13 +482,13 @@
             "callee": "GetTopLevel",
             "receiver_type": "TopLevel",
             "lang": "csharp",
-            "line": "L488"
+            "line": "L519"
           }
         ]
       },
       "norm_label": ".chooseicon()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L486"
+      "source_location": "L517"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_closeentry",
@@ -469,13 +508,13 @@
             "callee": "Focus",
             "receiver_type": "NewEntryButton",
             "lang": "csharp",
-            "line": "L544"
+            "line": "L575"
           }
         ]
       },
       "norm_label": ".closeentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L535"
+      "source_location": "L566"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_deleteentry",
@@ -495,37 +534,37 @@
             "callee": "FindIndex",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L145"
+            "line": "L176"
           },
           {
             "callee": "Range",
             "receiver_type": "Enumerable",
             "lang": "csharp",
-            "line": "L146"
+            "line": "L177"
           },
           {
             "callee": "Where",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L151"
+            "line": "L182"
           },
           {
             "callee": "RemoveAt",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L154"
+            "line": "L185"
           },
           {
             "callee": "RemoveAt",
             "receiver_type": "ObservableCollection",
             "lang": "csharp",
-            "line": "L155"
+            "line": "L186"
           }
         ]
       },
       "norm_label": ".deleteentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L139"
+      "source_location": "L170"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_detailskeydown",
@@ -543,7 +582,7 @@
       },
       "norm_label": ".detailskeydown()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L550"
+      "source_location": "L581"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
@@ -563,25 +602,25 @@
             "callee": "FromSeconds",
             "receiver_type": "TimeSpan",
             "lang": "csharp",
-            "line": "L449"
+            "line": "L480"
           },
           {
             "callee": "Delay",
             "receiver_type": "Task",
             "lang": "csharp",
-            "line": "L455"
+            "line": "L486"
           },
           {
             "callee": "Dispose",
             "receiver_type": "CancellationTokenSource",
             "lang": "csharp",
-            "line": "L476"
+            "line": "L507"
           }
         ]
       },
       "norm_label": ".detectwebsiteicon()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L440"
+      "source_location": "L471"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_editentry",
@@ -601,13 +640,13 @@
             "callee": "GetVisualDescendants",
             "receiver_type": "EntriesList",
             "lang": "csharp",
-            "line": "L276"
+            "line": "L307"
           }
         ]
       },
       "norm_label": ".editentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L257"
+      "source_location": "L288"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_iswebaddress",
@@ -627,39 +666,13 @@
             "callee": "TryCreate",
             "receiver_type": "Uri",
             "lang": "csharp",
-            "line": "L532"
+            "line": "L563"
           }
         ]
       },
       "norm_label": ".iswebaddress()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L531"
-    },
-    {
-      "id": "views_dashboardview_axaml_bacom_views_dashboardview_logout",
-      "label": ".Logout()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "DashboardView",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s510"
-        ],
-        "unresolved_calls": [
-          {
-            "callee": "GetTopLevel",
-            "receiver_type": "TopLevel",
-            "lang": "csharp",
-            "line": "L558"
-          }
-        ]
-      },
-      "norm_label": ".logout()",
-      "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L556"
+      "source_location": "L562"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_ondetachedfromvisualtree",
@@ -679,19 +692,19 @@
             "callee": "Clear",
             "receiver_type": "ObservableCollection",
             "lang": "csharp",
-            "line": "L524"
+            "line": "L555"
           },
           {
             "callee": "Clear",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L525"
+            "line": "L556"
           }
         ]
       },
       "norm_label": ".ondetachedfromvisualtree()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L519"
+      "source_location": "L550"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_openentry",
@@ -709,7 +722,7 @@
       },
       "norm_label": ".openentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L235"
+      "source_location": "L266"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_opennewentry",
@@ -727,7 +740,7 @@
       },
       "norm_label": ".opennewentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L245"
+      "source_location": "L276"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_refreshentries",
@@ -747,25 +760,25 @@
             "callee": "Where",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L121"
+            "line": "L152"
           },
           {
             "callee": "Clear",
             "receiver_type": "ObservableCollection",
             "lang": "csharp",
-            "line": "L126"
+            "line": "L157"
           },
           {
             "callee": "Add",
             "receiver_type": "ObservableCollection",
             "lang": "csharp",
-            "line": "L128"
+            "line": "L159"
           }
         ]
       },
       "norm_label": ".refreshentries()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L117"
+      "source_location": "L148"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_reseticoneditor",
@@ -783,7 +796,7 @@
       },
       "norm_label": ".reseticoneditor()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L432"
+      "source_location": "L463"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_resizecards",
@@ -803,19 +816,19 @@
             "callee": "Clamp",
             "receiver_type": "Math",
             "lang": "csharp",
-            "line": "L225"
+            "line": "L256"
           },
           {
             "callee": "Min",
             "receiver_type": "Math",
             "lang": "csharp",
-            "line": "L226"
+            "line": "L257"
           }
         ]
       },
       "norm_label": ".resizecards()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L217"
+      "source_location": "L248"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_saveentry",
@@ -835,49 +848,49 @@
             "callee": "Save",
             "receiver_type": "Bitmap",
             "lang": "csharp",
-            "line": "L338"
+            "line": "L369"
           },
           {
             "callee": "ToArray",
             "receiver_type": "MemoryStream",
             "lang": "csharp",
-            "line": "L339"
+            "line": "L370"
           },
           {
             "callee": "NewGuid",
             "receiver_type": "Guid",
             "lang": "csharp",
-            "line": "L343"
+            "line": "L374"
           },
           {
             "callee": "ToList",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L356"
+            "line": "L387"
           },
           {
             "callee": "FindIndex",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L369"
+            "line": "L400"
           },
           {
             "callee": "Insert",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L381"
+            "line": "L412"
           },
           {
             "callee": "Insert",
             "receiver_type": "ObservableCollection",
             "lang": "csharp",
-            "line": "L382"
+            "line": "L413"
           }
         ]
       },
       "norm_label": ".saveentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L304"
+      "source_location": "L335"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_searchentries",
@@ -895,7 +908,7 @@
       },
       "norm_label": ".searchentries()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L107"
+      "source_location": "L138"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_setdrafticon",
@@ -913,7 +926,7 @@
       },
       "norm_label": ".setdrafticon()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L414"
+      "source_location": "L445"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_showentrypopup",
@@ -933,25 +946,25 @@
             "callee": "UpdateLayout",
             "receiver_type": "DetailsOverlay",
             "lang": "csharp",
-            "line": "L297"
+            "line": "L328"
           },
           {
             "callee": "Focus",
             "receiver_type": "ServiceInput",
             "lang": "csharp",
-            "line": "L299"
+            "line": "L330"
           },
           {
             "callee": "Focus",
             "receiver_type": "CloseDetailsButton",
             "lang": "csharp",
-            "line": "L301"
+            "line": "L332"
           }
         ]
       },
       "norm_label": ".showentrypopup()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L283"
+      "source_location": "L314"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_trypersist",
@@ -971,13 +984,13 @@
             "callee": "Select",
             "receiver_type": "IEnumerable",
             "lang": "csharp",
-            "line": "L96"
+            "line": "L127"
           }
         ]
       },
       "norm_label": ".trypersist()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L93"
+      "source_location": "L124"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_updateemptystate",
@@ -995,7 +1008,7 @@
       },
       "norm_label": ".updateemptystate()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L132"
+      "source_location": "L163"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_usewebsiteicon",
@@ -1013,7 +1026,7 @@
       },
       "norm_label": ".usewebsiteicon()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L480"
+      "source_location": "L511"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_websitechanged",
@@ -1031,7 +1044,7 @@
       },
       "norm_label": ".websitechanged()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L407"
+      "source_location": "L438"
     },
     {
       "id": "app_axaml_bacom_app_initialize",
@@ -1076,24 +1089,6 @@
       "norm_label": ".onframeworkinitializationcompleted()",
       "source_file": "App.axaml.cs",
       "source_location": "L14"
-    },
-    {
-      "id": "mainwindow_axaml_bacom_mainwindow_navigateto",
-      "label": ".NavigateTo()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "App.axaml.cs",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom",
-        "scope_chain": [
-          "s147"
-        ]
-      },
-      "norm_label": ".navigateto()",
-      "source_file": "MainWindow.axaml.cs",
-      "source_location": "L18"
     },
     {
       "id": "program_bacom_program_buildavaloniaapp",
@@ -1151,7 +1146,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": ".FindAsync",
+      "community_name": ".LoadImageAsync",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1231,7 +1226,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 10,
-      "community_name": ".FindAsync",
+      "community_name": ".LoadImageAsync",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1292,6 +1287,24 @@
       "norm_label": ".loadimageasync()",
       "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L25"
+    },
+    {
+      "id": "mainwindow_axaml_bacom_mainwindow_navigateto",
+      "label": ".NavigateTo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom",
+        "scope_chain": [
+          "s147"
+        ]
+      },
+      "norm_label": ".navigateto()",
+      "source_file": "MainWindow.axaml.cs",
+      "source_location": "L18"
     },
     {
       "id": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
@@ -1400,6 +1413,12 @@
             "receiver_type": "Uri",
             "lang": "csharp",
             "line": "L71"
+          },
+          {
+            "callee": "GetPixels",
+            "receiver_type": "SKBitmap",
+            "lang": "csharp",
+            "line": "L82"
           }
         ]
       },
@@ -1425,19 +1444,19 @@
             "callee": "ZeroMemory",
             "receiver_type": "CryptographicOperations",
             "lang": "csharp",
-            "line": "L73"
+            "line": "L84"
           },
           {
             "callee": "Dispose",
             "receiver_type": "FileStream",
             "lang": "csharp",
-            "line": "L74"
+            "line": "L85"
           }
         ]
       },
       "norm_label": ".dispose()",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L69"
+      "source_location": "L80"
     },
     {
       "id": "services_vaultstore_bacom_services_vaultstore_load",
@@ -1457,13 +1476,13 @@
             "callee": "ThrowIf",
             "receiver_type": "ObjectDisposedException",
             "lang": "csharp",
-            "line": "L29"
+            "line": "L30"
           }
         ]
       },
       "norm_label": ".load()",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "services_vaultstore_bacom_services_vaultstore_readbounded",
@@ -1483,13 +1502,51 @@
             "callee": "OpenRead",
             "receiver_type": "File",
             "lang": "csharp",
-            "line": "L49"
+            "line": "L50"
           }
         ]
       },
       "norm_label": ".readbounded()",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L47"
+      "source_location": "L48"
+    },
+    {
+      "id": "services_vaultstore_bacom_services_vaultstore_restore",
+      "label": ".Restore()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "ThrowIf",
+            "receiver_type": "ObjectDisposedException",
+            "lang": "csharp",
+            "line": "L60"
+          },
+          {
+            "callee": "Exists",
+            "receiver_type": "File",
+            "lang": "csharp",
+            "line": "L62"
+          },
+          {
+            "callee": "NewGuid",
+            "receiver_type": "Guid",
+            "lang": "csharp",
+            "line": "L63"
+          }
+        ]
+      },
+      "norm_label": ".restore()",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L58"
     },
     {
       "id": "services_vaultstore_bacom_services_vaultstore_save",
@@ -1509,19 +1566,19 @@
             "callee": "ThrowIf",
             "receiver_type": "ObjectDisposedException",
             "lang": "csharp",
-            "line": "L35"
+            "line": "L36"
           },
           {
             "callee": "Exists",
             "receiver_type": "File",
             "lang": "csharp",
-            "line": "L38"
+            "line": "L39"
           }
         ]
       },
       "norm_label": ".save()",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "services_vaultstore_bacom_services_vaultstore_writeatomic",
@@ -1541,37 +1598,139 @@
             "callee": "NewGuid",
             "receiver_type": "Guid",
             "lang": "csharp",
-            "line": "L58"
+            "line": "L69"
           },
           {
             "callee": "IsWindows",
             "receiver_type": "OperatingSystem",
             "lang": "csharp",
-            "line": "L62"
+            "line": "L73"
           },
           {
             "callee": "Move",
             "receiver_type": "File",
             "lang": "csharp",
-            "line": "L64"
+            "line": "L75"
           },
           {
             "callee": "Exists",
             "receiver_type": "File",
             "lang": "csharp",
-            "line": "L66"
+            "line": "L77"
           },
           {
             "callee": "Delete",
             "receiver_type": "File",
             "lang": "csharp",
-            "line": "L66"
+            "line": "L77"
           }
         ]
       },
       "norm_label": ".writeatomic()",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L56"
+      "source_location": "L67"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_loadentries",
+      "label": ".LoadEntries()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Add",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L91"
+          },
+          {
+            "callee": "Clear",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L96"
+          },
+          {
+            "callee": "AddRange",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L96"
+          }
+        ]
+      },
+      "norm_label": ".loadentries()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L78"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_logout",
+      "label": ".Logout()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetTopLevel",
+            "receiver_type": "TopLevel",
+            "lang": "csharp",
+            "line": "L589"
+          }
+        ]
+      },
+      "norm_label": ".logout()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L587"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "label": ".OpenBackups()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetTopLevel",
+            "receiver_type": "TopLevel",
+            "lang": "csharp",
+            "line": "L102"
+          },
+          {
+            "callee": "Select",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L103"
+          },
+          {
+            "callee": "Run",
+            "receiver_type": "Task",
+            "lang": "csharp",
+            "line": "L104"
+          }
+        ]
+      },
+      "norm_label": ".openbackups()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L100"
     },
     {
       "id": "views_loginview_axaml_bacom_views_loginview_authuser",
@@ -1591,25 +1750,25 @@
             "callee": "Run",
             "receiver_type": "Task",
             "lang": "csharp",
-            "line": "L25"
+            "line": "L26"
           },
           {
             "callee": "Exists",
             "receiver_type": "File",
             "lang": "csharp",
-            "line": "L25"
+            "line": "L26"
           },
           {
             "callee": "ZeroMemory",
             "receiver_type": "CryptographicOperations",
             "lang": "csharp",
-            "line": "L27"
+            "line": "L28"
           },
           {
             "callee": "GetTopLevel",
             "receiver_type": "TopLevel",
             "lang": "csharp",
-            "line": "L35"
+            "line": "L36"
           }
         ]
       },
@@ -1618,22 +1777,42 @@
       "source_location": "L16"
     },
     {
-      "id": "services_backupcodeparser_bacom_services_backupcodeparser_parse",
-      "label": ".Parse()",
+      "id": "views_loginview_axaml_bacom_views_loginview_restorefrombackup",
+      "label": ".RestoreFromBackup()",
       "_callable": true,
       "_origin": "ast",
-      "community": 13,
-      "community_name": ".Parse",
+      "community": 11,
+      "community_name": "VaultData",
       "file_type": "code",
       "metadata": {
-        "namespace": "bacom.Services",
+        "namespace": "bacom.Views",
         "scope_chain": [
-          "s88"
+          "s175"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetTopLevel",
+            "receiver_type": "TopLevel",
+            "lang": "csharp",
+            "line": "L55"
+          },
+          {
+            "callee": "Run",
+            "receiver_type": "Task",
+            "lang": "csharp",
+            "line": "L59"
+          },
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L67"
+          }
         ]
       },
-      "norm_label": ".parse()",
-      "source_file": "Services/BackupCodeParser.cs",
-      "source_location": "L12"
+      "norm_label": ".restorefrombackup()",
+      "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L53"
     },
     {
       "id": "models_dashboardentry_bacom_models_dashboardentry_setcodeused",
@@ -1662,6 +1841,24 @@
       "source_location": "L26"
     },
     {
+      "id": "services_backupcodeparser_bacom_services_backupcodeparser_parse",
+      "label": ".Parse()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": ".parse()",
+      "source_file": "Services/BackupCodeParser.cs",
+      "source_location": "L12"
+    },
+    {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_sampleentry",
       "label": ".SampleEntry()",
       "_callable": true,
@@ -1685,7 +1882,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1695,7 +1892,7 @@
       },
       "norm_label": ".cfarraycreate()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L82"
+      "source_location": "L88"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_cfdatacreate",
@@ -1703,7 +1900,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1713,7 +1910,7 @@
       },
       "norm_label": ".cfdatacreate()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L87"
+      "source_location": "L93"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetbyteptr",
@@ -1721,7 +1918,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1731,7 +1928,7 @@
       },
       "norm_label": ".cfdatagetbyteptr()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L89"
+      "source_location": "L95"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_cfdatagetlength",
@@ -1739,7 +1936,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1749,7 +1946,7 @@
       },
       "norm_label": ".cfdatagetlength()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L88"
+      "source_location": "L94"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarycreatemutable",
@@ -1757,7 +1954,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1767,7 +1964,7 @@
       },
       "norm_label": ".cfdictionarycreatemutable()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L83"
+      "source_location": "L89"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_cfdictionaryremovevalue",
@@ -1775,7 +1972,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1785,7 +1982,7 @@
       },
       "norm_label": ".cfdictionaryremovevalue()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L85"
+      "source_location": "L91"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_cfdictionarysetvalue",
@@ -1793,7 +1990,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1803,7 +2000,7 @@
       },
       "norm_label": ".cfdictionarysetvalue()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L84"
+      "source_location": "L90"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_cfrelease",
@@ -1811,7 +2008,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1821,7 +2018,7 @@
       },
       "norm_label": ".cfrelease()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L90"
+      "source_location": "L96"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_cfstringcreatewithcstring",
@@ -1829,7 +2026,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1839,7 +2036,7 @@
       },
       "norm_label": ".cfstringcreatewithcstring()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L86"
+      "source_location": "L92"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_secaccesscreate",
@@ -1847,7 +2044,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1857,7 +2054,7 @@
       },
       "norm_label": ".secaccesscreate()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L81"
+      "source_location": "L87"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_secitemadd",
@@ -1865,7 +2062,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1875,7 +2072,7 @@
       },
       "norm_label": ".secitemadd()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L80"
+      "source_location": "L86"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_secitemcopymatching",
@@ -1883,7 +2080,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1893,7 +2090,7 @@
       },
       "norm_label": ".secitemcopymatching()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L79"
+      "source_location": "L85"
     },
     {
       "id": "services_macvaultkey_bacom_services_macvaultkey_unlock",
@@ -1901,7 +2098,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1945,7 +2142,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1957,19 +2154,19 @@
             "callee": "ReadIntPtr",
             "receiver_type": "Marshal",
             "lang": "csharp",
-            "line": "L66"
+            "line": "L72"
           },
           {
             "callee": "GetExport",
             "receiver_type": "NativeLibrary",
             "lang": "csharp",
-            "line": "L66"
+            "line": "L72"
           }
         ]
       },
       "norm_label": ".constant()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L66"
+      "source_location": "L72"
     },
     {
       "id": "services_macvaultkey_bacom_services_query_dispose",
@@ -1977,7 +2174,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -1989,13 +2186,13 @@
             "callee": "Free",
             "receiver_type": "NativeLibrary",
             "lang": "csharp",
-            "line": "L75"
+            "line": "L81"
           }
         ]
       },
       "norm_label": ".dispose()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L71"
+      "source_location": "L77"
     },
     {
       "id": "services_macvaultkey_bacom_services_query_own",
@@ -2003,7 +2200,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -2015,13 +2212,13 @@
             "callee": "Add",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L68"
+            "line": "L74"
           }
         ]
       },
       "norm_label": ".own()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L68"
+      "source_location": "L74"
     },
     {
       "id": "services_macvaultkey_bacom_services_query_set",
@@ -2029,7 +2226,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -2039,7 +2236,7 @@
       },
       "norm_label": ".set()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L70"
+      "source_location": "L76"
     },
     {
       "id": "services_macvaultkey_bacom_services_query_string",
@@ -2047,7 +2244,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -2057,7 +2254,233 @@
       },
       "norm_label": ".string()",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L69"
+      "source_location": "L75"
+    },
+    {
+      "id": "services_vaultbackup_bacom_services_vaultbackup_derive",
+      "label": ".Derive()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Pbkdf2",
+            "receiver_type": "Rfc2898DeriveBytes",
+            "lang": "csharp",
+            "line": "L42"
+          }
+        ]
+      },
+      "norm_label": ".derive()",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L41"
+    },
+    {
+      "id": "services_vaultbackup_bacom_services_vaultbackup_export",
+      "label": ".Export()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetBytes",
+            "receiver_type": "RandomNumberGenerator",
+            "lang": "csharp",
+            "line": "L18"
+          },
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L28"
+          }
+        ]
+      },
+      "norm_label": ".export()",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L14"
+    },
+    {
+      "id": "services_vaultbackup_bacom_services_vaultbackup_import",
+      "label": ".Import()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "ZeroMemory",
+            "receiver_type": "CryptographicOperations",
+            "lang": "csharp",
+            "line": "L38"
+          }
+        ]
+      },
+      "norm_label": ".import()",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L31"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_choosebackup",
+      "label": ".ChooseBackup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "OpenFilePickerAsync",
+            "receiver_type": "StorageProvider",
+            "lang": "csharp",
+            "line": "L72"
+          },
+          {
+            "callee": "Run",
+            "receiver_type": "Task",
+            "lang": "csharp",
+            "line": "L76"
+          }
+        ]
+      },
+      "norm_label": ".choosebackup()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L64"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_closebackup",
+      "label": ".CloseBackup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": ".closebackup()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L105"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_exportbackup",
+      "label": ".ExportBackup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "SaveFilePickerAsync",
+            "receiver_type": "StorageProvider",
+            "lang": "csharp",
+            "line": "L47"
+          },
+          {
+            "callee": "GetFullPath",
+            "receiver_type": "Path",
+            "lang": "csharp",
+            "line": "L54"
+          },
+          {
+            "callee": "Run",
+            "receiver_type": "Task",
+            "lang": "csharp",
+            "line": "L58"
+          }
+        ]
+      },
+      "norm_label": ".exportbackup()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L39"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_passwordchanged",
+      "label": ".PasswordChanged()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": ".passwordchanged()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L32"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_restorebackup",
+      "label": ".RestoreBackup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": ".restorebackup()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L83"
+    },
+    {
+      "id": "views_backupwindow_axaml_bacom_views_backupwindow_run",
+      "label": ".Run()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s228"
+        ]
+      },
+      "norm_label": ".run()",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L93"
     },
     {
       "id": "button",
@@ -2148,28 +2571,6 @@
       "source_location": ""
     },
     {
-      "id": "textchangedeventargs",
-      "label": "TextChangedEventArgs",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "DashboardView",
-      "file_type": "code",
-      "norm_label": "textchangedeventargs",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "usercontrol",
-      "label": "UserControl",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "DashboardView",
-      "file_type": "code",
-      "norm_label": "usercontrol",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "views_dashboardview_axaml_cs_bitmap",
       "label": "Bitmap",
       "_origin": "ast",
@@ -2199,6 +2600,17 @@
       "community_name": "DashboardView",
       "file_type": "code",
       "norm_label": "routedeventargs",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "views_dashboardview_axaml_cs_textchangedeventargs",
+      "label": "TextChangedEventArgs",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "norm_label": "textchangedeventargs",
       "source_file": "",
       "source_location": ""
     },
@@ -2263,17 +2675,6 @@
       "type": "namespace"
     },
     {
-      "id": "mainwindow_axaml_cs_usercontrol",
-      "label": "UserControl",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "App.axaml.cs",
-      "file_type": "code",
-      "norm_label": "usercontrol",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "program",
       "label": "Program.cs",
       "_origin": "ast",
@@ -2311,7 +2712,7 @@
       "label": "CancellationToken",
       "_origin": "ast",
       "community": 10,
-      "community_name": ".FindAsync",
+      "community_name": ".LoadImageAsync",
       "file_type": "code",
       "norm_label": "cancellationtoken",
       "source_file": "",
@@ -2322,7 +2723,7 @@
       "label": "HttpClient",
       "_origin": "ast",
       "community": 10,
-      "community_name": ".FindAsync",
+      "community_name": ".LoadImageAsync",
       "file_type": "code",
       "norm_label": "httpclient",
       "source_file": "",
@@ -2333,9 +2734,20 @@
       "label": "Bitmap",
       "_origin": "ast",
       "community": 10,
-      "community_name": ".FindAsync",
+      "community_name": ".LoadImageAsync",
       "file_type": "code",
       "norm_label": "bitmap",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_entryiconloader_cs_task",
+      "label": "Task",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".LoadImageAsync",
+      "file_type": "code",
+      "norm_label": "task",
       "source_file": "",
       "source_location": ""
     },
@@ -2344,20 +2756,9 @@
       "label": "Stream",
       "_origin": "ast",
       "community": 10,
-      "community_name": ".FindAsync",
+      "community_name": ".LoadImageAsync",
       "file_type": "code",
       "norm_label": "stream",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "task",
-      "label": "Task",
-      "_origin": "ast",
-      "community": 10,
-      "community_name": ".FindAsync",
-      "file_type": "code",
-      "norm_label": "task",
       "source_file": "",
       "source_location": ""
     },
@@ -2366,7 +2767,7 @@
       "label": "Uri",
       "_origin": "ast",
       "community": 10,
-      "community_name": ".FindAsync",
+      "community_name": ".LoadImageAsync",
       "file_type": "code",
       "norm_label": "uri",
       "source_file": "",
@@ -2384,13 +2785,13 @@
       "source_location": ""
     },
     {
-      "id": "idisposable",
-      "label": "IDisposable",
+      "id": "mainwindow_axaml_cs_usercontrol",
+      "label": "UserControl",
       "_origin": "ast",
       "community": 11,
       "community_name": "VaultData",
       "file_type": "code",
-      "norm_label": "idisposable",
+      "norm_label": "usercontrol",
       "source_file": "",
       "source_location": ""
     },
@@ -2440,17 +2841,6 @@
       "source_location": ""
     },
     {
-      "id": "readonlyspan",
-      "label": "ReadOnlySpan",
-      "_origin": "ast",
-      "community": 11,
-      "community_name": "VaultData",
-      "file_type": "code",
-      "norm_label": "readonlyspan",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "services_vaultcodec_bacom_services_vaultcodec_header",
       "label": "Header",
       "_origin": "ast",
@@ -2466,6 +2856,17 @@
       "norm_label": "header",
       "source_file": "Services/VaultCodec.cs",
       "source_location": "L19"
+    },
+    {
+      "id": "services_vaultcodec_cs_readonlyspan",
+      "label": "ReadOnlySpan",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "readonlyspan",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "services_vaultstore_bacom_services_vaultstore_defaultpath",
@@ -2485,6 +2886,34 @@
       "source_location": "L11"
     },
     {
+      "id": "services_vaultstore_bacom_services_vaultstore_filepath",
+      "label": "FilePath",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": "filepath",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L14"
+    },
+    {
+      "id": "usercontrol",
+      "label": "UserControl",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "code",
+      "norm_label": "usercontrol",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "views_loginview_axaml_cs_routedeventargs",
       "label": "RoutedEventArgs",
       "_origin": "ast",
@@ -2494,6 +2923,30 @@
       "norm_label": "routedeventargs",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "docs_vault_data",
+      "label": "vault-data.md",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "vault-data.md",
+      "source_file": "docs/vault-data.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "docs_vault_data_vault_data_format",
+      "label": "Vault data format",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": "VaultData",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "vault data format",
+      "source_file": "docs/vault-data.md",
+      "source_location": "L1"
     },
     {
       "id": "checks_vault",
@@ -2556,33 +3009,11 @@
       "source_location": "L1"
     },
     {
-      "id": "services_backupcodeparser_cs_ireadonlylist",
-      "label": "IReadOnlyList",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": ".Parse",
-      "file_type": "code",
-      "norm_label": "ireadonlylist",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "services_backupcodeparser_cs_list",
-      "label": "List",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": ".Parse",
-      "file_type": "code",
-      "norm_label": "list",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "docs_storage",
       "label": "storage.md",
       "_origin": "ast",
-      "community": 14,
-      "community_name": "storage.md",
+      "community": 2,
+      "community_name": "Bacom (Backup Code Manager)",
       "file_type": "document",
       "node_kind": "page",
       "norm_label": "storage.md",
@@ -2593,13 +3024,25 @@
       "id": "docs_storage_encrypted_local_storage",
       "label": "Encrypted local storage",
       "_origin": "ast",
-      "community": 14,
-      "community_name": "storage.md",
+      "community": 2,
+      "community_name": "Bacom (Backup Code Manager)",
       "file_type": "document",
       "node_kind": "heading",
       "norm_label": "encrypted local storage",
       "source_file": "docs/storage.md",
       "source_location": "L1"
+    },
+    {
+      "id": "docs_storage_password_backups_and_recovery",
+      "label": "Password backups and recovery",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "Bacom (Backup Code Manager)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "password backups and recovery",
+      "source_file": "docs/storage.md",
+      "source_location": "L41"
     },
     {
       "id": "readme",
@@ -2647,7 +3090,7 @@
       "node_kind": "heading",
       "norm_label": "license",
       "source_file": "README.md",
-      "source_location": "L60"
+      "source_location": "L67"
     },
     {
       "id": "readme_overview",
@@ -2769,8 +3212,8 @@
         "namespace": "bacom.Views"
       },
       "norm_label": "bacom.views",
-      "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L22",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L11",
       "type": "namespace"
     },
     {
@@ -2949,6 +3392,17 @@
       "source_location": "L1"
     },
     {
+      "id": "services_vaultbackup",
+      "label": "VaultBackup.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "file_type": "code",
+      "norm_label": "vaultbackup.cs",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L1"
+    },
+    {
       "id": "services_vaultcodec",
       "label": "VaultCodec.cs",
       "_origin": "ast",
@@ -2968,6 +3422,17 @@
       "file_type": "code",
       "norm_label": "vaultstore.cs",
       "source_file": "Services/VaultStore.cs",
+      "source_location": "L1"
+    },
+    {
+      "id": "views_backupwindow_axaml",
+      "label": "BackupWindow.axaml.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "file_type": "code",
+      "norm_label": "backupwindow.axaml.cs",
+      "source_file": "Views/BackupWindow.axaml.cs",
       "source_location": "L1"
     },
     {
@@ -3617,28 +4082,26 @@
       "source_location": ""
     },
     {
-      "id": "docs_vault_data",
-      "label": "vault-data.md",
+      "id": "services_backupcodeparser_cs_ireadonlylist",
+      "label": "IReadOnlyList",
       "_origin": "ast",
       "community": 5,
       "community_name": "DashboardEntry",
-      "file_type": "document",
-      "node_kind": "page",
-      "norm_label": "vault-data.md",
-      "source_file": "docs/vault-data.md",
-      "source_location": "L1"
+      "file_type": "code",
+      "norm_label": "ireadonlylist",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "docs_vault_data_vault_data_format",
-      "label": "Vault data format",
+      "id": "services_backupcodeparser_cs_list",
+      "label": "List",
       "_origin": "ast",
       "community": 5,
       "community_name": "DashboardEntry",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "vault data format",
-      "source_file": "docs/vault-data.md",
-      "source_location": "L1"
+      "file_type": "code",
+      "norm_label": "list",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "docs_dashboard_map",
@@ -3789,9 +4252,20 @@
       "label": "DllImport",
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "norm_label": "dllimport",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "idisposable",
+      "label": "IDisposable",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": ".Unlock",
+      "file_type": "code",
+      "norm_label": "idisposable",
       "source_file": "",
       "source_location": ""
     },
@@ -3800,7 +4274,7 @@
       "label": "IntPtr",
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "norm_label": "intptr",
       "source_file": "",
@@ -3811,7 +4285,7 @@
       "label": "Handle",
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -3828,7 +4302,7 @@
       "label": "True",
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Services",
@@ -3838,16 +4312,99 @@
       },
       "norm_label": "true",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L67"
+      "source_location": "L73"
     },
     {
       "id": "services_macvaultkey_cs_list",
       "label": "List",
       "_origin": "ast",
       "community": 7,
-      "community_name": "IntPtr",
+      "community_name": ".Unlock",
       "file_type": "code",
       "norm_label": "list",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "filepickerfiletype",
+      "label": "FilePickerFileType",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "norm_label": "filepickerfiletype",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "func",
+      "label": "Func",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "norm_label": "func",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_vaultbackup_bacom_services_vaultbackup_header",
+      "label": "Header",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s88"
+        ]
+      },
+      "norm_label": "header",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L10"
+    },
+    {
+      "id": "services_vaultbackup_cs_readonlyspan",
+      "label": "ReadOnlySpan",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "norm_label": "readonlyspan",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "views_backupwindow_axaml_cs_routedeventargs",
+      "label": "RoutedEventArgs",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "norm_label": "routedeventargs",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "views_backupwindow_axaml_cs_task",
+      "label": "Task",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "norm_label": "task",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "views_backupwindow_axaml_cs_textchangedeventargs",
+      "label": "TextChangedEventArgs",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "BackupWindow",
+      "file_type": "code",
+      "norm_label": "textchangedeventargs",
       "source_file": "",
       "source_location": ""
     },
@@ -4297,7 +4854,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L82",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -4312,7 +4869,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L87",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -4327,7 +4884,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L89",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -4342,7 +4899,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L88",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -4357,7 +4914,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L83",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -4372,7 +4929,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L85",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -4387,7 +4944,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L84",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -4402,7 +4959,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L90",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -4417,7 +4974,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L86",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -4432,7 +4989,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L81",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -4447,7 +5004,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L80",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -4462,7 +5019,7 @@
         "ref_token": "DllImport"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L79",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -4645,7 +5202,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L73",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -4657,7 +5214,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L70",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -4669,7 +5226,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L70",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -4681,7 +5238,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L69",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -4693,7 +5250,55 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L69",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup_export",
+      "target": "services_vaultbackup_bacom_services_vaultbackup_derive",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup_export",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_encrypt",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup_import",
+      "target": "services_vaultbackup_bacom_services_vaultbackup_derive",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup_import",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_decrypt",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -4729,7 +5334,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -4741,7 +5346,43 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L30",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_restore",
+      "target": "services_vaultcodec_bacom_services_vaultcodec_encrypt",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_restore",
+      "target": "services_vaultstore_bacom_services_vaultstore_readbounded",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore_restore",
+      "target": "services_vaultstore_bacom_services_vaultstore_writeatomic",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -4753,7 +5394,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -4765,7 +5406,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -4777,7 +5418,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -4789,7 +5430,91 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L42",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_choosebackup",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow_run",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_choosebackup",
+      "target": "services_vaultbackup_bacom_services_vaultbackup_import",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_choosebackup",
+      "target": "services_vaultstore_bacom_services_vaultstore_readbounded",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_exportbackup",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow_run",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_exportbackup",
+      "target": "services_vaultbackup_bacom_services_vaultbackup_export",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_exportbackup",
+      "target": "services_vaultstore_bacom_services_vaultstore_writeatomic",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_restorebackup",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow_run",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -4801,7 +5526,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L179",
+      "source_location": "L210",
       "weight": 1.0
     },
     {
@@ -4813,7 +5538,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L399",
+      "source_location": "L430",
       "weight": 1.0
     },
     {
@@ -4825,7 +5550,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L494",
+      "source_location": "L525",
       "weight": 1.0
     },
     {
@@ -4837,7 +5562,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L495",
+      "source_location": "L526",
       "weight": 1.0
     },
     {
@@ -4849,7 +5574,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L508",
+      "source_location": "L539",
       "weight": 1.0
     },
     {
@@ -4861,7 +5586,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L537",
+      "source_location": "L568",
       "weight": 1.0
     },
     {
@@ -4873,7 +5598,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L151",
+      "source_location": "L182",
       "weight": 1.0
     },
     {
@@ -4885,7 +5610,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L153",
+      "source_location": "L184",
       "weight": 1.0
     },
     {
@@ -4897,7 +5622,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L156",
+      "source_location": "L187",
       "weight": 1.0
     },
     {
@@ -4909,7 +5634,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L553",
+      "source_location": "L584",
       "weight": 1.0
     },
     {
@@ -4921,7 +5646,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L442",
+      "source_location": "L473",
       "weight": 1.0
     },
     {
@@ -4933,7 +5658,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L444",
+      "source_location": "L475",
       "weight": 1.0
     },
     {
@@ -4945,7 +5670,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L447",
+      "source_location": "L478",
       "weight": 1.0
     },
     {
@@ -4957,7 +5682,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L265",
+      "source_location": "L296",
       "weight": 1.0
     },
     {
@@ -4969,7 +5694,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L270",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -4981,7 +5706,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L278",
+      "source_location": "L309",
       "weight": 1.0
     },
     {
@@ -4993,7 +5718,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L279",
+      "source_location": "L310",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_loadentries",
+      "target": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -5005,7 +5742,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L521",
+      "source_location": "L552",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_loadentries",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_refreshentries",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L111",
       "weight": 1.0
     },
     {
@@ -5017,7 +5778,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L241",
+      "source_location": "L272",
       "weight": 1.0
     },
     {
@@ -5029,7 +5790,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L248",
+      "source_location": "L279",
       "weight": 1.0
     },
     {
@@ -5041,7 +5802,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L253",
+      "source_location": "L284",
       "weight": 1.0
     },
     {
@@ -5053,7 +5814,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L129",
+      "source_location": "L160",
       "weight": 1.0
     },
     {
@@ -5065,7 +5826,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L436",
+      "source_location": "L467",
       "weight": 1.0
     },
     {
@@ -5077,7 +5838,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L437",
+      "source_location": "L468",
       "weight": 1.0
     },
     {
@@ -5089,7 +5850,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L316",
+      "source_location": "L347",
       "weight": 1.0
     },
     {
@@ -5101,7 +5862,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L322",
+      "source_location": "L353",
       "weight": 1.0
     },
     {
@@ -5113,7 +5874,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L364",
+      "source_location": "L395",
       "weight": 1.0
     },
     {
@@ -5125,7 +5886,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L366",
+      "source_location": "L397",
       "weight": 1.0
     },
     {
@@ -5137,7 +5898,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L373",
+      "source_location": "L404",
       "weight": 1.0
     },
     {
@@ -5149,7 +5910,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L385",
+      "source_location": "L416",
       "weight": 1.0
     },
     {
@@ -5161,7 +5922,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L387",
+      "source_location": "L418",
       "weight": 1.0
     },
     {
@@ -5173,7 +5934,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L114",
+      "source_location": "L145",
       "weight": 1.0
     },
     {
@@ -5185,7 +5946,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L483",
+      "source_location": "L514",
       "weight": 1.0
     },
     {
@@ -5197,7 +5958,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L411",
+      "source_location": "L442",
       "weight": 1.0
     },
     {
@@ -5209,7 +5970,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L25",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "views_loginview_axaml_bacom_views_loginview_restorefrombackup",
+      "target": "services_macvaultkey_bacom_services_macvaultkey_unlock",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -5303,6 +6076,21 @@
       "weight": 1.0
     },
     {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "filepickerfiletype",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "FilePickerFileType"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultstore_bacom_services_vaultstore",
       "target": "filestream",
       "relation": "references",
@@ -5314,7 +6102,22 @@
         "ref_token": "FileStream"
       },
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L15",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "func",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "Func"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -5404,7 +6207,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L67",
+      "source_location": "L73",
       "weight": 1.0
     },
     {
@@ -5483,8 +6286,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultbackup_bacom_services_vaultbackup",
+      "target": "services_vaultbackup_cs_readonlyspan",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "ReadOnlySpan"
+      },
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultcodec_bacom_services_vaultcodec",
-      "target": "readonlyspan",
+      "target": "services_vaultcodec_cs_readonlyspan",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5495,6 +6313,21 @@
       },
       "source_file": "Services/VaultCodec.cs",
       "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -5896,7 +6729,19 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L67",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup",
+      "target": "services_vaultbackup_bacom_services_vaultbackup_header",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -5921,6 +6766,18 @@
       "context": "field",
       "source_file": "Services/VaultStore.cs",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "services_vaultstore_bacom_services_vaultstore_filepath",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -6025,7 +6882,7 @@
         "ref_token": "Button"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L276",
+      "source_location": "L307",
       "weight": 1.0
     },
     {
@@ -6040,7 +6897,7 @@
         "ref_token": "DashboardEntry"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L177",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -6055,7 +6912,7 @@
         "ref_token": "DashboardEntry"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L161",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -6070,7 +6927,7 @@
         "ref_token": "DashboardEntry"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L93",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -6085,7 +6942,7 @@
         "ref_token": "Point"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L177",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -6100,7 +6957,22 @@
         "ref_token": "Point"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L161",
+      "source_location": "L192",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "views_backupwindow_axaml_cs_task",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "Task"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -6221,6 +7093,23 @@
       "weight": 1.0
     },
     {
+      "source": "views_backupwindow_axaml",
+      "target": "avalonia_controls",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Avalonia.Controls",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml",
       "target": "avalonia_controls",
       "relation": "imports",
@@ -6286,6 +7175,23 @@
       },
       "source_file": "Views/DashboardView.axaml.cs",
       "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml",
+      "target": "avalonia_interactivity",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Avalonia.Interactivity",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -6405,6 +7311,23 @@
       },
       "source_file": "Views/DashboardView.axaml.cs",
       "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml",
+      "target": "avalonia_platform_storage",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Avalonia.Platform.Storage",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -6680,6 +7603,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultbackup",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultcodec",
       "target": "system",
       "relation": "imports",
@@ -6710,6 +7650,23 @@
         "scope_kind": "file"
       },
       "source_file": "Services/VaultStore.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
       "source_location": "L1",
       "weight": 1.0
     },
@@ -6952,6 +7909,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultbackup",
+      "target": "system_io",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.IO",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultcodec",
       "target": "system_io",
       "relation": "imports",
@@ -6982,6 +7956,23 @@
         "scope_kind": "file"
       },
       "source_file": "Services/VaultStore.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml",
+      "target": "system_io",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.IO",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
       "source_location": "L2",
       "weight": 1.0
     },
@@ -7258,6 +8249,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultbackup",
+      "target": "system_security_cryptography",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Security.Cryptography",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultcodec",
       "target": "system_security_cryptography",
       "relation": "imports",
@@ -7288,6 +8296,23 @@
         "scope_kind": "file"
       },
       "source_file": "Services/VaultStore.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml",
+      "target": "system_security_cryptography",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Security.Cryptography",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
       "source_location": "L3",
       "weight": 1.0
     },
@@ -7428,6 +8453,23 @@
       "weight": 1.0
     },
     {
+      "source": "views_backupwindow_axaml",
+      "target": "system_threading_tasks",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Threading.Tasks",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml",
       "target": "system_threading_tasks",
       "relation": "imports",
@@ -7479,6 +8521,23 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultbackup",
+      "target": "csharp_namespace:65d7028e182fb2b6",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "bacom.Models",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultcodec",
       "target": "csharp_namespace:65d7028e182fb2b6",
       "relation": "imports",
@@ -7513,6 +8572,23 @@
       "weight": 1.0
     },
     {
+      "source": "views_backupwindow_axaml",
+      "target": "csharp_namespace:65d7028e182fb2b6",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "bacom.Models",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml",
       "target": "csharp_namespace:65d7028e182fb2b6",
       "relation": "imports",
@@ -7527,6 +8603,23 @@
       },
       "source_file": "Views/DashboardView.axaml.cs",
       "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "bacom.Services",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -7607,7 +8700,7 @@
         "ref_token": "Bitmap"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L414",
+      "source_location": "L445",
       "weight": 1.0
     },
     {
@@ -7622,7 +8715,7 @@
         "ref_token": "Button"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L283",
+      "source_location": "L314",
       "weight": 1.0
     },
     {
@@ -7667,7 +8760,22 @@
         "ref_token": "Dictionary"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L177",
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_run",
+      "target": "func",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "Func"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -7682,7 +8790,7 @@
         "ref_token": "IEnumerable"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L93",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -7712,7 +8820,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L88",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -7727,7 +8835,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L85",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -7742,7 +8850,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L84",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -7757,7 +8865,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L90",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -7772,7 +8880,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L81",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -7787,7 +8895,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L80",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -7802,7 +8910,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L79",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -7817,7 +8925,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L70",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -7832,7 +8940,82 @@
         "ref_token": "KeyEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L550",
+      "source_location": "L581",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup_derive",
+      "target": "services_vaultbackup_cs_readonlyspan",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "ReadOnlySpan"
+      },
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_choosebackup",
+      "target": "views_backupwindow_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_closebackup",
+      "target": "views_backupwindow_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_exportbackup",
+      "target": "views_backupwindow_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_restorebackup",
+      "target": "views_backupwindow_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -7847,7 +9030,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L391",
+      "source_location": "L422",
       "weight": 1.0
     },
     {
@@ -7862,7 +9045,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L486",
+      "source_location": "L517",
       "weight": 1.0
     },
     {
@@ -7877,7 +9060,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L535",
+      "source_location": "L566",
       "weight": 1.0
     },
     {
@@ -7892,7 +9075,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L139",
+      "source_location": "L170",
       "weight": 1.0
     },
     {
@@ -7907,7 +9090,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L257",
+      "source_location": "L288",
       "weight": 1.0
     },
     {
@@ -7922,7 +9105,22 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L556",
+      "source_location": "L587",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "target": "views_dashboardview_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L100",
       "weight": 1.0
     },
     {
@@ -7937,7 +9135,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L235",
+      "source_location": "L266",
       "weight": 1.0
     },
     {
@@ -7952,7 +9150,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L245",
+      "source_location": "L276",
       "weight": 1.0
     },
     {
@@ -7967,7 +9165,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L304",
+      "source_location": "L335",
       "weight": 1.0
     },
     {
@@ -7982,7 +9180,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L480",
+      "source_location": "L511",
       "weight": 1.0
     },
     {
@@ -8001,6 +9199,21 @@
       "weight": 1.0
     },
     {
+      "source": "views_loginview_axaml_bacom_views_loginview_restorefrombackup",
+      "target": "views_loginview_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview_resizecards",
       "target": "sizechangedeventargs",
       "relation": "references",
@@ -8012,7 +9225,7 @@
         "ref_token": "SizeChangedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L217",
+      "source_location": "L248",
       "weight": 1.0
     },
     {
@@ -8031,8 +9244,23 @@
       "weight": 1.0
     },
     {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_passwordchanged",
+      "target": "views_backupwindow_axaml_cs_textchangedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "TextChangedEventArgs"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview_searchentries",
-      "target": "textchangedeventargs",
+      "target": "views_dashboardview_axaml_cs_textchangedeventargs",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8042,12 +9270,12 @@
         "ref_token": "TextChangedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L107",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview_websitechanged",
-      "target": "textchangedeventargs",
+      "target": "views_dashboardview_axaml_cs_textchangedeventargs",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8057,7 +9285,7 @@
         "ref_token": "TextChangedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L407",
+      "source_location": "L438",
       "weight": 1.0
     },
     {
@@ -8091,6 +9319,21 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultbackup_bacom_services_vaultbackup_export",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultcodec_bacom_services_vaultcodec_encrypt",
       "target": "models_vaultdata_bacom_models_vaultdata",
       "relation": "references",
@@ -8121,6 +9364,21 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultstore_bacom_services_vaultstore_restore",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultstore_bacom_services_vaultstore_save",
       "target": "models_vaultdata_bacom_models_vaultdata",
       "relation": "references",
@@ -8132,7 +9390,22 @@
         "ref_token": "VaultData"
       },
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L33",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_loadentries",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -8147,7 +9420,7 @@
         "ref_token": "VisualTreeAttachmentEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L519",
+      "source_location": "L550",
       "weight": 1.0
     },
     {
@@ -8192,7 +9465,7 @@
         "ref_token": "Dictionary"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L161",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -8207,7 +9480,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L82",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -8222,7 +9495,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L87",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -8237,7 +9510,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L89",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -8252,7 +9525,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L83",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -8267,7 +9540,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L86",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -8282,7 +9555,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L66",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -8297,7 +9570,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L68",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -8312,7 +9585,7 @@
         "ref_token": "IntPtr"
       },
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L69",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -8332,7 +9605,7 @@
     },
     {
       "source": "services_entryiconloader_bacom_services_entryiconloader_findasync",
-      "target": "task",
+      "target": "services_entryiconloader_cs_task",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8347,7 +9620,7 @@
     },
     {
       "source": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
-      "target": "task",
+      "target": "services_entryiconloader_cs_task",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -8358,6 +9631,36 @@
       },
       "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow_run",
+      "target": "views_backupwindow_axaml_cs_task",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "Task"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup_import",
+      "target": "models_vaultdata_bacom_models_vaultdata",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "VaultData"
+      },
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -8387,7 +9690,7 @@
         "ref_token": "VaultData"
       },
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -8500,6 +9803,20 @@
       },
       "source_file": "MainWindow.axaml.cs",
       "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "window",
+      "relation": "inherits",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "metadata": {
+        "ref_token": "Window"
+      },
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -8676,6 +9993,17 @@
       "confidence_score": 1.0,
       "source_file": "docs/storage.md",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_storage_encrypted_local_storage",
+      "target": "docs_storage_password_backups_and_recovery",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/storage.md",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -8895,7 +10223,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L60",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -9009,6 +10337,28 @@
       "weight": 1.0
     },
     {
+      "source": "services_vaultbackup",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup",
+      "target": "services_vaultbackup_bacom_services_vaultbackup",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
       "source": "services_vaultcodec",
       "target": "csharp_namespace:3c7cb56caf313bb1",
       "relation": "contains",
@@ -9072,6 +10422,28 @@
       "confidence_score": 1.0,
       "source_file": "TODO.md",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml",
+      "target": "csharp_namespace:08a367a0abd9bd0f",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -9330,7 +10702,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L79",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -9341,7 +10713,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L80",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -9352,7 +10724,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L81",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -9363,7 +10735,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L82",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -9374,7 +10746,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L83",
+      "source_location": "L89",
       "weight": 1.0
     },
     {
@@ -9385,7 +10757,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L84",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -9396,7 +10768,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L85",
+      "source_location": "L91",
       "weight": 1.0
     },
     {
@@ -9407,7 +10779,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L86",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -9418,7 +10790,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L87",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -9429,7 +10801,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L88",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -9440,7 +10812,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L89",
+      "source_location": "L95",
       "weight": 1.0
     },
     {
@@ -9451,7 +10823,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L90",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -9462,7 +10834,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L66",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -9473,7 +10845,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L68",
+      "source_location": "L74",
       "weight": 1.0
     },
     {
@@ -9484,7 +10856,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L69",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -9495,7 +10867,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L70",
+      "source_location": "L76",
       "weight": 1.0
     },
     {
@@ -9506,7 +10878,40 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/MacVaultKey.cs",
-      "source_location": "L71",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup",
+      "target": "services_vaultbackup_bacom_services_vaultbackup_export",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup",
+      "target": "services_vaultbackup_bacom_services_vaultbackup_import",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultbackup_bacom_services_vaultbackup",
+      "target": "services_vaultbackup_bacom_services_vaultbackup_derive",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultBackup.cs",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -9550,7 +10955,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -9561,7 +10966,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -9572,7 +10977,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L47",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "services_vaultstore_bacom_services_vaultstore",
+      "target": "services_vaultstore_bacom_services_vaultstore_restore",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/VaultStore.cs",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
@@ -9583,7 +10999,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L56",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -9594,7 +11010,95 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Services/VaultStore.cs",
-      "source_location": "L69",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow_closebackup",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow_passwordchanged",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow_exportbackup",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow_choosebackup",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow_restorebackup",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow_run",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/BackupWindow.axaml.cs",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_trypersist",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -9605,7 +11109,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L107",
+      "source_location": "L138",
       "weight": 1.0
     },
     {
@@ -9616,7 +11120,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L117",
+      "source_location": "L148",
       "weight": 1.0
     },
     {
@@ -9627,7 +11131,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L132",
+      "source_location": "L163",
       "weight": 1.0
     },
     {
@@ -9638,7 +11142,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L139",
+      "source_location": "L170",
       "weight": 1.0
     },
     {
@@ -9649,7 +11153,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L161",
+      "source_location": "L192",
       "weight": 1.0
     },
     {
@@ -9660,7 +11164,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L177",
+      "source_location": "L208",
       "weight": 1.0
     },
     {
@@ -9671,7 +11175,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L217",
+      "source_location": "L248",
       "weight": 1.0
     },
     {
@@ -9682,7 +11186,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L235",
+      "source_location": "L266",
       "weight": 1.0
     },
     {
@@ -9693,7 +11197,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L245",
+      "source_location": "L276",
       "weight": 1.0
     },
     {
@@ -9704,7 +11208,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L257",
+      "source_location": "L288",
       "weight": 1.0
     },
     {
@@ -9715,7 +11219,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L283",
+      "source_location": "L314",
       "weight": 1.0
     },
     {
@@ -9726,18 +11230,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L304",
-      "weight": 1.0
-    },
-    {
-      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
-      "target": "views_dashboardview_axaml_bacom_views_dashboardview_changecodeusage",
-      "relation": "method",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L391",
+      "source_location": "L335",
       "weight": 1.0
     },
     {
@@ -9753,13 +11246,24 @@
     },
     {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_changecodeusage",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L422",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
       "target": "views_dashboardview_axaml_bacom_views_dashboardview_websitechanged",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L407",
+      "source_location": "L438",
       "weight": 1.0
     },
     {
@@ -9770,7 +11274,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L414",
+      "source_location": "L445",
       "weight": 1.0
     },
     {
@@ -9781,7 +11285,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L425",
+      "source_location": "L456",
       "weight": 1.0
     },
     {
@@ -9792,7 +11296,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L432",
+      "source_location": "L463",
       "weight": 1.0
     },
     {
@@ -9803,7 +11307,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L440",
+      "source_location": "L471",
       "weight": 1.0
     },
     {
@@ -9814,7 +11318,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L480",
+      "source_location": "L511",
       "weight": 1.0
     },
     {
@@ -9825,7 +11329,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L486",
+      "source_location": "L517",
       "weight": 1.0
     },
     {
@@ -9836,7 +11340,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L519",
+      "source_location": "L550",
       "weight": 1.0
     },
     {
@@ -9847,7 +11351,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L531",
+      "source_location": "L562",
       "weight": 1.0
     },
     {
@@ -9858,7 +11362,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L535",
+      "source_location": "L566",
       "weight": 1.0
     },
     {
@@ -9869,7 +11373,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L550",
+      "source_location": "L581",
       "weight": 1.0
     },
     {
@@ -9880,18 +11384,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L556",
+      "source_location": "L587",
       "weight": 1.0
     },
     {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview",
-      "target": "views_dashboardview_axaml_bacom_views_dashboardview_trypersist",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_loadentries",
       "relation": "method",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L93",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -9903,6 +11407,17 @@
       "confidence_score": 1.0,
       "source_file": "Views/LoginView.axaml.cs",
       "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "views_loginview_axaml_bacom_views_loginview",
+      "target": "views_loginview_axaml_bacom_views_loginview_restorefrombackup",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -9927,13 +11442,24 @@
     },
     {
       "source": "readme",
+      "target": "docs_storage",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "readme",
       "target": "todo",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "README.md",
-      "source_location": "L54",
+      "source_location": "L63",
       "weight": 1.0
     },
     {
@@ -9993,7 +11519,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L401",
+      "source_location": "L432",
       "weight": 1.0
     },
     {
@@ -10005,7 +11531,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L456",
+      "source_location": "L487",
       "weight": 1.0
     },
     {
@@ -10017,7 +11543,43 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L559",
+      "source_location": "L590",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "target": "services_vaultstore_bacom_services_vaultstore_restore",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "target": "services_vaultstore_bacom_services_vaultstore_load",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "target": "mainwindow_axaml_bacom_mainwindow_navigateto",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -10029,7 +11591,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -10041,7 +11603,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -10053,7 +11615,19 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L38",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "views_loginview_axaml_bacom_views_loginview_restorefrombackup",
+      "target": "services_vaultstore_bacom_services_vaultstore_restore",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "context": "call",
+      "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L65",
       "weight": 1.0
     },
     {
@@ -10077,7 +11651,31 @@
       "confidence_score": 0.85,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L559",
+      "source_location": "L590",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_openbackups",
+      "target": "views_loginview_axaml_bacom_views_loginview",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -10101,19 +11699,7 @@
       "confidence_score": 0.85,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L341",
-      "weight": 1.0
-    },
-    {
-      "source": "views_dashboardview_axaml_bacom_views_dashboardview_trypersist",
-      "target": "models_vaultdata_bacom_models_vaultdata",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "context": "call",
-      "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L96",
+      "source_location": "L372",
       "weight": 1.0
     },
     {
@@ -10125,7 +11711,7 @@
       "confidence_score": 0.85,
       "context": "call",
       "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -10137,7 +11723,7 @@
       "confidence_score": 0.85,
       "context": "call",
       "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -10149,7 +11735,7 @@
       "confidence_score": 0.85,
       "context": "call",
       "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -10161,7 +11747,31 @@
       "confidence_score": 0.85,
       "context": "call",
       "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L37",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "views_loginview_axaml_bacom_views_loginview_restorefrombackup",
+      "target": "views_backupwindow_axaml_bacom_views_backupwindow",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "views_loginview_axaml_bacom_views_loginview_restorefrombackup",
+      "target": "services_vaultstore_bacom_services_vaultstore",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "context": "call",
+      "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -10202,6 +11812,30 @@
     },
     {
       "source": "docs_vault_data_vault_data_format",
+      "target": "services_macvaultkey_bacom_services_macvaultkey",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "MacVaultKey",
+      "source_file": "docs/vault-data.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_vault_data_vault_data_format",
+      "target": "services_vaultcodec_bacom_services_vaultcodec",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "VaultCodec",
+      "source_file": "docs/vault-data.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_vault_data_vault_data_format",
       "target": "models_vaultdata_bacom_models_vaultdata",
       "relation": "references",
       "_origin": "ast",
@@ -10223,8 +11857,20 @@
       "source_file": "docs/vault-data.md",
       "source_location": "L8",
       "weight": 1.0
+    },
+    {
+      "source": "docs_vault_data_vault_data_format",
+      "target": "services_vaultstore_bacom_services_vaultstore",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "context": "VaultStore",
+      "source_file": "docs/vault-data.md",
+      "source_location": "L18",
+      "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4bcb7daa7ae73c149e45be0cdbd347bc7b53334a"
+  "built_at_commit": "7b627df3fb89d145d05b16caa55629cdb1511b6f"
 }

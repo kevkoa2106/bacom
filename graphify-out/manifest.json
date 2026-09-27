@@ -18,15 +18,15 @@
     "semantic_hash": ""
   },
   "Views/DashboardView.axaml.cs": {
-    "mtime": 1790500601.1947844,
-    "seen": 1790500738.780656,
-    "ast_hash": "0cf07586455e375fdacd844d2adb40ea",
+    "mtime": 1790501116.795447,
+    "seen": 1790501160.8188381,
+    "ast_hash": "ec6a45d574a621b3d2fb9f5225b57220",
     "semantic_hash": ""
   },
   "Views/LoginView.axaml.cs": {
-    "mtime": 1790500601.1589935,
-    "seen": 1790500738.7806568,
-    "ast_hash": "0457a41ddfb4d7b3169ab48fe35b143b",
+    "mtime": 1790500920.6924615,
+    "seen": 1790501160.8188381,
+    "ast_hash": "569f58f84bbe16b96abafce9949159e9",
     "semantic_hash": ""
   },
   "bacom.csproj": {
@@ -66,15 +66,15 @@
     "semantic_hash": ""
   },
   "obj/Debug/net10.0/bacom.AssemblyInfo.cs": {
-    "mtime": 1790500601.6349084,
-    "seen": 1790500738.780664,
-    "ast_hash": "074e7166f5a6169fa7e4aec656c2ba39",
+    "mtime": 1790500870.1127472,
+    "seen": 1790501160.818843,
+    "ast_hash": "65ee4af8323dbd33f86206fc4c5fd823",
     "semantic_hash": ""
   },
   "obj/Debug/net10.0/bacom.sourcelink.json": {
-    "mtime": 1790500601.6432996,
-    "seen": 1790500738.780664,
-    "ast_hash": "8a9881a9ba28ffa464dcbfdb1c55bd08",
+    "mtime": 1790500870.1222978,
+    "seen": 1790501160.818843,
+    "ast_hash": "54b81ac7a584854d025d316f42980c4d",
     "semantic_hash": ""
   },
   "obj/Release/net10.0/osx-arm64/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
@@ -108,15 +108,15 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1790173739.9371686,
-    "seen": 1790417661.165204,
-    "ast_hash": "cf4c463a9106345b982c11a813d6b2b5",
+    "mtime": 1790501116.8391151,
+    "seen": 1790501160.818846,
+    "ast_hash": "bbf38c21e8cd02262fdb32777fec2604",
     "semantic_hash": ""
   },
   "TODO.md": {
-    "mtime": 1790500738.1951818,
-    "seen": 1790500738.780668,
-    "ast_hash": "6c034c98621c81ef94e818106bd8e729",
+    "mtime": 1790501116.824549,
+    "seen": 1790501160.818847,
+    "ast_hash": "ed0210fdd4c2002ffa1097a25690bb9e",
     "semantic_hash": ""
   },
   "bin/Release/net10.0/osx-arm64/native/bacom.dSYM/Contents/Resources/Relocations/aarch64/bacom.yml": {
@@ -156,9 +156,9 @@
     "semantic_hash": ""
   },
   "docs/dashboard-map.md": {
-    "mtime": 1790499917.2107992,
-    "seen": 1790499918.908308,
-    "ast_hash": "2d36bcf31349ce0b73bfa817daeedfad",
+    "mtime": 1790501158.8229544,
+    "seen": 1790501160.818848,
+    "ast_hash": "01961db89cf158c113d33d61a6441a49",
     "semantic_hash": ""
   },
   "Models/DashboardEntry.cs": {
@@ -168,9 +168,9 @@
     "semantic_hash": ""
   },
   "checks/new-entry.sh": {
-    "mtime": 1790500648.0218453,
-    "seen": 1790500738.780661,
-    "ast_hash": "979cc30c008d204f1d55eeb5be0b88e6",
+    "mtime": 1790501158.8404763,
+    "seen": 1790501160.818841,
+    "ast_hash": "80738970295567e327842453ab663949",
     "semantic_hash": ""
   },
   "Services/EntryIconLoader.cs": {
@@ -198,9 +198,9 @@
     "semantic_hash": ""
   },
   "docs/vault-data.md": {
-    "mtime": 1790499890.0041976,
-    "seen": 1790499918.908308,
-    "ast_hash": "90ca3a022110a081e9679b9e49e93728",
+    "mtime": 1790501158.8022475,
+    "seen": 1790501160.818849,
+    "ast_hash": "f04c8dce52b374a492192817bd88adfd",
     "semantic_hash": ""
   },
   "Services/BackupCodeParser.cs": {
@@ -210,33 +210,45 @@
     "semantic_hash": ""
   },
   "Services/MacVaultKey.cs": {
-    "mtime": 1790500380.325515,
-    "seen": 1790500407.8109188,
-    "ast_hash": "e77f86a05127c150dfc516f81c72cc9c",
+    "mtime": 1790501116.8105433,
+    "seen": 1790501160.818835,
+    "ast_hash": "95d30ee11fafedb497c9342de3cae01e",
     "semantic_hash": ""
   },
   "Services/VaultCodec.cs": {
-    "mtime": 1790500716.016328,
-    "seen": 1790500738.7806551,
-    "ast_hash": "1c6f7d9f3506f96b45e42efae5350b1c",
+    "mtime": 1790500869.6325278,
+    "seen": 1790501160.818836,
+    "ast_hash": "123d8859086102849ef145330fd0afc4",
     "semantic_hash": ""
   },
   "Services/VaultStore.cs": {
-    "mtime": 1790500296.829464,
-    "seen": 1790500407.81092,
-    "ast_hash": "abafb8979e2a91601f0c844046c8ec83",
+    "mtime": 1790501116.7591248,
+    "seen": 1790501160.818837,
+    "ast_hash": "103bf266a36e7848f62c4619db6b14ff",
     "semantic_hash": ""
   },
   "checks/vault.sh": {
-    "mtime": 1790500699.1997147,
-    "seen": 1790500738.780662,
-    "ast_hash": "f863b74cbfd954561246aa7a194b7a5c",
+    "mtime": 1790500983.1750839,
+    "seen": 1790501160.8188422,
+    "ast_hash": "935db1b821023b33ddfc15b67ef0240c",
     "semantic_hash": ""
   },
   "docs/storage.md": {
-    "mtime": 1790500738.214978,
-    "seen": 1790500738.780671,
-    "ast_hash": "9db90ccbc4772f73bfe8d013471a776d",
+    "mtime": 1790501116.858009,
+    "seen": 1790501160.818849,
+    "ast_hash": "9d6193a9cb1dad6376cc6efa189c0285",
+    "semantic_hash": ""
+  },
+  "Services/VaultBackup.cs": {
+    "mtime": 1790500869.5946825,
+    "seen": 1790501160.818835,
+    "ast_hash": "e27165ff7ee092bd9a93714cafe0848f",
+    "semantic_hash": ""
+  },
+  "Views/BackupWindow.axaml.cs": {
+    "mtime": 1790501116.77839,
+    "seen": 1790501160.818837,
+    "ast_hash": "48cccff3683de2b497a7d126a51cb12f",
     "semantic_hash": ""
   }
 }

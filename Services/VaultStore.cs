@@ -11,6 +11,7 @@ public sealed class VaultStore : IDisposable
     public static string DefaultPath => Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Bacom", "vault.bacom");
     private readonly string _path;
+    public string FilePath => _path;
     private readonly byte[] _key;
     private readonly FileStream _lock;
     private bool _disposed;
@@ -51,6 +52,16 @@ public sealed class VaultStore : IDisposable
         var bytes = new byte[checked((int)file.Length)];
         file.ReadExactly(bytes);
         return bytes;
+    }
+
+    // Explicit recovery can replace a corrupt vault, retaining its original encrypted bytes.
+    public void Restore(VaultData data)
+    {
+        ObjectDisposedException.ThrowIf(_disposed, this);
+        var encrypted = VaultCodec.Encrypt(data, _key);
+        if (File.Exists(_path))
+            WriteAtomic(_path + ".before-restore-" + Guid.NewGuid().ToString("N"), ReadBounded(_path));
+        WriteAtomic(_path, encrypted);
     }
 
     public static void WriteAtomic(string path, byte[] bytes)

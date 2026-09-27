@@ -10,5 +10,6 @@
         <Button x:Name="UnlockButton" Content="Unlock vault" Classes="primary" Width="160" Height="45" FontSize="18" Background="#007aff" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="AuthUser"/>
         <TextBlock x:Name="LoginStatus" Text="First time? Unlock to create your encrypted vault."
             TextWrapping="Wrap" TextAlignment="Center" Foreground="#A6A6AD"/>
+        <Button x:Name="RestoreLoginButton" Content="Restore from backup" Click="RestoreFromBackup" HorizontalAlignment="Center" />
     </StackPanel>
 </UserControl>

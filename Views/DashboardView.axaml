@@ -170,7 +170,14 @@
                     AutomationProperties.Name="Search entries"
                     TextChanged="SearchEntries" />
                 <Grid Grid.Row="1" ColumnDefinitions="*,Auto" Margin="14,27,14,0">
-                    <Button Content="Lock" Click="Logout" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <Button Content="Vault" HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Button.Flyout>
+                            <MenuFlyout>
+                                <MenuItem Header="Backup and restore" Click="OpenBackups" />
+                                <MenuItem Header="Lock vault" Click="Logout" />
+                            </MenuFlyout>
+                        </Button.Flyout>
+                    </Button>
                     <Button x:Name="NewEntryButton" Grid.Column="1" Content="New entry" Classes="dashboard-action"
                         Width="155" Height="45"
                         Click="OpenNewEntry" />

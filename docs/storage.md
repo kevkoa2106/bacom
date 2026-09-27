@@ -37,3 +37,31 @@ an interactive desktop check; automated tests cannot approve that prompt.
 References: [AES-GCM](https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.aesgcm),
 [Keychain ACLs](https://developer.apple.com/documentation/security/secaccesscreate(_:_:_:)),
 [Mac Keychain implementations](https://developer.apple.com/documentation/technotes/tn3137-on-mac-keychains).
+
+## Password backups and recovery
+
+Choose **Vault → Backup and restore** to export or restore `.bacombackup` files.
+The locked screen also offers restore. Export requires a confirmed password of
+12–1,024 characters; the password is never saved. PBKDF2-HMAC-SHA256 with 600,000
+iterations and a fresh 16-byte salt derives a separate 256-bit encryption key.
+The `BACOMB01` version fixes these parameters. The remaining payload uses the same
+authenticated encryption as the local vault; changing the salt causes decryption
+to fail. This backup is independent of the original computer's Keychain.
+
+Restore checks the password, authentication tag, schema, IDs, field sizes and PNG
+images before showing an account-count preview. Explicit replacement confirmation
+is required. Before replacing, the original encrypted local file is preserved as
+`.before-restore-<unique ID>`, even if damaged. Restored data is encrypted with the
+current device's key. If no device key exists, the locked-screen restore can create
+one only after the backup has been verified and replacement confirmed. Restore
+never merges lists or silently resets a damaged file. Keep backup passwords safe:
+neither Bacom nor the device key can decrypt a backup without its password.
+
+The automated checks cover wrong passwords, modified/truncated backups, exact
+round trips, invalid images, restore with a fresh key, retained old files, failed
+restore, weak export passwords and UI replacement confirmation. They use only
+generated fixtures and temporary paths, not real account data. Native dialogs
+remain a manual check: unlock/deny/retry Keychain, export with the OS picker, lock,
+then restore the exported file and confirm the expected accounts appear.
+
+KDF reference: [OWASP password storage guidance](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).

@@ -15,9 +15,9 @@ such as “Not added” belongs in the UI, not the saved data. Image bytes keep 
 uploaded images and detected favicons available without another network request.
 
 The models contain decrypted secrets. They must not be logged or written as
-plaintext files. Encryption, key management, schema validation on import/load,
-and disk writes are later steps. The serializer should use a source-generated
-System.Text.Json context to support the app's Native AOT configuration.
+plaintext files. `VaultCodec`, `MacVaultKey` and `VaultStore` provide encryption,
+key management, validation and disk writes. The serializer uses a source-generated
+System.Text.Json metadata context to support the app's Native AOT configuration.
 
 `DashboardEntry` is now a display adapter around `VaultEntry`, retaining only the
 decoded bitmap for the UI. Create and Edit accept one backup code per line;
@@ -28,8 +28,8 @@ Unchanged codes retain their IDs and used status across edits and reordering.
 
 The details popup provides a Used checkbox for each code, which can be unchecked
 to undo a mistake. Counts and low/empty indicators update immediately. Account
-images are normalized to PNG bytes on Apply/Create. Entries still live only in
-memory; encrypted persistence and recovery remain future steps.
+images are normalized to PNG bytes on Apply/Create. Changes are committed to the
+encrypted vault before the UI applies them. See `storage.md` for backup recovery.
 
 Run `sh checks/new-entry.sh` to check parsing, create/edit/cancel, code usage and
 undo, identity preservation, card counts, images, animations, and narrow layout.

@@ -31,8 +31,8 @@ flowchart TD
 The cards reproduce the supplied mockup and start with demo accounts containing no codes. Each card shows a service, account label, and remaining-code count derived from unused codes. Counts of
 one or two show a low-code warning; zero shows no codes remaining. Search filters
 both service names and account labels; clearing search restores all eight. Cards use up to four columns,
-wrap at narrower sizes, and scroll vertically. New entry opens a validated form and prepends an in-memory entry. Encryption and
-persistence remain in `TODO.md`. See `vault-data.md` for the data model and backup-code input rules.
+wrap at narrower sizes, and scroll vertically. New entry opens a validated form and prepends an entry after saving it to the encrypted vault.
+Demo entries appear only in designer/check sessions. See `vault-data.md` for the data model and backup-code input rules, and `storage.md` for persistence and recovery.
 
 ## GrepAI
 
@@ -73,7 +73,7 @@ event wiring and templates are defined in markup.
 
 Each card has a bottom-right three-dot button using `Button.Flyout` and a native
 `MenuFlyout`, with a vector pen icon for Edit and a trash icon for Delete. Delete removes the selected entry from the in-memory collection. Edit opens the same form with saved values and applies changes in place;
-persistence is not implemented.
+changes are persisted before the display updates.
 The menu is keyboard accessible and uses standard flyout dismissal behavior.
 
 ## Entry details overlay
@@ -121,7 +121,7 @@ positions across rows. Search results and scaled cards use the same layout.
 
 Verified middle, last, filtered, rapid successive and final-entry deletion with
 headless pointer interaction; verified horizontal/vertical slide offsets and
-completion. Deletions last for this dashboard instance; there is no disk storage.
+completion. Deleted entries stay deleted after locking and reopening the vault.
 
 ## Create and edit forms
 

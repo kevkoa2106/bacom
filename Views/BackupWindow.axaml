@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="bacom.Views.BackupWindow" Title="Bacom backup and restore"
+        Width="500" Height="580" MinWidth="340" MinHeight="440"
+        WindowStartupLocation="CenterOwner" Background="#28282C" RequestedThemeVariant="Dark">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <StackPanel x:Name="BackupForm" Margin="28" Spacing="16">
+            <TextBlock Text="Backup and restore" FontSize="26" FontWeight="Bold" Foreground="White" />
+            <TextBlock Text="Keep an encrypted copy somewhere safe. You will need its password to restore it on another Mac."
+                Foreground="#B9B9C0" TextWrapping="Wrap" />
+            <TextBlock Text="Backup password" Foreground="White" />
+            <TextBox x:Name="BackupPassword" PasswordChar="●" Background="#161619" MaxLength="1024"
+                AutomationProperties.Name="Backup password" TextChanged="PasswordChanged" />
+            <TextBlock x:Name="ConfirmLabel" Text="Confirm password (for export)" Foreground="White" />
+            <TextBox x:Name="ConfirmPassword" PasswordChar="●" Background="#161619" MaxLength="1024"
+                AutomationProperties.Name="Confirm backup password" />
+            <TextBlock x:Name="PasswordHelp" Text="Use at least 12 characters. Bacom cannot recover a forgotten backup password."
+                Foreground="#B9B9C0" TextWrapping="Wrap" />
+            <WrapPanel ItemSpacing="12" LineSpacing="12">
+                <Button x:Name="ExportButton" Content="Export backup" Click="ExportBackup" Background="#007AFF" Foreground="White" />
+                <Button x:Name="ChooseBackupButton" Content="Choose backup to restore" Click="ChooseBackup" />
+            </WrapPanel>
+            <TextBlock x:Name="BackupStatus" Foreground="#B9B9C0" TextWrapping="Wrap" />
+            <!-- Recovery confirmation: only shown after successful decryption and validation -->
+            <StackPanel x:Name="RestoreConfirmation" IsVisible="False" Spacing="12">
+                <CheckBox x:Name="ReplaceConsent">
+                    <TextBlock Text="Replace my current accounts with this backup. An encrypted copy of the old vault will be retained."
+                        TextWrapping="Wrap" MaxWidth="350" />
+                </CheckBox>
+                <Button x:Name="RestoreButton" Content="Restore backup" Click="RestoreBackup"
+                    Background="#007AFF" Foreground="White" HorizontalAlignment="Right" />
+            </StackPanel>
+            <Button Content="Close" Click="CloseBackup" HorizontalAlignment="Right" />
+        </StackPanel>
+    </ScrollViewer>
+</Window>
