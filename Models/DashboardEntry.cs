@@ -1,9 +1,15 @@
+using Avalonia.Media.Imaging;
+
 namespace bacom.Models;
 
 // Display data only; backup codes belong in the vault, not on dashboard cards.
 public sealed record DashboardEntry(string ServiceName, string AccountLabel, int RemainingCodes)
 {
     public string Website { get; init; } = "Not added";
+    public Bitmap? Icon { get; init; }
+    public bool HasCustomIcon { get; init; }
+    public bool HasIcon => Icon is not null;
+    public bool NeedsIconPlaceholder => Icon is null;
     public string Notes { get; init; } = "No notes yet.";
 
     public bool IsLow => RemainingCodes is > 0 and <= 2;

@@ -18,9 +18,9 @@
     "semantic_hash": ""
   },
   "Views/DashboardView.axaml.cs": {
-    "mtime": 1790419106.152879,
-    "seen": 1790419216.4868522,
-    "ast_hash": "07b0b9a6069ffdaf0b2a4a4b3a8abd6e",
+    "mtime": 1790434524.3252633,
+    "seen": 1790434526.3556302,
+    "ast_hash": "e28574b860244a6396c7f4701212eefa",
     "semantic_hash": ""
   },
   "Views/LoginView.axaml.cs": {
@@ -66,15 +66,15 @@
     "semantic_hash": ""
   },
   "obj/Debug/net10.0/bacom.AssemblyInfo.cs": {
-    "mtime": 1790174529.1003063,
-    "seen": 1790417661.165201,
-    "ast_hash": "6e3493518a9e2311fa33871e3d8b4272",
+    "mtime": 1790429436.452303,
+    "seen": 1790434526.355636,
+    "ast_hash": "7629edec73942b3a38722c7e5e41ddb6",
     "semantic_hash": ""
   },
   "obj/Debug/net10.0/bacom.sourcelink.json": {
-    "mtime": 1790416487.2608423,
-    "seen": 1790417661.165201,
-    "ast_hash": "44d24e784b9dc0f93c37619f8c3a5dd8",
+    "mtime": 1790429436.4608977,
+    "seen": 1790434526.355637,
+    "ast_hash": "1077a9d06d1f5d4777e52cdd45ef84fe",
     "semantic_hash": ""
   },
   "obj/Release/net10.0/osx-arm64/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs": {
@@ -156,15 +156,21 @@
     "semantic_hash": ""
   },
   "docs/dashboard-map.md": {
-    "mtime": 1790419216.263346,
-    "seen": 1790419216.4868631,
-    "ast_hash": "45703af47afbf81372b5eebac783f0a8",
+    "mtime": 1790434524.325804,
+    "seen": 1790434526.355642,
+    "ast_hash": "a7d880521d11799fc26d6cc79bca90fd",
     "semantic_hash": ""
   },
   "Models/DashboardEntry.cs": {
-    "mtime": 1790418832.611776,
-    "seen": 1790418911.571851,
-    "ast_hash": "ea325bb8de785ba73ccff4e82f33a762",
+    "mtime": 1790434440.8831804,
+    "seen": 1790434526.355628,
+    "ast_hash": "add83a0214f5824c409a1c66ae9c6f6b",
+    "semantic_hash": ""
+  },
+  "checks/new-entry.sh": {
+    "mtime": 1790434481.3262928,
+    "seen": 1790434526.355635,
+    "ast_hash": "6cbacae9e7a06305668794021abcb94b",
     "semantic_hash": ""
   }
 }

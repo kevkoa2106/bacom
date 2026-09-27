@@ -6,11 +6,23 @@
     mc:Ignorable="d" d:DesignWidth="1177" d:DesignHeight="702"
     x:Class="bacom.Views.DashboardView"
     Background="#161616">
+    <!-- Shared sizing resources -->
     <UserControl.Resources>
+        <StreamGeometry x:Key="ImagePlaceholder">M 3,3 L 21,3 L 21,21 L 3,21 Z M 5,5 L 5,19 L 19,19 L 19,5 Z M 6,17 L 10,12 L 13,15 L 16,11 L 19,17 Z M 8,7 A 2,2 0 1 1 8,11 A 2,2 0 1 1 8,7 Z</StreamGeometry>
         <x:Double x:Key="DashboardCardWidth">220</x:Double>
         <x:Double x:Key="DashboardCardHeight">200</x:Double>
     </UserControl.Resources>
+    <!-- Control styles -->
     <UserControl.Styles>
+        <!-- Entry form inputs -->
+        <Style Selector="TextBox.entry-input">
+            <Setter Property="Background" Value="#161619" />
+            <Setter Property="Foreground" Value="#F2F2F3" />
+            <Setter Property="BorderBrush" Value="#46464E" />
+            <Setter Property="PlaceholderForeground" Value="#AAAAB3" />
+            <Setter Property="Padding" Value="12,9" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
         <Style Selector="TextBox.dashboard-search">
             <Setter Property="Background" Value="#28282C" />
             <Setter Property="Foreground" Value="#FFFFFF" />
@@ -64,6 +76,7 @@
         <Style Selector="Button.entry-card:focus-visible">
             <Setter Property="BorderBrush" Value="#A6A6AD" />
         </Style>
+        <!-- Animations: options menu and modal opening -->
         <Style Selector="MenuFlyoutPresenter.entry-options">
             <Setter Property="Background" Value="#28282C" />
             <Setter Property="BorderBrush" Value="#414147" />
@@ -146,6 +159,7 @@
             <Setter Property="Foreground" Value="#F2A0AD" />
         </Style>
     </UserControl.Styles>
+    <!-- Dashboard: search, creation button and card grid -->
     <ThemeVariantScope RequestedThemeVariant="Dark">
         <Grid>
             <Grid x:Name="DashboardContent" RowDefinitions="52,72,*" Margin="24,31,24,0" MaxWidth="1048">
@@ -156,11 +170,11 @@
                     AutomationProperties.Name="Search entries"
                     TextChanged="SearchEntries" />
                 <Grid Grid.Row="1" ColumnDefinitions="*,Auto" Margin="14,27,14,0">
-                    <Button Grid.Column="1" Content="New entry" Classes="dashboard-action"
+                    <Button x:Name="NewEntryButton" Grid.Column="1" Content="New entry" Classes="dashboard-action"
                         Width="155" Height="45"
-                        ToolTip.Tip="Entry creation is planned; these cards are a layout preview." />
+                        Click="OpenNewEntry" />
                 </Grid>
-                <ScrollViewer Grid.Row="2" Margin="0,46,0,0"
+                <ScrollViewer x:Name="CardsScroll" Grid.Row="2" Margin="0,46,0,0"
                     HorizontalScrollBarVisibility="Disabled"
                     VerticalScrollBarVisibility="Auto">
                     <Grid x:Name="CardsViewport" SizeChanged="ResizeCards">
@@ -181,10 +195,18 @@
                                                 AutomationProperties.Name="{Binding ServiceName}" />
                                             <Border Padding="20,24,20,20" IsHitTestVisible="False">
                                                 <Grid RowDefinitions="Auto,Auto,*,Auto,Auto">
-                                                    <TextBlock Text="{Binding ServiceName}" FontSize="24"
-                                                        FontWeight="Bold" Foreground="#FFFFFF"
-                                                        TextTrimming="CharacterEllipsis"
-                                                        ToolTip.Tip="{Binding ServiceName}" />
+                                                <Grid ColumnDefinitions="30,*" ColumnSpacing="10">
+                                                    <Border Width="30" Height="30" Background="#1D1D20" CornerRadius="6" Padding="4">
+                                                        <Grid>
+                                                            <PathIcon Data="{StaticResource ImagePlaceholder}" Foreground="#777782"
+                                                                IsVisible="{Binding NeedsIconPlaceholder}" />
+                                                            <Image Source="{Binding Icon}" Stretch="Uniform" />
+                                                        </Grid>
+                                                    </Border>
+                                                    <TextBlock Grid.Column="1" Text="{Binding ServiceName}" FontSize="24"
+                                                        FontWeight="Bold" Foreground="#FFFFFF" VerticalAlignment="Center"
+                                                        TextTrimming="CharacterEllipsis" ToolTip.Tip="{Binding ServiceName}" />
+                                                </Grid>
                                                     <TextBlock Grid.Row="1" Text="{Binding AccountLabel}"
                                                         FontSize="13" Foreground="#B1B1BB" Margin="0,8,0,0"
                                                         TextTrimming="CharacterEllipsis"
@@ -194,7 +216,7 @@
                                                     <Grid Grid.Row="4" ColumnDefinitions="*,28" ColumnSpacing="4">
                                                         <Border Classes="code-count" HorizontalAlignment="Left"
                                                             Classes.low="{Binding IsLow}" Classes.empty="{Binding IsEmpty}">
-                                                            <TextBlock Text="{Binding RemainingLabel}" />
+                                                            <TextBlock Text="{Binding RemainingLabel}" TextTrimming="CharacterEllipsis" />
                                                         </Border>
                                                     </Grid>
                                                 </Grid>
@@ -207,7 +229,7 @@
                                                 <Button.Flyout>
                                                     <MenuFlyout Placement="TopEdgeAlignedRight" VerticalOffset="-8"
                                                         FlyoutPresenterClasses="entry-options">
-                                                        <MenuItem Header="Edit">
+                                                        <MenuItem Header="Edit" Click="EditEntry">
                                                             <MenuItem.Icon>
                                                                 <PathIcon Width="16" Height="16"
                                                                     Data="M 3,17.25 L 3,21 L 6.75,21 L 17.81,9.94 L 14.06,6.19 Z M 20.71,7.04 C 21.1,6.65 21.1,6.02 20.71,5.63 L 18.37,3.29 C 17.98,2.9 17.35,2.9 16.96,3.29 L 15.13,5.12 L 18.88,8.87 Z" />
@@ -233,6 +255,7 @@
                     </Grid>
                 </ScrollViewer>
             </Grid>
+            <!-- Modal: shared shell for viewing and creating an entry -->
             <Grid x:Name="DetailsOverlay" IsVisible="False" Background="#A6000000"
                 KeyboardNavigation.TabNavigation="Cycle" KeyDown="DetailsKeyDown">
                 <Border x:Name="DetailsPanel" x:DataType="models:DashboardEntry"
@@ -242,9 +265,11 @@
                     <Grid RowDefinitions="Auto,*" RowSpacing="24">
                         <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
                             <StackPanel Spacing="6">
-                                <TextBlock Text="ENTRY DETAILS" Classes="detail-label" />
-                                <TextBlock Text="{Binding ServiceName}" FontSize="28" FontWeight="Bold"
+                                <TextBlock x:Name="ModalLabel" Text="ENTRY DETAILS" Classes="detail-label" />
+                                <TextBlock x:Name="DetailsTitle" Text="{Binding ServiceName}" FontSize="28" FontWeight="Bold"
                                     Foreground="White" TextWrapping="Wrap" />
+                                <TextBlock x:Name="NewEntryTitle" Text="Add an account" IsVisible="False"
+                                    FontSize="28" FontWeight="Bold" Foreground="White" TextWrapping="Wrap" />
                             </StackPanel>
                             <Button x:Name="CloseDetailsButton" Grid.Column="1" Classes="entry-menu"
                                 Width="32" Height="32" VerticalAlignment="Top" Click="CloseEntry"
@@ -253,8 +278,15 @@
                                     Data="M 2,0 L 7,5 L 12,0 L 14,2 L 9,7 L 14,12 L 12,14 L 7,9 L 2,14 L 0,12 L 5,7 L 0,2 Z" />
                             </Button>
                         </Grid>
-                        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+                        <ScrollViewer x:Name="DetailsContent" Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
                             <StackPanel Spacing="22">
+                                <Border Width="64" Height="64" Background="#161619" CornerRadius="10" Padding="10" HorizontalAlignment="Left">
+                                    <Grid>
+                                        <PathIcon Data="{StaticResource ImagePlaceholder}" Foreground="#777782"
+                                            Width="28" Height="28" IsVisible="{Binding NeedsIconPlaceholder}" />
+                                        <Image Source="{Binding Icon}" Stretch="Uniform" />
+                                    </Grid>
+                                </Border>
                                 <StackPanel>
                                     <TextBlock Text="ACCOUNT" Classes="detail-label" />
                                     <TextBlock Text="{Binding AccountLabel}" Classes="detail-value" />
@@ -267,7 +299,7 @@
                                     <TextBlock Text="BACKUP CODES" Classes="detail-label" />
                                     <Border Classes="code-count" HorizontalAlignment="Left"
                                         Classes.low="{Binding IsLow}" Classes.empty="{Binding IsEmpty}">
-                                        <TextBlock Text="{Binding RemainingLabel}" />
+                                        <TextBlock Text="{Binding RemainingLabel}" TextTrimming="CharacterEllipsis" />
                                     </Border>
                                     <TextBlock Text="Running low — generate a new set from this service."
                                         IsVisible="{Binding IsLow}" Foreground="#F2C879" FontSize="13"
@@ -281,11 +313,79 @@
                                     <TextBlock Text="{Binding Notes}" Classes="detail-value" />
                                 </StackPanel>
                                 <Border Background="#222226" Padding="14" CornerRadius="8">
-                                    <TextBlock Text="Preview entry. No backup codes are stored for this sample account."
+                                    <TextBlock Text="Entries are kept for this session. Only the code count is recorded here."
                                         Foreground="#A6A6AD" FontSize="13" TextWrapping="Wrap" />
                                 </Border>
                             </StackPanel>
                         </ScrollViewer>
+                        <!-- Create/Edit form: inputs scroll, action button stays visible -->
+                        <Grid x:Name="EntryForm" Grid.Row="1" IsVisible="False" RowDefinitions="*,Auto" RowSpacing="20">
+                            <Grid.Resources>
+                                <SolidColorBrush x:Key="TextControlBackgroundPointerOver">#1C1C20</SolidColorBrush>
+                                <SolidColorBrush x:Key="TextControlBackgroundFocused">#161619</SolidColorBrush>
+                            </Grid.Resources>
+                            <ScrollViewer x:Name="FormScroll" HorizontalScrollBarVisibility="Disabled">
+                                <StackPanel Spacing="14">
+                                    <!-- Account image: native file picker or automatic website favicon -->
+                                    <Grid ColumnDefinitions="80,*" ColumnSpacing="16" Margin="0,0,0,8">
+                                        <Button x:Name="ChooseIconButton" Width="80" Height="80" Click="ChooseIcon"
+                                            Padding="12" Background="#161619" BorderBrush="#46464E" BorderThickness="1"
+                                            CornerRadius="10" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                                            AutomationProperties.Name="Choose account image" ToolTip.Tip="Choose a custom image">
+                                            <Grid>
+                                                <PathIcon x:Name="IconPlaceholder" Data="{StaticResource ImagePlaceholder}"
+                                                    Width="28" Height="28" Foreground="#777782" />
+                                                <Image x:Name="IconPreview" Stretch="Uniform" />
+                                            </Grid>
+                                        </Button>
+                                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="6">
+                                            <TextBlock Text="Account image" Foreground="#F2F2F3" FontWeight="SemiBold" />
+                                            <TextBlock x:Name="IconStatus" Text="Choose an image or enter a website."
+                                                Foreground="#A6A6AD" FontSize="12" TextWrapping="Wrap" />
+                                            <Button Content="Use website icon" Click="UseWebsiteIcon" Padding="0"
+                                                Background="Transparent" Foreground="#75AEFF" HorizontalAlignment="Left" />
+                                        </StackPanel>
+                                    </Grid>
+                                    <StackPanel Spacing="4">
+                                        <TextBlock Text="Service name *" Classes="detail-label" />
+                                        <TextBox x:Name="ServiceInput" Classes="entry-input" MaxLength="80" PlaceholderText="e.g. GitHub"
+                                            AutomationProperties.Name="Service name" />
+                                    </StackPanel>
+                                    <StackPanel Spacing="4">
+                                        <TextBlock Text="Account label *" Classes="detail-label" />
+                                        <TextBox x:Name="AccountInput" Classes="entry-input" MaxLength="254" PlaceholderText="Email, username, or Personal / Work"
+                                            AutomationProperties.Name="Account label" />
+                                    </StackPanel>
+                                    <StackPanel Spacing="4">
+                                        <TextBlock Text="Website (optional)" Classes="detail-label" />
+                                        <TextBox x:Name="WebsiteInput" Classes="entry-input" MaxLength="2048" PlaceholderText="https://example.com"
+                                            AutomationProperties.Name="Website" TextChanged="WebsiteChanged" />
+                                    </StackPanel>
+                                    <StackPanel Spacing="4">
+                                        <TextBlock Text="Remaining code count" Classes="detail-label" />
+                                        <TextBox x:Name="CodeCountInput" Classes="entry-input" Text="0" MaxLength="4"
+                                            AutomationProperties.Name="Remaining code count" />
+                                    </StackPanel>
+                                    <StackPanel Spacing="4">
+                                        <TextBlock Text="Notes (optional)" Classes="detail-label" />
+                                        <TextBox x:Name="NotesInput" Classes="entry-input" MaxLength="2000" AcceptsReturn="True"
+                                            TextWrapping="Wrap" MinHeight="72" MaxHeight="120"
+                                            AutomationProperties.Name="Notes" />
+                                    </StackPanel>
+                                    <TextBlock Text="Entries are kept for this session. Only the code count is recorded here."
+                                        Foreground="#A6A6AD" FontSize="12" TextWrapping="Wrap" />
+                                </StackPanel>
+                            </ScrollViewer>
+                            <StackPanel Grid.Row="1" Spacing="12">
+                                <TextBlock x:Name="FormError" IsVisible="False" Foreground="#F2A0AD"
+                                    FontSize="13" TextWrapping="Wrap" />
+                                <Button x:Name="CreateEntryButton" Content="Create" Click="SaveEntry"
+                                    Background="#007AFF" Foreground="White" FontWeight="SemiBold" FontSize="16"
+                                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                    HorizontalAlignment="Right" Padding="0"
+                                    Width="112" Height="42" CornerRadius="7" />
+                            </StackPanel>
+                        </Grid>
                     </Grid>
                 </Border>
             </Grid>

@@ -16,32 +16,12 @@
         "is_partial": true,
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
+          "s510"
         ]
       },
       "norm_label": "dashboardview",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L16"
-    },
-    {
-      "id": "views_loginview_axaml_bacom_views_loginview",
-      "label": "LoginView",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "DashboardView",
-      "file_type": "code",
-      "metadata": {
-        "is_partial": true,
-        "namespace": "bacom.Views",
-        "scope_chain": [
-          "s151"
-        ]
-      },
-      "norm_label": "loginview",
-      "source_file": "Views/LoginView.axaml.cs",
-      "source_location": "L10"
+      "source_location": "L24"
     },
     {
       "id": "app_axaml_bacom_app",
@@ -50,7 +30,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "App",
+      "community_name": "App.axaml.cs",
       "file_type": "code",
       "metadata": {
         "is_partial": true,
@@ -70,7 +50,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "App",
+      "community_name": "App.axaml.cs",
       "file_type": "code",
       "metadata": {
         "is_partial": true,
@@ -90,7 +70,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "App",
+      "community_name": "App.axaml.cs",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom",
@@ -101,6 +81,25 @@
       "norm_label": "program",
       "source_file": "Program.cs",
       "source_location": "L6"
+    },
+    {
+      "id": "services_entryiconloader_bacom_services_entryiconloader",
+      "label": "EntryIconLoader",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".FindAsync",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s231"
+        ]
+      },
+      "norm_label": "entryiconloader",
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L14"
     },
     {
       "id": "models_dashboardentry_bacom_models_dashboardentry",
@@ -114,30 +113,152 @@
       "metadata": {
         "namespace": "bacom.Models",
         "scope_chain": [
-          "s0"
+          "s31"
         ]
       },
       "norm_label": "dashboardentry",
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L4"
+      "source_location": "L6"
     },
     {
-      "id": "mainwindow_axaml_bacom_mainwindow_navigateto",
-      "label": ".NavigateTo()",
+      "id": "views_loginview_axaml_bacom_views_loginview",
+      "label": "LoginView",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": ".NavigateTo",
+      "file_type": "code",
+      "metadata": {
+        "is_partial": true,
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s151"
+        ]
+      },
+      "norm_label": "loginview",
+      "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L10"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
+      "label": ".AnimateCardPositions()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
       "community_name": "DashboardView",
       "file_type": "code",
       "metadata": {
-        "namespace": "bacom",
+        "namespace": "bacom.Views",
         "scope_chain": [
-          "s147"
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "UpdateLayout",
+            "receiver_type": "EntriesList",
+            "lang": "csharp",
+            "line": "L133"
+          },
+          {
+            "callee": "GetRealizedContainers",
+            "receiver_type": "EntriesList",
+            "lang": "csharp",
+            "line": "L136"
+          },
+          {
+            "callee": "TryGetValue",
+            "receiver_type": "Dictionary",
+            "lang": "csharp",
+            "line": "L139"
+          },
+          {
+            "callee": "Abs",
+            "receiver_type": "Math",
+            "lang": "csharp",
+            "line": "L144"
+          },
+          {
+            "callee": "FromMilliseconds",
+            "receiver_type": "TimeSpan",
+            "lang": "csharp",
+            "line": "L154"
+          }
         ]
       },
-      "norm_label": ".navigateto()",
-      "source_file": "MainWindow.axaml.cs",
-      "source_location": "L18"
+      "norm_label": ".animatecardpositions()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L130"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_canceliconrequest",
+      "label": ".CancelIconRequest()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ]
+      },
+      "norm_label": ".canceliconrequest()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L332"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_capturecardpositions",
+      "label": ".CaptureCardPositions()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetRealizedContainers",
+            "receiver_type": "EntriesList",
+            "lang": "csharp",
+            "line": "L118"
+          }
+        ]
+      },
+      "norm_label": ".capturecardpositions()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L114"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_chooseicon",
+      "label": ".ChooseIcon()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetTopLevel",
+            "receiver_type": "TopLevel",
+            "lang": "csharp",
+            "line": "L395"
+          }
+        ]
+      },
+      "norm_label": ".chooseicon()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L393"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_closeentry",
@@ -150,12 +271,20 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Focus",
+            "receiver_type": "NewEntryButton",
+            "lang": "csharp",
+            "line": "L445"
+          }
         ]
       },
       "norm_label": ".closeentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L164"
+      "source_location": "L436"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_deleteentry",
@@ -168,68 +297,38 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
+          "s510"
         ],
         "unresolved_calls": [
           {
             "callee": "FindIndex",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L76"
+            "line": "L100"
           },
           {
             "callee": "Range",
             "receiver_type": "Enumerable",
             "lang": "csharp",
-            "line": "L77"
-          },
-          {
-            "callee": "GetRealizedContainers",
-            "receiver_type": "EntriesList",
-            "lang": "csharp",
-            "line": "L84"
+            "line": "L101"
           },
           {
             "callee": "RemoveAt",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L93"
+            "line": "L107"
           },
           {
             "callee": "RemoveAt",
             "receiver_type": "ObservableCollection",
             "lang": "csharp",
-            "line": "L94"
-          },
-          {
-            "callee": "UpdateLayout",
-            "receiver_type": "EntriesList",
-            "lang": "csharp",
-            "line": "L96"
-          },
-          {
-            "callee": "TryGetValue",
-            "receiver_type": "Dictionary",
-            "lang": "csharp",
-            "line": "L102"
-          },
-          {
-            "callee": "Abs",
-            "receiver_type": "Math",
-            "lang": "csharp",
-            "line": "L107"
-          },
-          {
-            "callee": "FromMilliseconds",
-            "receiver_type": "TimeSpan",
-            "lang": "csharp",
-            "line": "L117"
+            "line": "L108"
           }
         ]
       },
       "norm_label": ".deleteentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L70"
+      "source_location": "L94"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_detailskeydown",
@@ -242,16 +341,16 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
+          "s510"
         ]
       },
       "norm_label": ".detailskeydown()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L176"
+      "source_location": "L451"
     },
     {
-      "id": "views_dashboardview_axaml_bacom_views_dashboardview_logout",
-      "label": ".Logout()",
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
+      "label": ".DetectWebsiteIcon()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
@@ -260,20 +359,102 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
+          "s510"
         ],
         "unresolved_calls": [
           {
-            "callee": "GetTopLevel",
-            "receiver_type": "TopLevel",
+            "callee": "FromSeconds",
+            "receiver_type": "TimeSpan",
             "lang": "csharp",
-            "line": "L184"
+            "line": "L356"
+          },
+          {
+            "callee": "Delay",
+            "receiver_type": "Task",
+            "lang": "csharp",
+            "line": "L362"
+          },
+          {
+            "callee": "Dispose",
+            "receiver_type": "CancellationTokenSource",
+            "lang": "csharp",
+            "line": "L383"
           }
         ]
       },
-      "norm_label": ".logout()",
+      "norm_label": ".detectwebsiteicon()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L182"
+      "source_location": "L347"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_editentry",
+      "label": ".EditEntry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetVisualDescendants",
+            "receiver_type": "EntriesList",
+            "lang": "csharp",
+            "line": "L229"
+          }
+        ]
+      },
+      "norm_label": ".editentry()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L210"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_iswebaddress",
+      "label": ".IsWebAddress()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "TryCreate",
+            "receiver_type": "Uri",
+            "lang": "csharp",
+            "line": "L433"
+          }
+        ]
+      },
+      "norm_label": ".iswebaddress()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L432"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_ondetachedfromvisualtree",
+      "label": ".OnDetachedFromVisualTree()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ]
+      },
+      "norm_label": ".ondetachedfromvisualtree()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L426"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_openentry",
@@ -286,20 +467,30 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
-        ],
-        "unresolved_calls": [
-          {
-            "callee": "Focus",
-            "receiver_type": "CloseDetailsButton",
-            "lang": "csharp",
-            "line": "L160"
-          }
+          "s510"
         ]
       },
       "norm_label": ".openentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L149"
+      "source_location": "L188"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_opennewentry",
+      "label": ".OpenNewEntry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ]
+      },
+      "norm_label": ".opennewentry()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L198"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_refreshentries",
@@ -312,36 +503,36 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
+          "s510"
         ],
         "unresolved_calls": [
           {
             "callee": "Where",
             "receiver_type": "List",
             "lang": "csharp",
-            "line": "L53"
+            "line": "L76"
           },
           {
             "callee": "Clear",
             "receiver_type": "ObservableCollection",
             "lang": "csharp",
-            "line": "L58"
+            "line": "L81"
           },
           {
             "callee": "Add",
             "receiver_type": "ObservableCollection",
             "lang": "csharp",
-            "line": "L60"
+            "line": "L83"
           }
         ]
       },
       "norm_label": ".refreshentries()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L50"
+      "source_location": "L72"
     },
     {
-      "id": "views_dashboardview_axaml_bacom_views_dashboardview_resizecards",
-      "label": ".ResizeCards()",
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_reseticoneditor",
+      "label": ".ResetIconEditor()",
       "_callable": true,
       "_origin": "ast",
       "community": 0,
@@ -350,26 +541,50 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
+          "s510"
+        ]
+      },
+      "norm_label": ".reseticoneditor()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L339"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_saveentry",
+      "label": ".SaveEntry()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
         ],
         "unresolved_calls": [
           {
-            "callee": "Clamp",
-            "receiver_type": "Math",
+            "callee": "FindIndex",
+            "receiver_type": "List",
             "lang": "csharp",
-            "line": "L140"
+            "line": "L292"
           },
           {
-            "callee": "Min",
-            "receiver_type": "Math",
+            "callee": "Insert",
+            "receiver_type": "List",
             "lang": "csharp",
-            "line": "L141"
+            "line": "L304"
+          },
+          {
+            "callee": "Insert",
+            "receiver_type": "ObservableCollection",
+            "lang": "csharp",
+            "line": "L305"
           }
         ]
       },
-      "norm_label": ".resizecards()",
+      "norm_label": ".saveentry()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L132"
+      "source_location": "L256"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_searchentries",
@@ -382,12 +597,68 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
+          "s510"
         ]
       },
       "norm_label": ".searchentries()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L41"
+      "source_location": "L62"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_setdrafticon",
+      "label": ".SetDraftIcon()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ]
+      },
+      "norm_label": ".setdrafticon()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L321"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_showentrypopup",
+      "label": ".ShowEntryPopup()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "UpdateLayout",
+            "receiver_type": "DetailsOverlay",
+            "lang": "csharp",
+            "line": "L249"
+          },
+          {
+            "callee": "Focus",
+            "receiver_type": "ServiceInput",
+            "lang": "csharp",
+            "line": "L251"
+          },
+          {
+            "callee": "Focus",
+            "receiver_type": "CloseDetailsButton",
+            "lang": "csharp",
+            "line": "L253"
+          }
+        ]
+      },
+      "norm_label": ".showentrypopup()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L236"
     },
     {
       "id": "views_dashboardview_axaml_bacom_views_dashboardview_updateemptystate",
@@ -400,20 +671,374 @@
       "metadata": {
         "namespace": "bacom.Views",
         "scope_chain": [
-          "s301"
+          "s510"
         ]
       },
       "norm_label": ".updateemptystate()",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L64"
+      "source_location": "L87"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_usewebsiteicon",
+      "label": ".UseWebsiteIcon()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ]
+      },
+      "norm_label": ".usewebsiteicon()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L387"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_websitechanged",
+      "label": ".WebsiteChanged()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ]
+      },
+      "norm_label": ".websitechanged()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L314"
+    },
+    {
+      "id": "app_axaml_bacom_app_initialize",
+      "label": ".Initialize()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom",
+        "scope_chain": [
+          "s95"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Load",
+            "receiver_type": "AvaloniaXamlLoader",
+            "lang": "csharp",
+            "line": "L11"
+          }
+        ]
+      },
+      "norm_label": ".initialize()",
+      "source_file": "App.axaml.cs",
+      "source_location": "L9"
+    },
+    {
+      "id": "app_axaml_bacom_app_onframeworkinitializationcompleted",
+      "label": ".OnFrameworkInitializationCompleted()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom",
+        "scope_chain": [
+          "s95"
+        ]
+      },
+      "norm_label": ".onframeworkinitializationcompleted()",
+      "source_file": "App.axaml.cs",
+      "source_location": "L14"
+    },
+    {
+      "id": "program_bacom_program_buildavaloniaapp",
+      "label": ".BuildAvaloniaApp()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom",
+        "scope_chain": [
+          "s31"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Configure",
+            "receiver_type": "AppBuilder",
+            "lang": "csharp",
+            "line": "L17"
+          },
+          {
+            "callee": "WithDeveloperTools",
+            "receiver_type": "DEBUG",
+            "lang": "csharp",
+            "line": "L20"
+          }
+        ]
+      },
+      "norm_label": ".buildavaloniaapp()",
+      "source_file": "Program.cs",
+      "source_location": "L16"
+    },
+    {
+      "id": "program_bacom_program_main",
+      "label": ".Main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom",
+        "scope_chain": [
+          "s31"
+        ]
+      },
+      "norm_label": ".main()",
+      "source_file": "Program.cs",
+      "source_location": "L11"
+    },
+    {
+      "id": "services_entryiconloader_bacom_services_entryiconloader_findasync",
+      "label": ".FindAsync()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".FindAsync",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s231"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetLeftPart",
+            "receiver_type": "Uri",
+            "lang": "csharp",
+            "line": "L52"
+          },
+          {
+            "callee": "GetStringAsync",
+            "receiver_type": "HttpClient",
+            "lang": "csharp",
+            "line": "L56"
+          },
+          {
+            "callee": "Matches",
+            "receiver_type": "Regex",
+            "lang": "csharp",
+            "line": "L57"
+          },
+          {
+            "callee": "FromMilliseconds",
+            "receiver_type": "TimeSpan",
+            "lang": "csharp",
+            "line": "L57"
+          },
+          {
+            "callee": "HtmlDecode",
+            "receiver_type": "WebUtility",
+            "lang": "csharp",
+            "line": "L64"
+          },
+          {
+            "callee": "TryCreate",
+            "receiver_type": "Uri",
+            "lang": "csharp",
+            "line": "L72"
+          },
+          {
+            "callee": "Add",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L74"
+          },
+          {
+            "callee": "Distinct",
+            "receiver_type": "List",
+            "lang": "csharp",
+            "line": "L84"
+          },
+          {
+            "callee": "ThrowIfCancellationRequested",
+            "receiver_type": "CancellationToken",
+            "lang": "csharp",
+            "line": "L86"
+          },
+          {
+            "callee": "GetAsync",
+            "receiver_type": "HttpClient",
+            "lang": "csharp",
+            "line": "L89"
+          }
+        ]
+      },
+      "norm_label": ".findasync()",
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L49"
+    },
+    {
+      "id": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
+      "label": ".LoadImageAsync()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".FindAsync",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Services",
+        "scope_chain": [
+          "s231"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "ReadAsync",
+            "receiver_type": "Stream",
+            "lang": "csharp",
+            "line": "L30"
+          },
+          {
+            "callee": "Write",
+            "receiver_type": "MemoryStream",
+            "lang": "csharp",
+            "line": "L34"
+          },
+          {
+            "callee": "CreateCopy",
+            "receiver_type": "SKData",
+            "lang": "csharp",
+            "line": "L37"
+          },
+          {
+            "callee": "ToArray",
+            "receiver_type": "MemoryStream",
+            "lang": "csharp",
+            "line": "L37"
+          },
+          {
+            "callee": "Create",
+            "receiver_type": "SKCodec",
+            "lang": "csharp",
+            "line": "L38"
+          },
+          {
+            "callee": "Max",
+            "receiver_type": "Math",
+            "lang": "csharp",
+            "line": "L45"
+          },
+          {
+            "callee": "Min",
+            "receiver_type": "Math",
+            "lang": "csharp",
+            "line": "L45"
+          },
+          {
+            "callee": "DecodeToWidth",
+            "receiver_type": "Bitmap",
+            "lang": "csharp",
+            "line": "L46"
+          }
+        ]
+      },
+      "norm_label": ".loadimageasync()",
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L25"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_resizecards",
+      "label": ".ResizeCards()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 11,
+      "community_name": ".ResizeCards",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "Clamp",
+            "receiver_type": "Math",
+            "lang": "csharp",
+            "line": "L178"
+          },
+          {
+            "callee": "Min",
+            "receiver_type": "Math",
+            "lang": "csharp",
+            "line": "L179"
+          }
+        ]
+      },
+      "norm_label": ".resizecards()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L170"
+    },
+    {
+      "id": "mainwindow_axaml_bacom_mainwindow_navigateto",
+      "label": ".NavigateTo()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": ".NavigateTo",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom",
+        "scope_chain": [
+          "s147"
+        ]
+      },
+      "norm_label": ".navigateto()",
+      "source_file": "MainWindow.axaml.cs",
+      "source_location": "L18"
+    },
+    {
+      "id": "views_dashboardview_axaml_bacom_views_dashboardview_logout",
+      "label": ".Logout()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 8,
+      "community_name": ".NavigateTo",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Views",
+        "scope_chain": [
+          "s510"
+        ],
+        "unresolved_calls": [
+          {
+            "callee": "GetTopLevel",
+            "receiver_type": "TopLevel",
+            "lang": "csharp",
+            "line": "L459"
+          }
+        ]
+      },
+      "norm_label": ".logout()",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L457"
     },
     {
       "id": "views_loginview_axaml_bacom_views_loginview_authuser",
       "label": ".AuthUser()",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "DashboardView",
+      "community": 8,
+      "community_name": ".NavigateTo",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Views",
@@ -480,8 +1105,8 @@
       "label": ".BypassAuth()",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "community_name": "DashboardView",
+      "community": 8,
+      "community_name": ".NavigateTo",
       "file_type": "code",
       "metadata": {
         "namespace": "bacom.Views",
@@ -514,100 +1139,6 @@
       "source_location": "L110"
     },
     {
-      "id": "app_axaml_bacom_app_initialize",
-      "label": ".Initialize()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "App",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom",
-        "scope_chain": [
-          "s95"
-        ],
-        "unresolved_calls": [
-          {
-            "callee": "Load",
-            "receiver_type": "AvaloniaXamlLoader",
-            "lang": "csharp",
-            "line": "L11"
-          }
-        ]
-      },
-      "norm_label": ".initialize()",
-      "source_file": "App.axaml.cs",
-      "source_location": "L9"
-    },
-    {
-      "id": "app_axaml_bacom_app_onframeworkinitializationcompleted",
-      "label": ".OnFrameworkInitializationCompleted()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "App",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom",
-        "scope_chain": [
-          "s95"
-        ]
-      },
-      "norm_label": ".onframeworkinitializationcompleted()",
-      "source_file": "App.axaml.cs",
-      "source_location": "L14"
-    },
-    {
-      "id": "program_bacom_program_buildavaloniaapp",
-      "label": ".BuildAvaloniaApp()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "App",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom",
-        "scope_chain": [
-          "s31"
-        ],
-        "unresolved_calls": [
-          {
-            "callee": "Configure",
-            "receiver_type": "AppBuilder",
-            "lang": "csharp",
-            "line": "L17"
-          },
-          {
-            "callee": "WithDeveloperTools",
-            "receiver_type": "DEBUG",
-            "lang": "csharp",
-            "line": "L20"
-          }
-        ]
-      },
-      "norm_label": ".buildavaloniaapp()",
-      "source_file": "Program.cs",
-      "source_location": "L16"
-    },
-    {
-      "id": "program_bacom_program_main",
-      "label": ".Main()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "App",
-      "file_type": "code",
-      "metadata": {
-        "namespace": "bacom",
-        "scope_chain": [
-          "s31"
-        ]
-      },
-      "norm_label": ".main()",
-      "source_file": "Program.cs",
-      "source_location": "L11"
-    },
-    {
       "id": "button",
       "label": "Button",
       "_origin": "ast",
@@ -615,6 +1146,28 @@
       "community_name": "DashboardView",
       "file_type": "code",
       "norm_label": "button",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "cancellationtokensource",
+      "label": "CancellationTokenSource",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "norm_label": "cancellationtokensource",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "dictionary",
+      "label": "Dictionary",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "DashboardView",
+      "file_type": "code",
+      "norm_label": "dictionary",
       "source_file": "",
       "source_location": ""
     },
@@ -641,17 +1194,6 @@
       "source_location": ""
     },
     {
-      "id": "mainwindow_axaml_cs_usercontrol",
-      "label": "UserControl",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "DashboardView",
-      "file_type": "code",
-      "norm_label": "usercontrol",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "observablecollection",
       "label": "ObservableCollection",
       "_origin": "ast",
@@ -663,13 +1205,13 @@
       "source_location": ""
     },
     {
-      "id": "sizechangedeventargs",
-      "label": "SizeChangedEventArgs",
+      "id": "point",
+      "label": "Point",
       "_origin": "ast",
       "community": 0,
       "community_name": "DashboardView",
       "file_type": "code",
-      "norm_label": "sizechangedeventargs",
+      "norm_label": "point",
       "source_file": "",
       "source_location": ""
     },
@@ -685,13 +1227,13 @@
       "source_location": ""
     },
     {
-      "id": "usercontrol",
-      "label": "UserControl",
+      "id": "views_dashboardview_axaml_cs_bitmap",
+      "label": "Bitmap",
       "_origin": "ast",
       "community": 0,
       "community_name": "DashboardView",
       "file_type": "code",
-      "norm_label": "usercontrol",
+      "norm_label": "bitmap",
       "source_file": "",
       "source_location": ""
     },
@@ -707,22 +1249,33 @@
       "source_location": ""
     },
     {
-      "id": "views_loginview_axaml_cs_routedeventargs",
-      "label": "RoutedEventArgs",
+      "id": "visualtreeattachmenteventargs",
+      "label": "VisualTreeAttachmentEventArgs",
       "_origin": "ast",
       "community": 0,
       "community_name": "DashboardView",
       "file_type": "code",
-      "norm_label": "routedeventargs",
+      "norm_label": "visualtreeattachmenteventargs",
       "source_file": "",
       "source_location": ""
+    },
+    {
+      "id": "app_axaml",
+      "label": "App.axaml.cs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "norm_label": "app.axaml.cs",
+      "source_file": "App.axaml.cs",
+      "source_location": "L1"
     },
     {
       "id": "appbuilder",
       "label": "AppBuilder",
       "_origin": "ast",
       "community": 1,
-      "community_name": "App",
+      "community_name": "App.axaml.cs",
       "file_type": "code",
       "norm_label": "appbuilder",
       "source_file": "",
@@ -733,18 +1286,45 @@
       "label": "Application",
       "_origin": "ast",
       "community": 1,
-      "community_name": "App",
+      "community_name": "App.axaml.cs",
       "file_type": "code",
       "norm_label": "application",
       "source_file": "",
       "source_location": ""
     },
     {
+      "id": "csharp_namespace:ebd1fde808d8be29",
+      "label": "bacom",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "bacom"
+      },
+      "norm_label": "bacom",
+      "source_file": "App.axaml.cs",
+      "source_location": "L5",
+      "type": "namespace"
+    },
+    {
+      "id": "program",
+      "label": "Program.cs",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "file_type": "code",
+      "norm_label": "program.cs",
+      "source_file": "Program.cs",
+      "source_location": "L1"
+    },
+    {
       "id": "stathread",
       "label": "STAThread",
       "_origin": "ast",
       "community": 1,
-      "community_name": "App",
+      "community_name": "App.axaml.cs",
       "file_type": "code",
       "norm_label": "stathread",
       "source_file": "",
@@ -755,9 +1335,86 @@
       "label": "Window",
       "_origin": "ast",
       "community": 1,
-      "community_name": "App",
+      "community_name": "App.axaml.cs",
       "file_type": "code",
       "norm_label": "window",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "cancellationtoken",
+      "label": "CancellationToken",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".FindAsync",
+      "file_type": "code",
+      "norm_label": "cancellationtoken",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "httpclient",
+      "label": "HttpClient",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".FindAsync",
+      "file_type": "code",
+      "norm_label": "httpclient",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "services_entryiconloader_cs_bitmap",
+      "label": "Bitmap",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".FindAsync",
+      "file_type": "code",
+      "norm_label": "bitmap",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "stream",
+      "label": "Stream",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".FindAsync",
+      "file_type": "code",
+      "norm_label": "stream",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "task",
+      "label": "Task",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".FindAsync",
+      "file_type": "code",
+      "norm_label": "task",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "uri",
+      "label": "Uri",
+      "_origin": "ast",
+      "community": 10,
+      "community_name": ".FindAsync",
+      "file_type": "code",
+      "norm_label": "uri",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "sizechangedeventargs",
+      "label": "SizeChangedEventArgs",
+      "_origin": "ast",
+      "community": 11,
+      "community_name": ".ResizeCards",
+      "file_type": "code",
+      "norm_label": "sizechangedeventargs",
       "source_file": "",
       "source_location": ""
     },
@@ -918,30 +1575,57 @@
       "source_location": "L1"
     },
     {
-      "id": "csharp_namespace:08a367a0abd9bd0f",
-      "label": "bacom.Views",
+      "id": "csharp_namespace:3c7cb56caf313bb1",
+      "label": "bacom.Services",
       "_origin": "ast",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "file_type": "code",
       "metadata": {
         "kind": "csharp_namespace",
-        "namespace": "bacom.Views"
+        "namespace": "bacom.Services"
       },
-      "norm_label": "bacom.views",
-      "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L14",
+      "norm_label": "bacom.services",
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L12",
       "type": "namespace"
     },
     {
-      "id": "mainwindow_axaml",
-      "label": "MainWindow.axaml.cs",
+      "id": "csharp_namespace:65d7028e182fb2b6",
+      "label": "bacom.Models",
       "_origin": "ast",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "file_type": "code",
-      "norm_label": "mainwindow.axaml.cs",
-      "source_file": "MainWindow.axaml.cs",
+      "metadata": {
+        "kind": "csharp_namespace",
+        "namespace": "bacom.Models"
+      },
+      "norm_label": "bacom.models",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L3",
+      "type": "namespace"
+    },
+    {
+      "id": "models_dashboardentry",
+      "label": "DashboardEntry.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "file_type": "code",
+      "norm_label": "dashboardentry.cs",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L1"
+    },
+    {
+      "id": "services_entryiconloader",
+      "label": "EntryIconLoader.cs",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "file_type": "code",
+      "norm_label": "entryiconloader.cs",
+      "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L1"
     },
     {
@@ -953,17 +1637,6 @@
       "file_type": "code",
       "norm_label": "dashboardview.axaml.cs",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L1"
-    },
-    {
-      "id": "views_loginview_axaml",
-      "label": "LoginView.axaml.cs",
-      "_origin": "ast",
-      "community": 3,
-      "community_name": "DashboardView.axaml.cs",
-      "file_type": "code",
-      "norm_label": "loginview.axaml.cs",
-      "source_file": "Views/LoginView.axaml.cs",
       "source_location": "L1"
     },
     {
@@ -1055,31 +1728,31 @@
       "source_location": null
     },
     {
-      "id": "app_axaml",
-      "label": "App.axaml.cs",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "system",
-      "file_type": "code",
-      "norm_label": "app.axaml.cs",
-      "source_file": "App.axaml.cs",
-      "source_location": "L1"
-    },
-    {
-      "id": "csharp_namespace:ebd1fde808d8be29",
-      "label": "bacom",
+      "id": "csharp_namespace:08a367a0abd9bd0f",
+      "label": "bacom.Views",
       "_origin": "ast",
       "community": 5,
       "community_name": "system",
       "file_type": "code",
       "metadata": {
         "kind": "csharp_namespace",
-        "namespace": "bacom"
+        "namespace": "bacom.Views"
       },
-      "norm_label": "bacom",
-      "source_file": "App.axaml.cs",
-      "source_location": "L5",
+      "norm_label": "bacom.views",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L22",
       "type": "namespace"
+    },
+    {
+      "id": "mainwindow_axaml",
+      "label": "MainWindow.axaml.cs",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "system",
+      "file_type": "code",
+      "norm_label": "mainwindow.axaml.cs",
+      "source_file": "MainWindow.axaml.cs",
+      "source_location": "L1"
     },
     {
       "id": "obj_debug_net10_0_bacom_assemblyinfo",
@@ -1126,14 +1799,14 @@
       "source_location": "L1"
     },
     {
-      "id": "program",
-      "label": "Program.cs",
+      "id": "views_loginview_axaml",
+      "label": "LoginView.axaml.cs",
       "_origin": "ast",
       "community": 5,
       "community_name": "system",
       "file_type": "code",
-      "norm_label": "program.cs",
-      "source_file": "Program.cs",
+      "norm_label": "loginview.axaml.cs",
+      "source_file": "Views/LoginView.axaml.cs",
       "source_location": "L1"
     },
     {
@@ -1149,6 +1822,18 @@
       "source_location": "L1"
     },
     {
+      "id": "docs_dashboard_map_account_images",
+      "label": "Account images",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Dashboard file map",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "account images",
+      "source_file": "docs/dashboard-map.md",
+      "source_location": "L145"
+    },
+    {
       "id": "docs_dashboard_map_card_options_menu",
       "label": "Card options menu",
       "_origin": "ast",
@@ -1159,6 +1844,18 @@
       "norm_label": "card options menu",
       "source_file": "docs/dashboard-map.md",
       "source_location": "L72"
+    },
+    {
+      "id": "docs_dashboard_map_create_and_edit_forms",
+      "label": "Create and edit forms",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Dashboard file map",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "create and edit forms",
+      "source_file": "docs/dashboard-map.md",
+      "source_location": "L126"
     },
     {
       "id": "docs_dashboard_map_dashboard_file_map",
@@ -1195,6 +1892,18 @@
       "norm_label": "documentation consulted through context7",
       "source_file": "docs/dashboard-map.md",
       "source_location": "L54"
+    },
+    {
+      "id": "docs_dashboard_map_entry_details_overlay",
+      "label": "Entry details overlay",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "Dashboard file map",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "entry details overlay",
+      "source_file": "docs/dashboard-map.md",
+      "source_location": "L79"
     },
     {
       "id": "docs_dashboard_map_grepai",
@@ -1245,31 +1954,55 @@
       "source_location": "L61"
     },
     {
-      "id": "csharp_namespace:65d7028e182fb2b6",
-      "label": "bacom.Models",
+      "id": "models_dashboardentry_bacom_models_dashboardentry_hascustomicon",
+      "label": "HasCustomIcon",
       "_origin": "ast",
       "community": 7,
       "community_name": "DashboardEntry",
       "file_type": "code",
       "metadata": {
-        "kind": "csharp_namespace",
-        "namespace": "bacom.Models"
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s31"
+        ]
       },
-      "norm_label": "bacom.models",
+      "norm_label": "hascustomicon",
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L1",
-      "type": "namespace"
+      "source_location": "L10"
     },
     {
-      "id": "models_dashboardentry",
-      "label": "DashboardEntry.cs",
+      "id": "models_dashboardentry_bacom_models_dashboardentry_hasicon",
+      "label": "HasIcon",
       "_origin": "ast",
       "community": 7,
       "community_name": "DashboardEntry",
       "file_type": "code",
-      "norm_label": "dashboardentry.cs",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s31"
+        ]
+      },
+      "norm_label": "hasicon",
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L1"
+      "source_location": "L11"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_icon",
+      "label": "Icon",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s31"
+        ]
+      },
+      "norm_label": "icon",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L9"
     },
     {
       "id": "models_dashboardentry_bacom_models_dashboardentry_isempty",
@@ -1281,12 +2014,12 @@
       "metadata": {
         "namespace": "bacom.Models",
         "scope_chain": [
-          "s0"
+          "s31"
         ]
       },
       "norm_label": "isempty",
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L10"
+      "source_location": "L16"
     },
     {
       "id": "models_dashboardentry_bacom_models_dashboardentry_islow",
@@ -1298,12 +2031,29 @@
       "metadata": {
         "namespace": "bacom.Models",
         "scope_chain": [
-          "s0"
+          "s31"
         ]
       },
       "norm_label": "islow",
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L9"
+      "source_location": "L15"
+    },
+    {
+      "id": "models_dashboardentry_bacom_models_dashboardentry_needsiconplaceholder",
+      "label": "NeedsIconPlaceholder",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "DashboardEntry",
+      "file_type": "code",
+      "metadata": {
+        "namespace": "bacom.Models",
+        "scope_chain": [
+          "s31"
+        ]
+      },
+      "norm_label": "needsiconplaceholder",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L12"
     },
     {
       "id": "models_dashboardentry_bacom_models_dashboardentry_notes",
@@ -1315,12 +2065,12 @@
       "metadata": {
         "namespace": "bacom.Models",
         "scope_chain": [
-          "s0"
+          "s31"
         ]
       },
       "norm_label": "notes",
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L7"
+      "source_location": "L13"
     },
     {
       "id": "models_dashboardentry_bacom_models_dashboardentry_remaininglabel",
@@ -1332,12 +2082,12 @@
       "metadata": {
         "namespace": "bacom.Models",
         "scope_chain": [
-          "s0"
+          "s31"
         ]
       },
       "norm_label": "remaininglabel",
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L12"
+      "source_location": "L18"
     },
     {
       "id": "models_dashboardentry_bacom_models_dashboardentry_website",
@@ -1349,34 +2099,174 @@
       "metadata": {
         "namespace": "bacom.Models",
         "scope_chain": [
-          "s0"
+          "s31"
         ]
       },
       "norm_label": "website",
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L6"
+      "source_location": "L8"
     },
     {
-      "id": "docs_dashboard_map_entry_details_overlay",
-      "label": "Entry details overlay",
+      "id": "models_dashboardentry_cs_bitmap",
+      "label": "Bitmap",
       "_origin": "ast",
       "community": 7,
       "community_name": "DashboardEntry",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "entry details overlay",
-      "source_file": "docs/dashboard-map.md",
-      "source_location": "L79"
+      "file_type": "code",
+      "norm_label": "bitmap",
+      "source_file": "",
+      "source_location": ""
     },
     {
-      "id": "avalonia_controls",
-      "label": "avalonia_controls",
+      "id": "mainwindow_axaml_cs_usercontrol",
+      "label": "UserControl",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": ".NavigateTo",
+      "file_type": "code",
+      "norm_label": "usercontrol",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "usercontrol",
+      "label": "UserControl",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": ".NavigateTo",
+      "file_type": "code",
+      "norm_label": "usercontrol",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "views_loginview_axaml_cs_routedeventargs",
+      "label": "RoutedEventArgs",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": ".NavigateTo",
+      "file_type": "code",
+      "norm_label": "routedeventargs",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "checks_new_entry",
+      "label": "new-entry.sh",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "new-entry.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "new-entry.sh",
+      "source_file": "checks/new-entry.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "checks_new_entry_bacom_project_root",
+      "label": "BACOM_PROJECT_ROOT",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "new-entry.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "bacom_project_root",
+      "source_file": "checks/new-entry.sh",
+      "source_location": "L7"
+    },
+    {
+      "id": "checks_new_entry_check_dir",
+      "label": "CHECK_DIR",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "new-entry.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "code"
+      },
+      "norm_label": "check_dir",
+      "source_file": "checks/new-entry.sh",
+      "source_location": "L7"
+    },
+    {
+      "id": "checks_new_entry_sh__entry",
+      "label": "new-entry.sh script",
+      "_origin": "ast",
+      "community": 9,
+      "community_name": "new-entry.sh",
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "new-entry.sh script",
+      "source_file": "checks/new-entry.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "avalonia",
+      "label": "avalonia",
+      "_origin": "semantic",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "avalonia",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "avalonia_controls_applicationlifetimes",
+      "label": "avalonia_controls_applicationlifetimes",
+      "_origin": "semantic",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "avalonia_controls_applicationlifetimes",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "avalonia_markup_xaml",
+      "label": "avalonia_markup_xaml",
+      "_origin": "semantic",
+      "community": 1,
+      "community_name": "App.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "avalonia_markup_xaml",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "avalonia_animation",
+      "label": "avalonia_animation",
       "_origin": "semantic",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "avalonia_controls",
+      "norm_label": "avalonia_animation",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "avalonia_animation_easings",
+      "label": "avalonia_animation_easings",
+      "_origin": "semantic",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "avalonia_animation_easings",
       "source_file": "",
       "type": "external"
     },
@@ -1393,38 +2283,62 @@
       "type": "external"
     },
     {
-      "id": "avalonia_interactivity",
-      "label": "avalonia_interactivity",
+      "id": "avalonia_media",
+      "label": "avalonia_media",
       "_origin": "semantic",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "avalonia_interactivity",
+      "norm_label": "avalonia_media",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "system_diagnostics",
-      "label": "system_diagnostics",
+      "id": "avalonia_threading",
+      "label": "avalonia_threading",
       "_origin": "semantic",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "system_diagnostics",
+      "norm_label": "avalonia_threading",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "system_io",
-      "label": "system_io",
+      "id": "avalonia_visualtree",
+      "label": "avalonia_visualtree",
       "_origin": "semantic",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "system_io",
+      "norm_label": "avalonia_visualtree",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "system_collections_generic",
+      "label": "system_collections_generic",
+      "_origin": "semantic",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_collections_generic",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "system_collections_objectmodel",
+      "label": "system_collections_objectmodel",
+      "_origin": "semantic",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_collections_objectmodel",
       "source_file": "",
       "type": "external"
     },
@@ -1441,50 +2355,26 @@
       "type": "external"
     },
     {
-      "id": "system_runtime_interopservices",
-      "label": "system_runtime_interopservices",
-      "_origin": "semantic",
-      "community": 3,
-      "community_name": "DashboardView.axaml.cs",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "system_runtime_interopservices",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "avalonia",
-      "label": "avalonia",
+      "id": "avalonia_controls",
+      "label": "avalonia_controls",
       "_origin": "semantic",
       "community": 5,
       "community_name": "system",
       "external": true,
       "file_type": "concept",
-      "norm_label": "avalonia",
+      "norm_label": "avalonia_controls",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "avalonia_controls_applicationlifetimes",
-      "label": "avalonia_controls_applicationlifetimes",
+      "id": "avalonia_interactivity",
+      "label": "avalonia_interactivity",
       "_origin": "semantic",
       "community": 5,
       "community_name": "system",
       "external": true,
       "file_type": "concept",
-      "norm_label": "avalonia_controls_applicationlifetimes",
-      "source_file": "",
-      "type": "external"
-    },
-    {
-      "id": "avalonia_markup_xaml",
-      "label": "avalonia_markup_xaml",
-      "_origin": "semantic",
-      "community": 5,
-      "community_name": "system",
-      "external": true,
-      "file_type": "concept",
-      "norm_label": "avalonia_markup_xaml",
+      "norm_label": "avalonia_interactivity",
       "source_file": "",
       "type": "external"
     },
@@ -1501,6 +2391,30 @@
       "type": "external"
     },
     {
+      "id": "system_diagnostics",
+      "label": "system_diagnostics",
+      "_origin": "semantic",
+      "community": 5,
+      "community_name": "system",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_diagnostics",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "system_io",
+      "label": "system_io",
+      "_origin": "semantic",
+      "community": 5,
+      "community_name": "system",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_io",
+      "source_file": "",
+      "type": "external"
+    },
+    {
       "id": "system_reflection",
       "label": "system_reflection",
       "_origin": "semantic",
@@ -1513,57 +2427,102 @@
       "type": "external"
     },
     {
-      "id": "avalonia_animation",
-      "label": "avalonia_animation",
-      "community": 3,
-      "community_name": "DashboardView.axaml.cs",
+      "id": "system_runtime_interopservices",
+      "label": "system_runtime_interopservices",
+      "_origin": "semantic",
+      "community": 5,
+      "community_name": "system",
       "external": true,
       "file_type": "concept",
-      "norm_label": "avalonia_animation",
+      "norm_label": "system_runtime_interopservices",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "avalonia_animation_easings",
-      "label": "avalonia_animation_easings",
+      "id": "avalonia_media_imaging",
+      "label": "avalonia_media_imaging",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "avalonia_animation_easings",
+      "norm_label": "avalonia_media_imaging",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "avalonia_media",
-      "label": "avalonia_media",
+      "id": "avalonia_platform_storage",
+      "label": "avalonia_platform_storage",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "avalonia_media",
+      "norm_label": "avalonia_platform_storage",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "system_collections_generic",
-      "label": "system_collections_generic",
+      "id": "skiasharp",
+      "label": "skiasharp",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "system_collections_generic",
+      "norm_label": "skiasharp",
       "source_file": "",
       "type": "external"
     },
     {
-      "id": "system_collections_objectmodel",
-      "label": "system_collections_objectmodel",
+      "id": "system_net",
+      "label": "system_net",
       "community": 3,
       "community_name": "DashboardView.axaml.cs",
       "external": true,
       "file_type": "concept",
-      "norm_label": "system_collections_objectmodel",
+      "norm_label": "system_net",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "system_net_http",
+      "label": "system_net_http",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_net_http",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "system_text_regularexpressions",
+      "label": "system_text_regularexpressions",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_text_regularexpressions",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "system_threading",
+      "label": "system_threading",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_threading",
+      "source_file": "",
+      "type": "external"
+    },
+    {
+      "id": "system_threading_tasks",
+      "label": "system_threading_tasks",
+      "community": 3,
+      "community_name": "DashboardView.axaml.cs",
+      "external": true,
+      "file_type": "concept",
+      "norm_label": "system_threading_tasks",
       "source_file": "",
       "type": "external"
     }
@@ -1597,7 +2556,19 @@
       "weight": 1.0
     },
     {
-      "source": "views_dashboardview_axaml_bacom_views_dashboardview_deleteentry",
+      "source": "services_entryiconloader_bacom_services_entryiconloader_findasync",
+      "target": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
       "target": "views_dashboardview_axaml_bacom_views_dashboardview_updateemptystate",
       "relation": "calls",
       "_origin": "ast",
@@ -1605,7 +2576,79 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L95",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_chooseicon",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_canceliconrequest",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L401",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_chooseicon",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_setdrafticon",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L402",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_chooseicon",
+      "target": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L415",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_closeentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_reseticoneditor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L438",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_deleteentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_capturecardpositions",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_deleteentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L109",
       "weight": 1.0
     },
     {
@@ -1617,7 +2660,139 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L179",
+      "source_location": "L454",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_canceliconrequest",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L349",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_setdrafticon",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L351",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_iswebaddress",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L354",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_editentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_reseticoneditor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_editentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_setdrafticon",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_editentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_showentrypopup",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L231",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_editentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_ondetachedfromvisualtree",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_reseticoneditor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L428",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_openentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_showentrypopup",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_opennewentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_reseticoneditor",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L201",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_opennewentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_showentrypopup",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L206",
       "weight": 1.0
     },
     {
@@ -1629,7 +2804,91 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L61",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_reseticoneditor",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_canceliconrequest",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L343",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_reseticoneditor",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_setdrafticon",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L344",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_saveentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_iswebaddress",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L271",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_saveentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_capturecardpositions",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L289",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_saveentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_refreshentries",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L296",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_saveentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L308",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_saveentry",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_closeentry",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L310",
       "weight": 1.0
     },
     {
@@ -1641,7 +2900,61 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L47",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_usewebsiteicon",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L390",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_websitechanged",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L318",
+      "weight": 1.0
+    },
+    {
+      "source": "models_dashboardentry_bacom_models_dashboardentry",
+      "target": "models_dashboardentry_cs_bitmap",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "Bitmap"
+      },
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_cs_bitmap",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "Bitmap"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -1656,7 +2969,67 @@
         "ref_token": "Button"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L32",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "cancellationtokensource",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "CancellationTokenSource"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "models_dashboardentry_bacom_models_dashboardentry",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "DashboardEntry"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "services_entryiconloader_bacom_services_entryiconloader",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "EntryIconLoader"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader_bacom_services_entryiconloader",
+      "target": "httpclient",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "metadata": {
+        "ref_token": "HttpClient"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -1671,7 +3044,7 @@
         "ref_token": "List"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L19",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -1686,12 +3059,12 @@
         "ref_token": "ObservableCollection"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L31",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
       "source": "models_dashboardentry_bacom_models_dashboardentry",
-      "target": "models_dashboardentry_bacom_models_dashboardentry_isempty",
+      "target": "models_dashboardentry_bacom_models_dashboardentry_hascustomicon",
       "relation": "defines",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1703,7 +3076,19 @@
     },
     {
       "source": "models_dashboardentry_bacom_models_dashboardentry",
-      "target": "models_dashboardentry_bacom_models_dashboardentry_remaininglabel",
+      "target": "models_dashboardentry_bacom_models_dashboardentry_hasicon",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "models_dashboardentry_bacom_models_dashboardentry",
+      "target": "models_dashboardentry_bacom_models_dashboardentry_needsiconplaceholder",
       "relation": "defines",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1715,18 +3100,6 @@
     },
     {
       "source": "models_dashboardentry_bacom_models_dashboardentry",
-      "target": "models_dashboardentry_bacom_models_dashboardentry_website",
-      "relation": "defines",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "field",
-      "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "models_dashboardentry_bacom_models_dashboardentry",
       "target": "models_dashboardentry_bacom_models_dashboardentry_notes",
       "relation": "defines",
       "_origin": "ast",
@@ -1734,12 +3107,60 @@
       "confidence_score": 1.0,
       "context": "field",
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L7",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
       "source": "models_dashboardentry_bacom_models_dashboardentry",
       "target": "models_dashboardentry_bacom_models_dashboardentry_islow",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "models_dashboardentry_bacom_models_dashboardentry",
+      "target": "models_dashboardentry_bacom_models_dashboardentry_isempty",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "models_dashboardentry_bacom_models_dashboardentry",
+      "target": "models_dashboardentry_bacom_models_dashboardentry_remaininglabel",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "models_dashboardentry_bacom_models_dashboardentry",
+      "target": "models_dashboardentry_bacom_models_dashboardentry_website",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "field",
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "models_dashboardentry_bacom_models_dashboardentry",
+      "target": "models_dashboardentry_bacom_models_dashboardentry_icon",
       "relation": "defines",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -1765,7 +3186,52 @@
       "weight": 1.0
     },
     {
-      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "source": "services_entryiconloader_bacom_services_entryiconloader_findasync",
+      "target": "services_entryiconloader_cs_bitmap",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "Bitmap"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
+      "target": "services_entryiconloader_cs_bitmap",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "Bitmap"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_editentry",
+      "target": "button",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "Button"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
       "target": "models_dashboardentry_bacom_models_dashboardentry",
       "relation": "references",
       "_origin": "ast",
@@ -1776,7 +3242,52 @@
         "ref_token": "DashboardEntry"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L31",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_capturecardpositions",
+      "target": "models_dashboardentry_bacom_models_dashboardentry",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "DashboardEntry"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
+      "target": "point",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "Point"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_capturecardpositions",
+      "target": "point",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "generic_arg",
+      "metadata": {
+        "ref_token": "Point"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L114",
       "weight": 1.0
     },
     {
@@ -2018,6 +3529,125 @@
       "weight": 1.0
     },
     {
+      "source": "models_dashboardentry",
+      "target": "avalonia_media_imaging",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Avalonia.Media.Imaging",
+        "scope_kind": "file"
+      },
+      "source_file": "Models/DashboardEntry.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader",
+      "target": "avalonia_media_imaging",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Avalonia.Media.Imaging",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml",
+      "target": "avalonia_media_imaging",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Avalonia.Media.Imaging",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml",
+      "target": "avalonia_platform_storage",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Avalonia.Platform.Storage",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml",
+      "target": "avalonia_threading",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Avalonia.Threading",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml",
+      "target": "avalonia_visualtree",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "Avalonia.VisualTree",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader",
+      "target": "skiasharp",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "SkiaSharp",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
       "source": "mainwindow_axaml",
       "target": "system",
       "relation": "imports",
@@ -2116,6 +3746,23 @@
         "scope_kind": "file"
       },
       "source_file": "Program.cs",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader",
+      "target": "system",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L1",
       "weight": 1.0
     },
@@ -2239,6 +3886,40 @@
       "weight": 1.0
     },
     {
+      "source": "services_entryiconloader",
+      "target": "system_io",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.IO",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml",
+      "target": "system_io",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.IO",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
       "source": "views_loginview_axaml",
       "target": "system_io",
       "relation": "imports",
@@ -2252,6 +3933,23 @@
         "scope_kind": "file"
       },
       "source_file": "Views/LoginView.axaml.cs",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader",
+      "target": "system_linq",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Linq",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
       "source_location": "L3",
       "weight": 1.0
     },
@@ -2270,6 +3968,40 @@
       },
       "source_file": "Views/DashboardView.axaml.cs",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader",
+      "target": "system_net",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Net",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader",
+      "target": "system_net_http",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Net.Http",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -2375,6 +4107,91 @@
       "weight": 1.0
     },
     {
+      "source": "services_entryiconloader",
+      "target": "system_text_regularexpressions",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Text.RegularExpressions",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader",
+      "target": "system_threading",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Threading",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml",
+      "target": "system_threading",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Threading",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader",
+      "target": "system_threading_tasks",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Threading.Tasks",
+        "scope_kind": "file"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml",
+      "target": "system_threading_tasks",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "System.Threading.Tasks",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml",
       "target": "csharp_namespace:65d7028e182fb2b6",
       "relation": "imports",
@@ -2388,7 +4205,24 @@
         "scope_kind": "file"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L12",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "metadata": {
+        "using_kind": "namespace",
+        "target_fqn": "bacom.Services",
+        "scope_kind": "file"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -2409,6 +4243,81 @@
       "weight": 1.0
     },
     {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_setdrafticon",
+      "target": "views_dashboardview_axaml_cs_bitmap",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "Bitmap"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_showentrypopup",
+      "target": "button",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "Button"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L236",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader_bacom_services_entryiconloader_findasync",
+      "target": "cancellationtoken",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "CancellationToken"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
+      "target": "cancellationtoken",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "CancellationToken"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
+      "target": "dictionary",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "Dictionary"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview_detailskeydown",
       "target": "keyeventargs",
       "relation": "references",
@@ -2420,7 +4329,22 @@
         "ref_token": "KeyEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L176",
+      "source_location": "L451",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_chooseicon",
+      "target": "views_dashboardview_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L393",
       "weight": 1.0
     },
     {
@@ -2435,7 +4359,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L164",
+      "source_location": "L436",
       "weight": 1.0
     },
     {
@@ -2450,7 +4374,22 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L70",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_editentry",
+      "target": "views_dashboardview_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L210",
       "weight": 1.0
     },
     {
@@ -2465,7 +4404,7 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L182",
+      "source_location": "L457",
       "weight": 1.0
     },
     {
@@ -2480,7 +4419,52 @@
         "ref_token": "RoutedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L149",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_opennewentry",
+      "target": "views_dashboardview_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_saveentry",
+      "target": "views_dashboardview_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_usewebsiteicon",
+      "target": "views_dashboardview_axaml_cs_routedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "RoutedEventArgs"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L387",
       "weight": 1.0
     },
     {
@@ -2525,7 +4509,22 @@
         "ref_token": "SizeChangedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L132",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
+      "target": "stream",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "Stream"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -2540,7 +4539,37 @@
         "ref_token": "TextChangedEventArgs"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L41",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_websitechanged",
+      "target": "textchangedeventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "TextChangedEventArgs"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L314",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader_bacom_services_entryiconloader_findasync",
+      "target": "uri",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "Uri"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L49",
       "weight": 1.0
     },
     {
@@ -2559,6 +4588,21 @@
       "weight": 1.0
     },
     {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_ondetachedfromvisualtree",
+      "target": "visualtreeattachmenteventargs",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "parameter_type",
+      "metadata": {
+        "ref_token": "VisualTreeAttachmentEventArgs"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L426",
+      "weight": 1.0
+    },
+    {
       "source": "program_bacom_program_buildavaloniaapp",
       "target": "appbuilder",
       "relation": "references",
@@ -2571,6 +4615,51 @@
       },
       "source_file": "Program.cs",
       "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_capturecardpositions",
+      "target": "dictionary",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "Dictionary"
+      },
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader_bacom_services_entryiconloader_findasync",
+      "target": "task",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "Task"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
+      "target": "task",
+      "relation": "references",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "return_type",
+      "metadata": {
+        "ref_token": "Task"
+      },
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -2598,7 +4687,7 @@
         "ref_token": "UserControl"
       },
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L16",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -2652,6 +4741,17 @@
       "weight": 1.0
     },
     {
+      "source": "checks_new_entry",
+      "target": "checks_new_entry_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/new-entry.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "docs_dashboard_map",
       "target": "docs_dashboard_map_dashboard_file_map",
       "relation": "contains",
@@ -2671,6 +4771,28 @@
       "confidence_score": 1.0,
       "source_file": "docs/dashboard-map.md",
       "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_dashboard_map_dashboard_file_map",
+      "target": "docs_dashboard_map_create_and_edit_forms",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/dashboard-map.md",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "docs_dashboard_map_dashboard_file_map",
+      "target": "docs_dashboard_map_account_images",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/dashboard-map.md",
+      "source_location": "L145",
       "weight": 1.0
     },
     {
@@ -2780,7 +4902,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L1",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -2791,7 +4913,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Models/DashboardEntry.cs",
-      "source_location": "L4",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -2927,6 +5049,28 @@
       "weight": 1.0
     },
     {
+      "source": "services_entryiconloader",
+      "target": "csharp_namespace:3c7cb56caf313bb1",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader",
+      "target": "services_entryiconloader_bacom_services_entryiconloader",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
       "source": "todo",
       "target": "todo_todo",
       "relation": "contains",
@@ -2945,7 +5089,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L14",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -2956,7 +5100,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L16",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -2979,6 +5123,28 @@
       "confidence_score": 1.0,
       "source_file": "Views/LoginView.axaml.cs",
       "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_new_entry",
+      "target": "checks_new_entry_bacom_project_root",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/new-entry.sh",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "checks_new_entry",
+      "target": "checks_new_entry_check_dir",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "checks/new-entry.sh",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -3087,6 +5253,50 @@
       "weight": 1.0
     },
     {
+      "source": "services_entryiconloader_bacom_services_entryiconloader",
+      "target": "services_entryiconloader_bacom_services_entryiconloader_loadimageasync",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "services_entryiconloader_bacom_services_entryiconloader",
+      "target": "services_entryiconloader_bacom_services_entryiconloader_findasync",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Services/EntryIconLoader.cs",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_capturecardpositions",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_animatecardpositions",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview",
       "target": "views_dashboardview_axaml_bacom_views_dashboardview_resizecards",
       "relation": "method",
@@ -3094,7 +5304,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L132",
+      "source_location": "L170",
       "weight": 1.0
     },
     {
@@ -3105,7 +5315,150 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L149",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_opennewentry",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_editentry",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_showentrypopup",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L236",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_saveentry",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_websitechanged",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L314",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_setdrafticon",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_canceliconrequest",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L332",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_reseticoneditor",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L339",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L347",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_usewebsiteicon",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L387",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_chooseicon",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L393",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_ondetachedfromvisualtree",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L426",
+      "weight": 1.0
+    },
+    {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview",
+      "target": "views_dashboardview_axaml_bacom_views_dashboardview_iswebaddress",
+      "relation": "method",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L432",
       "weight": 1.0
     },
     {
@@ -3116,7 +5469,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L164",
+      "source_location": "L436",
       "weight": 1.0
     },
     {
@@ -3127,7 +5480,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L176",
+      "source_location": "L451",
       "weight": 1.0
     },
     {
@@ -3138,7 +5491,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L182",
+      "source_location": "L457",
       "weight": 1.0
     },
     {
@@ -3149,7 +5502,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L41",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -3160,7 +5513,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L50",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -3171,7 +5524,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L64",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -3182,7 +5535,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L70",
+      "source_location": "L94",
       "weight": 1.0
     },
     {
@@ -3239,6 +5592,18 @@
       "weight": 1.0
     },
     {
+      "source": "views_dashboardview_axaml_bacom_views_dashboardview_detectwebsiteicon",
+      "target": "services_entryiconloader_bacom_services_entryiconloader_findasync",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "context": "call",
+      "source_file": "Views/DashboardView.axaml.cs",
+      "source_location": "L363",
+      "weight": 1.0
+    },
+    {
       "source": "views_dashboardview_axaml_bacom_views_dashboardview_logout",
       "target": "mainwindow_axaml_bacom_mainwindow_navigateto",
       "relation": "calls",
@@ -3247,7 +5612,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L185",
+      "source_location": "L460",
       "weight": 1.0
     },
     {
@@ -3295,7 +5660,7 @@
       "confidence_score": 0.85,
       "context": "call",
       "source_file": "Views/DashboardView.axaml.cs",
-      "source_location": "L185",
+      "source_location": "L460",
       "weight": 1.0
     },
     {
@@ -3336,5 +5701,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4fc2286043f3755ee3409a580ffb52168e1c3a3b"
+  "built_at_commit": "7d05a50a29ca5c4a121b2c409599f6551627403b"
 }

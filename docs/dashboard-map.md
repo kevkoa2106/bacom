@@ -31,8 +31,8 @@ flowchart TD
 The cards reproduce the supplied mockup and are sample data only. Each card shows a service, account label, and remaining-code count. Counts of
 one or two show a low-code warning; zero shows no codes remaining. Search filters
 both service names and account labels; clearing search restores all eight. Cards use up to four columns,
-wrap at narrower sizes, and scroll vertically. New entry remains a visual placeholder, as it was before this UI
-change. Entry creation, encryption, and persistence remain in `TODO.md`.
+wrap at narrower sizes, and scroll vertically. New entry opens a validated form and prepends an in-memory entry. Encryption and
+persistence remain in `TODO.md`.
 
 ## GrepAI
 
@@ -72,8 +72,8 @@ event wiring and templates are defined in markup.
 ## Card options menu
 
 Each card has a bottom-right three-dot button using `Button.Flyout` and a native
-`MenuFlyout`, with a vector pen icon for Edit and a trash icon for Delete. Delete removes the selected entry from the in-memory collection. Edit remains
-a UI placeholder; persistence is not implemented.
+`MenuFlyout`, with a vector pen icon for Edit and a trash icon for Delete. Delete removes the selected entry from the in-memory collection. Edit opens the same form with saved values and applies changes in place;
+persistence is not implemented.
 The menu is keyboard accessible and uses standard flyout dismissal behavior.
 
 ## Entry details overlay
@@ -122,3 +122,42 @@ positions across rows. Search results and scaled cards use the same layout.
 Verified middle, last, filtered, rapid successive and final-entry deletion with
 headless pointer interaction; verified horizontal/vertical slide offsets and
 completion. Deletions last for this dashboard instance; there is no disk storage.
+
+## Create and edit forms
+
+New entry reuses the details overlay, opening an empty form with service and
+account required, plus optional website, account image and notes, and a whole code
+count from 0 to 9999. Create inserts the entry first, clears search so it is visible,
+and uses the existing 260 ms card-position animation to shift surviving entries.
+
+Edit prefills the same form and changes the action to Apply. Saving replaces the
+selected entry in place, preserves the current filter, and refreshes its card.
+Closing or Escape discards unsaved changes. The account image square opens the
+native file picker; entering a website also attempts automatic favicon discovery.
+Custom images take priority. Both forms have dark
+inputs, centered action labels, and fixed bottom-right buttons.
+
+Run `checks/new-entry.sh` for the console-based Avalonia.Headless check. It covers
+validation, insert order and sliding, filtering, duplicate submission, edit
+prefill/cancellation, preserving order on Apply, account images, focus and small
+window bounds. It creates its harness in a temporary directory and cleans up.
+
+## Account images
+
+`Services/EntryIconLoader.cs` loads bounded PNG, JPEG, WebP and ICO images. Website
+lookup reads the public site root, follows declared icon links, then tries
+`/favicon.ico` and `/apple-touch-icon.png`. No third-party icon service is used.
+SVG-only icons are skipped; unavailable icons retain the placeholder.
+
+The form debounces website changes and cancels stale lookups on replacement,
+close or navigation. Custom uploads override detection until “Use website icon”
+is chosen. Previews are retained with the in-memory entry and displayed in the
+form, dashboard card and details view. Images are limited to 2 MB and 4096 × 4096
+source pixels, then scaled to at most 128 pixels per side. Unsaved image buffers
+are disposed when replaced or cancelled.
+
+`checks/new-entry.sh` uses an in-process HTTP handler and generated images to
+verify discovery, ICO fallback, missing icons, cancellation, custom precedence,
+saved-image restoration, invalid data and input-size limits. It exercises the
+custom-image decoder/state path; native OS picker interaction requires a desktop
+session. No live websites are contacted by this check.
