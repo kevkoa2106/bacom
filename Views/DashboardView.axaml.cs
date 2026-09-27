@@ -23,7 +23,7 @@ namespace bacom.Views;
 
 public partial class DashboardView : UserControl
 {
-    // ponytail: entries live in memory; add encrypted persistence when vault storage is implemented.
+    // Demo fixtures are used only by the designer and the headless UI check.
     private readonly List<DashboardEntry> _entries =
     [
         SampleEntry("GitHub", "personal@example.com", "https://github.com"),
@@ -48,6 +48,7 @@ public partial class DashboardView : UserControl
     private DashboardEntry? _editingEntry;
     private string _appliedSearch = string.Empty;
     private readonly EntryIconLoader _iconLoader;
+    private readonly VaultStore? _store;
     private CancellationTokenSource? _iconRequest;
     private Bitmap? _draftIcon;
     private bool _customIcon;
@@ -57,12 +58,49 @@ public partial class DashboardView : UserControl
 
     public DashboardView() : this(new EntryIconLoader()) { }
 
-    public DashboardView(EntryIconLoader iconLoader)
+    public DashboardView(EntryIconLoader iconLoader, VaultStore? store = null, VaultData? data = null)
     {
         _iconLoader = iconLoader;
+        _store = store;
+        if (store is not null)
+        {
+            if (data is null) throw new ArgumentNullException(nameof(data));
+            _entries.Clear();
+            try
+            {
+                foreach (var entry in data.Entries)
+                {
+                    Bitmap? image = null;
+                    if (entry.IconPng is not null)
+                    {
+                        using var stream = new MemoryStream(entry.IconPng);
+                        image = EntryIconLoader.LoadImageAsync(stream, CancellationToken.None).GetAwaiter().GetResult();
+                    }
+                    _entries.Add(new DashboardEntry(entry) { Icon = image });
+                }
+            }
+            catch { foreach (var entry in _entries) entry.Icon?.Dispose(); throw; }
+        }
         InitializeComponent();
         EntriesList.ItemsSource = _visibleEntries;
         RefreshEntries();
+        SessionNotice.Text = DetailsNotice.Text = store is null
+            ? "Demo session. Changes are not saved."
+            : "Changes are saved to your encrypted vault automatically.";
+    }
+
+    // Persistence: commit to disk before changing the visible cards. Failed writes keep the form open.
+    private bool TryPersist(IEnumerable<DashboardEntry> entries)
+    {
+        DashboardError.Text = DetailsError.Text = string.Empty;
+        try { _store?.Save(new VaultData { Entries = entries.Select(entry => entry.Data).ToList() }); return true; }
+        catch (Exception ex) when (ex is IOException or UnauthorizedAccessException
+            or System.Security.Cryptography.CryptographicException or System.Text.Json.JsonException)
+        {
+            const string message = "Could not save. The change was not applied. Check disk space and file access, then try again.";
+            DashboardError.Text = DetailsError.Text = message;
+            return false;
+        }
     }
 
     // Search and empty states
@@ -109,6 +147,8 @@ public partial class DashboardView : UserControl
             .FirstOrDefault(index => ReferenceEquals(_visibleEntries[index], entry), -1);
         if (sourceIndex < 0 || visibleIndex < 0)
             return;
+
+        if (!TryPersist(_entries.Where(item => !ReferenceEquals(item, entry)))) return;
 
         var positions = CaptureCardPositions();
         _entries.RemoveAt(sourceIndex);
@@ -242,6 +282,7 @@ public partial class DashboardView : UserControl
 
     private void ShowEntryPopup(Button? source, bool showForm)
     {
+        DetailsError.Text = string.Empty;
         _openedCard = source;
         DetailsContent.IsVisible = DetailsTitle.IsVisible = !showForm;
         EntryForm.IsVisible = NewEntryTitle.IsVisible = showForm;
@@ -312,6 +353,16 @@ public partial class DashboardView : UserControl
             Icon = _draftIcon,
         };
 
+        var pending = _entries.ToList();
+        if (_editingEntry is { } editing)
+        {
+            var index = pending.FindIndex(item => ReferenceEquals(item, editing));
+            if (index < 0) return;
+            pending[index] = entry;
+        }
+        else pending.Insert(0, entry);
+        if (!TryPersist(pending)) return;
+
         var positions = CaptureCardPositions();
         if (_editingEntry is { } original)
         {
@@ -341,7 +392,15 @@ public partial class DashboardView : UserControl
     {
         if (sender is CheckBox { DataContext: BackupCode code } checkBox
             && DetailsPanel.DataContext is DashboardEntry entry)
-            entry.SetCodeUsed(code, checkBox.IsChecked == true);
+        {
+            var original = code.IsUsed;
+            var next = checkBox.IsChecked == true;
+            code.IsUsed = next;
+            var saved = TryPersist(_entries);
+            code.IsUsed = original;
+            if (saved) entry.SetCodeUsed(code, next);
+            else checkBox.IsChecked = original;
+        }
     }
 
     // Account images: custom uploads win over cancellable, debounced website lookup.
@@ -460,6 +519,12 @@ public partial class DashboardView : UserControl
     protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
     {
         ResetIconEditor();
+        _store?.Dispose();
+        foreach (var entry in _entries) entry.Icon?.Dispose();
+        _visibleEntries.Clear();
+        _entries.Clear();
+        DetailsPanel.DataContext = null;
+        BackupCodesInput.Text = NotesInput.Text = string.Empty;
         base.OnDetachedFromVisualTree(e);
     }
 

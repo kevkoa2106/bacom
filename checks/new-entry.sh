@@ -201,7 +201,47 @@ try { EntryIconLoader.LoadImageAsync(new MemoryStream(new byte[2 * 1024 * 1024 +
 catch (InvalidDataException) { }
 try { EntryIconLoader.LoadImageAsync(new MemoryStream([1, 2, 3]), CancellationToken.None).GetAwaiter().GetResult(); throw new Exception("Invalid image accepted"); }
 catch (InvalidDataException) { }
-Console.WriteLine("PASS: code parsing/validation, usage/undo, identity and counts, create/edit/cancel, sliding, images, filtering, narrow layout");
+// Persisted sessions exercise the same UI against an isolated encrypted vault.
+window.Width = 1177; window.Height = 702;
+var vaultPath = Path.Combine(Environment.GetEnvironmentVariable("CHECK_DIR")!, "ui-vault.bacom");
+var vaultKey = System.Security.Cryptography.RandomNumberGenerator.GetBytes(32);
+var store = new VaultStore(vaultPath, vaultKey);
+store.Save(new VaultData());
+view = new DashboardView(iconLoader, store, store.Load()); window.NavigateTo(view); Layout();
+items = Get<ItemsControl>("EntriesList");
+Check(items.ItemCount == 0, "Real vault contains demo entries");
+Click("NewEntryButton"); Set("ServiceInput", "Saved account"); Set("AccountInput", "Test");
+Set("BackupCodesInput", "001-abc\n002-def"); Click("CreateEntryButton");
+Check(store.Load().Entries.Single().RemainingCodes == 2, "Create was not saved");
+Settle(); EditAt(0); Set("NotesInput", "Saved notes"); Click("CreateEntryButton");
+Check(store.Load().Entries.Single().Notes == "Saved notes", "Edit was not saved");
+var savedEntry = (DashboardEntry)items.Items[0]!;
+var savedCard = items.GetVisualDescendants().OfType<Button>().First(b => b.Classes.Contains("entry-card"));
+savedCard.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Layout(); Settle();
+codeList = Get<ItemsControl>("BackupCodesList"); ToggleCode(0);
+Check(store.Load().Entries.Single().BackupCodes[0].IsUsed, "Usage was not saved");
+Click("CloseDetailsButton");
+// Block the backup target to simulate a write failure without changing permissions.
+File.Delete(vaultPath + ".previous"); Directory.CreateDirectory(vaultPath + ".previous");
+Click("NewEntryButton"); Set("ServiceInput", "Must not appear"); Set("AccountInput", "Test"); Click("CreateEntryButton");
+Check(items.ItemCount == 1 && Get<Grid>("DetailsOverlay").IsVisible
+    && Get<TextBox>("ServiceInput").Text == "Must not appear"
+    && !string.IsNullOrEmpty(Get<TextBlock>("DetailsError").Text), "Failed save was not retained/reported");
+Click("CloseDetailsButton");
+savedCard.RaiseEvent(new RoutedEventArgs(Button.ClickEvent)); Layout(); Settle();
+codeList = Get<ItemsControl>("BackupCodesList"); ToggleCode(0);
+Check(savedEntry.BackupCodes[0].IsUsed && store.Load().Entries.Single().BackupCodes[0].IsUsed,
+    "Failed usage save changed memory or disk");
+Click("CloseDetailsButton"); Directory.Delete(vaultPath + ".previous");
+window.NavigateTo(new bacom.Views.LoginView()); Layout();
+var reopenedStore = new VaultStore(vaultPath, vaultKey);
+view = new DashboardView(iconLoader, reopenedStore, reopenedStore.Load()); window.NavigateTo(view); Layout();
+items = Get<ItemsControl>("EntriesList");
+Check(items.ItemCount == 1 && ((DashboardEntry)items.Items[0]!).RemainingCodes == 1, "Unlock/reopen lost saved state");
+typeof(DashboardView).GetMethod("DeleteEntry", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)!
+    .Invoke(view, [new MenuItem { DataContext = items.Items[0] }, new RoutedEventArgs()]);
+Check(items.ItemCount == 0 && reopenedStore.Load().Entries.Count == 0, "Delete was not saved");
+Console.WriteLine("PASS: code entry/usage, images, animations, layout, encrypted create/edit/delete, failed saves, lock/reopen");
 window.Close();
 
 sealed class FakeIconHandler : HttpMessageHandler

@@ -28,6 +28,7 @@ var key = RandomNumberGenerator.GetBytes(32);
 var data = new VaultData { Entries = [new VaultEntry { ServiceName = "Fixture", AccountLabel = "Test",
     BackupCodes = [new BackupCode { Value = "0012-SECRET-FIXTURE", IsUsed = true }], IconPng = [1,2,3] }] };
 var bytes = VaultCodec.Encrypt(data, key);
+Check(VaultCodec.Decrypt(VaultCodec.Encrypt(new VaultData { Entries = [new VaultEntry { ServiceName = "No icon", AccountLabel = "Test" }] }, key), key).Entries[0].IconPng is null, "Null image changed on round trip");
 Check(!Encoding.UTF8.GetString(bytes).Contains("SECRET-FIXTURE"), "Plaintext leaked");
 Check(!bytes.SequenceEqual(VaultCodec.Encrypt(data, key)), "Nonce reused");
 var restored = VaultCodec.Decrypt(bytes, key).Entries[0];

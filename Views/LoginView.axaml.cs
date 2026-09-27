@@ -1,125 +1,50 @@
 using System;
-using System.Diagnostics;
 using System.IO;
-using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using bacom.Services;
 
 namespace bacom.Views;
 
 public partial class LoginView : UserControl
 {
-    public LoginView()
-    {
-        InitializeComponent();
-    }
+    public LoginView() { InitializeComponent(); }
 
+    // Unlocking: Keychain releases the key; only a successfully decrypted vault opens.
     private async void AuthUser(object? sender, RoutedEventArgs e)
     {
-        string fileName = string.Empty;
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            fileName = Path.Combine(AppContext.BaseDirectory, "helpers", "AkademiAuth");
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            fileName = Path.Combine(AppContext.BaseDirectory, "helpers", "WinHelloAuth.exe");
-
-        Console.WriteLine($"Auth helper path: {fileName}");
-        Console.WriteLine($"File exists: {File.Exists(fileName)}");
-
-        if (!File.Exists(fileName))
-        {
-            Console.WriteLine("Auth helper not found!");
-            return;
-        }
-
-        // Ensure execute permission on macOS/Linux
-        if (
-            RuntimeInformation.IsOSPlatform(OSPlatform.OSX)
-            || RuntimeInformation.IsOSPlatform(OSPlatform.Linux)
-        )
-        {
-            try
-            {
-                var chmod = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName = "chmod",
-                        Arguments = $"+x \"{fileName}\"",
-                        UseShellExecute = false,
-                        CreateNoWindow = true,
-                    },
-                };
-                chmod.Start();
-                await chmod.WaitForExitAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"chmod failed: {ex.Message}");
-            }
-        }
-
-        var process = new Process
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                FileName = fileName,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true,
-                CreateNoWindow = true,
-            },
-        };
-
+        if (!UnlockButton.IsEnabled) return;
+        UnlockButton.IsEnabled = false;
+        LoginStatus.Text = "Approve the macOS Keychain prompt to unlock your vault.";
+        VaultStore? store = null;
         try
         {
-            process.Start();
-            string stdout = await process.StandardOutput.ReadToEndAsync();
-            string stderr = await process.StandardError.ReadToEndAsync();
-            await process.WaitForExitAsync();
-
-            Console.WriteLine($"Auth stdout: {stdout}");
-            Console.WriteLine($"Auth stderr: {stderr}");
-            Console.WriteLine($"Authentication exit code: {process.ExitCode}");
-            Console.WriteLine($"VisualRoot type: {VisualRoot?.GetType().FullName ?? "null"}");
-
-            if (process.ExitCode == 0)
+            var path = VaultStore.DefaultPath;
+            var key = await Task.Run(() => MacVaultKey.Unlock(allowCreate: !File.Exists(path)));
+            try { store = new VaultStore(path, key); }
+            finally { CryptographicOperations.ZeroMemory(key); }
+            var data = await Task.Run(() =>
             {
-                var root = VisualRoot as MainWindow ?? TopLevel.GetTopLevel(this) as MainWindow;
-                Console.WriteLine($"Resolved root: {root?.GetType().FullName ?? "null"}");
-                if (root is MainWindow mainWindow)
-                {
-                    Console.WriteLine("Navigating to DashboardView...");
-                    mainWindow.NavigateTo(new DashboardView());
-                }
-                else
-                {
-                    Console.WriteLine("ERROR: Could not find MainWindow in visual tree");
-                }
-            }
-            else
+                if (File.Exists(path)) return store.Load();
+                var empty = new bacom.Models.VaultData();
+                store.Save(empty);
+                return empty;
+            });
+            if (TopLevel.GetTopLevel(this) is MainWindow window)
             {
-                Console.WriteLine("Auth failed or cancelled");
+                var dashboard = new DashboardView(new EntryIconLoader(), store, data);
+                window.NavigateTo(dashboard);
+                store = null; // Dashboard owns and disposes the unlocked session.
             }
         }
-        catch (Exception ex)
+        catch (Exception ex) when (ex is CryptographicException or IOException or UnauthorizedAccessException
+            or PlatformNotSupportedException or System.Text.Json.JsonException or ArgumentException)
         {
-            Console.WriteLine($"Auth process error: {ex.Message}");
+            LoginStatus.Text = ex is PlatformNotSupportedException ? ex.Message
+                : "Could not unlock the vault. Approve Keychain access and close any other Bacom window. If the key or file is damaged, restore a backup. Your existing vault was not reset.";
         }
-    }
-
-    private void BypassAuth(object? sender, RoutedEventArgs e)
-    {
-        Console.WriteLine("Debug bypass triggered");
-        Console.WriteLine($"VisualRoot type: {VisualRoot?.GetType().FullName ?? "null"}");
-        var root = VisualRoot as MainWindow ?? TopLevel.GetTopLevel(this) as MainWindow;
-        Console.WriteLine($"Resolved root: {root?.GetType().FullName ?? "null"}");
-        if (root is MainWindow mainWindow)
-        {
-            mainWindow.NavigateTo(new DashboardView());
-        }
-        else
-        {
-            Console.WriteLine("ERROR: Could not find MainWindow in visual tree");
-        }
+        finally { store?.Dispose(); UnlockButton.IsEnabled = true; }
     }
 }

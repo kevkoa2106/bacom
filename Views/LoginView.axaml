@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="bacom.Views.LoginView">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
-        <TextBlock Text="Not unlocked" FontFamily="Default" FontSize="36" FontWeight="Light" HorizontalAlignment="Center"/>
-        <TextBlock Text="Not unlocked" FontSize="67" FontWeight="SemiBold" HorizontalAlignment="Center"/>
-        <Separator Classes="separator" Width="0" Height="0"/>
-        <Button Content="Unlock" Classes="primary" Width="110" Height="45" FontSize="18" Background="#007aff" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="AuthUser"/>
-        <Button Content="[Debug] Bypass Auth" Width="150" Height="30" FontSize="12" HorizontalAlignment="Center" Click="BypassAuth"/>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20" MaxWidth="420" Margin="24">
+        <TextBlock Text="Bacom" FontSize="48" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+        <TextBlock Text="Your backup codes, encrypted on this Mac." TextWrapping="Wrap" TextAlignment="Center"/>
+        <Button x:Name="UnlockButton" Content="Unlock vault" Classes="primary" Width="160" Height="45" FontSize="18" Background="#007aff" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Click="AuthUser"/>
+        <TextBlock x:Name="LoginStatus" Text="First time? Unlock to create your encrypted vault."
+            TextWrapping="Wrap" TextAlignment="Center" Foreground="#A6A6AD"/>
     </StackPanel>
 </UserControl>

@@ -170,6 +170,7 @@
                     AutomationProperties.Name="Search entries"
                     TextChanged="SearchEntries" />
                 <Grid Grid.Row="1" ColumnDefinitions="*,Auto" Margin="14,27,14,0">
+                    <Button Content="Lock" Click="Logout" HorizontalAlignment="Left" VerticalAlignment="Center" />
                     <Button x:Name="NewEntryButton" Grid.Column="1" Content="New entry" Classes="dashboard-action"
                         Width="155" Height="45"
                         Click="OpenNewEntry" />
@@ -254,6 +255,8 @@
                             HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,32" />
                     </Grid>
                 </ScrollViewer>
+                <TextBlock x:Name="DashboardError" Grid.Row="2" VerticalAlignment="Bottom" Margin="14"
+                    Foreground="#F2A0AD" Background="#161616" TextWrapping="Wrap" />
             </Grid>
             <!-- Modal: shared shell for viewing and creating an entry -->
             <Grid x:Name="DetailsOverlay" IsVisible="False" Background="#A6000000"
@@ -262,7 +265,8 @@
                     MaxWidth="560" MaxHeight="620" Margin="24" Padding="28"
                     HorizontalAlignment="Stretch" VerticalAlignment="Center"
                     Background="#28282C" BorderBrush="#414147" BorderThickness="1" CornerRadius="14">
-                    <Grid RowDefinitions="Auto,*" RowSpacing="24">
+                    <Grid RowDefinitions="Auto,*,Auto" RowSpacing="24">
+                        <TextBlock x:Name="DetailsError" Grid.Row="2" Foreground="#F2A0AD" TextWrapping="Wrap" />
                         <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
                             <StackPanel Spacing="6">
                                 <TextBlock x:Name="ModalLabel" Text="ENTRY DETAILS" Classes="detail-label" />
@@ -330,7 +334,7 @@
                                     <TextBlock Text="{Binding Notes}" Classes="detail-value" />
                                 </StackPanel>
                                 <Border Background="#222226" Padding="14" CornerRadius="8">
-                                    <TextBlock Text="Entries and codes are kept for this session only."
+                                    <TextBlock x:Name="DetailsNotice" Text="Entries and codes are kept for this session only."
                                         Foreground="#A6A6AD" FontSize="13" TextWrapping="Wrap" />
                                 </Border>
                             </StackPanel>
@@ -393,7 +397,7 @@
                                             TextWrapping="Wrap" MinHeight="72" MaxHeight="120"
                                             AutomationProperties.Name="Notes" />
                                     </StackPanel>
-                                    <TextBlock Text="Entries and codes are kept for this session only."
+                                    <TextBlock x:Name="SessionNotice" Text="Entries and codes are kept for this session only."
                                         Foreground="#A6A6AD" FontSize="12" TextWrapping="Wrap" />
                                 </StackPanel>
                             </ScrollViewer>

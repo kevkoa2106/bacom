@@ -22,6 +22,13 @@ it over the vault. A `.previous` encrypted version is retained before replacemen
 Unix files are created owner-readable/writable only. A malformed or incompatible
 vault is rejected, never silently reset. The maximum encrypted file size is 32 MB.
 
+Unlock creates an empty encrypted vault only when no vault exists. Existing vaults
+must decrypt successfully before the dashboard opens. The old external auth helper
+and debug bypass are removed. Create, Apply, Delete, and Used toggles commit before
+the visible state changes; a failed save retains the form or rolls back the toggle.
+Lock and window close dispose the session key, release the file lock, clear entry
+collections and dispose images. Demo entries are only used by the designer/checks.
+
 `sh checks/vault.sh` tests encryption, tampering, wrong keys, validation, reopening,
 file locking, interrupted/failed saves and the previous version with disposable
 test keys. It never accesses the user's Keychain. Native Keychain approval needs

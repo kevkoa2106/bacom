@@ -10,6 +10,7 @@ using bacom.Models;
 namespace bacom.Services;
 
 [JsonSerializable(typeof(VaultData))]
+[JsonSourceGenerationOptions(GenerationMode = JsonSourceGenerationMode.Metadata)]
 internal partial class VaultJsonContext : JsonSerializerContext;
 
 public static class VaultCodec
