@@ -1,6 +1,7 @@
 import {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type FormEvent,
@@ -171,6 +172,30 @@ export function App() {
   const [modal, setModal] = useState<Modal>(null);
   const [settingsCategory, setSettingsCategory] =
     useState<SettingsCategory>("general");
+  const settingsResize = useRef<{
+    dialog: HTMLDialogElement;
+    from: number;
+  } | null>(null);
+  useLayoutEffect(() => {
+    const resize = settingsResize.current;
+    settingsResize.current = null;
+    if (
+      !resize ||
+      !resize.dialog.open ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    )
+      return;
+    const to = resize.dialog.offsetHeight;
+    if (Math.abs(resize.from - to) < 1) return;
+    const animation = resize.dialog.animate(
+      [
+        { height: `${resize.from}px`, overflow: "clip" },
+        { height: `${to}px`, overflow: "clip" },
+      ],
+      { duration: 240, easing: "cubic-bezier(0.645, 0.045, 0.355, 1)" },
+    );
+    return () => animation.cancel();
+  }, [modal, settingsCategory]);
   const [closing, setClosing] = useState(false);
   const [deviceAuth, setDeviceAuth] = useState<DeviceAuthStatus | null>(null);
   const [devicePassword, setDevicePassword] = useState("");
@@ -1271,7 +1296,14 @@ export function App() {
                   settingsCategory === category ? "page" : undefined
                 }
                 disabled={busy || closing}
-                onClick={() => {
+                onClick={(event) => {
+                  if (category === settingsCategory) return;
+                  const dialog = event.currentTarget.closest("dialog");
+                  if (dialog)
+                    settingsResize.current = {
+                      dialog,
+                      from: dialog.getBoundingClientRect().height,
+                    };
                   setSettingsCategory(category);
                   setDevicePassword("");
                   setRestorePassword("");

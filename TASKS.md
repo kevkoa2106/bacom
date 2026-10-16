@@ -104,3 +104,4 @@ Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 f
 - [x] Review code and verify minimum desktop, standard desktop, wide, and narrow layouts.
 - [x] Run type checking, desktop bundling, and the scoped design detector.
 - [x] Remove popup outlines and category underlines; add a contrasting, animated category selection with reduced-motion support.
+- [x] Animate settings popup resizing on category changes, including interrupted transitions and instant reduced-motion updates.

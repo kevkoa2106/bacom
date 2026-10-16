@@ -94,3 +94,14 @@ Chromium checks confirmed zero dialog border width, no container outline, no sel
 - Purpose gate PASS: the moving highlight communicates category selection and continuity; no other surface gained animation.
 - Liveliness PASS: existing ENERGY 2 / RHYTHM 3 / MOTION 3 retained with one focused selection transition.
 - Craftsmanship PASS: rendered inspection, computed-style checks, type checking, desktop build, and design detector pass; no animation dependency was introduced.
+
+## Settings resize motion
+
+Category changes capture the popup’s current rendered height before replacing its content. A layout effect animates from that height to the new natural height over 240ms, matching the category highlight’s easing. Content is clipped only during the transition to avoid temporary scrollbars. The animation releases its height when finished, and cleanup cancels it when interrupted or when the dialog closes. No animation runs when reduced motion is requested.
+
+Chromium checks with a synthetic bridge at 760×600 measured a transition from 365px toward 509px with intermediate sizes. Interrupting growth at 398.48px started the reverse animation at the same 398.48px, then returned to the natural 365.19px height. Repeated category switches settled on Backups with no running animation, fixed inline height, or overflow. Reduced motion produced zero animations. Security also fit the 390×844 viewport without document or dialog overflow. No runtime errors occurred in the fresh verification page.
+
+- Hard gate PASS: grow, shrink, interruption, repeated switching, reduced motion, and narrow layout checks passed; existing controls and security behavior remain unchanged.
+- Purpose gate PASS: resizing communicates the change in category content without scaling text or adding another motion effect.
+- Liveliness PASS: existing ENERGY 2 / RHYTHM 3 / MOTION 3 retained; resizing and selection share timing and easing.
+- Craftsmanship PASS: 31-file type check, desktop build, diff check, and scoped design detector pass. No dependencies or suppressions were added.
