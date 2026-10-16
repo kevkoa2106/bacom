@@ -1258,11 +1258,7 @@ a:focus-visible {
   --muted-foreground: var(--foreground);
 }
 .error-box {
-  border-inline-start: 3px solid var(--foreground);
   color: var(--foreground);
-}
-.warning-box {
-  border-inline-start: 3px solid var(--muted-foreground);
 }
 .theme-picker {
   display: flex;
