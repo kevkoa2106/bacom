@@ -5,8 +5,8 @@ import { VaultError } from "../src/core/vault";
 const maxImportBytes = 1024 * 1024;
 
 export async function readImportText(filePath: string): Promise<string> {
-  if (path.extname(filePath).toLowerCase() !== ".txt") {
-    throw new VaultError("Choose a .txt backup-code file.");
+  if (![".txt", ".rtf"].includes(path.extname(filePath).toLowerCase())) {
+    throw new VaultError("Choose a .txt or .rtf backup-code file.");
   }
   const file = await open(filePath, "r");
   const bytes = Buffer.alloc(maxImportBytes + 1);

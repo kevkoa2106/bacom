@@ -1,4 +1,5 @@
 import type { ParseResult, ParsedCode } from "../shared/types";
+import { rtfToPlainText } from "./rtf";
 
 export const MAX_IMPORT_BYTES = 1024 * 1024;
 export const MAX_CODES = 1000;
@@ -18,6 +19,10 @@ export function parseBackupCodes(text: string, website = ""): ParseResult {
   const seen = new Set<string>();
   const warnings = new Set<string>();
   const formats = new Set<string>();
+  if (/^\s*\{\\rtf/.test(text.replace(/^\uFEFF/, ""))) {
+    text = rtfToPlainText(text);
+    formats.add("RTF text");
+  }
   for (const raw of text.replace(/^\uFEFF/, "").split(/\r?\n/)) {
     let line = raw.trim();
     if (!line) continue;
@@ -36,7 +41,7 @@ export function parseBackupCodes(text: string, website = ""): ParseResult {
     // Download headings, timestamps, URLs and instructions must never become credentials.
     if (
       /^(?:https?:\/\/|www\.)/i.test(line) ||
-      /\b(?:backup|recovery|codes?|generated|account|download|save|keep|print|password|unused|used|remaining|date|time|important|each|these|your|store|sign|use|do not)\b/i.test(
+      /\b(?:backup|recovery|codes?|generated|account|download|save|keep|print|password|unused|used|remaining|date|time|important|each|these|your|store|sign|use|do not|authentication|security|verification|emergency|instructions|warning|please)\b/i.test(
         line,
       )
     )
@@ -47,11 +52,36 @@ export function parseBackupCodes(text: string, website = ""): ParseResult {
     )
       continue;
     // Some providers put several fixed-width numeric groups on one line.
-    if (/^\d{3,8}(?:[ \t]+\d{3,8})+$/.test(line)) {
+    if (line.length > 128) {
+      warnings.add(
+        "Long lines were skipped rather than split into guessed codes. Review their code boundaries manually.",
+      );
+      continue;
+    }
+    if (/^\d+(?:[ \t]+\d+){4,}$/.test(line)) {
+      warnings.add(
+        "Lines with more than four numeric groups were skipped. Review their code boundaries manually.",
+      );
+      continue;
+    }
+    if (/^[A-Za-z]{2,32}(?:[ \t]+[A-Za-z]{2,32}){2,}$/.test(line)) {
+      formats.add("word sequence");
+      warnings.add(
+        "Word sequences are treated as one code; verify boundaries. Internal spacing is preserved.",
+      );
+    } else if (/^\d{3,8}(?:[ \t]+\d{3,8}){1,3}$/.test(line)) {
       formats.add("grouped numeric");
       line = line.replace(/[ \t]+/g, " ");
     } else if (
-      !/^(?=.{4,128}$)(?=.*\d)[A-Za-z0-9]+(?:[- ][A-Za-z0-9]+)*$/.test(line)
+      /^[A-Za-z]{8,32}$/.test(line) ||
+      /^[A-Za-z]{4,8}(?:-|[ \t]+)[A-Za-z]{4,8}$/.test(line)
+    ) {
+      formats.add("alphabetic");
+      warnings.add(
+        "Alphabet-only candidates can resemble words. Verify each one against the original file.",
+      );
+    } else if (
+      !/^(?=.{4,128}$)(?=.*\d)[A-Za-z0-9]+(?:[- ][A-Za-z0-9]+){0,3}$/.test(line)
     ) {
       warnings.add(
         "Some lines were skipped. Check the original file for missing codes.",

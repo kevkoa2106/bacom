@@ -29,3 +29,10 @@ test("native import accepts UTF-8 text and rejects unsupported or unsafe content
   await writeFile(file, Buffer.alloc(1024 * 1024 + 1, 65));
   await expect(readImportText(file)).rejects.toThrow("1 MiB");
 });
+
+test("native import accepts RTF text for the shared parser", async () => {
+  const file = join(directory, "codes.RTF");
+  const rtf = String.raw`{\rtf1 QWERTYUIOP\par ASDFGHJKLQ}`;
+  await writeFile(file, rtf);
+  expect(await readImportText(file)).toBe(rtf);
+});
