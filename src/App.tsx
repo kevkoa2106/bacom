@@ -19,6 +19,8 @@ import {
   HelpCircle,
   KeyRound,
   LockKeyhole,
+  LoaderCircle,
+  Fingerprint,
   Plus,
   Search,
   Settings2,
@@ -30,6 +32,7 @@ import { Input } from "./components/ui/input";
 import { api, isPreview } from "./lib/api";
 import type {
   AccountSummary,
+  DeviceAuthStatus,
   ParsedCode,
   RevealResult,
   VaultStatus,
@@ -87,11 +90,13 @@ function Dialog({
   children,
   onClose,
   busy = false,
+  closing = false,
 }: {
   title: string;
   children: ReactNode;
   onClose: () => void;
   busy?: boolean;
+  closing?: boolean;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
@@ -102,21 +107,27 @@ function Dialog({
   return (
     <dialog
       ref={ref}
-      className="vault-dialog"
+      className={`vault-dialog${closing ? " dialog-closing" : ""}`}
       aria-labelledby="dialog-title"
       onCancel={(event) => {
         event.preventDefault();
-        if (!busy) onClose();
+        if (!busy && !closing) onClose();
       }}
     >
       <header className="dialog-heading">
         <h2 id="dialog-title">{title}</h2>
+        {busy && (
+          <span role="status" className="dialog-busy">
+            <LoaderCircle className="busy-spinner" size={17} />
+            <span className="sr-only">Working…</span>
+          </span>
+        )}
         <Button
           type="button"
           variant="ghost"
           size="icon"
           aria-label="Close dialog"
-          disabled={busy}
+          disabled={busy || closing}
           onClick={onClose}
         >
           <X />
@@ -151,6 +162,10 @@ export function App() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");
   const [modal, setModal] = useState<Modal>(null);
+  const [closing, setClosing] = useState(false);
+  const [deviceAuth, setDeviceAuth] = useState<DeviceAuthStatus | null>(null);
+  const [devicePassword, setDevicePassword] = useState("");
+  const startupChecked = useRef(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [busy, setBusy] = useState(false);
@@ -172,15 +187,32 @@ export function App() {
     const generation = epoch.current;
     const state = await api.status();
     const list = state.unlocked ? await api.list() : [];
+    const device = api.deviceAuthStatus
+      ? await api.deviceAuthStatus().catch(() => ({
+          supported: false,
+          enabled: false,
+          label: "Device unlock",
+          reason:
+            "Device authentication is unavailable. Use your master password.",
+        }))
+      : {
+          supported: false,
+          enabled: false,
+          label: "Device unlock",
+          reason:
+            "Device authentication is available only in supported desktop builds.",
+        };
     if (generation !== epoch.current) return;
     setStatus(state);
     setAccounts(list);
+    setDeviceAuth(device);
   }, []);
   const clearSecrets = useCallback(() => {
     epoch.current++;
     importGeneration.current++;
     setPassword("");
     setConfirmPassword("");
+    setDevicePassword("");
     setCodes([]);
     setReveal(null);
     revealedRef.current = null;
@@ -226,24 +258,39 @@ export function App() {
     };
   }, [status?.unlocked, clearSecrets]);
   const close = async () => {
+    if (closing) return;
     const token = revealedRef.current?.token;
+    const release = token
+      ? api.finishReveal(token, false).then(
+          () => undefined,
+          (error: unknown) => ({ error }),
+        )
+      : Promise.resolve(undefined);
     clearSecrets();
-    setModal(null);
+    const closingGeneration = epoch.current;
+    setClosing(true);
     setError("");
     setWebsite("");
     setLabel("");
-    if (token)
-      try {
-        await api.finishReveal(token, false);
-      } catch (e) {
-        setError(message(e));
-        await refresh();
-      }
+    const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? 0
+      : 150;
+    if (delay) await new Promise((resolve) => setTimeout(resolve, delay));
+    if (closingGeneration !== epoch.current) return;
+    setModal(null);
+    setClosing(false);
+    const failedRelease = await release;
+    if (closingGeneration !== epoch.current) return;
+    if (failedRelease) {
+      setError(message(failedRelease.error));
+      await refresh().catch((error) => setError(message(error)));
+    }
   };
   const open = (next: Modal) => {
     clearSecrets();
     setError("");
     setNotice("");
+    setClosing(false);
     setModal(next);
   };
   const run = async (operation: () => Promise<void>) => {
@@ -254,6 +301,7 @@ export function App() {
     } catch (e) {
       setPassword("");
       setConfirmPassword("");
+      setDevicePassword("");
       if (revealedRef.current) {
         const masked = { ...revealedRef.current, code: "" };
         revealedRef.current = masked;
@@ -264,6 +312,56 @@ export function App() {
     } finally {
       setBusy(false);
     }
+  };
+  const unlockWithDevice = () => {
+    if (!api.unlockWithDevice) return;
+    setPassword("");
+    void run(async () => {
+      await api.unlockWithDevice!();
+      await refresh();
+    });
+  };
+  useEffect(() => {
+    if (!status || !deviceAuth || startupChecked.current) return;
+    startupChecked.current = true;
+    try {
+      if (sessionStorage.getItem("bacom-startup-auth-attempted") === "1")
+        return;
+      sessionStorage.setItem("bacom-startup-auth-attempted", "1");
+    } catch {
+      // Without a session marker, offer an explicit button instead of risking reload prompts.
+      return;
+    }
+    if (
+      status.exists &&
+      !status.unlocked &&
+      deviceAuth.supported &&
+      deviceAuth.enabled
+    )
+      unlockWithDevice();
+  }, [status, deviceAuth]);
+  const changeDeviceAuth = (event: FormEvent) => {
+    event.preventDefault();
+    const attempt = devicePassword;
+    setDevicePassword("");
+    void run(async () => {
+      if (deviceAuth?.enabled) {
+        if (!api.disableDeviceAuth)
+          throw new Error("Device unlock settings are unavailable.");
+        await api.disableDeviceAuth(attempt);
+        setNotice(
+          "Device unlock disabled. Use your master password to unlock.",
+        );
+      } else {
+        if (!api.enableDeviceAuth)
+          throw new Error("Device unlock settings are unavailable.");
+        await api.enableDeviceAuth(attempt);
+        setNotice(
+          `${deviceAuth?.label || "Device unlock"} enabled for this device.`,
+        );
+      }
+      await refresh();
+    });
   };
   useEffect(() => {
     if (!reveal?.token) return;
@@ -308,7 +406,7 @@ export function App() {
     setBusy(true);
     try {
       if (file.size > 1024 * 1024)
-        throw new Error("Choose a text file smaller than 1 MB.");
+        throw new Error("Choose a text or RTF file smaller than 1 MB.");
       const text = await file.text();
       const parsed = await api.parse(text, website);
       if (generation !== importGeneration.current) return;
@@ -455,55 +553,81 @@ export function App() {
             </>
           )}
           {status && (
-            <form onSubmit={authenticate} className="entry-form">
-              <label htmlFor="master-password">Master password</label>
-              <Input
-                id="master-password"
-                autoFocus
-                type="password"
-                autoComplete={
-                  status.exists ? "current-password" : "new-password"
-                }
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                minLength={status.exists ? undefined : 12}
-                disabled={busy}
-              />
-              {!status.exists && (
-                <>
-                  <p className="field-note">
-                    At least 12 characters, up to 72 UTF-8 bytes. Choose a
-                    password you can remember; it cannot be recovered.
+            <>
+              {status.exists &&
+                deviceAuth?.supported &&
+                deviceAuth.enabled &&
+                api.unlockWithDevice && (
+                  <div className="device-entry">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      disabled={busy}
+                      onClick={unlockWithDevice}
+                    >
+                      {busy ? (
+                        <LoaderCircle className="busy-spinner" />
+                      ) : (
+                        <Fingerprint />
+                      )}
+                      Unlock with {deviceAuth.label}
+                    </Button>
+                    <p>Or use your master password below.</p>
+                  </div>
+                )}
+              <form onSubmit={authenticate} className="entry-form">
+                <label htmlFor="master-password">Master password</label>
+                <Input
+                  id="master-password"
+                  autoFocus
+                  type="password"
+                  autoComplete={
+                    status.exists ? "current-password" : "new-password"
+                  }
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength={status.exists ? undefined : 12}
+                  disabled={busy}
+                />
+                {!status.exists && (
+                  <>
+                    <p className="field-note">
+                      At least 12 characters, up to 72 UTF-8 bytes. Choose a
+                      password you can remember; it cannot be recovered.
+                    </p>
+                    <label htmlFor="confirm-password">
+                      Confirm master password
+                    </label>
+                    <Input
+                      id="confirm-password"
+                      type="password"
+                      autoComplete="new-password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                      disabled={busy}
+                    />
+                  </>
+                )}
+                {error && (
+                  <p role="alert" className="error-box">
+                    {error}
                   </p>
-                  <label htmlFor="confirm-password">
-                    Confirm master password
-                  </label>
-                  <Input
-                    id="confirm-password"
-                    type="password"
-                    autoComplete="new-password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                    disabled={busy}
-                  />
-                </>
-              )}
-              {error && (
-                <p role="alert" className="error-box">
-                  {error}
-                </p>
-              )}
-              <Button className="entry-submit" disabled={busy}>
-                {busy
-                  ? "Please wait…"
-                  : status.exists
-                    ? "Unlock vault"
-                    : "Create vault"}
-                <ArrowRight size={16} />
-              </Button>
-            </form>
+                )}
+                <Button className="entry-submit" disabled={busy}>
+                  {busy && (
+                    <LoaderCircle className="busy-spinner" aria-hidden="true" />
+                  )}
+                  {busy
+                    ? "Please wait…"
+                    : status.exists
+                      ? "Unlock vault"
+                      : "Create vault"}
+                  <ArrowRight size={16} />
+                </Button>
+              </form>
+            </>
           )}
           <p className="entry-footer">
             <ShieldCheck size={15} /> Stored locally. Encrypted with your master
@@ -670,8 +794,8 @@ export function App() {
               <h2>Your backup plan starts here.</h2>
               <p>
                 Download backup codes from a website’s security settings,
-                <br className="desktop-label" /> then add the text file to your
-                vault.
+                <br className="desktop-label" /> then add the text or RTF file
+                to your vault.
               </p>
               <Button variant="outline" onClick={() => open("import")}>
                 <Plus />
@@ -689,10 +813,11 @@ export function App() {
                 {filtered.length === 0 ? (
                   <p className="no-results">No accounts match your search.</p>
                 ) : (
-                  filtered.map((account) => (
+                  filtered.map((account, index) => (
                     <button
                       className={`account-row ${selectedAccount?.id === account.id ? "selected" : ""}`}
                       key={account.id}
+                      style={{ animationDelay: `${Math.min(index, 5) * 24}ms` }}
                       onClick={() => setSelected(account.id)}
                     >
                       <span className="website-monogram" aria-hidden="true">
@@ -720,7 +845,7 @@ export function App() {
                 filtered.some(
                   (account) => account.id === selectedAccount.id,
                 ) && (
-                  <section className="account-detail">
+                  <section className="account-detail" key={selectedAccount.id}>
                     <div className="detail-icon">
                       <KeyRound size={24} />
                     </div>
@@ -796,13 +921,14 @@ export function App() {
       </main>
       {modal === "import" && (
         <Dialog
+          closing={closing}
           title="Add recovery codes"
           onClose={() => void close()}
           busy={busy}
         >
           <form onSubmit={importCodes}>
             <p className="dialog-intro">
-              Choose a downloaded text file, then review the codes before
+              Choose a downloaded text or RTF file, then review the codes before
               saving.
             </p>
             <label htmlFor="website">Website</label>
@@ -834,18 +960,18 @@ export function App() {
                 onClick={() => void chooseNativeFile()}
               >
                 <FileText size={23} />
-                <strong>{fileName || "Choose a text file"}</strong>
-                <span>Plain text · up to 1 MB</span>
+                <strong>{fileName || "Choose a text or RTF file"}</strong>
+                <span>Text or RTF · up to 1 MB</span>
               </button>
             ) : (
               <label htmlFor="codes-file" className="file-picker">
                 <FileText size={23} />
-                <strong>{fileName || "Choose a text file"}</strong>
-                <span>Plain text · up to 1 MB</span>
+                <strong>{fileName || "Choose a text or RTF file"}</strong>
+                <span>Text or RTF · up to 1 MB</span>
                 <input
                   id="codes-file"
                   type="file"
-                  accept=".txt,text/plain"
+                  accept=".txt,.rtf,text/plain,application/rtf,text/rtf"
                   disabled={busy}
                   onChange={(e) => {
                     void readFile(e.target.files?.[0]);
@@ -959,6 +1085,7 @@ export function App() {
       )}
       {modal === "reveal" && (
         <Dialog
+          closing={closing}
           title={reveal ? "Your recovery code" : "Confirm it’s you"}
           onClose={() => void close()}
           busy={busy}
@@ -974,6 +1101,7 @@ export function App() {
                 <Button
                   variant="outline"
                   aria-label="Copy recovery code"
+                  className={copied ? "copy-action copied" : "copy-action"}
                   disabled={busy || expired}
                   onClick={() =>
                     void run(async () => {
@@ -1066,7 +1194,68 @@ export function App() {
         </Dialog>
       )}
       {modal === "settings" && (
-        <Dialog title="Vault settings" onClose={() => void close()} busy={busy}>
+        <Dialog
+          closing={closing}
+          title="Vault settings"
+          onClose={() => void close()}
+          busy={busy}
+        >
+          <div className="settings-item device-auth-settings">
+            <Fingerprint />
+            <div>
+              <strong>{deviceAuth?.label || "Device unlock"}</strong>
+              {deviceAuth && (deviceAuth.supported || deviceAuth.enabled) ? (
+                <>
+                  {!deviceAuth.supported && deviceAuth.reason && (
+                    <p>{deviceAuth.reason}</p>
+                  )}
+                  <p>
+                    Optional. Store an unlock key protected by this device’s
+                    operating system. Anyone who can authenticate to this device
+                    may unlock the vault. Your master password is still required
+                    to reveal each code.
+                  </p>
+                  <p className="device-auth-state">
+                    {deviceAuth.enabled
+                      ? "Enabled on this device"
+                      : "Not enabled"}
+                  </p>
+                  <form onSubmit={changeDeviceAuth}>
+                    <label htmlFor="device-auth-password">
+                      Confirm master password to{" "}
+                      {deviceAuth.enabled ? "disable" : "enable"}
+                    </label>
+                    <Input
+                      id="device-auth-password"
+                      type="password"
+                      autoComplete="current-password"
+                      required
+                      disabled={busy}
+                      value={devicePassword}
+                      onChange={(event) =>
+                        setDevicePassword(event.target.value)
+                      }
+                    />
+                    <Button type="submit" variant="outline" disabled={busy}>
+                      {busy ? (
+                        <LoaderCircle className="busy-spinner" />
+                      ) : (
+                        <Fingerprint />
+                      )}
+                      {deviceAuth.enabled
+                        ? "Disable device unlock"
+                        : `Enable ${deviceAuth.label}`}
+                    </Button>
+                  </form>
+                </>
+              ) : (
+                <p>
+                  {deviceAuth?.reason ||
+                    "Checking device authentication availability…"}
+                </p>
+              )}
+            </div>
+          </div>
           <div className="settings-item theme-settings">
             <Settings2 />
             <div>
@@ -1148,6 +1337,7 @@ export function App() {
       )}
       {modal === "help" && (
         <Dialog
+          closing={closing}
           title="Your backup plan, explained"
           onClose={() => void close()}
         >
@@ -1156,7 +1346,7 @@ export function App() {
               <strong>Download your recovery codes.</strong>
               <p>
                 In a website’s security settings, turn on two-factor
-                authentication and save its backup codes as a text file.
+                authentication and save its backup codes as a text or RTF file.
               </p>
             </li>
             <li>

@@ -1,6 +1,8 @@
 @import "../styles/globals.css";
 
 :root {
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
   color-scheme: light;
   --background: #fefefe;
   --foreground: #1f1f20;
@@ -897,6 +899,7 @@ a:focus-visible {
   border-radius: 6px;
 }
 .revealed-code code {
+  white-space: break-spaces;
   font-family: ui-monospace, SFMono-Regular, monospace;
   font-size: 24px;
   letter-spacing: 1px;
@@ -1358,5 +1361,185 @@ a:focus-visible {
   .entry-brand .theme-picker select {
     min-width: 92px;
     font-size: 12px;
+  }
+}
+
+.dialog-heading h2 {
+  flex: 1;
+}
+.dialog-busy {
+  display: inline-flex;
+  color: var(--muted-foreground);
+}
+.dialog-closing {
+  pointer-events: none;
+}
+.dialog-closing > * {
+  visibility: hidden;
+}
+.busy-spinner {
+  flex-shrink: 0;
+}
+.device-entry {
+  margin-top: 22px;
+}
+.device-entry > button {
+  width: 100%;
+}
+.device-entry p {
+  margin-top: 12px;
+  color: var(--muted-foreground);
+  text-align: center;
+  font-size: 12px;
+}
+.device-auth-settings > div {
+  min-width: 0;
+  flex: 1;
+}
+.device-auth-settings .device-auth-state {
+  display: inline-block;
+  margin: 7px 0 16px;
+  color: var(--foreground);
+  font-size: 11px;
+  font-weight: 600;
+}
+.device-auth-settings label {
+  font-size: 12px;
+}
+.account-row.selected {
+  box-shadow: none;
+}
+.account-row.selected > svg {
+  transform: translateX(2px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  button[data-slot="button"] {
+    transition:
+      transform 110ms var(--ease-out-quint),
+      opacity 110ms linear;
+  }
+  button[data-slot="button"]:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+  .entry-content,
+  .workspace-content {
+    animation: workspace-arrive 220ms var(--ease-out-quint);
+  }
+  .vault-dialog[open] {
+    animation: dialog-arrive 200ms var(--ease-out-quint);
+  }
+  .vault-dialog[open]::backdrop {
+    animation: backdrop-arrive 180ms linear;
+  }
+  .vault-dialog.dialog-closing {
+    animation: dialog-depart 150ms ease-in forwards;
+  }
+  .vault-dialog.dialog-closing::backdrop {
+    animation: backdrop-depart 150ms linear forwards;
+  }
+  .account-row {
+    animation: row-arrive 190ms var(--ease-out-quint) backwards;
+  }
+  .account-row > svg {
+    transition: transform 170ms var(--ease-in-out-cubic);
+  }
+  .account-row:active {
+    transform: translateY(1px);
+  }
+  .account-detail {
+    animation: detail-arrive 180ms var(--ease-out-quint);
+  }
+  .notice-box {
+    animation: feedback-arrive 180ms var(--ease-out-quint);
+  }
+  .copy-action.copied svg {
+    animation: feedback-check 180ms var(--ease-out-quint);
+  }
+  .busy-spinner {
+    animation: busy-turn 850ms linear infinite;
+  }
+}
+@keyframes workspace-arrive {
+  from {
+    opacity: 0.75;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes dialog-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes dialog-depart {
+  to {
+    opacity: 0;
+    transform: translateY(5px) scale(0.995);
+  }
+}
+@keyframes backdrop-arrive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes backdrop-depart {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes row-arrive {
+  from {
+    opacity: 0.7;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes detail-arrive {
+  from {
+    opacity: 0.8;
+    transform: translateX(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes feedback-arrive {
+  from {
+    opacity: 0.7;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes feedback-check {
+  from {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes busy-turn {
+  to {
+    transform: rotate(360deg);
   }
 }
