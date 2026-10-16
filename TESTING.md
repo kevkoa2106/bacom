@@ -83,3 +83,14 @@ At 760×600, scrolling to the twentieth account moved the list by 1432px while d
 - Purpose gate PASS: category navigation exposes each task without a long dialog; paired columns use available width; fluid spacing uses window height; progressive disclosure keeps existing account guidance accessible while preserving room for Reveal.
 - Liveliness PASS: existing ENERGY 2 / RHYTHM 3 / MOTION 3 direction retained. Account content and settings controls remain the focal points; section gaps and the active-category underline communicate hierarchy with the approved palette.
 - Craftsmanship PASS: type check, production build, rendered desktop/narrow inspection, keyboard checks, and clean detector result. No dependency or custom resize observer was introduced; CSS handles window adaptation.
+
+## Borderless dialogs and category selection
+
+The category highlight is a single CSS surface translated between the three buttons over 240ms. It uses the existing selection token: #e7e9ee against #fefefe in light mode and #373839 against #1f1f20 in dark mode. Buttons retain keyboard focus styling; selection itself adds no border, underline, or shadow. Dialog containers have neither borders nor outlines; their existing shadow preserves separation from the backdrop.
+
+Chromium checks confirmed zero dialog border width, no container outline, no selection shadow, and highlight alignment within 0.02px of the selected button in both themes. Rapid repeated changes end on the correct category. Reduced motion reports a zero-second transition and immediately updates the selected position. The 390×844 viewport has no document or settings overflow. Type checking passes 31 files and the desktop bundle builds successfully. The mechanical design detector returned no findings; no suppressions were added.
+
+- Hard gate PASS: category controls remain functional; selected backgrounds differ from the dialog; both themes, rapid switching, reduced motion, and narrow layout were exercised with a synthetic bridge.
+- Purpose gate PASS: the moving highlight communicates category selection and continuity; no other surface gained animation.
+- Liveliness PASS: existing ENERGY 2 / RHYTHM 3 / MOTION 3 retained with one focused selection transition.
+- Craftsmanship PASS: rendered inspection, computed-style checks, type checking, desktop build, and design detector pass; no animation dependency was introduced.

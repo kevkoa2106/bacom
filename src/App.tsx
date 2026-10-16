@@ -1256,7 +1256,11 @@ export function App() {
           onClose={() => void close()}
           busy={busy}
         >
-          <nav className="settings-categories" aria-label="Settings categories">
+          <nav
+            className="settings-categories"
+            aria-label="Settings categories"
+            data-category={settingsCategory}
+          >
             {(["general", "security", "backups"] as const).map((category) => (
               <Button
                 key={category}
