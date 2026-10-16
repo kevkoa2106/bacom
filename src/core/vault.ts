@@ -650,7 +650,13 @@ export class VaultService {
           },
           epoch,
         );
-        this.checkEpoch(epoch);
+        // The atomic rename may have committed while an OS lock event was
+        // waiting in the event loop. Keep that restore as a successful commit,
+        // but leave the vault locked and discard its candidate key.
+        if (epoch !== this.epoch) {
+          key.fill(0);
+          return;
+        }
         this.key?.fill(0);
         this.key = key;
         this.data = data;
