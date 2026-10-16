@@ -86,3 +86,10 @@
 - [x] Run final tests/build, inspect native UI, and update security and verification docs.
 
 Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 files; desktop build passes. All four user-supplied structures parse, with the fourth preserved as one 101-character code. Native RTF import preview/save succeeds with a synthetic four-code fixture. Actual Touch ID is unavailable on this machine; native success/cancellation are covered using injected OS providers, with real hardware testing still a release check.
+
+## Settings follow-up
+- [x] Add a bold Appearance heading consistent with the other settings sections.
+- [x] Add persistent 1, 5, 10, 15, and 30 minute auto-lock choices, with the Electron main process as the single timer owner.
+- [x] Add encrypted JSON backup restoration with a backup-password check, atomic replacement, and explicit confirmation.
+- [x] Invalidate the previous device-unlock key on restore, remove its sidecar when possible, and warn if OS storage blocks cleanup.
+- [x] Document restore replacement, password, and usage-history behavior.

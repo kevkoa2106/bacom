@@ -353,7 +353,7 @@ function registerIPC(): void {
         title: "Replace your current vault?",
         message: "Restoring this backup replaces your current vault.",
         detail:
-          "Accounts, recovery codes, and usage states will be replaced by this backup. Its master password becomes your active password, and device unlock will be turned off. Export your current vault first if you need to keep it.",
+          "Accounts, recovery codes, and usage states will be replaced by this backup. Its master password becomes your active password. Any saved device-unlock key will be invalidated, so you may need to enroll again. Export your current vault first if you need to keep it.",
         buttons: ["Cancel", "Replace vault"],
         defaultId: 0,
         cancelId: 0,

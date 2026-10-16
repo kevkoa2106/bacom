@@ -54,7 +54,9 @@ Generating a fresh code set on a website typically invalidates the old one. Labe
 
 **Vault settings → Export encrypted backup** saves the encrypted envelope using a native save dialog. The master password is still required. Export does not produce plaintext codes.
 
-To restore manually, close Bacom, preserve the current `vault.json` elsewhere, and copy the encrypted backup into its place. Launch Bacom and unlock with the password associated with that backup. Restoring an older file also restores its older usage counts; codes accepted since that backup must be treated as used. There is no in-app restore or password-change flow in this version.
+**Vault settings → Restore encrypted backup** lets you choose an exported `.json` backup and enter the master password used when it was made. Bacom asks you to confirm that restoration replaces the current vault, then verifies the selected backup and password before writing anything. The backup's password becomes the active password and its usage history is restored. Bacom removes Touch ID enrollment; if the OS prevents cleanup, it warns you, and the old device key cannot unlock the restored vault. Export the current vault first if you may need its latest changes. Restoring an older file also restores older usage counts; codes accepted since then must be treated as used.
+
+Choose the auto-lock delay in **Vault settings → Auto-lock**. The available delays are 1, 5, 10, 15, and 30 minutes. This preference is saved separately from the encrypted vault.
 
 ## Development and checks
 
