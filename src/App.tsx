@@ -21,6 +21,7 @@ import {
   LockKeyhole,
   LoaderCircle,
   Fingerprint,
+  RotateCcw,
   Plus,
   Search,
   Settings2,
@@ -32,6 +33,7 @@ import { Input } from "./components/ui/input";
 import { api, isPreview } from "./lib/api";
 import type {
   AccountSummary,
+  AutoLockMinutes,
   DeviceAuthStatus,
   ParsedCode,
   RevealResult,
@@ -56,14 +58,16 @@ function ThemePicker({
   theme,
   onChange,
   id,
+  label = "Appearance",
 }: {
   theme: Theme;
   onChange: (theme: Theme) => void;
   id: string;
+  label?: string;
 }) {
   return (
     <div className="theme-picker">
-      <label htmlFor={id}>Appearance</label>
+      <label htmlFor={id}>{label}</label>
       <select
         id={id}
         value={theme}
@@ -165,6 +169,11 @@ export function App() {
   const [closing, setClosing] = useState(false);
   const [deviceAuth, setDeviceAuth] = useState<DeviceAuthStatus | null>(null);
   const [devicePassword, setDevicePassword] = useState("");
+  const [restorePassword, setRestorePassword] = useState("");
+  const [autoLockMinutes, setAutoLockMinutes] =
+    useState<AutoLockMinutes | null>(null);
+  const [autoLockLoading, setAutoLockLoading] = useState(false);
+  const [autoLockRetry, setAutoLockRetry] = useState(0);
   const startupChecked = useRef(false);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -213,6 +222,7 @@ export function App() {
     setPassword("");
     setConfirmPassword("");
     setDevicePassword("");
+    setRestorePassword("");
     setCodes([]);
     setReveal(null);
     revealedRef.current = null;
@@ -235,28 +245,25 @@ export function App() {
     });
   }, [refresh, clearSecrets]);
   useEffect(() => {
-    if (!status?.unlocked) return;
-    let timer: ReturnType<typeof setTimeout>;
-    const lockNow = () => {
-      clearSecrets();
-      setModal(null);
-      setAccounts([]);
-      setStatus({ exists: true, unlocked: false });
-      void api.lock().catch((e) => setError(message(e)));
-    };
-    const reset = () => {
-      clearTimeout(timer);
-      timer = setTimeout(lockNow, 5 * 60000);
-    };
-    reset();
-    window.addEventListener("pointerdown", reset);
-    window.addEventListener("keydown", reset);
+    if (modal !== "settings" || isPreview || !api.getAutoLockMinutes) return;
+    let cancelled = false;
+    setAutoLockLoading(true);
+    setAutoLockMinutes(null);
+    void api
+      .getAutoLockMinutes()
+      .then((minutes) => {
+        if (!cancelled) setAutoLockMinutes(minutes);
+      })
+      .catch((error) => {
+        if (!cancelled) setError(message(error));
+      })
+      .finally(() => {
+        if (!cancelled) setAutoLockLoading(false);
+      });
     return () => {
-      clearTimeout(timer);
-      window.removeEventListener("pointerdown", reset);
-      window.removeEventListener("keydown", reset);
+      cancelled = true;
     };
-  }, [status?.unlocked, clearSecrets]);
+  }, [modal, autoLockRetry]);
   const close = async () => {
     if (closing) return;
     const token = revealedRef.current?.token;
@@ -302,6 +309,7 @@ export function App() {
       setPassword("");
       setConfirmPassword("");
       setDevicePassword("");
+      setRestorePassword("");
       if (revealedRef.current) {
         const masked = { ...revealedRef.current, code: "" };
         revealedRef.current = masked;
@@ -501,6 +509,36 @@ export function App() {
     void run(async () => {
       if (await api.exportVault())
         setNotice("Encrypted backup saved. Keep it somewhere safe.");
+    });
+  };
+  const changeAutoLock = (minutes: AutoLockMinutes) => {
+    if (isPreview || !api.setAutoLockMinutes) return;
+    const generation = epoch.current;
+    void run(async () => {
+      await api.setAutoLockMinutes!(minutes);
+      if (generation !== epoch.current) return;
+      setAutoLockMinutes(minutes);
+      setNotice(
+        `Auto-lock set to ${minutes} ${minutes === 1 ? "minute" : "minutes"}.`,
+      );
+    });
+  };
+  const restoreBackup = (event: FormEvent) => {
+    event.preventDefault();
+    if (isPreview || !api.restoreVaultBackup) return;
+    const attempt = restorePassword;
+    setRestorePassword("");
+    setNotice("");
+    void run(async () => {
+      if (!(await api.restoreVaultBackup!(attempt))) {
+        setNotice("Backup restore canceled.");
+        return;
+      }
+      setSelected(null);
+      setQuery("");
+      setFilter("all");
+      await refresh();
+      setNotice("Encrypted backup restored.");
     });
   };
 
@@ -1259,10 +1297,12 @@ export function App() {
           <div className="settings-item theme-settings">
             <Settings2 />
             <div>
+              <strong>Appearance</strong>
               <ThemePicker
                 theme={theme}
                 onChange={setTheme}
                 id="settings-theme"
+                label="Theme"
               />
               <p>
                 System follows your device’s appearance. Only this preference is
@@ -1285,14 +1325,65 @@ export function App() {
               </p>
             </div>
           </div>
-          <div className="settings-item">
+          <div className="settings-item auto-lock-settings">
             <LockKeyhole />
             <div>
-              <strong>Auto-lock after 5 minutes</strong>
-              <p>
-                Without keyboard or pointer activity, your vault locks. You can
-                lock it manually at any time.
+              <strong>Auto-lock</strong>
+              <p id="auto-lock-note">
+                {isPreview || !api.getAutoLockMinutes || !api.setAutoLockMinutes
+                  ? "Automatic locking is available in the desktop app."
+                  : "The desktop app locks your vault after inactivity. You can also lock it manually at any time."}
               </p>
+              <label htmlFor="auto-lock-minutes">Lock after inactivity</label>
+              <select
+                id="auto-lock-minutes"
+                className="settings-select"
+                aria-describedby="auto-lock-note"
+                aria-busy={autoLockLoading}
+                value={autoLockMinutes ?? ""}
+                disabled={
+                  busy ||
+                  autoLockLoading ||
+                  isPreview ||
+                  !api.getAutoLockMinutes ||
+                  !api.setAutoLockMinutes ||
+                  autoLockMinutes === null
+                }
+                onChange={(event) =>
+                  changeAutoLock(Number(event.target.value) as AutoLockMinutes)
+                }
+              >
+                {autoLockMinutes === null && (
+                  <option value="">
+                    {isPreview
+                      ? "Unavailable in preview"
+                      : !api.getAutoLockMinutes || !api.setAutoLockMinutes
+                        ? "Unavailable in this build"
+                        : autoLockLoading
+                          ? "Loading…"
+                          : "Unavailable"}
+                  </option>
+                )}
+                {[1, 5, 10, 15, 30].map((minutes) => (
+                  <option key={minutes} value={minutes}>
+                    {minutes} {minutes === 1 ? "minute" : "minutes"}
+                  </option>
+                ))}
+              </select>
+              {!isPreview &&
+                api.getAutoLockMinutes &&
+                api.setAutoLockMinutes &&
+                !autoLockLoading &&
+                autoLockMinutes === null && (
+                  <Button
+                    type="button"
+                    variant="outline"
+                    disabled={busy}
+                    onClick={() => setAutoLockRetry((value) => value + 1)}
+                  >
+                    Retry loading setting
+                  </Button>
+                )}
             </div>
           </div>
           <div className="settings-item">
@@ -1316,6 +1407,45 @@ export function App() {
                   Export is available in the desktop app.
                 </p>
               )}
+              <form className="backup-restore" onSubmit={restoreBackup}>
+                <h3>Restore encrypted backup</h3>
+                <p id="restore-backup-warning">
+                  Restoring replaces this vault’s accounts, recovery codes, and
+                  usage history. Choose an encrypted backup, then confirm
+                  replacement in the desktop app.
+                </p>
+                <label htmlFor="restore-backup-password">
+                  Backup’s master password
+                </label>
+                <Input
+                  id="restore-backup-password"
+                  type="password"
+                  autoComplete="off"
+                  required
+                  value={restorePassword}
+                  onChange={(event) => setRestorePassword(event.target.value)}
+                  disabled={busy || isPreview || !api.restoreVaultBackup}
+                  aria-describedby="restore-backup-warning restore-backup-note"
+                />
+                <p id="restore-backup-note" className="field-note">
+                  {isPreview || !api.restoreVaultBackup
+                    ? "Backup restore is available in the desktop app."
+                    : "Use the password that protected the backup. It may differ from your current vault password."}
+                </p>
+                <Button
+                  type="submit"
+                  variant="outline"
+                  disabled={busy || isPreview || !api.restoreVaultBackup}
+                  aria-describedby="restore-backup-warning"
+                >
+                  {busy ? (
+                    <LoaderCircle className="busy-spinner" />
+                  ) : (
+                    <RotateCcw />
+                  )}
+                  Restore backup
+                </Button>
+              </form>
             </div>
           </div>
           {notice && (
