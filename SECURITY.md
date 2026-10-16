@@ -10,6 +10,14 @@ Current envelopes use version 2 and scrypt N=131072, r=8, p=1, with a 256 MiB im
 
 The plaintext password is not stored. The key is retained in the main process while unlocked and zeroed on lock. Code strings and temporary JavaScript strings are garbage-collected; JavaScript does not offer reliable zeroization of every copy. The app decrypts the full vault to support browsing and imports while unlocked; each individual reveal additionally verifies the password. It does not decrypt anew for every reveal.
 
+## Optional device unlock
+
+Touch ID enrollment is off by default and requires both a master-password check and a successful native biometric prompt. An enrollment secret contains the vault key and its salt/verifier binding, never the master password. The main process encrypts it using Electron's asynchronous `safeStorage` and atomically saves only ciphertext in a private, bounded `device-auth.json` sidecar. It never sends the secret to React, localStorage, or exported backups. A restored/replaced vault with a different binding rejects the key; users can fall back to their master password and enroll again.
+
+Unlock first authenticates with macOS Touch ID, then decrypts the OS-protected secret and authenticates the vault with AES-GCM. Cancellation, unsupported hardware, unavailable protected storage, malformed credentials, and locking during an in-flight operation fail closed. Merely checking availability does not call Keychain encryption or open an OS prompt. Disabling enrollment requires the master password and removes only the sidecar.
+
+Touch ID verification and OS key encryption are separate protections. This implementation gates access in the main process; it does not create a native Keychain access-control item that cryptographically requires biometric presence. A modified app or malicious same-user process is outside its threat boundary. Electron documents this distinction in [systemPreferences](https://www.electronjs.org/docs/latest/api/system-preferences#systempreferencesprompttouchidreason-macos) and the platform semantics in [safeStorage](https://www.electronjs.org/docs/latest/api/safe-storage). Consistent macOS code signing is required for stable Keychain identity across app updates. No biometric data is collected by Bacom. Windows Hello is deliberately unavailable in this macOS-first release.
+
 ## Boundaries and consistency
 
 Electron owns file access, cryptography, clipboard, and dialogs. Its renderer uses context isolation, sandboxing, disabled Node integration, denied permissions, restricted navigation/popups/downloads, and a method-specific preload bridge. Every IPC request validates its sender and inputs. Production has a restrictive CSP injected into the built HTML and blocks network requests. The configuration follows [Electron's security recommendations](https://www.electronjs.org/docs/latest/tutorial/security/).
@@ -20,7 +28,7 @@ Mutations are serialized. Saves write a new encrypted file with mode 0600, sync 
 
 ## Limits
 
-This is a local MVP, not a security certification or independently audited password manager. It protects a copied vault file from disclosure without its password and detects authenticated-data tampering. It cannot protect an unlocked device from malware, keyloggers, screenshots, process-memory inspection, clipboard history, or a malicious same-user process. There is no hardware-backed key storage, automatic distribution/update pipeline, cloud synchronization, rollback protection, or master-password recovery.
+This is a local MVP, not a security certification or independently audited password manager. It protects a copied vault file from disclosure without its password and detects authenticated-data tampering. With device unlock enabled, access to the OS-protected enrollment secret is an additional route to the vault key. It cannot protect an unlocked device from malware, keyloggers, screenshots, process-memory inspection, clipboard history, or a malicious same-user process. There is no hardware-enforced biometric key release, automatic distribution/update pipeline, cloud synchronization, rollback protection, or master-password recovery.
 
 Encrypted files and backups permit offline password guessing. A long, unique master password matters. Older backups can restore codes already used; the app cannot query websites to detect that. Bacom never removes the original downloaded plaintext files. Manage those files and backups separately.
 

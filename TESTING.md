@@ -39,3 +39,22 @@ Used `tests/fixtures/sample-recovery.txt` and a generated password solely for te
 ## Limits of verification
 
 This verifies the local macOS development app. Windows/Linux packaging, signing, notarization, automatic updates, narrow browser screenshots, OS lock/suspend events, clipboard-manager behavior, and crash/power-loss durability have not been exhaustively exercised. Native dialog focus and keyboard operation were used during testing; no formal screen-reader audit was performed. Responsive/reduced-motion styles are implemented, but no claim is made that every viewport or assistive-technology combination was tested. No independent security assessment has been performed.
+
+## Reference-format, device-unlock, and motion follow-up
+
+- Automated suite now passes **40 tests and 176 assertions** across four files; type checking passes 30 source files and desktop bundling passes.
+- Reviewed local example files by structure without logging values or committing originals. Read-only checks recognize all four structures. Repeated placeholder codes deduplicate; the fourth example remains one 101-character candidate with internal spaces intact.
+- Added synthetic TextEdit-style RTF tests for metadata exclusion, line escapes, hex/Unicode controls, visibility reset, invalid nesting/code pages/binary controls, mixed-case letters, alphabetic groups, and a long word sequence with double spaces.
+- Added device-key tests proving password-authorized enrollment, vault binding, authenticated decryption, and continued password requirements on reveals. Lock invalidates enrollment and device unlock in flight.
+- Eighteen device-authentication tests use injected OS providers and repository-local sidecars. They cover cancellation, unavailable hardware/storage, corrupt/foreign credentials, concurrent prompts, atomic write cancellation, private file/directory modes, bounded files, symbolic links, and sidecar removal preserving the vault.
+- No actual Keychain enrollment or biometric prompt was triggered during development. The native UI reports Touch ID unavailable on this machine and retains password access. A configured Touch ID Mac is required to verify real enrollment and fingerprint success. Windows Hello is outside the macOS-first scope confirmed by the user.
+- Native smoke testing used the isolated `.cache/native-smoke-profile`, with its process profile paths checked before entering test credentials. Imported `tests/fixtures/sample-recovery.rtf`: four candidates appeared, including mixed case, a spaced value, a hyphenated value, and the complete long phrase with double spaces. Save succeeded and account/unused totals updated. The user's default vault was not modified.
+- Inspected the updated native library and settings dialog. Error messages and code contents have no entry animation; dialogs use a 200 ms entry and a 150 ms empty-shell exit. Root review removed a proposed side stripe and moved token revocation ahead of the exit delay. Reduced-motion paths are verified in source, including the zero-delay close branch; the OS-wide accessibility preference was not changed for testing.
+- Mechanical design detector returned no findings on App/CSS. No suppressions were added.
+
+### Scoped Anti Slop delivery gate
+
+- Hard gate PASS: native RTF import/preview/save and settings close operate; focus remains native-modal; all 40 tests pass and original reference files are ignored by Git.
+- Purpose gate PASS: motion serves entry continuity, selection, pending work, and action feedback as recorded in PLAN.md; code text and urgent errors remain immediate.
+- Liveliness PASS: ENERGY 2 / RHYTHM 3 / MOTION 3; bounded row arrival and quick dialog transitions add motion while preserving the approved palettes and layout.
+- Craftsmanship PASS: 30-file type check, production renderer/Electron build, native layout inspection, source-verified reduced motion, and a clean mechanical design scan. Hardware limits are stated above rather than presented as verified success.

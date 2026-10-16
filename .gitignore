@@ -39,3 +39,6 @@ release
 *.bacom
 *.vault
 .playwright-mcp/
+
+# User-provided format references can contain real recovery codes.
+/Backup code examples/

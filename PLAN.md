@@ -26,3 +26,11 @@ User-approved palette direction: dark uses `#dbdbdb`, `#999999`, `#5f6062`, `#37
 
 ## Validation limits
 Tests establish specific behaviors, not a security certification. OS packaging, signing, notarization, and distribution require platform credentials and remain outside local MVP scope. A forgotten master password cannot be recovered. The original downloaded text files remain the user's responsibility; Bacom never deletes them. Encrypted backup export writes only after an explicit native save selection. Development must keep Electron profile/cache paths inside the repository until the user authorizes changes outside it.
+
+## Follow-up: reference formats, device convenience, and animation
+
+The user supplied four local RTF format examples and confirmed that the fourth long word sequence is one recovery code. Read these references without logging their values or committing the files. Extract visible text with bounded RTF1 parsing, preserve case and internal spaces, and cover the structural formats using synthetic tests. Keep warnings and editable previews because alphabetic codes and prose overlap.
+
+The user selected macOS Touch ID first. Opt-in enrollment requires a password and native Touch ID. Persist only an OS-encrypted vault-bound key in a private sidecar; leave the main encrypted vault format unchanged. Touch ID authenticates opening the app; master-password checks on every reveal remain. Password access is always available. Windows Hello requires a future native desktop adapter and platform testing rather than a DPAPI-only substitute.
+
+Motion direction: ENERGY 2 / RHYTHM 3 / MOTION 3, preserving the approved utility layout and palettes. Apply the animate skill: quint easing on entry, 200 ms dialog entrance, 150 ms empty-shell exit, bounded list arrival, 110 ms press feedback, and small copy/usage confirmation motion. The purpose is continuity and action feedback, without delaying access to codes or errors. Selection retains the existing background and shifts its chevron, avoiding a new side stripe. CSS handles transform/opacity; reduced-motion rules apply before first paint. Clear secrets and release tokens before animating out. Relevant browser behavior is documented by [MDN's dialog animation guide](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#animating_dialogs).

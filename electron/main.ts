@@ -411,6 +411,7 @@ async function createWindow(): Promise<void> {
     window = null;
   });
   await window.loadURL(documentURL);
+  if (isolatedTestProfile) window.setTitle("Bacom · Test profile");
 }
 
 if (!app.requestSingleInstanceLock()) app.quit();

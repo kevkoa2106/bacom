@@ -69,3 +69,20 @@
 - [ ] Add packaging, signing/notarization, and update delivery with the owner's credentials.
 - [ ] Run platform-specific Windows/Linux and narrow browser visual checks.
 - [ ] Obtain an independent security review before a public release.
+
+## Example formats, device unlock, and motion
+- [x] Review example structures without disclosing or committing their contents.
+- [x] Extract plain text safely from bounded RTF documents.
+- [x] Recognize letter-only and spaced/hyphenated formats with ambiguity warnings.
+- [x] Keep uncertain code boundaries editable; user confirmed the fourth example is one long code.
+- [x] Add parser and native-reader regression checks from synthetic equivalents.
+- [x] Add main-process vault-bound device unlock keys, without saving the master password.
+- [x] Add opt-in native Touch ID, protected device-key storage, and password fallback.
+- [x] Confirm macOS-first scope with the user; Windows Hello remains unsupported.
+- [x] Test biometric cancellation, missing credentials, enrollment races, and vault binding with mock OS providers.
+- [x] Add enrollment/removal UI and once-per-launch authentication prompt.
+- [x] Add purposeful screen/dialog/list/feedback animations and first-paint reduced-motion support.
+- [x] Review each agent's work, obtain fixes, and commit completed parts.
+- [x] Run final tests/build, inspect native UI, and update security and verification docs.
+
+Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 files; desktop build passes. All four user-supplied structures parse, with the fourth preserved as one 101-character code. Native RTF import preview/save succeeds with a synthetic four-code fixture. Actual Touch ID is unavailable on this machine; native success/cancellation are covered using injected OS providers, with real hardware testing still a release check.
