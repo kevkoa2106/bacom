@@ -950,8 +950,8 @@ a:focus-visible {
 }
 .settings-item {
   display: flex;
-  gap: 14px;
-  padding: 20px 0;
+  gap: 12px;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border);
 }
 .settings-item > svg {
@@ -970,7 +970,7 @@ a:focus-visible {
   font-size: 12px;
   color: var(--muted-foreground);
   margin: 6px 0;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 .settings-item button {
   margin-top: 10px;
@@ -1292,30 +1292,49 @@ a:focus-visible {
 }
 .theme-settings .theme-picker {
   justify-content: space-between;
-  margin-top: 12px;
+  margin-top: 8px;
 }
-.auto-lock-settings label,
+.auto-lock-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+}
+.auto-lock-control label,
 .backup-restore label {
-  margin-top: 14px;
+  margin-top: 0;
   font-size: 12px;
 }
 .settings-select {
   display: block;
-  width: min(100%, 220px);
+  width: min(100%, 190px);
+  flex: 0 0 min(100%, 190px);
 }
 .settings-select:disabled {
   opacity: 0.65;
   cursor: default;
 }
 .backup-restore {
-  margin-top: 24px;
-  padding-top: 20px;
+  margin-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid var(--border);
 }
 .backup-restore h3 {
   margin: 0;
   font-size: 13px;
   font-weight: 600;
+}
+@media (max-width: 680px) {
+  .auto-lock-control {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .auto-lock-control .settings-select {
+    width: 100%;
+    flex-basis: 44px;
+  }
 }
 .entry-brand {
   gap: 20px;

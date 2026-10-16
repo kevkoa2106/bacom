@@ -1238,62 +1238,6 @@ export function App() {
           onClose={() => void close()}
           busy={busy}
         >
-          <div className="settings-item device-auth-settings">
-            <Fingerprint />
-            <div>
-              <strong>{deviceAuth?.label || "Device unlock"}</strong>
-              {deviceAuth && (deviceAuth.supported || deviceAuth.enabled) ? (
-                <>
-                  {!deviceAuth.supported && deviceAuth.reason && (
-                    <p>{deviceAuth.reason}</p>
-                  )}
-                  <p>
-                    Optional. Store an unlock key protected by this device’s
-                    operating system. Anyone who can authenticate to this device
-                    may unlock the vault. Your master password is still required
-                    to reveal each code.
-                  </p>
-                  <p className="device-auth-state">
-                    {deviceAuth.enabled
-                      ? "Enabled on this device"
-                      : "Not enabled"}
-                  </p>
-                  <form onSubmit={changeDeviceAuth}>
-                    <label htmlFor="device-auth-password">
-                      Confirm master password to{" "}
-                      {deviceAuth.enabled ? "disable" : "enable"}
-                    </label>
-                    <Input
-                      id="device-auth-password"
-                      type="password"
-                      autoComplete="current-password"
-                      required
-                      disabled={busy}
-                      value={devicePassword}
-                      onChange={(event) =>
-                        setDevicePassword(event.target.value)
-                      }
-                    />
-                    <Button type="submit" variant="outline" disabled={busy}>
-                      {busy ? (
-                        <LoaderCircle className="busy-spinner" />
-                      ) : (
-                        <Fingerprint />
-                      )}
-                      {deviceAuth.enabled
-                        ? "Disable device unlock"
-                        : `Enable ${deviceAuth.label}`}
-                    </Button>
-                  </form>
-                </>
-              ) : (
-                <p>
-                  {deviceAuth?.reason ||
-                    "Checking device authentication availability…"}
-                </p>
-              )}
-            </div>
-          </div>
           <div className="settings-item theme-settings">
             <Settings2 />
             <div>
@@ -1310,21 +1254,6 @@ export function App() {
               </p>
             </div>
           </div>
-          <div className="settings-item">
-            <ShieldCheck />
-            <div>
-              <strong>
-                {isPreview
-                  ? "Disposable preview storage"
-                  : "Encrypted local storage"}
-              </strong>
-              <p>
-                {isPreview
-                  ? "This browser demo encrypts its in-memory contents. Reloading removes the entire preview vault."
-                  : "Your accounts, codes, and usage history are encrypted together on this device."}
-              </p>
-            </div>
-          </div>
           <div className="settings-item auto-lock-settings">
             <LockKeyhole />
             <div>
@@ -1332,44 +1261,46 @@ export function App() {
               <p id="auto-lock-note">
                 {isPreview || !api.getAutoLockMinutes || !api.setAutoLockMinutes
                   ? "Automatic locking is available in the desktop app."
-                  : "The desktop app locks your vault after inactivity. You can also lock it manually at any time."}
+                  : "Choose how long the vault can stay idle before it locks."}
               </p>
-              <label htmlFor="auto-lock-minutes">Lock after inactivity</label>
-              <select
-                id="auto-lock-minutes"
-                className="settings-select"
-                aria-describedby="auto-lock-note"
-                aria-busy={autoLockLoading}
-                value={autoLockMinutes ?? ""}
-                disabled={
-                  busy ||
-                  autoLockLoading ||
-                  isPreview ||
-                  !api.getAutoLockMinutes ||
-                  !api.setAutoLockMinutes ||
-                  autoLockMinutes === null
-                }
-                onChange={(event) =>
-                  changeAutoLock(Number(event.target.value) as AutoLockMinutes)
-                }
-              >
-                {autoLockMinutes === null && (
-                  <option value="">
-                    {isPreview
-                      ? "Unavailable in preview"
-                      : !api.getAutoLockMinutes || !api.setAutoLockMinutes
-                        ? "Unavailable in this build"
-                        : autoLockLoading
-                          ? "Loading…"
-                          : "Unavailable"}
-                  </option>
-                )}
-                {[1, 5, 10, 15, 30].map((minutes) => (
-                  <option key={minutes} value={minutes}>
-                    {minutes} {minutes === 1 ? "minute" : "minutes"}
-                  </option>
-                ))}
-              </select>
+              <div className="auto-lock-control">
+                <label htmlFor="auto-lock-minutes">Lock after inactivity</label>
+                <select
+                  id="auto-lock-minutes"
+                  className="settings-select"
+                  aria-describedby="auto-lock-note"
+                  aria-busy={autoLockLoading}
+                  value={autoLockMinutes ?? ""}
+                  disabled={
+                    busy ||
+                    autoLockLoading ||
+                    isPreview ||
+                    !api.getAutoLockMinutes ||
+                    !api.setAutoLockMinutes ||
+                    autoLockMinutes === null
+                  }
+                  onChange={(event) =>
+                    changeAutoLock(Number(event.target.value) as AutoLockMinutes)
+                  }
+                >
+                  {autoLockMinutes === null && (
+                    <option value="">
+                      {isPreview
+                        ? "Unavailable in preview"
+                        : !api.getAutoLockMinutes || !api.setAutoLockMinutes
+                          ? "Unavailable in this build"
+                          : autoLockLoading
+                            ? "Loading…"
+                            : "Unavailable"}
+                    </option>
+                  )}
+                  {[1, 5, 10, 15, 30].map((minutes) => (
+                    <option key={minutes} value={minutes}>
+                      {minutes} {minutes === 1 ? "minute" : "minutes"}
+                    </option>
+                  ))}
+                </select>
+              </div>
               {!isPreview &&
                 api.getAutoLockMinutes &&
                 api.setAutoLockMinutes &&
@@ -1446,6 +1377,60 @@ export function App() {
                   Restore backup
                 </Button>
               </form>
+            </div>
+          </div>
+          <div className="settings-item device-auth-settings">
+            <Fingerprint />
+            <div>
+              <strong>{deviceAuth?.label || "Device unlock"}</strong>
+              {deviceAuth && (deviceAuth.supported || deviceAuth.enabled) ? (
+                <>
+                  {!deviceAuth.supported && deviceAuth.reason && (
+                    <p>{deviceAuth.reason}</p>
+                  )}
+                  <p>
+                    Optional. This device protects the unlock key. Your master
+                    password is still required to reveal each code.
+                  </p>
+                  <p className="device-auth-state">
+                    {deviceAuth.enabled
+                      ? "Enabled on this device"
+                      : "Not enabled"}
+                  </p>
+                  <form onSubmit={changeDeviceAuth}>
+                    <label htmlFor="device-auth-password">
+                      Confirm master password to{" "}
+                      {deviceAuth.enabled ? "disable" : "enable"}
+                    </label>
+                    <Input
+                      id="device-auth-password"
+                      type="password"
+                      autoComplete="current-password"
+                      required
+                      disabled={busy}
+                      value={devicePassword}
+                      onChange={(event) =>
+                        setDevicePassword(event.target.value)
+                      }
+                    />
+                    <Button type="submit" variant="outline" disabled={busy}>
+                      {busy ? (
+                        <LoaderCircle className="busy-spinner" />
+                      ) : (
+                        <Fingerprint />
+                      )}
+                      {deviceAuth.enabled
+                        ? "Disable device unlock"
+                        : `Enable ${deviceAuth.label}`}
+                    </Button>
+                  </form>
+                </>
+              ) : (
+                <p>
+                  {deviceAuth?.reason ||
+                    "Checking device authentication availability…"}
+                </p>
+              )}
             </div>
           </div>
           {notice && (
