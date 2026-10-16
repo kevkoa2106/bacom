@@ -42,6 +42,7 @@ import type {
 import "./index.css";
 
 type Modal = "import" | "reveal" | "settings" | "help" | null;
+type SettingsCategory = "general" | "security" | "backups";
 type Theme = "light" | "dark" | "system";
 
 function initialTheme(): Theme {
@@ -168,6 +169,8 @@ export function App() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");
   const [modal, setModal] = useState<Modal>(null);
+  const [settingsCategory, setSettingsCategory] =
+    useState<SettingsCategory>("general");
   const [closing, setClosing] = useState(false);
   const [deviceAuth, setDeviceAuth] = useState<DeviceAuthStatus | null>(null);
   const [devicePassword, setDevicePassword] = useState("");
@@ -300,6 +303,7 @@ export function App() {
     setError("");
     setNotice("");
     setClosing(false);
+    if (next === "settings") setSettingsCategory("general");
     setModal(next);
   };
   const run = async (operation: () => Promise<void>) => {
@@ -553,126 +557,133 @@ export function App() {
           <ThemePicker theme={theme} onChange={setTheme} id="entry-theme" />
         </div>
         <div className="entry-content">
-          <div className="entry-icon">
-            <LockKeyhole size={28} strokeWidth={1.6} />
-          </div>
-          <p className="eyebrow">YOUR FALLBACK, KEPT CLOSE</p>
-          <h1>
-            {!status
-              ? "Opening Bacom…"
-              : status.exists
-                ? "Welcome back."
-                : "A safe place for your backup codes."}
-          </h1>
-          <p className="entry-description">
-            {status?.exists
-              ? "Unlock your vault to access your accounts and recovery codes."
-              : "Keep your recovery codes together, ready for the moment you need them."}
-          </p>
-          {isPreview && (
-            <div className="preview-note">
-              <strong>Disposable browser preview</strong>
-              <br />
-              Use sample codes only. Your preview vault resets when this page
-              reloads. Real file storage is in the Electron app.
+          <div className="entry-intro">
+            <div className="entry-icon">
+              <LockKeyhole size={28} strokeWidth={1.6} />
             </div>
-          )}
-          {!status && error && (
-            <>
-              <p role="alert" className="error-box">
-                {error}
-              </p>
-              <Button
-                onClick={() => {
-                  setError("");
-                  void refresh().catch((e) => setError(message(e)));
-                }}
-              >
-                Try opening again
-              </Button>
-            </>
-          )}
-          {status && (
-            <>
-              {status.exists &&
-                deviceAuth?.supported &&
-                deviceAuth.enabled &&
-                api.unlockWithDevice && (
-                  <div className="device-entry">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      disabled={busy}
-                      onClick={unlockWithDevice}
-                    >
-                      {busy ? (
-                        <LoaderCircle className="busy-spinner" />
-                      ) : (
-                        <Fingerprint />
-                      )}
-                      Unlock with {deviceAuth.label}
-                    </Button>
-                    <p>Or use your master password below.</p>
-                  </div>
-                )}
-              <form onSubmit={authenticate} className="entry-form">
-                <label htmlFor="master-password">Master password</label>
-                <Input
-                  id="master-password"
-                  autoFocus
-                  type="password"
-                  autoComplete={
-                    status.exists ? "current-password" : "new-password"
-                  }
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  minLength={status.exists ? undefined : 12}
-                  disabled={busy}
-                />
-                {!status.exists && (
-                  <>
-                    <p className="field-note">
-                      At least 12 characters, up to 72 UTF-8 bytes. Choose a
-                      password you can remember; it cannot be recovered.
-                    </p>
-                    <label htmlFor="confirm-password">
-                      Confirm master password
-                    </label>
-                    <Input
-                      id="confirm-password"
-                      type="password"
-                      autoComplete="new-password"
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                      required
-                      disabled={busy}
-                    />
-                  </>
-                )}
-                {error && (
-                  <p role="alert" className="error-box">
-                    {error}
-                  </p>
-                )}
-                <Button className="entry-submit" disabled={busy}>
-                  {busy && (
-                    <LoaderCircle className="busy-spinner" aria-hidden="true" />
-                  )}
-                  {busy
-                    ? "Please wait…"
-                    : status.exists
-                      ? "Unlock vault"
-                      : "Create vault"}
-                  <ArrowRight size={16} />
+            <p className="eyebrow">YOUR FALLBACK, KEPT CLOSE</p>
+            <h1>
+              {!status
+                ? "Opening Bacom…"
+                : status.exists
+                  ? "Welcome back."
+                  : "A safe place for your backup codes."}
+            </h1>
+            <p className="entry-description">
+              {status?.exists
+                ? "Unlock your vault to access your accounts and recovery codes."
+                : "Keep your recovery codes together, ready for the moment you need them."}
+            </p>
+            {isPreview && (
+              <div className="preview-note">
+                <strong>Disposable browser preview</strong>
+                <br />
+                Use sample codes only. Your preview vault resets when this page
+                reloads. Real file storage is in the Electron app.
+              </div>
+            )}
+          </div>
+          <div className="entry-auth">
+            {!status && error && (
+              <>
+                <p role="alert" className="error-box">
+                  {error}
+                </p>
+                <Button
+                  onClick={() => {
+                    setError("");
+                    void refresh().catch((e) => setError(message(e)));
+                  }}
+                >
+                  Try opening again
                 </Button>
-              </form>
-            </>
-          )}
-          <p className="entry-footer">
-            <ShieldCheck size={15} /> Stored locally. Encrypted with your master
-            password.
-          </p>
+              </>
+            )}
+            {status && (
+              <>
+                {status.exists &&
+                  deviceAuth?.supported &&
+                  deviceAuth.enabled &&
+                  api.unlockWithDevice && (
+                    <div className="device-entry">
+                      <Button
+                        type="button"
+                        variant="outline"
+                        disabled={busy}
+                        onClick={unlockWithDevice}
+                      >
+                        {busy ? (
+                          <LoaderCircle className="busy-spinner" />
+                        ) : (
+                          <Fingerprint />
+                        )}
+                        Unlock with {deviceAuth.label}
+                      </Button>
+                      <p>Or use your master password below.</p>
+                    </div>
+                  )}
+                <form onSubmit={authenticate} className="entry-form">
+                  <label htmlFor="master-password">Master password</label>
+                  <Input
+                    id="master-password"
+                    autoFocus
+                    type="password"
+                    autoComplete={
+                      status.exists ? "current-password" : "new-password"
+                    }
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    minLength={status.exists ? undefined : 12}
+                    disabled={busy}
+                  />
+                  {!status.exists && (
+                    <>
+                      <p className="field-note">
+                        At least 12 characters, up to 72 UTF-8 bytes. Choose a
+                        password you can remember; it cannot be recovered.
+                      </p>
+                      <label htmlFor="confirm-password">
+                        Confirm master password
+                      </label>
+                      <Input
+                        id="confirm-password"
+                        type="password"
+                        autoComplete="new-password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                        disabled={busy}
+                      />
+                    </>
+                  )}
+                  {error && (
+                    <p role="alert" className="error-box">
+                      {error}
+                    </p>
+                  )}
+                  <Button className="entry-submit" disabled={busy}>
+                    {busy && (
+                      <LoaderCircle
+                        className="busy-spinner"
+                        aria-hidden="true"
+                      />
+                    )}
+                    {busy
+                      ? "Please wait…"
+                      : status.exists
+                        ? "Unlock vault"
+                        : "Create vault"}
+                    <ArrowRight size={16} />
+                  </Button>
+                </form>
+              </>
+            )}
+            <p className="entry-footer">
+              <ShieldCheck size={15} /> Stored locally. Encrypted with your
+              master password.
+            </p>
+          </div>
         </div>
         <div className="entry-bottom">
           BACOM <span>A little preparation. A lot of peace of mind.</span>
@@ -768,7 +779,6 @@ export function App() {
         <div className="workspace-content">
           <div className="page-heading">
             <div>
-              <p className="eyebrow">ACCOUNT LIBRARY</p>
               <h1>Recovery codes</h1>
               <p>Your way back in, when your second factor isn’t available.</p>
             </div>
@@ -889,7 +899,6 @@ export function App() {
                     <div className="detail-icon">
                       <KeyRound size={24} />
                     </div>
-                    <p className="eyebrow">ACCOUNT DETAILS</p>
                     <h2>{selectedAccount.website}</h2>
                     <p className="account-label">
                       {selectedAccount.label || "Recovery codes"}
@@ -936,18 +945,21 @@ export function App() {
                         : "No codes remaining"}
                       <ArrowRight size={16} />
                     </Button>
-                    <p className="detail-help">
-                      {selectedAccount.remaining
-                        ? "You’ll confirm your master password first. A code is only marked used when you say so."
-                        : "Generate a new set in this website’s security settings, then import it here."}
-                    </p>
-                    <div className="import-date">
-                      Added{" "}
-                      {new Date(selectedAccount.createdAt).toLocaleDateString(
-                        undefined,
-                        { month: "short", day: "numeric", year: "numeric" },
-                      )}
-                    </div>
+                    <details className="account-extra">
+                      <summary>Usage & account info</summary>
+                      <p className="detail-help">
+                        {selectedAccount.remaining
+                          ? "You’ll confirm your master password first. A code is only marked used when you say so."
+                          : "Generate a new set in this website’s security settings, then import it here."}
+                      </p>
+                      <div className="import-date">
+                        Added{" "}
+                        {new Date(selectedAccount.createdAt).toLocaleDateString(
+                          undefined,
+                          { month: "short", day: "numeric", year: "numeric" },
+                        )}
+                      </div>
+                    </details>
                   </section>
                 )}
             </div>
@@ -963,65 +975,68 @@ export function App() {
         <Dialog
           closing={closing}
           title="Add recovery codes"
+          className="import-dialog"
           onClose={() => void close()}
           busy={busy}
         >
-          <form onSubmit={importCodes}>
-            <p className="dialog-intro">
-              Choose a downloaded text or RTF file, then review the codes before
-              saving.
-            </p>
-            <label htmlFor="website">Website</label>
-            <Input
-              id="website"
-              placeholder="e.g. github.com"
-              value={website}
-              onChange={(e) => setWebsite(e.target.value)}
-              maxLength={200}
-              required
-              disabled={busy}
-            />
-            <label htmlFor="account-label">
-              Account label <span className="optional">optional</span>
-            </label>
-            <Input
-              id="account-label"
-              placeholder="e.g. Personal · alex@example.com"
-              value={label}
-              onChange={(e) => setLabel(e.target.value)}
-              maxLength={120}
-              disabled={busy}
-            />
-            {api.chooseFile ? (
-              <button
-                type="button"
-                className="file-picker native-file-picker"
+          <form className="import-form" onSubmit={importCodes}>
+            <div className="import-source">
+              <p className="dialog-intro">
+                Choose a downloaded text or RTF file, then review the codes
+                before saving.
+              </p>
+              <label htmlFor="website">Website</label>
+              <Input
+                id="website"
+                placeholder="e.g. github.com"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                maxLength={200}
+                required
                 disabled={busy}
-                onClick={() => void chooseNativeFile()}
-              >
-                <FileText size={23} />
-                <strong>{fileName || "Choose a text or RTF file"}</strong>
-                <span>Text or RTF · up to 1 MB</span>
-              </button>
-            ) : (
-              <label htmlFor="codes-file" className="file-picker">
-                <FileText size={23} />
-                <strong>{fileName || "Choose a text or RTF file"}</strong>
-                <span>Text or RTF · up to 1 MB</span>
-                <input
-                  id="codes-file"
-                  type="file"
-                  accept=".txt,.rtf,text/plain,application/rtf,text/rtf"
-                  disabled={busy}
-                  onChange={(e) => {
-                    void readFile(e.target.files?.[0]);
-                    e.target.value = "";
-                  }}
-                />
+              />
+              <label htmlFor="account-label">
+                Account label <span className="optional">optional</span>
               </label>
-            )}
+              <Input
+                id="account-label"
+                placeholder="e.g. Personal · alex@example.com"
+                value={label}
+                onChange={(e) => setLabel(e.target.value)}
+                maxLength={120}
+                disabled={busy}
+              />
+              {api.chooseFile ? (
+                <button
+                  type="button"
+                  className="file-picker native-file-picker"
+                  disabled={busy}
+                  onClick={() => void chooseNativeFile()}
+                >
+                  <FileText size={23} />
+                  <strong>{fileName || "Choose a text or RTF file"}</strong>
+                  <span>Text or RTF · up to 1 MB</span>
+                </button>
+              ) : (
+                <label htmlFor="codes-file" className="file-picker">
+                  <FileText size={23} />
+                  <strong>{fileName || "Choose a text or RTF file"}</strong>
+                  <span>Text or RTF · up to 1 MB</span>
+                  <input
+                    id="codes-file"
+                    type="file"
+                    accept=".txt,.rtf,text/plain,application/rtf,text/rtf"
+                    disabled={busy}
+                    onChange={(e) => {
+                      void readFile(e.target.files?.[0]);
+                      e.target.value = "";
+                    }}
+                  />
+                </label>
+              )}
+            </div>
             {codes.length > 0 && (
-              <>
+              <div className="import-review">
                 <div className="preview-heading">
                   <strong>{codes.length} codes found</strong>
                   <span>{format}</span>
@@ -1082,7 +1097,7 @@ export function App() {
                     </div>
                   ))}
                 </div>
-              </>
+              </div>
             )}
             <Button
               type="button"
@@ -1241,212 +1256,266 @@ export function App() {
           onClose={() => void close()}
           busy={busy}
         >
-          <div className="settings-item theme-settings">
-            <Settings2 />
-            <div>
-              <strong>Appearance</strong>
-              <p>
-                System follows your device’s appearance. Only this preference is
-                saved in browser storage.
-              </p>
-              <ThemePicker
-                theme={theme}
-                onChange={setTheme}
-                id="settings-theme"
-                label="Theme"
-              />
-            </div>
-          </div>
-          <div className="settings-item auto-lock-settings">
-            <LockKeyhole />
-            <div>
-              <strong>Auto-lock</strong>
-              <p id="auto-lock-note">
-                {isPreview || !api.getAutoLockMinutes || !api.setAutoLockMinutes
-                  ? "Automatic locking is available in the desktop app."
-                  : "Choose how long the vault can stay idle before it locks."}
-              </p>
-              <div className="auto-lock-control">
-                <label htmlFor="auto-lock-minutes">Lock after inactivity</label>
-                <select
-                  id="auto-lock-minutes"
-                  className="settings-select"
-                  aria-describedby="auto-lock-note"
-                  aria-busy={autoLockLoading}
-                  value={autoLockMinutes ?? ""}
-                  disabled={
-                    busy ||
-                    autoLockLoading ||
-                    isPreview ||
-                    !api.getAutoLockMinutes ||
-                    !api.setAutoLockMinutes ||
-                    autoLockMinutes === null
-                  }
-                  onChange={(event) =>
-                    changeAutoLock(Number(event.target.value) as AutoLockMinutes)
-                  }
-                >
-                  {autoLockMinutes === null && (
-                    <option value="">
-                      {isPreview
-                        ? "Unavailable in preview"
-                        : !api.getAutoLockMinutes || !api.setAutoLockMinutes
-                          ? "Unavailable in this build"
-                          : autoLockLoading
-                            ? "Loading…"
-                            : "Unavailable"}
-                    </option>
-                  )}
-                  {[1, 5, 10, 15, 30].map((minutes) => (
-                    <option key={minutes} value={minutes}>
-                      {minutes} {minutes === 1 ? "minute" : "minutes"}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              {!isPreview &&
-                api.getAutoLockMinutes &&
-                api.setAutoLockMinutes &&
-                !autoLockLoading &&
-                autoLockMinutes === null && (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    disabled={busy}
-                    onClick={() => setAutoLockRetry((value) => value + 1)}
-                  >
-                    Retry loading setting
-                  </Button>
-                )}
-            </div>
-          </div>
-          <div className="settings-item">
-            <ArrowDownToLine />
-            <div>
-              <strong>Encrypted backup</strong>
-              <p>
-                Save a copy of the encrypted vault file. The same master
-                password is required to open it.
-              </p>
+          <nav className="settings-categories" aria-label="Settings categories">
+            {(["general", "security", "backups"] as const).map((category) => (
               <Button
-                variant="outline"
-                disabled={busy || isPreview}
-                onClick={exportVault}
+                key={category}
+                id={`settings-${category}`}
+                type="button"
+                variant="ghost"
+                aria-current={
+                  settingsCategory === category ? "page" : undefined
+                }
+                disabled={busy || closing}
+                onClick={() => {
+                  setSettingsCategory(category);
+                  setDevicePassword("");
+                  setRestorePassword("");
+                  setNotice("");
+                  setError("");
+                }}
               >
-                <ArrowDownToLine />
-                Export encrypted backup
+                {category.charAt(0).toUpperCase() + category.slice(1)}
               </Button>
-              {isPreview && (
-                <p className="field-note">
-                  Export is available in the desktop app.
-                </p>
-              )}
-              <form className="backup-restore" onSubmit={restoreBackup}>
-                <h3>Restore encrypted backup</h3>
-                <p id="restore-backup-warning">
-                  Restoring replaces this vault’s accounts, recovery codes, and
-                  usage history. Choose an encrypted backup, then confirm
-                  replacement in the desktop app.
-                </p>
-                <label htmlFor="restore-backup-password">
-                  Backup’s master password
-                </label>
-                <Input
-                  id="restore-backup-password"
-                  type="password"
-                  autoComplete="off"
-                  required
-                  value={restorePassword}
-                  onChange={(event) => setRestorePassword(event.target.value)}
-                  disabled={busy || isPreview || !api.restoreVaultBackup}
-                  aria-describedby="restore-backup-warning restore-backup-note"
-                />
-                <p id="restore-backup-note" className="field-note">
-                  {isPreview || !api.restoreVaultBackup
-                    ? "Backup restore is available in the desktop app."
-                    : "Use the password that protected the backup. It may differ from your current vault password."}
-                </p>
-                <Button
-                  type="submit"
-                  variant="outline"
-                  disabled={busy || isPreview || !api.restoreVaultBackup}
-                  aria-describedby="restore-backup-warning"
-                >
-                  {busy ? (
-                    <LoaderCircle className="busy-spinner" />
-                  ) : (
-                    <RotateCcw />
-                  )}
-                  Restore backup
-                </Button>
-              </form>
-            </div>
-          </div>
-          <div className="settings-item device-auth-settings">
-            <Fingerprint />
-            <div>
-              <strong>{deviceAuth?.label || "Device unlock"}</strong>
-              {deviceAuth && (deviceAuth.supported || deviceAuth.enabled) ? (
-                <>
-                  {!deviceAuth.supported && deviceAuth.reason && (
-                    <p>{deviceAuth.reason}</p>
-                  )}
+            ))}
+          </nav>
+          <section
+            className={`settings-panel settings-panel-${settingsCategory}`}
+            aria-labelledby={`settings-${settingsCategory}`}
+          >
+            {settingsCategory === "general" && (
+              <div className="settings-item theme-settings">
+                <Settings2 />
+                <div>
+                  <strong>Appearance</strong>
                   <p>
-                    Optional. This device protects the unlock key. Your master
-                    password is still required to reveal each code.
+                    System follows your device’s appearance. Only this
+                    preference is saved in browser storage.
                   </p>
-                  <p className="device-auth-state">
-                    {deviceAuth.enabled
-                      ? "Enabled on this device"
-                      : "Not enabled"}
+                  <ThemePicker
+                    theme={theme}
+                    onChange={setTheme}
+                    id="settings-theme"
+                    label="Theme"
+                  />
+                </div>
+              </div>
+            )}
+            {settingsCategory === "security" && (
+              <div className="settings-item auto-lock-settings">
+                <LockKeyhole />
+                <div>
+                  <strong>Auto-lock</strong>
+                  <p id="auto-lock-note">
+                    {isPreview ||
+                    !api.getAutoLockMinutes ||
+                    !api.setAutoLockMinutes
+                      ? "Automatic locking is available in the desktop app."
+                      : "Choose how long the vault can stay idle before it locks."}
                   </p>
-                  <form onSubmit={changeDeviceAuth}>
-                    <label htmlFor="device-auth-password">
-                      Confirm master password to{" "}
-                      {deviceAuth.enabled ? "disable" : "enable"}
+                  <div className="auto-lock-control">
+                    <label htmlFor="auto-lock-minutes">
+                      Lock after inactivity
                     </label>
-                    <Input
-                      id="device-auth-password"
-                      type="password"
-                      autoComplete="current-password"
-                      required
-                      disabled={busy}
-                      value={devicePassword}
-                      onChange={(event) =>
-                        setDevicePassword(event.target.value)
+                    <select
+                      id="auto-lock-minutes"
+                      className="settings-select"
+                      aria-describedby="auto-lock-note"
+                      aria-busy={autoLockLoading}
+                      value={autoLockMinutes ?? ""}
+                      disabled={
+                        busy ||
+                        autoLockLoading ||
+                        isPreview ||
+                        !api.getAutoLockMinutes ||
+                        !api.setAutoLockMinutes ||
+                        autoLockMinutes === null
                       }
-                    />
-                    <Button type="submit" variant="outline" disabled={busy}>
-                      {busy ? (
-                        <LoaderCircle className="busy-spinner" />
-                      ) : (
-                        <Fingerprint />
+                      onChange={(event) =>
+                        changeAutoLock(
+                          Number(event.target.value) as AutoLockMinutes,
+                        )
+                      }
+                    >
+                      {autoLockMinutes === null && (
+                        <option value="">
+                          {isPreview
+                            ? "Unavailable in preview"
+                            : !api.getAutoLockMinutes || !api.setAutoLockMinutes
+                              ? "Unavailable in this build"
+                              : autoLockLoading
+                                ? "Loading…"
+                                : "Unavailable"}
+                        </option>
                       )}
-                      {deviceAuth.enabled
-                        ? "Disable device unlock"
-                        : `Enable ${deviceAuth.label}`}
+                      {[1, 5, 10, 15, 30].map((minutes) => (
+                        <option key={minutes} value={minutes}>
+                          {minutes} {minutes === 1 ? "minute" : "minutes"}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {!isPreview &&
+                    api.getAutoLockMinutes &&
+                    api.setAutoLockMinutes &&
+                    !autoLockLoading &&
+                    autoLockMinutes === null && (
+                      <Button
+                        type="button"
+                        variant="outline"
+                        disabled={busy}
+                        onClick={() => setAutoLockRetry((value) => value + 1)}
+                      >
+                        Retry loading setting
+                      </Button>
+                    )}
+                </div>
+              </div>
+            )}
+            {settingsCategory === "backups" && (
+              <>
+                <div className="settings-item">
+                  <ArrowDownToLine />
+                  <div>
+                    <strong>Encrypted backup</strong>
+                    <p>
+                      Save a copy of the encrypted vault file. The same master
+                      password is required to open it.
+                    </p>
+                    <Button
+                      variant="outline"
+                      disabled={busy || isPreview}
+                      onClick={exportVault}
+                    >
+                      <ArrowDownToLine />
+                      Export encrypted backup
                     </Button>
-                  </form>
-                </>
-              ) : (
-                <p>
-                  {deviceAuth?.reason ||
-                    "Checking device authentication availability…"}
+                    {isPreview && (
+                      <p className="field-note">
+                        Export is available in the desktop app.
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className="settings-item">
+                  <RotateCcw />
+                  <div>
+                    <form className="backup-restore" onSubmit={restoreBackup}>
+                      <h3>Restore encrypted backup</h3>
+                      <p id="restore-backup-warning">
+                        Restoring replaces this vault’s accounts, recovery
+                        codes, and usage history. Choose an encrypted backup,
+                        then confirm replacement in the desktop app.
+                      </p>
+                      <label htmlFor="restore-backup-password">
+                        Backup’s master password
+                      </label>
+                      <Input
+                        id="restore-backup-password"
+                        type="password"
+                        autoComplete="off"
+                        required
+                        value={restorePassword}
+                        onChange={(event) =>
+                          setRestorePassword(event.target.value)
+                        }
+                        disabled={busy || isPreview || !api.restoreVaultBackup}
+                        aria-describedby="restore-backup-warning restore-backup-note"
+                      />
+                      <p id="restore-backup-note" className="field-note">
+                        {isPreview || !api.restoreVaultBackup
+                          ? "Backup restore is available in the desktop app."
+                          : "Use the password that protected the backup. It may differ from your current vault password."}
+                      </p>
+                      <Button
+                        type="submit"
+                        variant="outline"
+                        disabled={busy || isPreview || !api.restoreVaultBackup}
+                        aria-describedby="restore-backup-warning"
+                      >
+                        {busy ? (
+                          <LoaderCircle className="busy-spinner" />
+                        ) : (
+                          <RotateCcw />
+                        )}
+                        Restore backup
+                      </Button>
+                    </form>
+                  </div>
+                </div>
+              </>
+            )}
+            {settingsCategory === "security" && (
+              <div className="settings-item device-auth-settings">
+                <Fingerprint />
+                <div>
+                  <strong>{deviceAuth?.label || "Device unlock"}</strong>
+                  {deviceAuth &&
+                  (deviceAuth.supported || deviceAuth.enabled) ? (
+                    <>
+                      {!deviceAuth.supported && deviceAuth.reason && (
+                        <p>{deviceAuth.reason}</p>
+                      )}
+                      <p>
+                        Optional. This device protects the unlock key. Your
+                        master password is still required to reveal each code.
+                      </p>
+                      <p className="device-auth-state">
+                        {deviceAuth.enabled
+                          ? "Enabled on this device"
+                          : "Not enabled"}
+                      </p>
+                      <form onSubmit={changeDeviceAuth}>
+                        <label htmlFor="device-auth-password">
+                          Confirm master password to{" "}
+                          {deviceAuth.enabled ? "disable" : "enable"}
+                        </label>
+                        <Input
+                          id="device-auth-password"
+                          type="password"
+                          autoComplete="current-password"
+                          required
+                          disabled={busy}
+                          value={devicePassword}
+                          onChange={(event) =>
+                            setDevicePassword(event.target.value)
+                          }
+                        />
+                        <Button type="submit" variant="outline" disabled={busy}>
+                          {busy ? (
+                            <LoaderCircle className="busy-spinner" />
+                          ) : (
+                            <Fingerprint />
+                          )}
+                          {deviceAuth.enabled
+                            ? "Disable device unlock"
+                            : `Enable ${deviceAuth.label}`}
+                        </Button>
+                      </form>
+                    </>
+                  ) : (
+                    <p>
+                      {deviceAuth?.reason ||
+                        "Checking device authentication availability…"}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+          </section>
+          <div className="dialog-actions">
+            <div className="settings-feedback">
+              {notice && (
+                <p role="status" className="notice-box">
+                  {notice}
+                </p>
+              )}
+              {error && (
+                <p role="alert" className="error-box">
+                  {error}
                 </p>
               )}
             </div>
-          </div>
-          {notice && (
-            <p role="status" className="notice-box">
-              {notice}
-            </p>
-          )}
-          {error && (
-            <p role="alert" className="error-box">
-              {error}
-            </p>
-          )}
-          <div className="dialog-actions">
             <Button onClick={() => void close()} disabled={busy}>
               Done
             </Button>

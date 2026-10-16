@@ -58,3 +58,28 @@ This verifies the local macOS development app. Windows/Linux packaging, signing,
 - Purpose gate PASS: motion serves entry continuity, selection, pending work, and action feedback as recorded in PLAN.md; code text and urgent errors remain immediate.
 - Liveliness PASS: ENERGY 2 / RHYTHM 3 / MOTION 3; bounded row arrival and quick dialog transitions add motion while preserving the approved palettes and layout.
 - Craftsmanship PASS: 30-file type check, production renderer/Electron build, native layout inspection, source-verified reduced motion, and a clean mechanical design scan. Hardware limits are stated above rather than presented as verified success.
+
+## Responsive window layout follow-up
+
+The existing palette, typography, and motion direction remain authoritative: ENERGY 2 / RHYTHM 3 / MOTION 3. This is an Operate-mode refinement. Window height controls spacing and composition; category navigation replaces the long settings panel. Lists retain local scrolling for arbitrary amounts of data, and dialogs retain overflow fallback for enlarged text or unusually short browser viewports.
+
+Chromium viewport checks used a disposable preview and a synthetic desktop bridge. These checks verify layout and renderer interaction, not live biometric hardware or native backup dialogs.
+
+| View | Window | Result |
+| --- | --- | --- |
+| Vault with 20 synthetic accounts | 760×600, 1160×800, 1440×900, 390×844 | No document overflow in either axis |
+| General, Security, Backups | Same four sizes | No settings scrollbar; tested Touch ID enrollment form, password errors, and backup feedback |
+| Initial import / review of 20 codes | 760×600 | Dialog heights 510 / 529px within the 552px limit; only the code list scrolls |
+| Onboarding | 760×600, 1160×800, 390×844 | No document overflow in either axis |
+| Empty vault | 760×600 | All primary controls visible without document scrolling |
+
+At 760×600, scrolling to the twentieth account moved the list by 1432px while document scroll remained zero and document height remained 600px. Settings keyboard activation with Enter and dismissal with Escape succeeded. Switching categories cleared both device-unlock and backup passwords. Sampled settings text contrast measured at least 6.24:1 in light mode and 5.78:1 in dark mode.
+
+`bun run typecheck` passes 31 files. `bun run desktop:build` builds the renderer and both Electron bundles. The scoped Impeccable detector returned zero findings; no suppressions were added. Independent review found no state, security-boundary, or form-handler regressions.
+
+### Scoped Anti Slop delivery gate
+
+- Hard gate PASS: no added claims or assets; categories were explicitly approved. Viewport measurements, theme contrast checks, keyboard interaction, password clearing, and build evidence are recorded above. Existing loading, empty, error, and disabled states remain functional.
+- Purpose gate PASS: category navigation exposes each task without a long dialog; paired columns use available width; fluid spacing uses window height; progressive disclosure keeps existing account guidance accessible while preserving room for Reveal.
+- Liveliness PASS: existing ENERGY 2 / RHYTHM 3 / MOTION 3 direction retained. Account content and settings controls remain the focal points; section gaps and the active-category underline communicate hierarchy with the approved palette.
+- Craftsmanship PASS: type check, production build, rendered desktop/narrow inspection, keyboard checks, and clean detector result. No dependency or custom resize observer was introduced; CSS handles window adaptation.

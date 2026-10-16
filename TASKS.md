@@ -94,3 +94,12 @@ Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 f
 - [x] Add encrypted JSON backup restoration with a backup-password check, atomic replacement, and explicit confirmation.
 - [x] Invalidate the previous device-unlock key on restore, remove its sidecar when possible, and warn if OS storage blocks cleanup.
 - [x] Document restore replacement, password, and usage-history behavior.
+
+## Responsive window layout
+- [x] Confirm General, Security, and Backups settings categories with the user.
+- [x] Fit the vault shell to the window and contain long account lists within the library.
+- [x] Adapt account details and onboarding to shorter desktop windows.
+- [x] Place import fields and code review side by side when space allows.
+- [x] Keep settings feedback visible and clear password fields when changing categories.
+- [x] Review code and verify minimum desktop, standard desktop, wide, and narrow layouts.
+- [x] Run type checking, desktop bundling, and the scoped design detector.
