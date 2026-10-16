@@ -16,6 +16,11 @@ const api: VaultAPI = {
     ipcRenderer.invoke("vault:finish", token, used),
   copy: (token) => ipcRenderer.invoke("vault:copy", token),
   exportVault: () => ipcRenderer.invoke("vault:export"),
+  getAutoLockMinutes: () => ipcRenderer.invoke("vault:get-auto-lock"),
+  setAutoLockMinutes: (minutes) =>
+    ipcRenderer.invoke("vault:set-auto-lock", minutes),
+  restoreVaultBackup: (password) =>
+    ipcRenderer.invoke("vault:restore-backup", password),
   deviceAuthStatus: () => ipcRenderer.invoke("vault:device-auth-status"),
   enableDeviceAuth: (password) =>
     ipcRenderer.invoke("vault:enable-device-auth", password),

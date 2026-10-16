@@ -15,16 +15,25 @@ import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { VaultError, VaultService } from "../src/core/vault";
-import type { ImportInput } from "../src/shared/types";
+import type { AutoLockMinutes, ImportInput } from "../src/shared/types";
 import { readImportText } from "./import-file";
 import { DeviceAuthService, FileDeviceAuthStore } from "./device-auth";
 import type { DeviceAuthProvider } from "./device-auth";
+import {
+  parseAutoLockMinutes,
+  readAutoLockMinutes,
+  readBoundedRegularFile,
+  writeAutoLockMinutes,
+} from "./settings-store";
 
 const root = app.getAppPath();
 const isolatedTestProfile = !app.isPackaged && !!process.env.BACOM_DEV_PROFILE;
 const rendererRoot = path.join(root, "dist");
 const rendererURL = pathToFileURL(path.join(rendererRoot, "index.html")).href;
-const idleSeconds = 5 * 60;
+let autoLockMinutes: AutoLockMinutes = 5;
+let preferencesFile: string;
+let preferenceWrites: Promise<void> = Promise.resolve();
+let restoringVault = false;
 let window: BrowserWindow | null = null;
 let service: VaultService;
 let deviceAuth: DeviceAuthService;
@@ -156,15 +165,34 @@ function trustedSender(event: IpcMainInvokeEvent): boolean {
   );
 }
 
+function assertRestoreAllows(name: string): void {
+  if (
+    restoringVault &&
+    ![
+      "vault:status",
+      "vault:list",
+      "vault:lock",
+      "vault:get-auto-lock",
+      "vault:device-auth-status",
+    ].includes(name)
+  )
+    throw new VaultError(
+      "Finish or cancel the backup restore before another operation.",
+    );
+}
+
 function handle(name: string, action: (...args: unknown[]) => unknown): void {
   ipcMain.handle(name, async (event, ...args: unknown[]) => {
     if (!trustedSender(event)) throw new Error("This request is not allowed.");
     try {
-      if (Date.now() - lastActivity >= idleSeconds * 1000) await lock();
+      assertRestoreAllows(name);
+      if (Date.now() - lastActivity >= autoLockMinutes * 60_000) await lock();
+      assertRestoreAllows(name);
       if (
         name !== "vault:status" &&
         name !== "vault:list" &&
-        name !== "vault:device-auth-status"
+        name !== "vault:device-auth-status" &&
+        name !== "vault:get-auto-lock"
       )
         lastActivity = Date.now();
       return await action(...args);
@@ -181,6 +209,16 @@ function handle(name: string, action: (...args: unknown[]) => unknown): void {
 
 function registerIPC(): void {
   handle("vault:status", () => service.status());
+  handle("vault:get-auto-lock", () => autoLockMinutes);
+  handle("vault:set-auto-lock", (value) => {
+    const minutes = parseAutoLockMinutes(value);
+    const update = preferenceWrites.then(async () => {
+      await writeAutoLockMinutes(preferencesFile, minutes);
+      autoLockMinutes = minutes;
+    });
+    preferenceWrites = update.catch(() => {});
+    return update;
+  });
   handle("vault:create", async (password) => {
     deviceAuth.invalidate();
     await service.create(string(password, 72));
@@ -261,6 +299,7 @@ function registerIPC(): void {
   handle("vault:export", async () => {
     const owner = window;
     if (!owner) return false;
+    const generation = lockGeneration;
     const { canceled, filePath } = await dialog.showSaveDialog(owner, {
       title: "Export encrypted vault",
       defaultPath: "bacom-vault.json",
@@ -268,10 +307,104 @@ function registerIPC(): void {
       properties: ["showOverwriteConfirmation"],
     });
     if (canceled || !filePath) return false;
+    if (generation !== lockGeneration || owner.isDestroyed())
+      throw new VaultError(
+        "The vault changed while choosing an export location. Try again.",
+      );
     const encrypted = await service.exportEncrypted();
     await writeFile(filePath, encrypted, { mode: 0o600 });
     return true;
   });
+  handle("vault:restore-backup", async (inputPassword) => {
+    if (restoringVault)
+      throw new VaultError(
+        "Finish or cancel the current backup restore first.",
+      );
+    restoringVault = true;
+    let bytes: Buffer | undefined;
+    try {
+      const password = string(inputPassword, 72);
+      const owner = window;
+      let generation = lockGeneration;
+      if (!owner || !(await service.status()).unlocked)
+        throw new VaultError("Unlock the vault before restoring a backup.");
+      const assertCurrent = () => {
+        if (generation !== lockGeneration || owner.isDestroyed())
+          throw new VaultError(
+            "The vault locked or changed during backup selection. Unlock it and try again.",
+          );
+      };
+      assertCurrent();
+      const { canceled, filePaths } = await dialog.showOpenDialog(owner, {
+        title: "Restore encrypted vault backup",
+        buttonLabel: "Choose backup",
+        filters: [{ name: "Encrypted Bacom vault", extensions: ["json"] }],
+        properties: ["openFile"],
+      });
+      const selected = filePaths[0];
+      if (canceled || !selected) return false;
+      assertCurrent();
+      if (path.extname(selected).toLowerCase() !== ".json")
+        throw new VaultError("Choose an encrypted .json Bacom backup.");
+      bytes = await readBoundedRegularFile(selected, 8 * 1024 * 1024);
+      assertCurrent();
+      const confirmation = await dialog.showMessageBox(owner, {
+        type: "warning",
+        title: "Replace your current vault?",
+        message: "Restoring this backup replaces your current vault.",
+        detail:
+          "Accounts, recovery codes, and usage states will be replaced by this backup. Its master password becomes your active password, and device unlock will be turned off. Export your current vault first if you need to keep it.",
+        buttons: ["Cancel", "Replace vault"],
+        defaultId: 0,
+        cancelId: 0,
+        noLink: true,
+      });
+      if (confirmation.response !== 1) return false;
+      assertCurrent();
+      generation = ++lockGeneration;
+      deviceAuth.invalidate();
+      await clearCopiedCode();
+      assertCurrent();
+      await service.importEncryptedBackup(bytes, password);
+      try {
+        deviceAuth = makeDeviceAuth();
+        await deviceAuth.disable(password);
+      } catch {
+        console.warn(
+          "Bacom restored the vault; device unlock cleanup could not finish.",
+        );
+        if (!owner.isDestroyed()) {
+          try {
+            await dialog.showMessageBox(owner, {
+              type: "warning",
+              title: "Backup restored",
+              message:
+                "Your backup was restored, but old device unlock settings could not be removed.",
+              detail:
+                "The old device unlock secret cannot unlock the restored vault. Use the backup's master password, then disable or enroll device unlock again in Settings.",
+              buttons: ["OK"],
+            });
+          } catch {
+            /* A closed window cannot turn a committed restore into a failure. */
+          }
+        }
+      }
+      return true;
+    } finally {
+      bytes?.fill(0);
+      restoringVault = false;
+    }
+  });
+}
+
+function makeDeviceAuth(): DeviceAuthService {
+  return new DeviceAuthService(
+    service,
+    deviceAuthProvider(),
+    new FileDeviceAuthStore(
+      path.join(app.getPath("userData"), "device-auth.json"),
+    ),
+  );
 }
 
 function deviceAuthProvider(): DeviceAuthProvider {
@@ -426,18 +559,15 @@ else {
       service = new VaultService(
         path.join(app.getPath("userData"), "vault.json"),
       );
-      deviceAuth = new DeviceAuthService(
-        service,
-        deviceAuthProvider(),
-        new FileDeviceAuthStore(
-          path.join(app.getPath("userData"), "device-auth.json"),
-        ),
-      );
+      deviceAuth = makeDeviceAuth();
+      preferencesFile = path.join(app.getPath("userData"), "preferences.json");
+      autoLockMinutes = await readAutoLockMinutes(preferencesFile);
       registerIPC();
       powerMonitor.on("lock-screen", lifecycleLock);
       powerMonitor.on("suspend", lifecycleLock);
       setInterval(() => {
-        if (Date.now() - lastActivity >= idleSeconds * 1000) lifecycleLock();
+        if (Date.now() - lastActivity >= autoLockMinutes * 60_000)
+          lifecycleLock();
       }, 10_000).unref();
       await createWindow();
     })
