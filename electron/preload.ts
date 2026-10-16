@@ -8,6 +8,7 @@ const api: VaultAPI = {
   lock: () => ipcRenderer.invoke("vault:lock"),
   list: () => ipcRenderer.invoke("vault:list"),
   parse: (text, website) => ipcRenderer.invoke("vault:parse", text, website),
+  chooseFile: (website) => ipcRenderer.invoke("vault:choose-file", website),
   importCodes: (input) => ipcRenderer.invoke("vault:import", input),
   reveal: (accountId, password) =>
     ipcRenderer.invoke("vault:reveal", accountId, password),

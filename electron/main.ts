@@ -12,8 +12,9 @@ import { mkdirSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { VaultService } from "../src/core/vault";
+import { VaultError, VaultService } from "../src/core/vault";
 import type { ImportInput } from "../src/shared/types";
+import { readImportText } from "./import-file";
 
 const root = app.getAppPath();
 const rendererRoot = path.join(root, "dist");
@@ -27,10 +28,25 @@ let clipboardTimer: ReturnType<typeof setTimeout> | undefined;
 let lockAnnounced = true;
 let clipboardQueue: Promise<void> = Promise.resolve();
 let quitting = false;
+let lockGeneration = 0;
 
 // Electron otherwise creates its development profile in the user's Library.
 if (!app.isPackaged) {
-  const profile = path.join(root, ".bacom-dev");
+  const profile = path.resolve(
+    root,
+    process.env.BACOM_DEV_PROFILE ?? ".bacom-dev",
+  );
+  const relative = path.relative(root, profile);
+  if (
+    !relative ||
+    relative === ".." ||
+    relative.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relative)
+  ) {
+    throw new Error(
+      "The development profile must be a folder inside the repository.",
+    );
+  }
   for (const name of [
     "appData",
     "userData",
@@ -82,6 +98,7 @@ function clearCopiedCode(): Promise<void> {
 }
 
 async function lock(): Promise<void> {
+  lockGeneration++;
   await service.lock();
   if (!lockAnnounced && window && !window.isDestroyed())
     window.webContents.send("vault:locked");
@@ -136,11 +153,7 @@ function handle(name: string, action: (...args: unknown[]) => unknown): void {
   ipcMain.handle(name, async (event, ...args: unknown[]) => {
     if (!trustedSender(event)) throw new Error("This request is not allowed.");
     try {
-      if (
-        Date.now() - lastActivity >= idleSeconds * 1000 ||
-        powerMonitor.getSystemIdleTime() >= idleSeconds
-      )
-        await lock();
+      if (Date.now() - lastActivity >= idleSeconds * 1000) await lock();
       if (name !== "vault:status" && name !== "vault:list")
         lastActivity = Date.now();
       return await action(...args);
@@ -170,6 +183,34 @@ function registerIPC(): void {
   handle("vault:parse", (text, website) =>
     service.parse(string(text, 1024 * 1024), string(website, 2048)),
   );
+  handle("vault:choose-file", async (website) => {
+    const site = string(website, 2048);
+    const owner = window;
+    if (!owner || !(await service.status()).unlocked)
+      throw new VaultError("Unlock the vault first.");
+    const generation = lockGeneration;
+    const { canceled, filePaths } = await dialog.showOpenDialog(owner, {
+      title: "Import backup codes",
+      buttonLabel: "Import text file",
+      filters: [{ name: "Text files", extensions: ["txt"] }],
+      properties: ["openFile"],
+    });
+    const selected = filePaths[0];
+    if (canceled || !selected) return null;
+    if (generation !== lockGeneration)
+      throw new VaultError(
+        "The vault locked while selecting a file. Unlock it and try again.",
+      );
+    const text = await readImportText(selected);
+    if (generation !== lockGeneration)
+      throw new VaultError(
+        "The vault locked while reading the file. Unlock it and try again.",
+      );
+    return {
+      name: path.basename(selected),
+      result: await service.parse(text, site),
+    };
+  });
   handle("vault:import", (input) => service.importCodes(importInput(input)));
   handle("vault:reveal", (accountId, password) =>
     service.reveal(string(accountId, 128), string(password, 72)),
@@ -208,7 +249,7 @@ function registerIPC(): void {
 }
 
 async function createWindow(): Promise<void> {
-  const isolatedSession = session.fromPartition("bacom");
+  const isolatedSession = session.fromPartition("persist:bacom");
   isolatedSession.setPermissionRequestHandler(
     (_contents, _permission, callback) => callback(false),
   );
@@ -269,18 +310,29 @@ async function createWindow(): Promise<void> {
     },
   });
   window.webContents.on("preload-error", () => {
-    console.error("Bacom preload failed to initialize; closing the vault window.");
+    console.error(
+      "Bacom preload failed to initialize; closing the vault window.",
+    );
     lifecycleLock();
-    dialog.showErrorBox("Bacom could not start", "The desktop bridge failed to load. Rebuild the desktop application and try again.");
+    dialog.showErrorBox(
+      "Bacom could not start",
+      "The desktop bridge failed to load. Rebuild the desktop application and try again.",
+    );
     app.quit();
   });
-  window.webContents.on("did-fail-load", (_event, errorCode, _description, _url, isMainFrame) => {
-    if (!isMainFrame || errorCode === -3) return;
-    console.error(`Bacom renderer failed to load (error ${errorCode}).`);
-    lifecycleLock();
-    dialog.showErrorBox("Bacom could not start", "The application interface failed to load. Rebuild the desktop application and try again.");
-    app.quit();
-  });
+  window.webContents.on(
+    "did-fail-load",
+    (_event, errorCode, _description, _url, isMainFrame) => {
+      if (!isMainFrame || errorCode === -3) return;
+      console.error(`Bacom renderer failed to load (error ${errorCode}).`);
+      lifecycleLock();
+      dialog.showErrorBox(
+        "Bacom could not start",
+        "The application interface failed to load. Rebuild the desktop application and try again.",
+      );
+      app.quit();
+    },
+  );
   window.setMenuBarVisibility(false);
   window.webContents.setWindowOpenHandler(() => ({ action: "deny" }));
   window.webContents.on("will-navigate", (event) => event.preventDefault());
@@ -291,6 +343,9 @@ async function createWindow(): Promise<void> {
     event.preventDefault(),
   );
   window.webContents.on("before-input-event", () => {
+    lastActivity = Date.now();
+  });
+  window.webContents.on("before-mouse-event", () => {
     lastActivity = Date.now();
   });
   window.webContents.on("render-process-gone", lifecycleLock);
@@ -318,11 +373,7 @@ else {
       powerMonitor.on("lock-screen", lifecycleLock);
       powerMonitor.on("suspend", lifecycleLock);
       setInterval(() => {
-        if (
-          Date.now() - lastActivity >= idleSeconds * 1000 ||
-          powerMonitor.getSystemIdleTime() >= idleSeconds
-        )
-          lifecycleLock();
+        if (Date.now() - lastActivity >= idleSeconds * 1000) lifecycleLock();
       }, 10_000).unref();
       await createWindow();
     })
