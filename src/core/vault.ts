@@ -219,6 +219,37 @@ export class VaultService {
   private checkEpoch(epoch: number): void {
     if (this.epoch !== epoch) fail("The vault was locked. Unlock it again.");
   }
+  private openEnvelope(stored: Envelope, key: Buffer, epoch: number): void {
+    try {
+      const decipher = createDecipheriv(
+        "aes-256-gcm",
+        key,
+        decode(stored.iv, 12),
+      );
+      decipher.setAAD(Buffer.from(JSON.stringify(header(stored))));
+      decipher.setAuthTag(decode(stored.tag, 16));
+      const plaintext = Buffer.concat([
+        decipher.update(decode(stored.ciphertext)),
+        decipher.final(),
+      ]);
+      let data: Payload;
+      try {
+        data = payload(JSON.parse(plaintext.toString("utf8")));
+      } finally {
+        plaintext.fill(0);
+      }
+      this.checkEpoch(epoch);
+      this.key?.fill(0);
+      this.key = key;
+      this.data = data;
+      this.stored = stored;
+      this.active = null;
+    } catch (error) {
+      key.fill(0);
+      if (error instanceof VaultError) throw error;
+      fail("The vault could not be authenticated. The file may be damaged.");
+    }
+  }
   private async read(): Promise<Buffer | null> {
     let handle;
     try {
@@ -364,35 +395,49 @@ export class VaultService {
         decode(stored.salt, 32),
         stored.version,
       );
+      this.openEnvelope(stored, key, epoch);
+    });
+  }
+  // Main-process enrollment only: this value grants vault access and must be OS-encrypted.
+  createDeviceUnlockSecret(password: string): Promise<string> {
+    const epoch = this.epoch;
+    return this.run(async () => {
+      passwordValid(password);
+      this.checkEpoch(epoch);
+      this.requireUnlocked();
+      if (!(await bcrypt.compare(password, this.stored!.verifier)))
+        fail("The master password is incorrect.");
+      this.checkEpoch(epoch);
+      return JSON.stringify({
+        version: 1,
+        key: this.key!.toString("base64"),
+        salt: this.stored!.salt,
+        verifier: this.stored!.verifier,
+      });
+    });
+  }
+  unlockWithDeviceSecret(secret: string): Promise<void> {
+    const epoch = this.epoch;
+    return this.run(async () => {
+      this.checkEpoch(epoch);
+      if (typeof secret !== "string" || secret.length > 1024)
+        fail("Device unlock is invalid. Use your master password.");
+      let entry: unknown;
       try {
-        const decipher = createDecipheriv(
-          "aes-256-gcm",
-          key,
-          decode(stored.iv, 12),
-        );
-        decipher.setAAD(Buffer.from(JSON.stringify(header(stored))));
-        decipher.setAuthTag(decode(stored.tag, 16));
-        const plaintext = Buffer.concat([
-          decipher.update(decode(stored.ciphertext)),
-          decipher.final(),
-        ]);
-        let data: Payload;
-        try {
-          data = payload(JSON.parse(plaintext.toString("utf8")));
-        } finally {
-          plaintext.fill(0);
-        }
-        this.checkEpoch(epoch);
-        this.key?.fill(0);
-        this.key = key;
-        this.data = data;
-        this.stored = stored;
-        this.active = null;
-      } catch (error) {
-        key.fill(0);
-        if (error instanceof VaultError) throw error;
-        fail("The vault could not be authenticated. The file may be damaged.");
+        entry = JSON.parse(secret);
+      } catch {
+        fail("Device unlock is invalid. Use your master password.");
       }
+      if (!object(entry) || entry.version !== 1)
+        fail("Device unlock is invalid. Use your master password.");
+      const bytes = await this.read();
+      if (!bytes) fail("No vault exists yet. Create one first.");
+      const stored = envelope(bytes);
+      if (entry.salt !== stored.salt || entry.verifier !== stored.verifier)
+        fail(
+          "This device key belongs to another vault. Use your master password.",
+        );
+      this.openEnvelope(stored, decode(entry.key, 32), epoch);
     });
   }
   async list(): Promise<AccountSummary[]> {
@@ -411,7 +456,14 @@ export class VaultService {
   }
   async parse(text: string, website: string) {
     this.requireUnlocked();
-    return parseBackupCodes(text, website);
+    try {
+      return parseBackupCodes(text, website);
+    } catch (error) {
+      if (error instanceof Error) throw new VaultError(error.message);
+      throw new VaultError(
+        "The file could not be parsed. Try a plain UTF-8 text export.",
+      );
+    }
   }
   importCodes(input: ImportInput): Promise<void> {
     const epoch = this.epoch;

@@ -35,6 +35,58 @@ const input = {
 };
 
 describe("encrypted file vault", () => {
+  test("device secrets are password-authorized, bound to one vault, and preserve reveal checks", async () => {
+    const vault = new VaultService(path);
+    await vault.create(password);
+    await vault.importCodes(input);
+    await expect(
+      vault.createDeviceUnlockSecret("incorrect test password"),
+    ).rejects.toThrow("incorrect");
+    const secret = await vault.createDeviceUnlockSecret(password);
+    expect(secret).not.toContain(password);
+    const account = (await vault.list())[0]!;
+    await vault.lock();
+    await vault.unlockWithDeviceSecret(secret);
+    expect((await vault.list())[0]!.remaining).toBe(2);
+    await expect(
+      vault.reveal(account.id, "incorrect test password"),
+    ).rejects.toThrow("incorrect");
+    await vault.lock();
+    const wrongKey = JSON.stringify({
+      ...JSON.parse(secret),
+      key: Buffer.alloc(32, 9).toString("base64"),
+    });
+    await expect(vault.unlockWithDeviceSecret(wrongKey)).rejects.toThrow(
+      "authenticated",
+    );
+    expect((await vault.status()).unlocked).toBe(false);
+    await expect(vault.unlockWithDeviceSecret("[bad json")).rejects.toThrow(
+      "invalid",
+    );
+    await expect(
+      vault.unlockWithDeviceSecret("x".repeat(1025)),
+    ).rejects.toThrow("invalid");
+    const other = new VaultService(join(folder, "other.vault"));
+    await other.create(password);
+    await other.lock();
+    await expect(other.unlockWithDeviceSecret(secret)).rejects.toThrow(
+      "another vault",
+    );
+    expect((await other.status()).unlocked).toBe(false);
+  });
+  test("lock invalidates pending device enrollment and device unlock", async () => {
+    const vault = new VaultService(path);
+    await vault.create(password);
+    const secret = await vault.createDeviceUnlockSecret(password);
+    const enrolling = vault.createDeviceUnlockSecret(password);
+    await new Promise((resolve) => setTimeout(resolve, 10));
+    await vault.lock();
+    await expect(enrolling).rejects.toThrow("locked");
+    const unlocking = vault.unlockWithDeviceSecret(secret);
+    await vault.lock();
+    await expect(unlocking).rejects.toThrow("locked");
+    expect((await vault.status()).unlocked).toBe(false);
+  });
   test("reads and updates original version 1 vaults without changing their KDF", async () => {
     const salt = randomBytes(32);
     const iv = randomBytes(12);

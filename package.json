@@ -9,7 +9,7 @@
     "start": "NODE_ENV=production bun src/index.ts",
     "build": "bun run build.ts",
     "typecheck": "bun check",
-    "test": "bun test src/core electron/import-file.test.ts",
+    "test": "bun test src/core electron/import-file.test.ts electron/device-auth.test.ts",
     "desktop:build": "bun run build && bun scripts/build-desktop.ts",
     "desktop:start": "electron ."
   },

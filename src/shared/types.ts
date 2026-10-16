@@ -32,6 +32,13 @@ export interface VaultStatus {
   unlocked: boolean;
 }
 
+export interface DeviceAuthStatus {
+  supported: boolean;
+  enabled: boolean;
+  label: string;
+  reason?: string;
+}
+
 export interface VaultAPI {
   status(): Promise<VaultStatus>;
   create(password: string): Promise<void>;
@@ -47,6 +54,10 @@ export interface VaultAPI {
   finishReveal(token: string, used: boolean): Promise<void>;
   copy(token: string): Promise<void>;
   exportVault(): Promise<boolean>;
+  deviceAuthStatus?(): Promise<DeviceAuthStatus>;
+  enableDeviceAuth?(password: string): Promise<void>;
+  disableDeviceAuth?(password: string): Promise<void>;
+  unlockWithDevice?(): Promise<void>;
   onLocked?(callback: () => void): () => void;
 }
 

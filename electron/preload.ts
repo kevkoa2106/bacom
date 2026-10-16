@@ -16,6 +16,12 @@ const api: VaultAPI = {
     ipcRenderer.invoke("vault:finish", token, used),
   copy: (token) => ipcRenderer.invoke("vault:copy", token),
   exportVault: () => ipcRenderer.invoke("vault:export"),
+  deviceAuthStatus: () => ipcRenderer.invoke("vault:device-auth-status"),
+  enableDeviceAuth: (password) =>
+    ipcRenderer.invoke("vault:enable-device-auth", password),
+  disableDeviceAuth: (password) =>
+    ipcRenderer.invoke("vault:disable-device-auth", password),
+  unlockWithDevice: () => ipcRenderer.invoke("vault:unlock-with-device"),
   onLocked: (callback) => {
     const listener = () => callback();
     ipcRenderer.on("vault:locked", listener);

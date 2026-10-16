@@ -6,6 +6,8 @@ import {
   ipcMain,
   powerMonitor,
   session,
+  safeStorage,
+  systemPreferences,
 } from "electron";
 import type { IpcMainInvokeEvent } from "electron";
 import { mkdirSync } from "node:fs";
@@ -15,13 +17,17 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { VaultError, VaultService } from "../src/core/vault";
 import type { ImportInput } from "../src/shared/types";
 import { readImportText } from "./import-file";
+import { DeviceAuthService, FileDeviceAuthStore } from "./device-auth";
+import type { DeviceAuthProvider } from "./device-auth";
 
 const root = app.getAppPath();
+const isolatedTestProfile = !app.isPackaged && !!process.env.BACOM_DEV_PROFILE;
 const rendererRoot = path.join(root, "dist");
 const rendererURL = pathToFileURL(path.join(rendererRoot, "index.html")).href;
 const idleSeconds = 5 * 60;
 let window: BrowserWindow | null = null;
 let service: VaultService;
+let deviceAuth: DeviceAuthService;
 let lastActivity = Date.now();
 let copiedCode: string | null = null;
 let clipboardTimer: ReturnType<typeof setTimeout> | undefined;
@@ -99,6 +105,7 @@ function clearCopiedCode(): Promise<void> {
 
 async function lock(): Promise<void> {
   lockGeneration++;
+  deviceAuth?.invalidate();
   await service.lock();
   if (!lockAnnounced && window && !window.isDestroyed())
     window.webContents.send("vault:locked");
@@ -154,7 +161,11 @@ function handle(name: string, action: (...args: unknown[]) => unknown): void {
     if (!trustedSender(event)) throw new Error("This request is not allowed.");
     try {
       if (Date.now() - lastActivity >= idleSeconds * 1000) await lock();
-      if (name !== "vault:status" && name !== "vault:list")
+      if (
+        name !== "vault:status" &&
+        name !== "vault:list" &&
+        name !== "vault:device-auth-status"
+      )
         lastActivity = Date.now();
       return await action(...args);
     } catch (error) {
@@ -171,14 +182,27 @@ function handle(name: string, action: (...args: unknown[]) => unknown): void {
 function registerIPC(): void {
   handle("vault:status", () => service.status());
   handle("vault:create", async (password) => {
+    deviceAuth.invalidate();
     await service.create(string(password, 72));
     lockAnnounced = false;
   });
   handle("vault:unlock", async (password) => {
+    deviceAuth.invalidate();
     await service.unlock(string(password, 72));
     lockAnnounced = false;
   });
   handle("vault:lock", () => lock());
+  handle("vault:device-auth-status", () => deviceAuth.status());
+  handle("vault:enable-device-auth", (password) =>
+    deviceAuth.enable(string(password, 72)),
+  );
+  handle("vault:disable-device-auth", (password) =>
+    deviceAuth.disable(string(password, 72)),
+  );
+  handle("vault:unlock-with-device", async () => {
+    await deviceAuth.unlock();
+    lockAnnounced = false;
+  });
   handle("vault:list", () => service.list());
   handle("vault:parse", (text, website) =>
     service.parse(string(text, 1024 * 1024), string(website, 2048)),
@@ -194,7 +218,7 @@ function registerIPC(): void {
     const { canceled, filePaths } = await dialog.showOpenDialog(owner, {
       title: "Import backup codes",
       buttonLabel: "Import text file",
-      filters: [{ name: "Text files", extensions: ["txt"] }],
+      filters: [{ name: "Text files", extensions: ["txt", "rtf"] }],
       properties: ["openFile"],
     });
     const selected = filePaths[0];
@@ -250,6 +274,32 @@ function registerIPC(): void {
   });
 }
 
+function deviceAuthProvider(): DeviceAuthProvider {
+  const mac = process.platform === "darwin";
+  return {
+    platform: process.platform,
+    label: mac
+      ? "Touch ID"
+      : process.platform === "win32"
+        ? "Windows Hello"
+        : "Device unlock",
+    unsupportedReason: mac
+      ? "Touch ID is not available. Set up Touch ID in macOS or use your master password."
+      : process.platform === "win32"
+        ? "Windows Hello requires a native desktop adapter, which is not included in this build. Use your master password."
+        : "Device unlock is not supported on this platform. Use your master password.",
+    available: () => mac && systemPreferences.canPromptTouchID(),
+    authenticate: async (reason) => {
+      if (!mac) throw new VaultError("Device authentication is unavailable.");
+      await systemPreferences.promptTouchID(reason);
+    },
+    // These calls can access Keychain; invoke them only following a user-approved biometric prompt.
+    encryptionAvailable: () => safeStorage.isAsyncEncryptionAvailable(),
+    wrap: (secret) => safeStorage.encryptStringAsync(secret),
+    unwrap: (bytes) => safeStorage.decryptStringAsync(bytes),
+  };
+}
+
 async function createWindow(): Promise<void> {
   const isolatedSession = session.fromPartition("persist:bacom");
   isolatedSession.setPermissionRequestHandler(
@@ -293,7 +343,7 @@ async function createWindow(): Promise<void> {
     }),
   );
   window = new BrowserWindow({
-    title: "Bacom",
+    title: isolatedTestProfile ? "Bacom · Test profile" : "Bacom",
     width: 1160,
     height: 800,
     minWidth: 760,
@@ -336,6 +386,10 @@ async function createWindow(): Promise<void> {
     },
   );
   window.setMenuBarVisibility(false);
+  if (isolatedTestProfile)
+    window.webContents.on("page-title-updated", (event) =>
+      event.preventDefault(),
+    );
   window.webContents.setWindowOpenHandler(() => ({ action: "deny" }));
   window.webContents.on("will-navigate", (event) => event.preventDefault());
   window.webContents.on("will-frame-navigate", (event) =>
@@ -370,6 +424,13 @@ else {
     .then(async () => {
       service = new VaultService(
         path.join(app.getPath("userData"), "vault.json"),
+      );
+      deviceAuth = new DeviceAuthService(
+        service,
+        deviceAuthProvider(),
+        new FileDeviceAuthStore(
+          path.join(app.getPath("userData"), "device-auth.json"),
+        ),
       );
       registerIPC();
       powerMonitor.on("lock-screen", lifecycleLock);
