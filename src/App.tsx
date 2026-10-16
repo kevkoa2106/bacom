@@ -95,12 +95,14 @@ function Dialog({
   onClose,
   busy = false,
   closing = false,
+  className = "",
 }: {
   title: string;
   children: ReactNode;
   onClose: () => void;
   busy?: boolean;
   closing?: boolean;
+  className?: string;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
@@ -111,7 +113,7 @@ function Dialog({
   return (
     <dialog
       ref={ref}
-      className={`vault-dialog${closing ? " dialog-closing" : ""}`}
+      className={`vault-dialog ${className}${closing ? " dialog-closing" : ""}`}
       aria-labelledby="dialog-title"
       onCancel={(event) => {
         event.preventDefault();
@@ -1235,6 +1237,7 @@ export function App() {
         <Dialog
           closing={closing}
           title="Vault settings"
+          className="settings-dialog"
           onClose={() => void close()}
           busy={busy}
         >
@@ -1242,16 +1245,16 @@ export function App() {
             <Settings2 />
             <div>
               <strong>Appearance</strong>
+              <p>
+                System follows your device’s appearance. Only this preference is
+                saved in browser storage.
+              </p>
               <ThemePicker
                 theme={theme}
                 onChange={setTheme}
                 id="settings-theme"
                 label="Theme"
               />
-              <p>
-                System follows your device’s appearance. Only this preference is
-                saved in browser storage.
-              </p>
             </div>
           </div>
           <div className="settings-item auto-lock-settings">

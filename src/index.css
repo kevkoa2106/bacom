@@ -950,31 +950,55 @@ a:focus-visible {
 }
 .settings-item {
   display: flex;
-  gap: 12px;
-  padding: 14px 0;
+  gap: 16px;
+  padding: 16px 0;
   border-bottom: 1px solid var(--border);
+}
+.settings-dialog .dialog-heading {
+  margin-bottom: 24px;
+}
+.settings-dialog > .settings-item:first-of-type {
+  padding-top: 0;
+}
+.settings-dialog .dialog-actions {
+  margin-top: 0;
+  padding-top: 24px;
+  border-top: 0;
 }
 .settings-item > svg {
   width: 20px;
+  height: 20px;
   color: var(--muted-foreground);
 }
 .settings-item > div {
+  display: grid;
+  gap: 8px;
   flex: 1;
   min-width: 0;
 }
 .settings-item strong {
   font-size: 13px;
   font-weight: 600;
+  line-height: 20px;
 }
 .settings-item p {
   font-size: 12px;
   color: var(--muted-foreground);
-  margin: 6px 0;
+  margin: 0;
   line-height: 1.6;
 }
 .settings-item button {
-  margin-top: 10px;
+  justify-self: start;
+  margin: 0;
   font-size: 12px;
+}
+.settings-item label,
+.settings-item form > label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--muted-foreground);
 }
 .help-steps {
   padding-left: 23px;
@@ -1287,25 +1311,14 @@ a:focus-visible {
   color: var(--foreground);
   background: var(--card);
 }
-.theme-settings > div {
-  flex: 1;
-}
-.theme-settings .theme-picker {
-  justify-content: space-between;
-  margin-top: 8px;
-}
+.theme-settings .theme-picker,
 .auto-lock-control {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 8px;
 }
-.auto-lock-control label,
-.backup-restore label {
-  margin-top: 0;
-  font-size: 12px;
-}
+.theme-settings select,
 .settings-select {
   display: block;
   width: min(100%, 190px);
@@ -1316,21 +1329,26 @@ a:focus-visible {
   cursor: default;
 }
 .backup-restore {
-  margin-top: 16px;
-  padding-top: 14px;
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 16px;
   border-top: 1px solid var(--border);
 }
 .backup-restore h3 {
   margin: 0;
   font-size: 13px;
   font-weight: 600;
+  line-height: 20px;
 }
 @media (max-width: 680px) {
+  .theme-settings .theme-picker,
   .auto-lock-control {
     align-items: stretch;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
   }
+  .theme-settings select,
   .auto-lock-control .settings-select {
     width: 100%;
     flex-basis: 44px;
@@ -1444,9 +1462,13 @@ a:focus-visible {
   min-width: 0;
   flex: 1;
 }
+.device-auth-settings form {
+  display: grid;
+  gap: 8px;
+}
 .device-auth-settings .device-auth-state {
   display: inline-block;
-  margin: 7px 0 16px;
+  margin: 0;
   color: var(--foreground);
   font-size: 11px;
   font-weight: 600;
