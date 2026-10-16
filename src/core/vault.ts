@@ -219,7 +219,11 @@ export class VaultService {
   private checkEpoch(epoch: number): void {
     if (this.epoch !== epoch) fail("The vault was locked. Unlock it again.");
   }
-  private openEnvelope(stored: Envelope, key: Buffer, epoch: number): void {
+  private decryptEnvelope(
+    stored: Envelope,
+    key: Buffer,
+    epoch: number,
+  ): Payload {
     try {
       const decipher = createDecipheriv(
         "aes-256-gcm",
@@ -239,13 +243,24 @@ export class VaultService {
         plaintext.fill(0);
       }
       this.checkEpoch(epoch);
+      return data;
+    } catch (error) {
+      key.fill(0);
+      if (error instanceof VaultError) throw error;
+      fail("The vault could not be authenticated. The file may be damaged.");
+    }
+  }
+  private openEnvelope(stored: Envelope, key: Buffer, epoch: number): void {
+    try {
+      const data = this.decryptEnvelope(stored, key, epoch);
+      this.checkEpoch(epoch);
       this.key?.fill(0);
       this.key = key;
       this.data = data;
       this.stored = stored;
       this.active = null;
     } catch (error) {
-      key.fill(0);
+      if (this.key !== key) key.fill(0);
       if (error instanceof VaultError) throw error;
       fail("The vault could not be authenticated. The file may be damaged.");
     }
@@ -591,6 +606,60 @@ export class VaultService {
     return this.run(async () => {
       this.requireUnlocked();
       return Buffer.from(JSON.stringify(this.stored));
+    });
+  }
+  importEncryptedBackup(bytes: Buffer, password: string): Promise<void> {
+    const epoch = this.epoch;
+    return this.run(async () => {
+      passwordValid(password);
+      this.checkEpoch(epoch);
+      this.requireUnlocked();
+      if (!Buffer.isBuffer(bytes) || bytes.length < 1 || bytes.length > MAX_FILE_BYTES)
+        fail("The selected backup is too large or invalid.");
+      const backup = envelope(bytes);
+      if (!(await bcrypt.compare(password, backup.verifier)))
+        fail("The backup master password is incorrect.");
+      this.checkEpoch(epoch);
+
+      const backupKey = await derive(
+        password,
+        decode(backup.salt, 32),
+        backup.version,
+      );
+      let data: Payload;
+      try {
+        data = this.decryptEnvelope(backup, backupKey, epoch);
+      } finally {
+        backupKey.fill(0);
+      }
+      this.checkEpoch(epoch);
+
+      const salt = randomBytes(32);
+      const verifier = await bcrypt.hash(password, 12);
+      const key = await derive(password, salt, 2);
+      try {
+        const stored = await this.save(
+          data,
+          key,
+          {
+            version: 2,
+            cipher: "aes-256-gcm",
+            kdf: "scrypt",
+            salt: salt.toString("base64"),
+            verifier,
+          },
+          epoch,
+        );
+        this.checkEpoch(epoch);
+        this.key?.fill(0);
+        this.key = key;
+        this.data = data;
+        this.stored = stored;
+        this.active = null;
+      } catch (error) {
+        key.fill(0);
+        throw error;
+      }
     });
   }
 }

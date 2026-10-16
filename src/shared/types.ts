@@ -39,6 +39,8 @@ export interface DeviceAuthStatus {
   reason?: string;
 }
 
+export type AutoLockMinutes = 1 | 5 | 10 | 15 | 30;
+
 export interface VaultAPI {
   status(): Promise<VaultStatus>;
   create(password: string): Promise<void>;
@@ -54,6 +56,9 @@ export interface VaultAPI {
   finishReveal(token: string, used: boolean): Promise<void>;
   copy(token: string): Promise<void>;
   exportVault(): Promise<boolean>;
+  getAutoLockMinutes?(): Promise<AutoLockMinutes>;
+  setAutoLockMinutes?(minutes: AutoLockMinutes): Promise<void>;
+  restoreVaultBackup?(password: string): Promise<boolean>;
   deviceAuthStatus?(): Promise<DeviceAuthStatus>;
   enableDeviceAuth?(password: string): Promise<void>;
   disableDeviceAuth?(password: string): Promise<void>;
