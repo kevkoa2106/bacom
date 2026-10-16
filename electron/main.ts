@@ -184,7 +184,9 @@ function registerIPC(): void {
     service.parse(string(text, 1024 * 1024), string(website, 2048)),
   );
   handle("vault:choose-file", async (website) => {
-    const site = string(website, 2048);
+    if (typeof website !== "string" || website.length > 2048)
+      throw new VaultError("Enter a website of at most 2,048 characters.");
+    const site = website;
     const owner = window;
     if (!owner || !(await service.status()).unlocked)
       throw new VaultError("Unlock the vault first.");

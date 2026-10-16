@@ -1,0 +1,5 @@
+Example recovery codes
+Generated 2026-10-16
+[ ] 00112233
+[x] 44556677
+[ ] abcd-1234
