@@ -5,6 +5,7 @@ import {
   useRef,
   useState,
   type FormEvent,
+  type ComponentProps,
   type ReactNode,
 } from "react";
 import {
@@ -58,6 +59,15 @@ function initialTheme(): Theme {
   return "system";
 }
 
+function SelectControl({ children, ...props }: ComponentProps<"select">) {
+  return (
+    <div className="select-control">
+      <select {...props}>{children}</select>
+      <ChevronDown size={16} aria-hidden="true" />
+    </div>
+  );
+}
+
 function ThemePicker({
   theme,
   onChange,
@@ -72,18 +82,15 @@ function ThemePicker({
   return (
     <div className="theme-picker">
       <label htmlFor={id}>{label}</label>
-      <div className="select-control">
-        <select
-          id={id}
-          value={theme}
-          onChange={(event) => onChange(event.target.value as Theme)}
-        >
-          <option value="system">System</option>
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select>
-        <ChevronDown size={16} aria-hidden="true" />
-      </div>
+      <SelectControl
+        id={id}
+        value={theme}
+        onChange={(event) => onChange(event.target.value as Theme)}
+      >
+        <option value="system">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </SelectControl>
     </div>
   );
 }
@@ -200,12 +207,7 @@ export function App() {
     const resize = settingsResize.current;
     settingsResize.current = null;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (
-      !resize ||
-      !animations ||
-      !resize.dialog.open ||
-      reducedMotion.matches
-    )
+    if (!resize || !animations || !resize.dialog.open || reducedMotion.matches)
       return;
     const to = resize.dialog.offsetHeight;
     if (Math.abs(resize.from - to) < 1) return;
@@ -823,7 +825,9 @@ export function App() {
           </div>
           <Button variant="ghost" onClick={lock} disabled={busy}>
             <LockKeyhole />
-            Lock<span className="desktop-label"> vault</span>
+            <span>
+              Lock<span className="desktop-label"> vault</span>
+            </span>
           </Button>
         </header>
         {isPreview && (
@@ -882,7 +886,7 @@ export function App() {
                 onChange={(e) => setQuery(e.target.value)}
               />
             </div>
-            <select
+            <SelectControl
               aria-label="Filter accounts"
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
@@ -890,7 +894,7 @@ export function App() {
               <option value="all">All accounts</option>
               <option value="low">Running low (1–3)</option>
               <option value="empty">No codes left</option>
-            </select>
+            </SelectControl>
           </div>
           {accounts.length === 0 ? (
             <section className="empty-state">
@@ -1409,47 +1413,43 @@ export function App() {
                     <label htmlFor="auto-lock-minutes">
                       Lock after inactivity
                     </label>
-                    <div className="select-control">
-                      <select
-                        id="auto-lock-minutes"
-                        className="settings-select"
-                        aria-describedby="auto-lock-note"
-                        aria-busy={autoLockLoading}
-                        value={autoLockMinutes ?? ""}
-                        disabled={
-                          busy ||
-                          autoLockLoading ||
-                          isPreview ||
-                          !api.getAutoLockMinutes ||
-                          !api.setAutoLockMinutes ||
-                          autoLockMinutes === null
-                        }
-                        onChange={(event) =>
-                          changeAutoLock(
-                            Number(event.target.value) as AutoLockMinutes,
-                          )
-                        }
-                      >
-                        {autoLockMinutes === null && (
-                          <option value="">
-                            {isPreview
-                              ? "Unavailable in preview"
-                              : !api.getAutoLockMinutes ||
-                                  !api.setAutoLockMinutes
-                                ? "Unavailable in this build"
-                                : autoLockLoading
-                                  ? "Loading…"
-                                  : "Unavailable"}
-                          </option>
-                        )}
-                        {[1, 5, 10, 15, 30].map((minutes) => (
-                          <option key={minutes} value={minutes}>
-                            {minutes} {minutes === 1 ? "minute" : "minutes"}
-                          </option>
-                        ))}
-                      </select>
-                      <ChevronDown size={16} aria-hidden="true" />
-                    </div>
+                    <SelectControl
+                      id="auto-lock-minutes"
+                      className="settings-select"
+                      aria-describedby="auto-lock-note"
+                      aria-busy={autoLockLoading}
+                      value={autoLockMinutes ?? ""}
+                      disabled={
+                        busy ||
+                        autoLockLoading ||
+                        isPreview ||
+                        !api.getAutoLockMinutes ||
+                        !api.setAutoLockMinutes ||
+                        autoLockMinutes === null
+                      }
+                      onChange={(event) =>
+                        changeAutoLock(
+                          Number(event.target.value) as AutoLockMinutes,
+                        )
+                      }
+                    >
+                      {autoLockMinutes === null && (
+                        <option value="">
+                          {isPreview
+                            ? "Unavailable in preview"
+                            : !api.getAutoLockMinutes || !api.setAutoLockMinutes
+                              ? "Unavailable in this build"
+                              : autoLockLoading
+                                ? "Loading…"
+                                : "Unavailable"}
+                        </option>
+                      )}
+                      {[1, 5, 10, 15, 30].map((minutes) => (
+                        <option key={minutes} value={minutes}>
+                          {minutes} {minutes === 1 ? "minute" : "minutes"}
+                        </option>
+                      ))}
+                    </SelectControl>
                   </div>
                   {!isPreview &&
                     api.getAutoLockMinutes &&

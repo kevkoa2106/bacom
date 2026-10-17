@@ -400,6 +400,11 @@ a:focus-visible {
   font-size: 12px;
   height: 44px;
 }
+.library-tools .select-control {
+  width: 190px;
+  flex: 0 1 190px;
+  max-width: 45%;
+}
 .library-tools select {
   font-size: 12px;
   color: var(--muted-foreground);
@@ -408,7 +413,7 @@ a:focus-visible {
   border-radius: 5px;
   padding: 10px 30px 10px 12px;
   min-height: 40px;
-  max-width: 45%;
+  width: 100%;
 }
 .library-grid {
   display: grid;
@@ -664,7 +669,7 @@ a:focus-visible {
   font-size: 13px;
 }
 .entry-shell {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   background: var(--surface);
@@ -1293,10 +1298,12 @@ a:focus-visible {
   .library-tools {
     gap: 10px;
   }
+  .library-tools .select-control {
+    max-width: 43%;
+  }
   .library-tools select {
     font-size: 10px;
     padding-left: 8px;
-    max-width: 43%;
   }
   .search-field input {
     font-size: 11px;
@@ -1431,7 +1438,7 @@ a:focus-visible {
   font-size: 12px;
   color: var(--muted-foreground);
 }
-.theme-picker select,
+.select-control > select,
 .settings-select {
   appearance: none;
   min-height: 44px;
@@ -1449,18 +1456,15 @@ a:focus-visible {
   justify-content: space-between;
   gap: 16px;
 }
-.theme-settings select,
-.settings-select {
-  display: block;
-  width: min(100%, 190px);
-  flex: 0 0 min(100%, 190px);
-}
 .select-control {
   position: relative;
-  width: min(100%, 190px);
-  flex: 0 0 min(100%, 190px);
+  width: 190px;
+  max-width: 100%;
+  min-width: 0;
+  flex: 0 1 190px;
 }
 .select-control > select {
+  display: block;
   width: 100%;
   padding-right: 40px;
 }
@@ -1550,6 +1554,9 @@ a:focus-visible {
   gap: 20px;
   flex-wrap: wrap;
 }
+.entry-brand .theme-picker {
+  min-width: 0;
+}
 .entry-brand > span {
   margin-right: auto;
 }
@@ -1619,6 +1626,10 @@ a:focus-visible {
   .entry-brand .theme-picker select {
     min-width: 92px;
     font-size: 12px;
+  }
+  .entry-brand .theme-picker .select-control {
+    width: 104px;
+    flex: 0 1 104px;
   }
 }
 

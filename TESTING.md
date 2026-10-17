@@ -6,6 +6,12 @@ The General panel has a keyboard-accessible Animations switch, off on fresh stor
 
 Chromium verification used a disposable synthetic desktop bridge, with no real vault access. The auto-lock dropdown is 44px high, aligns with its label, and has a chevron inset 12px from the right edge. General, Security, and Backups fit 760×600, 1160×800, and 390×844 without dialog overflow, including the unavailable-but-enabled Touch ID state. Light and dark captures were inspected. Default-off and reduced-motion category changes produced no animations; enabled changes produced both the selection transition and popup resize. Keyboard Space toggles the switch. Type checking, desktop build, whitespace checks, and scoped design detection pass. No findings were suppressed or left standing.
 
+## Lock screen overflow and consistent selects
+
+The lock-screen theme wrapper previously used a percentage flex basis inside an intrinsically sized parent, causing it to extend past the window edge. A bounded pixel width with shrink support fixes the source of overflow; the compact header uses a 104px selector. All native dropdowns now share SelectControl, preserving native keyboard operation and consistently placing the chevron 12px inside a 44px control. The topbar lock button groups its words in one flex child.
+
+Disposable Chromium checks confirmed no horizontal or vertical document overflow on locked and unlocked screens at 1160×767, 760×568, and 390×844. Appearance and auto-lock settings remained aligned. Dark desktop screenshots were inspected. Independent code review found no regressions; type checking, desktop bundling, whitespace checking, and scoped design detection passed.
+
 ## Automated
 
 - `bun run test`: 12 passed, 0 failed, 57 assertions across parser, vault, and native file-reader tests.

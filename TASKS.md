@@ -112,3 +112,9 @@ Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 f
 - [x] Gate CSS motion, popup resizing, and closing delays with the preference; respect system Reduce Motion.
 - [x] Review the change and verify settings at standard and small window sizes.
 - [x] Run type checking, desktop build, and the scoped design detector; commit the change.
+
+## Lock screen and shared controls
+- [x] Fix the theme selector's intrinsic width so the lock screen fits the window without page scrollbars.
+- [x] Group the topbar lock label so icon spacing does not split its words.
+- [x] Reuse one native select wrapper for appearance, auto-lock, and account filtering.
+- [x] Verify locked and unlocked screens at desktop, short desktop, and narrow sizes; build and review the diff.
