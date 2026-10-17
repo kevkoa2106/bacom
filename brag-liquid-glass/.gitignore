@@ -1,0 +1,11 @@
+*.mp4
+*.jpg
+*.log
+composition/node_modules/
+composition/.hyperframes/
+composition/.waveform-cache/
+composition/check*.json
+composition/AGENTS.md
+composition/CLAUDE.md
+work-*/
+.*.hf-transaction-*/

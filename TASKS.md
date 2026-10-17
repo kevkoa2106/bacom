@@ -141,3 +141,12 @@ Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 f
 - [x] Decode every screenshot before registering the animation timeline.
 - [x] Recapture the real app at4× density and export at4K60.
 - [x] Inspect encoded entrance/exit frames for all panels, update verification, and commit.
+
+## Liquid Glass showcase edition
+- [x] Preserve showcase-v2 and write a separate optical-remix plan.
+- [x] Port and review the supplied Liquid Glass refraction field.
+- [x] Build and review a deterministic procedural3D glass sculpture.
+- [x] Choreograph refractive sweeps, glass lenses, merging droplets, and illuminated rims.
+- [x] Inspect moving and settled frames; fix visual and synchronization defects.
+- [ ] Pass the full rendering checks and export a4K60 MP4.
+- [ ] Verify the final video/audio, bake a poster, document, and commit.
