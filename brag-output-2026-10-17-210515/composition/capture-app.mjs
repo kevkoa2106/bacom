@@ -1,6 +1,7 @@
 import { _electron as electron } from "playwright";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { writeFile } from "node:fs/promises";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "../..");
@@ -18,6 +19,10 @@ try {
   await app.evaluate(({ BrowserWindow }) => {
     const window = BrowserWindow.getAllWindows()[0];
     window.setContentSize(1440, 900);
+  });
+  const cdp = await page.context().newCDPSession(page);
+  await cdp.send("Emulation.setDeviceMetricsOverride", {
+    width: 1440, height: 900, deviceScaleFactor: 2, mobile: false,
   });
   await page.evaluate(async (password) => {
     localStorage.setItem("bacom-theme", "dark");
@@ -41,9 +46,19 @@ try {
   await page.locator(".account-row").filter({hasText:"github.com"}).click();
   await page.locator(".account-detail").waitFor();
   const shot = async (name) => {
-    await page.screenshot({path:path.join(output, `${name}.png`)});
+    const capture = async (filename, clip) => {
+      const {data} = await cdp.send("Page.captureScreenshot", {
+        format:"png", captureBeyondViewport:true,
+        clip:{...clip, scale:1},
+      });
+      await writeFile(path.join(output, filename), Buffer.from(data,"base64"));
+    };
+    await capture(`${name}.png`, {x:0,y:0,width:1440,height:900});
+    if (name === "vault-dark" || name === "vault-used") {
+      await capture(`${name}-account-detail.png`, await page.locator(".account-detail").boundingBox());
+    }
     const dialog = page.locator("dialog[open]");
-    if (await dialog.count()) await dialog.screenshot({path:path.join(output, `${name}-detail.png`)});
+    if (await dialog.count()) await capture(`${name}-detail.png`, await dialog.boundingBox());
     console.log(`captured ${name}`);
   };
   await shot("vault-dark");
