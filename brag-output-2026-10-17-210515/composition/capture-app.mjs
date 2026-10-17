@@ -22,7 +22,7 @@ try {
   });
   const cdp = await page.context().newCDPSession(page);
   await cdp.send("Emulation.setDeviceMetricsOverride", {
-    width: 1440, height: 900, deviceScaleFactor: 2, mobile: false,
+    width: 1440, height: 900, deviceScaleFactor: 4, mobile: false,
   });
   await page.evaluate(async (password) => {
     localStorage.setItem("bacom-theme", "dark");
@@ -113,7 +113,7 @@ try {
   await page.getByLabel("Theme",{exact:true}).selectOption("light");
   await page.getByRole("button",{name:"Done",exact:true}).click();
   await shot("vault-light");
-  console.log("Real Electron capture complete:1440x900, synthetic isolated profile, no private vault accessed.");
+  console.log("Real Electron capture complete:1440x900 at4x density, synthetic isolated profile, no private vault accessed.");
 } finally {
   await app.close();
 }

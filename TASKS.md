@@ -134,3 +134,10 @@ Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 f
 - [x] Build3D screen choreography, transitions, and kinetic typography.
 - [x] Review snapshots, run runtime/layout/contrast/motion checks, and fix real defects.
 - [x] Render the requested MP4, bake the poster, verify audio/frame count, and deliver.
+
+## Showcase entrance and image sharpness
+- [x] Reproduce the empty panel during fractional-opacity 3D entrances.
+- [x] Keep the rear faces behind the screenshots in flattened and 3D paint modes.
+- [x] Decode every screenshot before registering the animation timeline.
+- [x] Recapture the real app at4× density and export at4K60.
+- [x] Inspect encoded entrance/exit frames for all panels, update verification, and commit.
