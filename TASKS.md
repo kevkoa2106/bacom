@@ -118,3 +118,11 @@ Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 f
 - [x] Group the topbar lock label so icon spacing does not split its words.
 - [x] Reuse one native select wrapper for appearance, auto-lock, and account filtering.
 - [x] Verify locked and unlocked screens at desktop, short desktop, and narrow sizes; build and review the diff.
+
+## Narrated launch video
+- [x] Inspect the product and write a source-grounded, 24-second storyboard.
+- [x] Prepare local music, UI sounds, and an isolated Kokoro environment.
+- [x] Generate narration and align the product scenes with its duration.
+- [x] Review the composition, pass Hyperframes check, and launch the local preview.
+- [ ] Obtain preview approval required by the brag workflow.
+- [ ] Render MP4, select the poster, bake frame zero, and verify the deliverables.

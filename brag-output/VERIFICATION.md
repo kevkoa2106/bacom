@@ -1,0 +1,11 @@
+# Preview verification
+
+24 seconds, 1920×1080. Kokoro af_heart narration is 21.269 seconds. Local music and three interaction sounds are wired to separate audio tracks.
+
+Hyperframes check passes: zero runtime, layout, motion, or contrast errors; 85 text contrast checks passed; motion assertions cover 300 samples. Five scene snapshots were reviewed. Four lint warnings recommend splitting scenes into subcompositions; the single-file structure is intentional for this short film and remains editable in Studio. No warnings were suppressed.
+
+The composition was reviewed after the subagent implementation. Click slots were corrected to match their 60ms media duration, hidden initial states prevent premature UI/cursor flashes, and the reveal panel was enlarged to give its usage note room above the actions. Only synthetic code values appear. The count decreases after the simulated Mark as used action.
+
+Preview: http://localhost:3017/#project/composition (managed background server, HTTP 200 verified).
+
+Pending: user preview approval, final MP4 rendering, settled poster selection and frame-zero baking. Nothing has been published or pushed. After approval, render from composition/ to ../brag.mp4, extract the final brand/product hold around 22.7s as ../brag.jpg, then bake that poster into frame zero per the brag delivery instructions.
