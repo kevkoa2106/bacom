@@ -105,3 +105,10 @@ Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 f
 - [x] Run type checking, desktop bundling, and the scoped design detector.
 - [x] Remove popup outlines and category underlines; add a contrasting, animated category selection with reduced-motion support.
 - [x] Animate settings popup resizing on category changes, including interrupted transitions and instant reduced-motion updates.
+
+## Optional animations and selector alignment
+- [x] Inset dropdown chevrons consistently and keep the auto-lock selector aligned with its label.
+- [x] Add a persistent Animations switch in General, disabled by default.
+- [x] Gate CSS motion, popup resizing, and closing delays with the preference; respect system Reduce Motion.
+- [x] Review the change and verify settings at standard and small window sizes.
+- [x] Run type checking, desktop build, and the scoped design detector; commit the change.

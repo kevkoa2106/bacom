@@ -1,5 +1,11 @@
 # Verification, 2026-10-16
 
+## Optional motion and selector alignment, 2026-10-17
+
+The General panel has a keyboard-accessible Animations switch, off on fresh storage. Both enabled and disabled states survive reload. The setting gates CSS transitions/animations, the JavaScript settings resize, and the dialog close delay. System Reduce Motion overrides it and cancels an active resize when its media query changes.
+
+Chromium verification used a disposable synthetic desktop bridge, with no real vault access. The auto-lock dropdown is 44px high, aligns with its label, and has a chevron inset 12px from the right edge. General, Security, and Backups fit 760×600, 1160×800, and 390×844 without dialog overflow, including the unavailable-but-enabled Touch ID state. Light and dark captures were inspected. Default-off and reduced-motion category changes produced no animations; enabled changes produced both the selection transition and popup resize. Keyboard Space toggles the switch. Type checking, desktop build, whitespace checks, and scoped design detection pass. No findings were suppressed or left standing.
+
 ## Automated
 
 - `bun run test`: 12 passed, 0 failed, 57 assertions across parser, vault, and native file-reader tests.

@@ -13,6 +13,7 @@ import {
   Check,
   CheckCheck,
   ChevronRight,
+  ChevronDown,
   Copy,
   FileKey2,
   FileText,
@@ -26,6 +27,7 @@ import {
   Plus,
   Search,
   Settings2,
+  Sparkles,
   ShieldCheck,
   X,
 } from "lucide-react";
@@ -70,15 +72,18 @@ function ThemePicker({
   return (
     <div className="theme-picker">
       <label htmlFor={id}>{label}</label>
-      <select
-        id={id}
-        value={theme}
-        onChange={(event) => onChange(event.target.value as Theme)}
-      >
-        <option value="system">System</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
+      <div className="select-control">
+        <select
+          id={id}
+          value={theme}
+          onChange={(event) => onChange(event.target.value as Theme)}
+        >
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+        <ChevronDown size={16} aria-hidden="true" />
+      </div>
     </div>
   );
 }
@@ -147,6 +152,21 @@ function Dialog({
 }
 
 export function App() {
+  const [animations, setAnimations] = useState(() => {
+    try {
+      return localStorage.getItem("bacom-animations") === "on";
+    } catch {
+      return false;
+    }
+  });
+  useLayoutEffect(() => {
+    document.documentElement.dataset.animations = animations ? "on" : "off";
+    try {
+      localStorage.setItem("bacom-animations", animations ? "on" : "off");
+    } catch {
+      /* Nonsecret preference persistence is optional. */
+    }
+  }, [animations]);
   const [theme, setTheme] = useState<Theme>(initialTheme);
   useEffect(() => {
     const system = window.matchMedia("(prefers-color-scheme: dark)");
@@ -179,10 +199,12 @@ export function App() {
   useLayoutEffect(() => {
     const resize = settingsResize.current;
     settingsResize.current = null;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (
       !resize ||
+      !animations ||
       !resize.dialog.open ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      reducedMotion.matches
     )
       return;
     const to = resize.dialog.offsetHeight;
@@ -194,8 +216,15 @@ export function App() {
       ],
       { duration: 240, easing: "cubic-bezier(0.645, 0.045, 0.355, 1)" },
     );
-    return () => animation.cancel();
-  }, [modal, settingsCategory]);
+    const stop = () => {
+      if (reducedMotion.matches) animation.cancel();
+    };
+    reducedMotion.addEventListener("change", stop);
+    return () => {
+      animation.cancel();
+      reducedMotion.removeEventListener("change", stop);
+    };
+  }, [modal, settingsCategory, animations]);
   const [closing, setClosing] = useState(false);
   const [deviceAuth, setDeviceAuth] = useState<DeviceAuthStatus | null>(null);
   const [devicePassword, setDevicePassword] = useState("");
@@ -309,9 +338,11 @@ export function App() {
     setError("");
     setWebsite("");
     setLabel("");
-    const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      ? 0
-      : 150;
+    const delay =
+      !animations ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? 0
+        : 150;
     if (delay) await new Promise((resolve) => setTimeout(resolve, delay));
     if (closingGeneration !== epoch.current) return;
     setModal(null);
@@ -1320,22 +1351,47 @@ export function App() {
             aria-labelledby={`settings-${settingsCategory}`}
           >
             {settingsCategory === "general" && (
-              <div className="settings-item theme-settings">
-                <Settings2 />
-                <div>
-                  <strong>Appearance</strong>
-                  <p>
-                    System follows your device’s appearance. Only this
-                    preference is saved in browser storage.
-                  </p>
-                  <ThemePicker
-                    theme={theme}
-                    onChange={setTheme}
-                    id="settings-theme"
-                    label="Theme"
-                  />
+              <>
+                <div className="settings-item theme-settings">
+                  <Settings2 />
+                  <div>
+                    <strong>Appearance</strong>
+                    <p>System follows your device’s appearance.</p>
+                    <ThemePicker
+                      theme={theme}
+                      onChange={setTheme}
+                      id="settings-theme"
+                      label="Theme"
+                    />
+                  </div>
                 </div>
-              </div>
+                <div className="settings-item animation-settings">
+                  <Sparkles aria-hidden="true" />
+                  <div>
+                    <strong id="animations-label">Animations</strong>
+                    <p id="animations-note">
+                      Animate dialogs, navigation, and interaction feedback.
+                      Follows your device’s Reduce Motion preference.
+                    </p>
+                    <label
+                      className="animation-toggle"
+                      htmlFor="settings-animations"
+                    >
+                      <span>Enable animations</span>
+                      <input
+                        id="settings-animations"
+                        type="checkbox"
+                        role="switch"
+                        checked={animations}
+                        aria-describedby="animations-note"
+                        onChange={(event) =>
+                          setAnimations(event.target.checked)
+                        }
+                      />
+                    </label>
+                  </div>
+                </div>
+              </>
             )}
             {settingsCategory === "security" && (
               <div className="settings-item auto-lock-settings">
@@ -1353,43 +1409,47 @@ export function App() {
                     <label htmlFor="auto-lock-minutes">
                       Lock after inactivity
                     </label>
-                    <select
-                      id="auto-lock-minutes"
-                      className="settings-select"
-                      aria-describedby="auto-lock-note"
-                      aria-busy={autoLockLoading}
-                      value={autoLockMinutes ?? ""}
-                      disabled={
-                        busy ||
-                        autoLockLoading ||
-                        isPreview ||
-                        !api.getAutoLockMinutes ||
-                        !api.setAutoLockMinutes ||
-                        autoLockMinutes === null
-                      }
-                      onChange={(event) =>
-                        changeAutoLock(
-                          Number(event.target.value) as AutoLockMinutes,
-                        )
-                      }
-                    >
-                      {autoLockMinutes === null && (
-                        <option value="">
-                          {isPreview
-                            ? "Unavailable in preview"
-                            : !api.getAutoLockMinutes || !api.setAutoLockMinutes
-                              ? "Unavailable in this build"
-                              : autoLockLoading
-                                ? "Loading…"
-                                : "Unavailable"}
-                        </option>
-                      )}
-                      {[1, 5, 10, 15, 30].map((minutes) => (
-                        <option key={minutes} value={minutes}>
-                          {minutes} {minutes === 1 ? "minute" : "minutes"}
-                        </option>
-                      ))}
-                    </select>
+                    <div className="select-control">
+                      <select
+                        id="auto-lock-minutes"
+                        className="settings-select"
+                        aria-describedby="auto-lock-note"
+                        aria-busy={autoLockLoading}
+                        value={autoLockMinutes ?? ""}
+                        disabled={
+                          busy ||
+                          autoLockLoading ||
+                          isPreview ||
+                          !api.getAutoLockMinutes ||
+                          !api.setAutoLockMinutes ||
+                          autoLockMinutes === null
+                        }
+                        onChange={(event) =>
+                          changeAutoLock(
+                            Number(event.target.value) as AutoLockMinutes,
+                          )
+                        }
+                      >
+                        {autoLockMinutes === null && (
+                          <option value="">
+                            {isPreview
+                              ? "Unavailable in preview"
+                              : !api.getAutoLockMinutes ||
+                                  !api.setAutoLockMinutes
+                                ? "Unavailable in this build"
+                                : autoLockLoading
+                                  ? "Loading…"
+                                  : "Unavailable"}
+                          </option>
+                        )}
+                        {[1, 5, 10, 15, 30].map((minutes) => (
+                          <option key={minutes} value={minutes}>
+                            {minutes} {minutes === 1 ? "minute" : "minutes"}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown size={16} aria-hidden="true" />
+                    </div>
                   </div>
                   {!isPreview &&
                     api.getAutoLockMinutes &&

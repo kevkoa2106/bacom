@@ -1047,6 +1047,12 @@ a:focus-visible {
 .settings-panel-general {
   grid-template-columns: minmax(0, 1fr);
 }
+@media (max-height: 650px) and (min-width: 681px) {
+  .settings-panel {
+    gap: 16px;
+    padding-block: 16px;
+  }
+}
 .settings-panel .settings-item {
   padding: 0;
   border: 0;
@@ -1059,6 +1065,10 @@ a:focus-visible {
 .settings-panel .settings-select {
   width: 100%;
   flex-basis: auto;
+}
+.settings-panel .auto-lock-control .select-control {
+  width: 100%;
+  flex: none;
 }
 .settings-dialog .dialog-actions {
   margin-top: 0;
@@ -1423,6 +1433,7 @@ a:focus-visible {
 }
 .theme-picker select,
 .settings-select {
+  appearance: none;
   min-height: 44px;
   min-width: 104px;
   padding: 8px 28px 8px 12px;
@@ -1443,6 +1454,63 @@ a:focus-visible {
   display: block;
   width: min(100%, 190px);
   flex: 0 0 min(100%, 190px);
+}
+.select-control {
+  position: relative;
+  width: min(100%, 190px);
+  flex: 0 0 min(100%, 190px);
+}
+.select-control > select {
+  width: 100%;
+  padding-right: 40px;
+}
+.select-control > svg {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+.settings-panel .animation-settings {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.animation-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 44px;
+  cursor: pointer;
+}
+.animation-toggle input {
+  appearance: none;
+  width: 36px;
+  height: 22px;
+  flex: none;
+  margin: 0;
+  padding: 2px;
+  border: 1px solid var(--input);
+  border-radius: 12px;
+  background: var(--surface);
+  cursor: pointer;
+}
+.animation-toggle input::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--muted-foreground);
+}
+.animation-toggle input:checked {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.animation-toggle input:checked::before {
+  transform: translateX(14px);
+  background: var(--primary-foreground);
 }
 .settings-select:disabled {
   opacity: 0.65;
@@ -1472,6 +1540,10 @@ a:focus-visible {
   .auto-lock-control .settings-select {
     width: 100%;
     flex-basis: 44px;
+  }
+  .theme-picker .select-control {
+    width: 100%;
+    flex: none;
   }
 }
 .entry-brand {
@@ -1828,6 +1900,12 @@ a:focus-visible {
   transform: translateX(2px);
 }
 @media (prefers-reduced-motion: no-preference) {
+  .animation-toggle input::before {
+    transition: transform 120ms var(--ease-out-quint);
+  }
+  .settings-panel {
+    animation: feedback-arrive 160ms var(--ease-out-quint);
+  }
   .settings-categories::before {
     transition: transform 240ms var(--ease-in-out-cubic);
   }
@@ -1876,6 +1954,14 @@ a:focus-visible {
   .busy-spinner {
     animation: busy-turn 850ms linear infinite;
   }
+}
+:root:not([data-animations="on"]) *,
+:root:not([data-animations="on"]) *::before,
+:root:not([data-animations="on"]) *::after,
+:root:not([data-animations="on"]) dialog::backdrop {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
 }
 @keyframes workspace-arrive {
   from {
