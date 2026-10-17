@@ -329,9 +329,11 @@
     }
     const owned = unique.map((element) => instances.get(element) || createInstance(element));
     await Promise.all(owned.map((instance) => instance.refresh()));
-    // Give SVG resources/styles a frame to enter the rendering tree before
-    // a deterministic video seek/capture. This does not animate anything.
-    await new Promise((resolve) => requestAnimationFrame(resolve));
+    // Hyperframes can pause frame pumping until timeline registration, so
+    // initialization must never wait for requestAnimationFrame. PNG decode
+    // above is the asynchronous resource barrier; flush the assigned styles
+    // synchronously before returning control to timeline creation.
+    for (const element of unique) getComputedStyle(element).backdropFilter;
     return {
       supported: true,
       elements: unique,
