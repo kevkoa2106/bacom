@@ -26,3 +26,13 @@ The two droplets converge on Copy, fade their internal seam, and separate on usa
 The pinned Hyperframes 0.8.167 full check passes with zero lint, runtime, layout, motion, or contrast errors and warnings. The motion specification passes 300 samples. The added HTML signature passes its contrast check. Text inside the source MP4 is footage, so its legibility is checked visually rather than claimed as a new DOM contrast audit.
 
 Source snapshots, a complete encoded 1080p draft, and transition/hold contact sheets were reviewed. The draft exposed the initialization delay and footer conflicts above; those were fixed before the final 4K export. No image, video, or audio generation model was used. The music remains the original synthesized score, without samples.
+
+## Delivered MP4
+
+bacom-liquid-glass.mp4 is H.264/AAC at 3840×2160 and 60 fps, exactly 18.000 seconds and 1,080 frames, 21,103,499 bytes. It was rendered with the pinned CLI, PNG source-frame extraction, native screenshot capture, and hardware GPU. Final initialization took 1.4 seconds with no timeline readiness timeout. The master rendered in 66.1 seconds.
+
+Actual encoded frames were inspected at 0.7, 2.3, 5, 6.7, 8.15, 9.97, 11.35, 14.2, and 17.2 seconds. The code shot was checked as an enlarged crop, and checked again after poster encoding: the digits, Copy button, explanatory text, and usage confirmation are unobstructed. Contact sheets and crops are in .cache/showcase-qc/.
+
+The settled closing frame at 17.2 seconds was extracted as bacom-liquid-glass.jpg and baked into frame zero at CRF 14. All remaining timing is preserved and the audio stream is copied. The final file decodes fully; audio lasts 18 seconds and peaks at −1.2 dBFS without clipping. The original score plays once. The file uses fast-start metadata for playback while downloading. Earlier renders and the original showcase-v2 remain available. Nothing was published or pushed remotely.
+
+Reproduce the master from composition/ with `bun run render`; the poster step uses the existing brag workflow's single-frame overlay. The source video and rendered MP4s are ignored by Git, with provenance recorded in SOURCES.md.
