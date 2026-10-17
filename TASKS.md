@@ -133,4 +133,4 @@ Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 f
 - [x] Compose and synthesize an original18-second score in code with no samples or models.
 - [x] Build3D screen choreography, transitions, and kinetic typography.
 - [x] Review snapshots, run runtime/layout/contrast/motion checks, and fix real defects.
-- [ ] Render the requested MP4, bake the poster, verify audio/frame count, and deliver.
+- [x] Render the requested MP4, bake the poster, verify audio/frame count, and deliver.

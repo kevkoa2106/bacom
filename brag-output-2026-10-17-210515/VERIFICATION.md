@@ -16,4 +16,4 @@ Final Hyperframes check passed with zero runtime, layout, motion, or contrast er
 
 ## Export
 
-Rendering locally at60fps in delivery quality with native screenshot capture, preserving CSS3D perspective. Pending final encoded-file verification, poster extraction from the settled closing frame, and frame-zero baking. No remote publishing or GitHub push.
+Rendered locally at60fps in delivery quality with native screenshot capture, preserving CSS3D perspective. Final bacom-showcase.mp4 is H.264/AAC,1920×1080, exactly18.000seconds and1080frames,3.22MB. Audio runs18seconds and peaks at−1.2dBFS without clipping. The settled light-theme closing frame at17.15seconds was extracted as bacom-showcase.jpg and baked into framezero, preserving all timing and the audio stream. Encoded transition, post-confirmation usage, and poster frames were inspected. The MP4 decodes successfully. No remote publishing or GitHub push.
