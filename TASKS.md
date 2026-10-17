@@ -124,5 +124,5 @@ Follow-up evidence: 40 tests pass with 176 assertions; type checking passes 30 f
 - [x] Prepare local music, UI sounds, and an isolated Kokoro environment.
 - [x] Generate narration and align the product scenes with its duration.
 - [x] Review the composition, pass Hyperframes check, and launch the local preview.
-- [ ] Obtain preview approval required by the brag workflow.
-- [ ] Render MP4, select the poster, bake frame zero, and verify the deliverables.
+- [x] Obtain preview approval required by the brag workflow.
+- [x] Render MP4, select the poster, bake frame zero, and verify the deliverables.

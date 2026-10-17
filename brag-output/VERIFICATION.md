@@ -10,4 +10,4 @@ Impeccable padding triage: the review rows are 77px tall and buttons 62px tall, 
 
 Preview: http://localhost:3017/#project/composition (managed background server, HTTP 200 verified).
 
-Pending: user preview approval, final MP4 rendering, settled poster selection and frame-zero baking. Nothing has been published or pushed. After approval, render from composition/ to ../brag.mp4, extract the final brand/product hold around 22.7s as ../brag.jpg, then bake that poster into frame zero per the brag delivery instructions.
+The user requested export. Rendered brag.mp4 locally in delivery quality, selected the settled final brand/product hold at 22.7s as brag.jpg, and baked that poster into frame zero. Final verification: H.264, 1920×1080, 30fps, 720 frames, exactly24 seconds, with a 24-second AAC audio track. File size1.80MB; audio peaks at-2.0dB with no clipping. The poster and an encoded reveal frame were visually inspected. The video and poster remain local and ignored by Git; nothing has been published or pushed.
