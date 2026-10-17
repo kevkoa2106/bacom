@@ -178,15 +178,18 @@
         canvas.width = width;
         canvas.height = height;
       }
-      // Read holds remain below the left-side typography and outside the product.
-      let x = 110 + Math.sin(t * 0.52) * 35;
-      let y = 1000 + Math.cos(t * 0.40) * 18;
-      let radius = 335;
+      // Read holds occupy the negative space above the footer, to the right of
+      // its text. The settings chapter contracts and shifts away from its labels.
+      let x = 525 + Math.sin(t * 0.52) * 12;
+      let y = 900 + Math.cos(t * 0.40) * 9;
+      let radius = 205;
       const intro = 1 - smooth(t / 0.95);
       const closing = smooth((t - 16.3) / 1.3);
-      x += intro * 180 + closing * 110;
-      y -= intro * 170 + closing * 65;
-      radius += intro * 90 + closing * 80;
+      const settingsHold = smooth((t - 11.35) / 0.3)
+        * (1 - smooth((t - 14.65) / 0.3));
+      x += intro * 100 + closing * 40 + settingsHold * 125;
+      y += settingsHold * 20 - intro * 100;
+      radius += intro * 90 + closing * 20 - settingsHold * 60;
       let presence = 0.82;
       for (let i = 0; i < beats.length; i++) {
         const phase = (t - beats[i] + 0.23) / 0.72;
@@ -196,7 +199,7 @@
           const progress = smooth(phase);
           x = x * (1 - envelope) + (-540 + progress * 3150) * envelope;
           y = y * (1 - envelope) + (720 - envelope * 100) * envelope;
-          radius += envelope * 210;
+          radius += envelope * 320;
           presence = Math.min(1, presence + envelope * 0.18);
         }
       }
