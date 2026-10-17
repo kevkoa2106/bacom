@@ -2,15 +2,24 @@
 
 An offline desktop vault for two-factor authentication backup codes.
 
-[Features](#features) · [Getting started](#getting-started) · [Development](#development) · [Architecture](#architecture) · [Security](SECURITY.md)
+[Features](#features) · [Getting started](#getting-started) · [Development](#development) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
 
 ## Features
 
-- Import `.txt` and `.rtf` backup codes, review detected values, and track which codes are used.
-- Reveal and copy one code at a time after confirming your master password.
-- Keep your vault encrypted locally, with encrypted backup export and restore.
-- Unlock with macOS Touch ID on supported devices.
-- Choose light, dark, or system appearance, an auto-lock delay, and optional animations.
+Checked items are available now. Unchecked items are proposed improvements, not release commitments.
+
+- [x] Import `.txt` and `.rtf` backup codes with editable previews and used-code tracking.
+- [x] Reveal and copy one code at a time after confirming your master password.
+- [x] Store the vault encrypted locally, with encrypted backup export and restore.
+- [x] Unlock with macOS Touch ID on supported devices.
+- [x] Search accounts and filter services running low on unused codes.
+- [x] Choose light, dark, or system appearance, an auto-lock delay, and optional animations.
+- [ ] Rename accounts and remove obsolete entries with confirmation.
+- [ ] Replace a service’s old code set when new recovery codes are generated.
+- [ ] Change the master password and securely re-encrypt the vault.
+- [ ] Add Windows Hello unlock.
+- [ ] Add optional reminders to export a fresh encrypted backup.
+- [ ] Provide signed installers and verified automatic updates.
 
 Codes are marked used only after explicit confirmation. Bacom never contacts websites to check whether a code is valid.
 
@@ -69,3 +78,7 @@ Development vault data lives in `.bacom-dev/userData/vault.json`; preserve this 
 Export an encrypted backup from **Vault settings → Backups**. Restoring replaces the current vault and requires the backup’s master password.
 
 See [SECURITY.md](SECURITY.md) for encryption and security boundaries, and [TESTING.md](TESTING.md) for verification notes.
+
+## Contributing
+
+Bug reports, parser examples, accessibility improvements, and focused pull requests are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before starting.
