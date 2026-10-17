@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "brag-output/composition/index.html"
+        ],
+        "createdAt": "2026-10-17T03:30:07.924Z",
+        "reason": "Agent review: fixed-height 77px review rows and 62px buttons vertically center their text with flexbox; inspected snapshots show generous space above the bottom separators and inside buttons. Detector treats absent padding as absent inset despite centered layout."
+      }
+    ]
+  }
+}

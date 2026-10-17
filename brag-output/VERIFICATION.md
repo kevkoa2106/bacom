@@ -6,6 +6,8 @@ Hyperframes check passes: zero runtime, layout, motion, or contrast errors; 85 t
 
 The composition was reviewed after the subagent implementation. Click slots were corrected to match their 60ms media duration, hidden initial states prevent premature UI/cursor flashes, and the reveal panel was enlarged to give its usage note room above the actions. Only synthetic code values appear. The count decreases after the simulated Mark as used action.
 
+Impeccable padding triage: the review rows are 77px tall and buttons 62px tall, with vertically centered text. The rendered snapshots show ample inset from their separators and boundaries. The detector mistakes missing explicit padding for missing visual space. A cramped-padding exception is scoped only to composition/index.html through the supported ignore-value command; no design changes were needed and no findings remain.
+
 Preview: http://localhost:3017/#project/composition (managed background server, HTTP 200 verified).
 
 Pending: user preview approval, final MP4 rendering, settled poster selection and frame-zero baking. Nothing has been published or pushed. After approval, render from composition/ to ../brag.mp4, extract the final brand/product hold around 22.7s as ../brag.jpg, then bake that poster into frame zero per the brag delivery instructions.
