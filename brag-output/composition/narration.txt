@@ -1,1 +1,0 @@
-Losing your second factor shouldn't mean losing your account. Bacom keeps your recovery codes in one encrypted, offline vault. Import the file. Review the codes. Reveal one when you need it, then mark it used only after it works. Your backup plan, kept close.

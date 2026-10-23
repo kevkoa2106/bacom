@@ -1,3 +1,0 @@
-I built Bacom: an offline vault that keeps recovery codes organized, encrypted, and ready when you need them. Import a code file, review it, and reveal one code at a time. Used only when you say so.
-
-https://github.com/kevkoa2106/bacom
