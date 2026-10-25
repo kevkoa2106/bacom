@@ -74,6 +74,31 @@ describe("encrypted file vault", () => {
     );
     expect((await other.status()).unlocked).toBe(false);
   });
+  test("renames persist and removal requires the master password", async () => {
+    const vault = new VaultService(path);
+    await vault.create(password);
+    await vault.importCodes(input);
+    const [account] = await vault.list();
+    await expect(vault.renameAccount(account!.id, "  ", "x")).rejects.toThrow();
+    await vault.renameAccount(account!.id, " new.example ", " Work ");
+    await vault.lock();
+    await vault.unlock(password);
+    expect(await vault.list()).toMatchObject([
+      { website: "new.example", label: "Work", total: 2 },
+    ]);
+    const { token } = await vault.reveal(account!.id, password);
+    await expect(
+      vault.removeAccount(account!.id, "incorrect test password"),
+    ).rejects.toThrow("incorrect");
+    await vault.removeAccount(account!.id, password);
+    await expect(vault.finishReveal(token, true)).rejects.toThrow();
+    await vault.lock();
+    await vault.unlock(password);
+    expect(await vault.list()).toEqual([]);
+    await expect(vault.removeAccount(account!.id, password)).rejects.toThrow(
+      "could not be found",
+    );
+  });
   test("lock invalidates pending device enrollment and device unlock", async () => {
     const vault = new VaultService(path);
     await vault.create(password);

@@ -534,6 +534,12 @@ a:focus-visible {
   min-height: 24px;
   align-content: center;
 }
+.account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
 .detail-icon {
   width: 43px;
   height: 44px;

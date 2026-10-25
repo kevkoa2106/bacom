@@ -276,6 +276,23 @@ function registerIPC(): void {
     };
   });
   handle("vault:import", (input) => service.importCodes(importInput(input)));
+  handle("vault:rename-account", (accountId, website, label) => {
+    if (typeof label !== "string" || label.length > 120)
+      throw new Error("Invalid account label.");
+    return service.renameAccount(
+      string(accountId, 128),
+      string(website, 2048),
+      label,
+    );
+  });
+  handle("vault:remove-account", (accountId, password) =>
+    service.removeAccount(string(accountId, 128), string(password, 72)),
+  );
+  handle("vault:remove-account-with-device", async (accountId) => {
+    const id = string(accountId, 128);
+    await deviceAuth.confirm("delete an account from your Bacom vault");
+    await service.removeAccount(id);
+  });
   handle("vault:reveal", (accountId, password) =>
     service.reveal(string(accountId, 128), string(password, 72)),
   );

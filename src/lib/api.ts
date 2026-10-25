@@ -120,6 +120,24 @@ function previewAPI(): VaultAPI {
       });
       await save();
     },
+    renameAccount: async (id, website, label) => {
+      const account = requireOpen().find((a) => a.id === id);
+      if (!account) throw new Error("This account could not be found.");
+      if (!website.trim() || website.length > 2048 || label.length > 120)
+        throw new Error("Enter a website and a label of at most 120 characters.");
+      account.website = website.trim();
+      account.label = label.trim();
+      await save();
+    },
+    removeAccount: async (id, password) => {
+      const list = requireOpen();
+      await authenticate(password);
+      const index = list.findIndex((a) => a.id === id);
+      if (index < 0) throw new Error("This account could not be found.");
+      list.splice(index, 1);
+      if (active?.accountId === id) active = undefined;
+      await save();
+    },
     reveal: async (id, password) => {
       requireOpen();
       await authenticate(password);

@@ -532,6 +532,55 @@ export class VaultService {
       this.stored = stored;
     });
   }
+  private commit(epoch: number, change: (next: Payload) => void): Promise<void> {
+    return this.run(async () => {
+      this.checkEpoch(epoch);
+      const next = structuredClone(this.requireUnlocked());
+      change(next);
+      const stored = await this.save(
+        next,
+        this.key!,
+        header(this.stored!),
+        epoch,
+      );
+      this.checkEpoch(epoch);
+      this.data = next;
+      this.stored = stored;
+    });
+  }
+  renameAccount(accountId: string, website: string, label: string): Promise<void> {
+    const epoch = this.epoch;
+    if (!bounded(website, 2048) || !bounded(label, 120, true))
+      return Promise.reject(
+        new VaultError("Enter a website and a label of at most 120 characters."),
+      );
+    return this.commit(epoch, (next) => {
+      const account = next.accounts.find((a) => a.id === accountId);
+      if (!account) fail("This account could not be found.");
+      account.website = website.trim();
+      account.label = label.trim();
+    });
+  }
+  // Omit the password only after the main process has completed device authentication.
+  removeAccount(accountId: string, password?: string): Promise<void> {
+    const epoch = this.epoch;
+    const verified = this.run(async () => {
+      if (password === undefined) return;
+      passwordValid(password);
+      this.checkEpoch(epoch);
+      this.requireUnlocked();
+      if (!(await bcrypt.compare(password, this.stored!.verifier)))
+        fail("The master password is incorrect.");
+    });
+    return verified.then(() =>
+      this.commit(epoch, (next) => {
+        const index = next.accounts.findIndex((a) => a.id === accountId);
+        if (index < 0) fail("This account could not be found.");
+        next.accounts.splice(index, 1);
+        if (this.active?.accountId === accountId) this.active = null;
+      }),
+    );
+  }
   reveal(accountId: string, password: string): Promise<RevealResult> {
     const epoch = this.epoch;
     return this.run(async () => {

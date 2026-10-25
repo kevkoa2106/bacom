@@ -10,6 +10,12 @@ const api: VaultAPI = {
   parse: (text, website) => ipcRenderer.invoke("vault:parse", text, website),
   chooseFile: (website) => ipcRenderer.invoke("vault:choose-file", website),
   importCodes: (input) => ipcRenderer.invoke("vault:import", input),
+  renameAccount: (accountId, website, label) =>
+    ipcRenderer.invoke("vault:rename-account", accountId, website, label),
+  removeAccount: (accountId, password) =>
+    ipcRenderer.invoke("vault:remove-account", accountId, password),
+  removeAccountWithDevice: (accountId) =>
+    ipcRenderer.invoke("vault:remove-account-with-device", accountId),
   reveal: (accountId, password) =>
     ipcRenderer.invoke("vault:reveal", accountId, password),
   finishReveal: (token, used) =>

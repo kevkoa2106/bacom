@@ -267,6 +267,20 @@ export class DeviceAuthService {
     });
   }
 
+  // Proves presence for a destructive action; requires device unlock to be enrolled.
+  confirm(reason: string): Promise<void> {
+    return this.operation(async (assertCurrent) => {
+      const record = await this.store.read();
+      assertCurrent();
+      if (!record)
+        throw new VaultError(
+          "Device unlock is not enabled. Use your master password.",
+        );
+      this.ciphertext(record);
+      await this.authenticate(reason, assertCurrent);
+    });
+  }
+
   unlock(): Promise<void> {
     return this.operation(async (assertCurrent) => {
       const record = await this.store.read();

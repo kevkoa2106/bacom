@@ -14,7 +14,7 @@ Checked items are available now. Unchecked items are proposed improvements, not 
 - [x] Unlock with macOS Touch ID on supported devices.
 - [x] Search accounts and filter services running low on unused codes.
 - [x] Choose light, dark, or system appearance, an auto-lock delay, and optional animations.
-- [ ] Rename accounts and remove obsolete entries with confirmation.
+- [x] Rename accounts and remove obsolete entries with confirmation.
 - [ ] Replace a service’s old code set when new recovery codes are generated.
 - [ ] Change the master password and securely re-encrypt the vault.
 - [ ] Add Windows Hello unlock.

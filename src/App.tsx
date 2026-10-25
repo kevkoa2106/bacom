@@ -24,12 +24,14 @@ import {
   LockKeyhole,
   LoaderCircle,
   Fingerprint,
+  Pencil,
   RotateCcw,
   Plus,
   Search,
   Settings2,
   Sparkles,
   ShieldCheck,
+  Trash2,
   X,
 } from "lucide-react";
 import { Button } from "./components/ui/button";
@@ -45,7 +47,14 @@ import type {
 } from "./shared/types";
 import "./index.css";
 
-type Modal = "import" | "reveal" | "settings" | "help" | null;
+type Modal =
+  | "import"
+  | "reveal"
+  | "rename"
+  | "remove"
+  | "settings"
+  | "help"
+  | null;
 type SettingsCategory = "general" | "security" | "backups";
 type Theme = "light" | "dark" | "system";
 
@@ -562,6 +571,29 @@ export function App() {
       setNotice("Code marked as used. Your remaining count has been updated.");
     });
   };
+  const renameAccount = (event: FormEvent) => {
+    event.preventDefault();
+    if (!selectedAccount) return;
+    void run(async () => {
+      await api.renameAccount(selectedAccount.id, website, label);
+      await close();
+      await refresh();
+      setNotice("Account renamed.");
+    });
+  };
+  const removeAccount = (withDevice: boolean) => {
+    if (!selectedAccount) return;
+    const attempt = password;
+    setPassword("");
+    void run(async () => {
+      if (withDevice) await api.removeAccountWithDevice!(selectedAccount.id);
+      else await api.removeAccount(selectedAccount.id, attempt);
+      await close();
+      setSelected(null);
+      await refresh();
+      setNotice(`${selectedAccount.website} was removed from your vault.`);
+    });
+  };
   const lock = () => {
     clearSecrets();
     setModal(null);
@@ -1019,6 +1051,28 @@ export function App() {
                           { month: "short", day: "numeric", year: "numeric" },
                         )}
                       </div>
+                      <div className="account-actions">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => {
+                            open("rename");
+                            setWebsite(selectedAccount.website);
+                            setLabel(selectedAccount.label);
+                          }}
+                        >
+                          <Pencil />
+                          Rename
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => open("remove")}
+                        >
+                          <Trash2 />
+                          Remove account
+                        </Button>
+                      </div>
                     </details>
                   </section>
                 )}
@@ -1306,6 +1360,127 @@ export function App() {
               </div>
             </form>
           )}
+        </Dialog>
+      )}
+      {modal === "rename" && (
+        <Dialog
+          closing={closing}
+          title="Rename account"
+          onClose={() => void close()}
+          busy={busy}
+        >
+          <form onSubmit={renameAccount}>
+            <label htmlFor="rename-website">Website</label>
+            <Input
+              autoFocus
+              id="rename-website"
+              required
+              maxLength={2048}
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+              disabled={busy}
+            />
+            <label htmlFor="rename-label">Label (optional)</label>
+            <Input
+              id="rename-label"
+              maxLength={120}
+              value={label}
+              onChange={(e) => setLabel(e.target.value)}
+              disabled={busy}
+            />
+            {error && (
+              <p className="error-box" role="alert">
+                {error}
+              </p>
+            )}
+            <div className="dialog-actions">
+              <Button
+                type="button"
+                variant="outline"
+                disabled={busy}
+                onClick={() => void close()}
+              >
+                Cancel
+              </Button>
+              <Button disabled={busy || !website.trim()}>
+                {busy ? "Saving…" : "Save"}
+              </Button>
+            </div>
+          </form>
+        </Dialog>
+      )}
+      {modal === "remove" && (
+        <Dialog
+          closing={closing}
+          title="Remove this account?"
+          onClose={() => void close()}
+          busy={busy}
+        >
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              removeAccount(false);
+            }}
+          >
+            <div className="password-context">
+              <Trash2 size={23} />
+              <div>
+                <strong>{selectedAccount?.website}</strong>
+                <span>{selectedAccount?.label || "Recovery codes"}</span>
+              </div>
+            </div>
+            <p className="dialog-intro">
+              This permanently deletes the account and all{" "}
+              {selectedAccount?.total} of its recovery codes (
+              {selectedAccount?.remaining} unused). Exported backups are not
+              affected.
+            </p>
+            {deviceAuth?.supported &&
+              deviceAuth.enabled &&
+              api.removeAccountWithDevice && (
+                <div className="device-entry">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    disabled={busy}
+                    onClick={() => removeAccount(true)}
+                  >
+                    <Fingerprint />
+                    Remove with {deviceAuth.label}
+                  </Button>
+                  <p>Or use your master password below.</p>
+                </div>
+              )}
+            <label htmlFor="remove-password">Master password</label>
+            <Input
+              autoFocus
+              id="remove-password"
+              type="password"
+              autoComplete="current-password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={busy}
+            />
+            {error && (
+              <p className="error-box" role="alert">
+                {error}
+              </p>
+            )}
+            <div className="dialog-actions">
+              <Button
+                type="button"
+                variant="outline"
+                disabled={busy}
+                onClick={() => void close()}
+              >
+                Cancel
+              </Button>
+              <Button variant="destructive" disabled={busy}>
+                {busy ? "Removing…" : "Remove account"}
+              </Button>
+            </div>
+          </form>
         </Dialog>
       )}
       {modal === "settings" && (

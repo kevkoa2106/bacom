@@ -52,6 +52,9 @@ export interface VaultAPI {
     website: string,
   ): Promise<{ name: string; result: ParseResult } | null>;
   importCodes(input: ImportInput): Promise<void>;
+  renameAccount(accountId: string, website: string, label: string): Promise<void>;
+  removeAccount(accountId: string, password: string): Promise<void>;
+  removeAccountWithDevice?(accountId: string): Promise<void>;
   reveal(accountId: string, password: string): Promise<RevealResult>;
   finishReveal(token: string, used: boolean): Promise<void>;
   copy(token: string): Promise<void>;
