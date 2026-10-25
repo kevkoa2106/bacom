@@ -1,5 +1,0 @@
-Your way back in. Meet Bacom: an offline vault for recovery codes, with reviewed imports, one-code reveal, explicit usage tracking, and encrypted backups.
-
-Real app captures. Original music synthesized entirely in code. No generated media or stock samples.
-
-https://github.com/kevkoa2106/bacom
